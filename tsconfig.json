@@ -8,9 +8,10 @@
     "strictPropertyInitialization": false,
     "sourceMap": true,
     "downlevelIteration": true,
-    "noEmit": true,
+    "rootDir": "src",
+    "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "util"]
 }
