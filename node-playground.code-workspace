@@ -1,0 +1,47 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+
+  "settings": {
+    "cSpell.words": ["dbaeumer", "downlevel", "esbenp", "esnext", "streetsidesoftware"],
+
+    // editor
+    "editor.rulers": [100],
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+
+    // importSorter
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.quoteMark": "single",
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.trailingComma": "multiLine",
+    "importSorter.sortConfiguration.removeUnusedDefaultImports": true,
+    "importSorter.sortConfiguration.removeUnusedImports": true,
+
+    // eslint
+    "eslint.validate": [
+      { "language": "javascript", "autoFix": true },
+      { "language": "typescript", "autoFix": true }
+    ],
+    "eslint.autoFixOnSave": true,
+    "eslint.run": "onType",
+    // "eslint.workingDirectories": [
+    //   // { "directory": "workspaceFolder:xxx", "changeProcessCWD": true },
+    // ]
+  },
+
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "mike-co.import-sorter",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  }
+}
