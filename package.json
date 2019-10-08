@@ -1,10 +1,30 @@
 {
-  "name": "ts-boilerplate",
-  "version": "0.0.1",
-  "main": "dist/command.js",
+  "name": "aws-spot-price",
+  "version": "0.0.1-beta",
+  "description": "Lists current global AWS EC2 Spot Instance prices. Requires valid AWS SDK Access & Secret keys.",
+  "keywords": [
+    "aws",
+    "ec2",
+    "spot",
+    "instance",
+    "price",
+    "prices",
+    "pricing"
+  ],
+  "bugs": {
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "hoonoh"
+  },
+  "bin": "bin/aws-spot-price",
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn build:ec2-types && yarn  build",
+    "prepublishOnly": "yarn build:ec2-types && yarn  build",
     "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
     "build": "tsc"
   },
