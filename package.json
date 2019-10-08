@@ -1,31 +1,31 @@
 {
   "name": "ts-boilerplate",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "UNLICENSED",
+  "version": "0.0.1",
+  "main": "dist/command.js",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "yarn build:ec2-types && yarn  build",
+    "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
+    "build": "tsc"
+  },
   "dependencies": {
-    "@types/table": "^4.0.7",
     "aws-sdk": "^2.544.0",
     "table": "^5.4.6",
     "yargs": "^14.2.0"
   },
   "devDependencies": {
-    "@types/cheerio": "^0.22.13",
-    "@types/needle": "^2.0.4",
     "@types/node": "^12.7.5",
+    "@types/table": "^4.0.7",
     "@types/yargs": "^13.0.3",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
-    "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-import-resolver-typescript": "^1.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
-    "needle": "^2.4.0",
     "prettier": "^1.18.2",
-    "ts-loader": "^6.1.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
   }
