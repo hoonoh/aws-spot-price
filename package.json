@@ -1,6 +1,6 @@
 {
   "name": "aws-spot-price",
-  "version": "0.0.1-beta",
+  "version": "0.0.1",
   "description": "Lists current global AWS EC2 Spot Instance prices. Requires valid AWS SDK Access & Secret keys.",
   "keywords": [
     "aws",
