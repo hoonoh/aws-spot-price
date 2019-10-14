@@ -1,6 +1,6 @@
 {
   "name": "aws-spot-price",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI utility to list current global AWS EC2 Spot Instance prices.",
   "keywords": [
     "aws",
@@ -27,7 +27,7 @@
     "prepublishOnly": "yarn build:ec2-types && yarn build",
     "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
     "build": "tsc",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -i CHANGELOG.md -s"
   },
   "config": {
     "commitizen": {
@@ -38,6 +38,9 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "release": {
+    "branch": "next"
   },
   "dependencies": {
     "aws-sdk": "^2.544.0",
@@ -62,6 +65,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
     "prettier": "^1.18.2",
+    "semantic-release": "^15.13.24",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
   }
