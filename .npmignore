@@ -2,12 +2,14 @@
 .gitignore
 .prettierrc.js
 aws-spot-price.code-workspace
-tsconfig.json
+tsconfig*.json
 util/
 src/
 node_modules/
 *.map
 .git/
 commitlint.config.js
-CHANGELOG.md
 docs/preview.svg
+coverage
+jest.config.js
+*.spec.ts

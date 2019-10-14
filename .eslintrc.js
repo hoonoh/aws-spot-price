@@ -48,5 +48,20 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 0,
       },
     },
+    {
+      files: ['**/*.spec.ts', 'test/**/*.ts'],
+      env: {
+        'jest/globals': true,
+      },
+      plugins: ['jest'],
+      rules: {
+        'class-methods-use-this': 0,
+        'no-unused-expressions': 0,
+        'jest/no-disabled-tests': 'warn',
+        'jest/no-focused-tests': 'error',
+        '@typescript-eslint/no-non-null-assertion': 0,
+        '@typescript-eslint/ban-ts-ignore': 0,
+      },
+    },
   ],
 };
