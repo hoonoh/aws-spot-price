@@ -24,7 +24,7 @@
   "bin": "bin/aws-spot-price",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "yarn build:ec2-types && yarn  build",
+    "prepublishOnly": "yarn build:ec2-types && yarn build",
     "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
     "build": "tsc"
   },
