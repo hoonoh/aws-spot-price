@@ -96,6 +96,16 @@ const { argv } = yargs
       }
 
       try {
+        console.log('Querying current spot prices with options:');
+        console.group();
+        if (instanceTypes) console.log('instanceTypes:', instanceTypes);
+        if (families) console.log('families:', families);
+        if (sizes) console.log('sizes:', sizes);
+        if (limit) console.log('limit:', limit);
+        if (priceMax) console.log('priceMax:', priceMax);
+        if (productDescriptions) console.log('productDescriptions:', productDescriptions);
+        console.groupEnd();
+
         getGlobalSpotPrices({
           instanceTypes,
           families,
