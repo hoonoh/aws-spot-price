@@ -1,7 +1,7 @@
 {
   "name": "aws-spot-price",
   "version": "0.0.1",
-  "description": "Lists current global AWS EC2 Spot Instance prices. Requires valid AWS SDK Access & Secret keys.",
+  "description": "CLI utility to list current global AWS EC2 Spot Instance prices.",
   "keywords": [
     "aws",
     "ec2",
@@ -12,11 +12,11 @@
     "pricing"
   ],
   "bugs": {
-    "url": ""
+    "url": "https://github.com/hoonoh/aws-spot-price/issues"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hoonoh/aws-spot-price"
   },
   "author": {
     "name": "hoonoh"
