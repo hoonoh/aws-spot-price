@@ -1,7 +1,7 @@
 import * as yargs from 'yargs';
 
 import { allInstances, instanceFamilies, instanceSizes } from './ec2-types';
-import { getGlobalSpotPrices, ProductDescription } from './lib';
+import { awsCredentialsCheck, getGlobalSpotPrices, ProductDescription } from './lib';
 
 const { argv } = yargs
   .scriptName('spot-price')
@@ -55,16 +55,47 @@ const { argv } = yargs
         string: true,
         choices: Object.keys(ProductDescription),
       },
+      accessKeyId: {
+        describe: 'AWS Access Key ID.',
+        type: 'string',
+      },
+      secretAccessKey: {
+        describe: 'AWS Secret Access Key.',
+        type: 'string',
+      },
     },
+
     async args => {
-      const { instanceTypes, families, sizes, limit, priceMax, productDescriptions } = args;
+      const {
+        instanceTypes,
+        families,
+        sizes,
+        limit,
+        priceMax,
+        productDescriptions,
+        accessKeyId,
+        secretAccessKey,
+      } = args;
       if ((!families && sizes) || (families && !sizes)) {
         console.log('`families` or `sizes` attribute missing.');
         return;
       }
+      if (
+        (accessKeyId !== undefined && secretAccessKey === undefined) ||
+        (accessKeyId === undefined && secretAccessKey !== undefined)
+      ) {
+        console.log('`accessKeyId` & `secretAccessKey` should always be used together.');
+        return;
+      }
+
+      // test credentials
+      const awsCredentialValidity = await awsCredentialsCheck({ accessKeyId, secretAccessKey });
+      if (!awsCredentialValidity) {
+        console.log('Invalid AWS credentials provided.');
+        return;
+      }
 
       try {
-        // console.log('!');
         getGlobalSpotPrices({
           instanceTypes,
           families,
@@ -72,9 +103,11 @@ const { argv } = yargs
           limit,
           priceMax,
           productDescriptions: productDescriptions as ProductDescription[],
+          accessKeyId,
+          secretAccessKey,
         });
       } catch (error) {
-        console.log(error);
+        console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
       }
     },
   )

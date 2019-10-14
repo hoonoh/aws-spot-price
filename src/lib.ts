@@ -1,4 +1,4 @@
-import { EC2 } from 'aws-sdk';
+import { EC2, STS } from 'aws-sdk';
 import { table } from 'table';
 
 import { Region, regionNames, regions } from './regions';
@@ -49,13 +49,27 @@ const getEc2SpotPrice = async (options: {
   suffix?: string;
   instanceTypes?: string[];
   productDescriptions?: ProductDescription[];
+  accessKeyId?: string;
+  secretAccessKey?: string;
 }) => {
-  const { region, prefix, suffix, instanceTypes, productDescriptions } = options;
+  const {
+    region,
+    prefix,
+    suffix,
+    instanceTypes,
+    productDescriptions,
+    accessKeyId,
+    secretAccessKey,
+  } = options;
 
   let rtn: EC2.SpotPrice[] = [];
 
   try {
-    const ec2 = new EC2({ region });
+    const ec2 = new EC2({
+      region,
+      accessKeyId,
+      secretAccessKey,
+    });
 
     const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
       const minuteAgo = new Date();
@@ -85,7 +99,10 @@ const getEc2SpotPrice = async (options: {
         .sort(sortSpotPrice);
     }
   } catch (error) {
-    console.log(region, prefix, error);
+    console.log(
+      'unexpected getEc2SpotPrice error.',
+      JSON.stringify({ region, prefix, error }, null, 2),
+    );
   }
 
   return rtn;
@@ -102,9 +119,21 @@ export const getGlobalSpotPrices = async (
     productDescriptions?: ProductDescription[];
     limit?: number;
     quiet?: boolean;
+    accessKeyId?: string;
+    secretAccessKey?: string;
   } = {},
 ) => {
-  const { prefix, suffix, families, sizes, priceMax, limit, quiet } = options;
+  const {
+    prefix,
+    suffix,
+    families,
+    sizes,
+    priceMax,
+    limit,
+    quiet,
+    accessKeyId,
+    secretAccessKey,
+  } = options;
   let { productDescriptions, instanceTypes } = options;
   let rtn: EC2.SpotPrice[] = [];
   if (productDescriptions && productDescriptions.indexOf(ProductDescription.windows) >= 0) {
@@ -135,6 +164,8 @@ export const getGlobalSpotPrices = async (
         suffix,
         instanceTypes,
         productDescriptions,
+        accessKeyId,
+        secretAccessKey,
       });
       rtn = [...rtn, ...regionsPrices];
       process.stdout.write('.');
@@ -163,7 +194,6 @@ export const getGlobalSpotPrices = async (
           price.AvailabilityZone
         } ${regionName ? `(${regionName})` : ''}`;
         if (list.indexOf(str) < 0 && (!limit || tableOutput.length < limit)) {
-          // console.log(str);
           tableOutput.push([
             price.InstanceType || '',
             price.SpotPrice || '',
@@ -184,20 +214,23 @@ export const getGlobalSpotPrices = async (
   return rtn;
 };
 
-// getGlobalSpotPrices({
-//   // prefix: 'c4',
-//   suffix: 'xlarge',
-//   instanceTypes: ['c5.large', 'c5.xlarge'],
-//   maxPrice: 1.04,
-//   limit: 50,
-//   productDescriptions: [ProductDescription['Linux/UNIX']],
-// });
+export const awsCredentialsCheck = async (
+  options: {
+    accessKeyId?: string;
+    secretAccessKey?: string;
+  } = {},
+) => {
+  const { accessKeyId, secretAccessKey } = options;
 
-// const argv = yargs.command(
-//   '$0',
-//   'the default command',
-//   () => {},
-//   argv => {
-//     console.log('this command will be run by default', argv);
-//   },
-// );
+  let isValid = true;
+  try {
+    const sts = new STS({
+      accessKeyId,
+      secretAccessKey,
+    });
+    await sts.getCallerIdentity().promise();
+  } catch (error) {
+    isValid = false;
+  }
+  return isValid;
+};
