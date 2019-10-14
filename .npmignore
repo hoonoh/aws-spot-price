@@ -10,3 +10,4 @@ node_modules/
 .git/
 commitlint.config.js
 CHANGELOG.md
+docs/preview.svg
