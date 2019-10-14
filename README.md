@@ -4,7 +4,7 @@ CLI utility to list current global AWS EC2 Spot Instance prices. Requires valid 
 
 ## Example
 
-![Example](./docs/preview.svg)
+![Example](https://raw.githubusercontent.com/hoonoh/aws-spot-price/master/docs/preview.svg?sanitize=true)
 
 ## Options
 
