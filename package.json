@@ -46,7 +46,6 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
     "@types/node": "^12.7.5",
     "@types/table": "^4.0.7",
     "@types/yargs": "^13.0.3",
