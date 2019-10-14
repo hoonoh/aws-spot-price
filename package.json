@@ -26,7 +26,18 @@
   "scripts": {
     "prepublishOnly": "yarn build:ec2-types && yarn build",
     "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {
     "aws-sdk": "^2.544.0",
@@ -34,17 +45,23 @@
     "yargs": "^14.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@types/node": "^12.7.5",
     "@types/table": "^4.0.7",
     "@types/yargs": "^13.0.3",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.25",
+    "cz-conventional-changelog": "3.0.2",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-import-resolver-typescript": "^1.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
