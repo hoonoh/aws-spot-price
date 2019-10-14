@@ -45,22 +45,12 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice) => {
 
 const getEc2SpotPrice = async (options: {
   region: string;
-  prefix?: string;
-  suffix?: string;
   instanceTypes?: string[];
   productDescriptions?: ProductDescription[];
   accessKeyId?: string;
   secretAccessKey?: string;
 }) => {
-  const {
-    region,
-    prefix,
-    suffix,
-    instanceTypes,
-    productDescriptions,
-    accessKeyId,
-    secretAccessKey,
-  } = options;
+  const { region, instanceTypes, productDescriptions, accessKeyId, secretAccessKey } = options;
 
   let rtn: EC2.SpotPrice[] = [];
 
@@ -89,19 +79,12 @@ const getEc2SpotPrice = async (options: {
     const list = await fetch();
 
     if (list.length) {
-      rtn = list
-        .filter(
-          history =>
-            history.InstanceType &&
-            (!prefix || history.InstanceType.toLowerCase().startsWith(prefix)) &&
-            (!suffix || history.InstanceType.toLowerCase().endsWith(suffix)),
-        )
-        .sort(sortSpotPrice);
+      rtn = list.filter(history => history.InstanceType).sort(sortSpotPrice);
     }
   } catch (error) {
     console.log(
       'unexpected getEc2SpotPrice error.',
-      JSON.stringify({ region, prefix, error }, null, 2),
+      JSON.stringify({ region, instanceTypes, productDescriptions, error }, null, 2),
     );
   }
 
@@ -110,8 +93,6 @@ const getEc2SpotPrice = async (options: {
 
 export const getGlobalSpotPrices = async (
   options: {
-    prefix?: string;
-    suffix?: string;
     families?: string[];
     sizes?: string[];
     priceMax?: number;
@@ -123,17 +104,7 @@ export const getGlobalSpotPrices = async (
     secretAccessKey?: string;
   } = {},
 ) => {
-  const {
-    prefix,
-    suffix,
-    families,
-    sizes,
-    priceMax,
-    limit,
-    quiet,
-    accessKeyId,
-    secretAccessKey,
-  } = options;
+  const { families, sizes, priceMax, limit, quiet, accessKeyId, secretAccessKey } = options;
   let { productDescriptions, instanceTypes } = options;
   let rtn: EC2.SpotPrice[] = [];
   if (productDescriptions && productDescriptions.indexOf(ProductDescription.windows) >= 0) {
@@ -160,8 +131,6 @@ export const getGlobalSpotPrices = async (
     regions.map(async region => {
       const regionsPrices = await getEc2SpotPrice({
         region,
-        prefix,
-        suffix,
         instanceTypes,
         productDescriptions,
         accessKeyId,
