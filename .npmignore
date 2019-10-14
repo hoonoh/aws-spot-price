@@ -8,3 +8,5 @@ src/
 node_modules/
 *.map
 .git/
+commitlint.config.js
+CHANGELOG.md
