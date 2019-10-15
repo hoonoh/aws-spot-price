@@ -1,7 +1,8 @@
 import * as yargs from 'yargs';
 
 import { allInstances, instanceFamilies, instanceSizes } from './ec2-types';
-import { awsCredentialsCheck, getGlobalSpotPrices, ProductDescription } from './lib';
+import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
+import { allProductDescriptions, ProductDescription } from './product-description';
 import { defaultRegions, Region } from './regions';
 
 const { argv } = yargs
@@ -61,7 +62,7 @@ const { argv } = yargs
         describe: 'Product descriptions. Choose `windows` or `linux` (all lowercase) as wildcard.',
         type: 'array',
         string: true,
-        choices: Object.keys(ProductDescription),
+        choices: allProductDescriptions,
       },
       accessKeyId: {
         describe: 'AWS Access Key ID.',

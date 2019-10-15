@@ -2,22 +2,8 @@ import { EC2, STS } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
 import { table } from 'table';
 
+import { ProductDescription } from './product-description';
 import { defaultRegions, Region, regionNames } from './regions';
-
-// https://aws.amazon.com/ec2/instance-types/
-
-export enum ProductDescription {
-  'Linux/UNIX' = 'Linux/UNIX',
-  'Linux/UNIX (Amazon VPC)' = 'Linux/UNIX (Amazon VPC)',
-  'SUSE Linux' = 'SUSE Linux',
-  'SUSE Linux (Amazon VPC)' = 'SUSE Linux (Amazon VPC)',
-  'Red Hat Enterprise Linux' = 'Red Hat Enterprise Linux',
-  'Red Hat Enterprise Linux (Amazon VPC)' = 'Red Hat Enterprise Linux (Amazon VPC)',
-  'Windows' = 'Windows',
-  'Windows (Amazon VPC)' = 'Windows (Amazon VPC)',
-  'linux' = 'linux', // wildcard
-  'windows' = 'windows', // wildcard
-}
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice) => {
   let rtn = 0;
@@ -113,16 +99,16 @@ export const getGlobalSpotPrices = async (
 
   if (regions === undefined) regions = defaultRegions;
 
-  if (productDescriptions && productDescriptions.indexOf(ProductDescription.windows) >= 0) {
-    productDescriptions = [ProductDescription.Windows, ProductDescription['Windows (Amazon VPC)']];
-  } else if (productDescriptions && productDescriptions.indexOf(ProductDescription.linux) >= 0) {
+  if (productDescriptions && productDescriptions.indexOf('windows') >= 0) {
+    productDescriptions = ['Windows', 'Windows (Amazon VPC)'];
+  } else if (productDescriptions && productDescriptions.indexOf('linux') >= 0) {
     productDescriptions = [
-      ProductDescription['Linux/UNIX'],
-      ProductDescription['Linux/UNIX (Amazon VPC)'],
-      ProductDescription['SUSE Linux'],
-      ProductDescription['SUSE Linux (Amazon VPC)'],
-      ProductDescription['Red Hat Enterprise Linux'],
-      ProductDescription['Red Hat Enterprise Linux (Amazon VPC)'],
+      'Linux/UNIX',
+      'Linux/UNIX (Amazon VPC)',
+      'SUSE Linux',
+      'SUSE Linux (Amazon VPC)',
+      'Red Hat Enterprise Linux',
+      'Red Hat Enterprise Linux (Amazon VPC)',
     ];
   }
 
