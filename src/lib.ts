@@ -64,10 +64,12 @@ const getEc2SpotPrice = async (options: {
     });
 
     const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
+      const startTime = new Date();
+      startTime.setHours(startTime.getHours() - 3);
       const result = await ec2
         .describeSpotPriceHistory({
           NextToken: nextToken,
-          StartTime: new Date(),
+          StartTime: startTime,
           ProductDescriptions: productDescriptions,
           InstanceTypes: instanceTypes,
         })
