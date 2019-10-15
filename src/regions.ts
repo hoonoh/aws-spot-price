@@ -19,7 +19,7 @@ export type Region =
   | 'me-south-1'
   | 'sa-east-1';
 
-export const regions: Region[] = [
+export const defaultRegions: Region[] = [
   'us-east-1',
   'us-east-2',
   'us-west-1',

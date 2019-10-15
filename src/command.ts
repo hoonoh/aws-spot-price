@@ -2,6 +2,7 @@ import * as yargs from 'yargs';
 
 import { allInstances, instanceFamilies, instanceSizes } from './ec2-types';
 import { awsCredentialsCheck, getGlobalSpotPrices, ProductDescription } from './lib';
+import { defaultRegions, Region } from './regions';
 
 const { argv } = yargs
   .scriptName('spot-price')
@@ -9,6 +10,13 @@ const { argv } = yargs
     '$0',
     'get current AWS spot instance prices',
     {
+      regions: {
+        alias: 'r',
+        describe: 'AWS regions.',
+        type: 'array',
+        choices: defaultRegions,
+        string: true,
+      },
       instanceTypes: {
         alias: 'i',
         describe: 'EC2 type',
@@ -67,6 +75,7 @@ const { argv } = yargs
 
     async args => {
       const {
+        regions,
         instanceTypes,
         families,
         sizes,
@@ -76,10 +85,12 @@ const { argv } = yargs
         accessKeyId,
         secretAccessKey,
       } = args;
+
       if ((!families && sizes) || (families && !sizes)) {
         console.log('`families` or `sizes` attribute missing.');
         return;
       }
+
       if (
         (accessKeyId !== undefined && secretAccessKey === undefined) ||
         (accessKeyId === undefined && secretAccessKey !== undefined)
@@ -98,6 +109,7 @@ const { argv } = yargs
       try {
         console.log('Querying current spot prices with options:');
         console.group();
+        if (regions) console.log('regions:', regions);
         if (instanceTypes) console.log('instanceTypes:', instanceTypes);
         if (families) console.log('families:', families);
         if (sizes) console.log('sizes:', sizes);
@@ -107,6 +119,7 @@ const { argv } = yargs
         console.groupEnd();
 
         getGlobalSpotPrices({
+          regions: regions as Region[],
           instanceTypes,
           families,
           sizes,
