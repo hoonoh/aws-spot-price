@@ -1,6 +1,6 @@
 {
   "name": "aws-spot-price",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CLI utility to list current global AWS EC2 Spot Instance prices.",
   "keywords": [
     "aws",
