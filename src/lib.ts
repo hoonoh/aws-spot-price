@@ -7,10 +7,12 @@ import { defaultRegions, Region, regionNames } from './regions';
 
 export enum ProductDescription {
   'Linux/UNIX' = 'Linux/UNIX',
-  'SUSE Linux' = 'SUSE Linux',
-  'Windows' = 'Windows',
   'Linux/UNIX (Amazon VPC)' = 'Linux/UNIX (Amazon VPC)',
+  'SUSE Linux' = 'SUSE Linux',
   'SUSE Linux (Amazon VPC)' = 'SUSE Linux (Amazon VPC)',
+  'Red Hat Enterprise Linux' = 'Red Hat Enterprise Linux',
+  'Red Hat Enterprise Linux (Amazon VPC)' = 'Red Hat Enterprise Linux (Amazon VPC)',
+  'Windows' = 'Windows',
   'Windows (Amazon VPC)' = 'Windows (Amazon VPC)',
   'linux' = 'linux', // wildcard
   'windows' = 'windows', // wildcard
@@ -116,6 +118,8 @@ export const getGlobalSpotPrices = async (
       ProductDescription['Linux/UNIX (Amazon VPC)'],
       ProductDescription['SUSE Linux'],
       ProductDescription['SUSE Linux (Amazon VPC)'],
+      ProductDescription['Red Hat Enterprise Linux'],
+      ProductDescription['Red Hat Enterprise Linux (Amazon VPC)'],
     ];
   }
 
