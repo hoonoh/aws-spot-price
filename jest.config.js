@@ -9,4 +9,5 @@ module.exports = {
     },
   },
   setupFilesAfterEnv: ['jest-extended'],
+  snapshotResolver: './test/snapshot-resolver.js',
 };
