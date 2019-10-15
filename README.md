@@ -8,6 +8,11 @@ CLI utility to list current global AWS EC2 Spot Instance prices. Requires valid 
 
 ## Options
 
+### --regions | -r
+
+AWS regions to search. Accepts multiple string values.
+Defaults to all available AWS regions which does not require opt-in.
+
 ### --instanceTypes | -i
 
 Type of EC2 instance to filter. Accepts multiple string values.

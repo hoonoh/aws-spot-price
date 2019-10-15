@@ -1,9 +1,8 @@
 import { EC2, STS } from 'aws-sdk';
 import { table } from 'table';
 
-import { Region, regionNames, regions } from './regions';
+import { defaultRegions, Region, regionNames } from './regions';
 
-// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
 // https://aws.amazon.com/ec2/instance-types/
 
 export enum ProductDescription {
@@ -91,6 +90,7 @@ const getEc2SpotPrice = async (options: {
 
 export const getGlobalSpotPrices = async (
   options: {
+    regions?: Region[];
     families?: string[];
     sizes?: string[];
     priceMax?: number;
@@ -103,8 +103,11 @@ export const getGlobalSpotPrices = async (
   } = {},
 ) => {
   const { families, sizes, priceMax, limit, quiet, accessKeyId, secretAccessKey } = options;
-  let { productDescriptions, instanceTypes } = options;
+  let { regions, productDescriptions, instanceTypes } = options;
   let rtn: EC2.SpotPrice[] = [];
+
+  if (regions === undefined) regions = defaultRegions;
+
   if (productDescriptions && productDescriptions.indexOf(ProductDescription.windows) >= 0) {
     productDescriptions = [ProductDescription.Windows, ProductDescription['Windows (Amazon VPC)']];
   } else if (productDescriptions && productDescriptions.indexOf(ProductDescription.linux) >= 0) {
