@@ -131,10 +131,10 @@ export const getGlobalSpotPrices = async (
         secretAccessKey,
       });
       rtn = [...rtn, ...regionsPrices];
-      process.stdout.write('.');
+      if (!quiet) process.stdout.write('.');
     }),
   );
-  process.stdout.write('\n');
+  if (!quiet) process.stdout.write('\n');
 
   rtn = rtn.reduce(
     (list, cur) => {
