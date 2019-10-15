@@ -12,5 +12,5 @@ commitlint.config.js
 docs/preview.svg
 coverage
 jest.config.js
-*.spec.ts
+*.spec.js
 test/
