@@ -1,4 +1,5 @@
 import { EC2, STS } from 'aws-sdk';
+import { find, findIndex } from 'lodash';
 import { table } from 'table';
 
 import { defaultRegions, Region, regionNames } from './regions';
@@ -157,17 +158,33 @@ export const getGlobalSpotPrices = async (
   );
 
   // log output
-  if (!quiet) {
-    const tableOutput: string[][] = [];
-    rtn.sort(sortSpotPrice).reduce(
-      (list, price) => {
-        const regionName = price.AvailabilityZone
-          ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-          : undefined;
-        const str = `${price.InstanceType}\t${price.SpotPrice}\t${price.ProductDescription}\t${
-          price.AvailabilityZone
-        } ${regionName ? `(${regionName})` : ''}`;
-        if (list.indexOf(str) < 0 && (!limit || tableOutput.length < limit)) {
+  const tableOutput: string[][] = [];
+  rtn = rtn.sort(sortSpotPrice).reduce(
+    (list, price, idx, arr) => {
+      const regionName = price.AvailabilityZone
+        ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
+        : undefined;
+
+      // look for duplicate
+      let duplicate = find(list, {
+        InstanceType: price.InstanceType,
+        ProductDescription: price.ProductDescription,
+        AvailabilityZone: price.AvailabilityZone,
+      });
+
+      // if current price data timestamp is more recent, remove previous..
+      if (
+        duplicate &&
+        duplicate.Timestamp &&
+        price.Timestamp &&
+        duplicate.Timestamp < price.Timestamp
+      ) {
+        list.splice(findIndex(list, price), 1);
+        duplicate = undefined;
+      }
+
+      if (duplicate === undefined && (!limit || list.length < limit)) {
+        if (!quiet) {
           tableOutput.push([
             price.InstanceType || '',
             price.SpotPrice || '',
@@ -175,15 +192,20 @@ export const getGlobalSpotPrices = async (
             price.AvailabilityZone || '',
             regionName || '',
           ]);
-          list.push(str);
         }
-        return list;
-      },
-      [] as string[],
-    );
-    if (tableOutput.length) console.log(table(tableOutput));
-    else console.log('no matching records found');
-  }
+        list.push(price);
+      }
+
+      // stop reduce loop if list has reached limit
+      if (limit && list.length > limit) arr.splice(0);
+
+      return list;
+    },
+    [] as EC2.SpotPrice[],
+  );
+
+  if (tableOutput.length) console.log(table(tableOutput));
+  else if (!quiet) console.log('no matching records found');
 
   return rtn;
 };
