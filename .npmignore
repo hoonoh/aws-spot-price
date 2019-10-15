@@ -13,3 +13,4 @@ docs/preview.svg
 coverage
 jest.config.js
 *.spec.ts
+test/

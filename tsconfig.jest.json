@@ -2,5 +2,6 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "strict": false
-  }
+  },
+  "files": ["node_modules/jest-extended/types/index.d.ts"]
 }
