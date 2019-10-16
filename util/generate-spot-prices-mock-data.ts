@@ -113,7 +113,7 @@ const { argv } = yargs
       }
 
       if (args.write) {
-        writeFileSync(jsonPath, JSON.stringify(unique, null, 2));
+        writeFileSync(jsonPath, JSON.stringify(allPrices, null, 2));
         console.log(`written JSON file to ${jsonPath}`);
       }
     },
