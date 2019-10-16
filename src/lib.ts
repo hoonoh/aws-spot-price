@@ -80,8 +80,11 @@ const getEc2SpotPrice = async (options: {
   return rtn;
 };
 
-export const getGlobalSpotPrices = async (
-  options: {
+export const defaults = {
+  limit: 20,
+};
+
+export const getGlobalSpotPrices = async (options?: {
     regions?: Region[];
   families?: InstanceFamily[];
   sizes?: InstanceSize[];
@@ -92,10 +95,11 @@ export const getGlobalSpotPrices = async (
     quiet?: boolean;
     accessKeyId?: string;
     secretAccessKey?: string;
-  } = {},
-) => {
-  const { families, sizes, priceMax, limit, quiet, accessKeyId, secretAccessKey } = options;
-  let { regions, productDescriptions, instanceTypes } = options;
+}) => {
+  const { families, sizes, priceMax, limit, quiet, accessKeyId, secretAccessKey } = options || {
+    limit: defaults.limit,
+  };
+  let { regions, productDescriptions, instanceTypes } = options || {};
   let rtn: EC2.SpotPrice[] = [];
 
   if (regions === undefined) regions = defaultRegions;

@@ -8,7 +8,7 @@ import {
   instanceSizes,
   InstanceType,
 } from './ec2-types';
-import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
+import { awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
 import { allProductDescriptions, ProductDescription } from './product-description';
 import { defaultRegions, Region } from './regions';
 
@@ -51,7 +51,7 @@ const { argv } = yargs
         alias: 'l',
         describe: 'Limit results output length',
         type: 'number',
-        default: 20,
+        default: defaults.limit,
         coerce: (val: number | number[]) => {
           if (typeof val === 'object') {
             return val.pop();
