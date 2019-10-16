@@ -160,9 +160,10 @@ export const getGlobalSpotPrices = async (options?: {
   const tableOutput: string[][] = [];
   rtn = rtn.sort(sortSpotPrice).reduce(
     (list, price, idx, arr) => {
-      const regionName = price.AvailabilityZone
-        ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-        : undefined;
+      // since price info without price or region will be pointless..
+      if (!price.SpotPrice || !price.AvailabilityZone) return list;
+
+      const regionName = regionNames[price.AvailabilityZone.slice(0, -1) as Region];
 
       // look for duplicate
       let duplicate = find(list, {
