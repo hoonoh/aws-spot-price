@@ -9,7 +9,11 @@ import {
   InstanceType,
 } from './ec2-types';
 import { awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
-import { allProductDescriptions, ProductDescription } from './product-description';
+import {
+  allProductDescriptions,
+  ProductDescription,
+  productDescriptionWildcards,
+} from './product-description';
 import { defaultRegions, Region } from './regions';
 
 const { argv } = yargs
@@ -69,7 +73,12 @@ const { argv } = yargs
         describe: 'Product descriptions. Choose `windows` or `linux` (all lowercase) as wildcard.',
         type: 'array',
         string: true,
-        choices: allProductDescriptions,
+        choices: [
+          ...allProductDescriptions,
+          ...(Object.keys(
+            productDescriptionWildcards,
+          ) as (keyof typeof productDescriptionWildcards)[]),
+        ],
       },
       accessKeyId: {
         describe: 'AWS Access Key ID.',
@@ -99,6 +108,24 @@ const { argv } = yargs
         return;
       }
 
+      // process product description
+      function instanceOfProductDescription(pd: string): pd is ProductDescription {
+        return allProductDescriptions.indexOf(pd as ProductDescription) >= 0;
+      }
+      let productDescriptionsSet: Set<ProductDescription> | undefined;
+      if (productDescriptions) {
+        productDescriptionsSet = new Set<ProductDescription>();
+        productDescriptions.forEach(pd => {
+          if (instanceOfProductDescription(pd)) {
+            productDescriptionsSet!.add(pd);
+          } else if (pd === 'linux') {
+            productDescriptionWildcards.linux.forEach(desc => productDescriptionsSet!.add(desc));
+          } else if (pd === 'windows') {
+            productDescriptionWildcards.windows.forEach(desc => productDescriptionsSet!.add(desc));
+          }
+        });
+      }
+
       if (
         (accessKeyId !== undefined && secretAccessKey === undefined) ||
         (accessKeyId === undefined && secretAccessKey !== undefined)
@@ -123,7 +150,8 @@ const { argv } = yargs
         if (sizes) console.log('sizes:', sizes);
         if (limit) console.log('limit:', limit);
         if (priceMax) console.log('priceMax:', priceMax);
-        if (productDescriptions) console.log('productDescriptions:', productDescriptions);
+        if (productDescriptionsSet)
+          console.log('productDescriptions:', Array.from(productDescriptionsSet));
         console.groupEnd();
 
         getGlobalSpotPrices({
@@ -133,7 +161,9 @@ const { argv } = yargs
           sizes: sizes as InstanceSize[],
           limit,
           priceMax,
-          productDescriptions: productDescriptions as ProductDescription[],
+          productDescriptions: productDescriptionsSet
+            ? Array.from(productDescriptionsSet)
+            : undefined,
           accessKeyId,
           secretAccessKey,
         });

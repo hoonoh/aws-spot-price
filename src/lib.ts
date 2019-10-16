@@ -101,26 +101,22 @@ export const getGlobalSpotPrices = async (options?: {
   accessKeyId?: string;
   secretAccessKey?: string;
 }) => {
-  const { families, sizes, priceMax, limit, quiet, accessKeyId, secretAccessKey } = options || {
+  const {
+    families,
+    sizes,
+    priceMax,
+    productDescriptions,
+    limit,
+    quiet,
+    accessKeyId,
+    secretAccessKey,
+  } = options || {
     limit: defaults.limit,
   };
-  let { regions, productDescriptions, instanceTypes } = options || {};
+  let { regions, instanceTypes } = options || {};
   let rtn: EC2.SpotPrice[] = [];
 
   if (regions === undefined) regions = defaultRegions;
-
-  if (productDescriptions && productDescriptions.indexOf('windows') >= 0) {
-    productDescriptions = ['Windows', 'Windows (Amazon VPC)'];
-  } else if (productDescriptions && productDescriptions.indexOf('linux') >= 0) {
-    productDescriptions = [
-      'Linux/UNIX',
-      'Linux/UNIX (Amazon VPC)',
-      'SUSE Linux',
-      'SUSE Linux (Amazon VPC)',
-      'Red Hat Enterprise Linux',
-      'Red Hat Enterprise Linux (Amazon VPC)',
-    ];
-  }
 
   if (families && sizes) {
     if (!instanceTypes) instanceTypes = [];
