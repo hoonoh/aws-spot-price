@@ -71,7 +71,7 @@ const getEc2SpotPrice = async (options: {
       rtn = list.filter(history => history.InstanceType).sort(sortSpotPrice);
     }
   } catch (error) {
-    console.log(
+    console.error(
       'unexpected getEc2SpotPrice error.',
       JSON.stringify({ region, instanceTypes, productDescriptions, error }, null, 2),
     );
