@@ -11,10 +11,10 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice) => {
   const p1SpotPrice = p1.SpotPrice || 0;
   const p2SpotPrice = p2.SpotPrice || 0;
   if (p1SpotPrice < p2SpotPrice) {
-      rtn = -1;
+    rtn = -1;
   } else if (p1SpotPrice > p2SpotPrice) {
-      rtn = 1;
-    }
+    rtn = 1;
+  }
   // AWS SDK will always return instance type.
   // If instance type data is not returned by aws api endpoint,
   // it seems SDK will filter it out by default.
@@ -157,7 +157,7 @@ export const getGlobalSpotPrices = async (options?: {
   );
 
   // log output
-  const tableOutput: string[][] = [];
+  const tableOutput: (string | undefined)[][] = [];
   rtn = rtn.sort(sortSpotPrice).reduce(
     (list, price, idx, arr) => {
       // since price info without price or region will be pointless..
@@ -183,21 +183,21 @@ export const getGlobalSpotPrices = async (options?: {
         duplicate = undefined;
       }
 
-      if (duplicate === undefined && (!limit || list.length < limit)) {
+      if (duplicate === undefined) {
         if (!quiet) {
           tableOutput.push([
-            price.InstanceType || '',
-            price.SpotPrice || '',
-            price.ProductDescription || '',
-            price.AvailabilityZone || '',
-            regionName || '',
+            price.InstanceType,
+            price.SpotPrice,
+            price.ProductDescription,
+            price.AvailabilityZone,
+            regionName,
           ]);
         }
         list.push(price);
       }
 
       // stop reduce loop if list has reached limit
-      if (limit && list.length > limit) arr.splice(0);
+      if (limit && list.length >= limit) arr.splice(0);
 
       return list;
     },
@@ -210,13 +210,11 @@ export const getGlobalSpotPrices = async (options?: {
   return rtn;
 };
 
-export const awsCredentialsCheck = async (
-  options: {
-    accessKeyId?: string;
-    secretAccessKey?: string;
-  } = {},
-) => {
-  const { accessKeyId, secretAccessKey } = options;
+export const awsCredentialsCheck = async (options?: {
+  accessKeyId?: string;
+  secretAccessKey?: string;
+}) => {
+  const { accessKeyId, secretAccessKey } = options || {};
 
   let isValid = true;
   try {
