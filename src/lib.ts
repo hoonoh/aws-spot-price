@@ -8,13 +8,16 @@ import { defaultRegions, Region, regionNames } from './regions';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice) => {
   let rtn = 0;
-  if (p1.SpotPrice && p2.SpotPrice) {
-    if (p1.SpotPrice < p2.SpotPrice) {
+  const p1SpotPrice = p1.SpotPrice || 0;
+  const p2SpotPrice = p2.SpotPrice || 0;
+  if (p1SpotPrice < p2SpotPrice) {
       rtn = -1;
-    } else if (p1.SpotPrice > p2.SpotPrice) {
+  } else if (p1SpotPrice > p2SpotPrice) {
       rtn = 1;
     }
-  }
+  // AWS SDK will always return instance type.
+  // If instance type data is not returned by aws api endpoint,
+  // it seems SDK will filter it out by default.
   if (rtn === 0 && p1.InstanceType && p2.InstanceType) {
     if (p1.InstanceType < p2.InstanceType) {
       rtn = -1;
@@ -22,10 +25,12 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice) => {
       rtn = 1;
     }
   }
-  if (rtn === 0 && p1.AvailabilityZone && p2.AvailabilityZone) {
-    if (p1.AvailabilityZone < p2.AvailabilityZone) {
+  if (rtn === 0) {
+    const p1AvailabilityZone = p1.AvailabilityZone || '';
+    const p2AvailabilityZone = p2.AvailabilityZone || '';
+    if (p1AvailabilityZone < p2AvailabilityZone) {
       rtn = -1;
-    } else if (p1.AvailabilityZone > p2.AvailabilityZone) {
+    } else if (p1AvailabilityZone > p2AvailabilityZone) {
       rtn = 1;
     }
   }
