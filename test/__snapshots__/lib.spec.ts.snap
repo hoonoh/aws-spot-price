@@ -148,13 +148,6 @@ Array [
 exports[`lib getGlobalSpotPrices run with specific options should return expected values 1`] = `
 Array [
   Object {
-    "AvailabilityZone": "us-east-2a",
-    "InstanceType": "c4.large",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.018100",
-    "Timestamp": 2019-10-15T03:02:47.000Z,
-  },
-  Object {
     "AvailabilityZone": "us-east-2c",
     "InstanceType": "c4.large",
     "ProductDescription": "Linux/UNIX",
@@ -286,6 +279,13 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.029900",
     "Timestamp": 2019-10-15T05:36:56.000Z,
+  },
+  Object {
+    "AvailabilityZone": "eu-west-2c",
+    "InstanceType": "c4.large",
+    "ProductDescription": "Linux/UNIX",
+    "SpotPrice": "0.030000",
+    "Timestamp": 2019-10-16T00:45:54.000Z,
   },
 ]
 `;
