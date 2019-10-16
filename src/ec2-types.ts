@@ -44,7 +44,8 @@ export const instanceFamilies = [
   'x1',
   'x1e',
   'z1d',
-];
+] as const;
+export type InstanceFamily = typeof instanceFamilies[number];
 export const instanceSizes = [
   '10xlarge',
   '12xlarge',
@@ -65,7 +66,8 @@ export const instanceSizes = [
   'nano',
   'small',
   'xlarge',
-];
+] as const;
+export type InstanceSize = typeof instanceSizes[number];
 export const allInstances = [
   'a1.2xlarge',
   'a1.4xlarge',
@@ -320,4 +322,5 @@ export const allInstances = [
   'z1d.large',
   'z1d.metal',
   'z1d.xlarge',
-];
+] as const;
+export type InstanceType = typeof allInstances[number];
