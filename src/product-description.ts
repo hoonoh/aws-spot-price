@@ -1,14 +1,19 @@
-export const allProductDescriptions = [
+const linuxProductDescriptions = [
   'Linux/UNIX',
   'Linux/UNIX (Amazon VPC)',
   'SUSE Linux',
   'SUSE Linux (Amazon VPC)',
   'Red Hat Enterprise Linux',
   'Red Hat Enterprise Linux (Amazon VPC)',
-  'Windows',
-  'Windows (Amazon VPC)',
-  'linux', // wildcard
-  'windows', // wildcard
 ] as const;
 
+const windowsProductDescriptions = ['Windows', 'Windows (Amazon VPC)'] as const;
+
+export const allProductDescriptions = [...linuxProductDescriptions, ...windowsProductDescriptions];
+
 export type ProductDescription = typeof allProductDescriptions[number];
+
+export const productDescriptionWildcards = {
+  linux: linuxProductDescriptions,
+  windows: windowsProductDescriptions,
+} as const;
