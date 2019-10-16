@@ -1,6 +1,13 @@
 import * as yargs from 'yargs';
 
-import { allInstances, instanceFamilies, instanceSizes } from './ec2-types';
+import {
+  allInstances,
+  instanceFamilies,
+  InstanceFamily,
+  InstanceSize,
+  instanceSizes,
+  InstanceType,
+} from './ec2-types';
 import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
 import { allProductDescriptions, ProductDescription } from './product-description';
 import { defaultRegions, Region } from './regions';
@@ -121,9 +128,9 @@ const { argv } = yargs
 
         getGlobalSpotPrices({
           regions: regions as Region[],
-          instanceTypes,
-          families,
-          sizes,
+          instanceTypes: instanceTypes as InstanceType[],
+          families: families as InstanceFamily[],
+          sizes: sizes as InstanceSize[],
           limit,
           priceMax,
           productDescriptions: productDescriptions as ProductDescription[],

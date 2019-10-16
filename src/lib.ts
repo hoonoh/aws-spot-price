@@ -2,6 +2,7 @@ import { EC2, STS } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
 import { table } from 'table';
 
+import { InstanceFamily, InstanceSize, InstanceType } from './ec2-types';
 import { ProductDescription } from './product-description';
 import { defaultRegions, Region, regionNames } from './regions';
 
@@ -82,10 +83,10 @@ const getEc2SpotPrice = async (options: {
 export const getGlobalSpotPrices = async (
   options: {
     regions?: Region[];
-    families?: string[];
-    sizes?: string[];
+  families?: InstanceFamily[];
+  sizes?: InstanceSize[];
     priceMax?: number;
-    instanceTypes?: string[];
+  instanceTypes?: InstanceType[];
     productDescriptions?: ProductDescription[];
     limit?: number;
     quiet?: boolean;
@@ -116,7 +117,7 @@ export const getGlobalSpotPrices = async (
     if (!instanceTypes) instanceTypes = [];
     families.forEach(family => {
       sizes.forEach(size => {
-        instanceTypes!.push(`${family}.${size}`);
+        instanceTypes!.push(`${family}.${size}` as InstanceType);
       });
     });
   }

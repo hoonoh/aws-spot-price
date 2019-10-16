@@ -29,9 +29,14 @@ const getEc2Types = async () => {
 
   // console.log(list);
   let output = '';
-  output += `export const instanceFamilies = [ '${instanceFamilies.sort().join("', '")}' ];`;
-  output += `export const instanceSizes = [ '${instanceSizes.sort().join("', '")}' ];`;
-  output += `export const allInstances = [ '${allInstances.sort().join("', '")}' ];`;
+  output += `export const instanceFamilies = [ '${instanceFamilies
+    .sort()
+    .join("', '")}' ] as const;`;
+  output += `export type InstanceFamily = typeof instanceFamilies[number];`;
+  output += `export const instanceSizes = [ '${instanceSizes.sort().join("', '")}' ] as const;`;
+  output += `export type InstanceSize = typeof instanceSizes[number];`;
+  output += `export const allInstances = [ '${allInstances.sort().join("', '")}' ] as const;`;
+  output += `export type InstanceType = typeof allInstances[number];`;
 
   writeFileSync(targetPath, output);
 
