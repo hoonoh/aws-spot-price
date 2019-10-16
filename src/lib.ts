@@ -53,6 +53,7 @@ const getEc2SpotPrice = async (options: {
     const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
       const startTime = new Date();
       startTime.setHours(startTime.getHours() - 3);
+
       const result = await ec2
         .describeSpotPriceHistory({
           NextToken: nextToken,
@@ -61,8 +62,12 @@ const getEc2SpotPrice = async (options: {
           InstanceTypes: instanceTypes,
         })
         .promise();
+
       const nextList = result.NextToken ? await fetch(result.NextToken) : [];
-      return [...(result.SpotPriceHistory || []), ...nextList];
+
+      return result.SpotPriceHistory && result.SpotPriceHistory.length > 0
+        ? [...result.SpotPriceHistory, ...nextList]
+        : nextList;
     };
 
     const list = await fetch();
@@ -85,16 +90,16 @@ export const defaults = {
 };
 
 export const getGlobalSpotPrices = async (options?: {
-    regions?: Region[];
+  regions?: Region[];
   families?: InstanceFamily[];
   sizes?: InstanceSize[];
-    priceMax?: number;
+  priceMax?: number;
   instanceTypes?: InstanceType[];
-    productDescriptions?: ProductDescription[];
-    limit?: number;
-    quiet?: boolean;
-    accessKeyId?: string;
-    secretAccessKey?: string;
+  productDescriptions?: ProductDescription[];
+  limit?: number;
+  quiet?: boolean;
+  accessKeyId?: string;
+  secretAccessKey?: string;
 }) => {
   const { families, sizes, priceMax, limit, quiet, accessKeyId, secretAccessKey } = options || {
     limit: defaults.limit,
