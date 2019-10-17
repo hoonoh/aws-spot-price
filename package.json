@@ -25,12 +25,12 @@
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "yarn clean && yarn build",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf coverage",
     "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
     "build": "tsc",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "test": "jest --runInBand",
-    "test:coverage": "nyc --clean jest --coverage --runInBand"
+    "test:coverage": "yarn test --coverage"
   },
   "config": {
     "commitizen": {
@@ -44,18 +44,6 @@
   },
   "release": {
     "branch": "next"
-  },
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "reporter": [
-      "lcov",
-      "html",
-      "text"
-    ],
-    "tempDirectory": "./coverage",
-    "exclude": [
-      "jest.config.js"
-    ]
   },
   "dependencies": {
     "@types/lodash": "^4.14.144",
@@ -89,7 +77,6 @@
     "jest-extended": "^0.11.2",
     "jest-mock-console": "^1.0.0",
     "nock": "^11.4.0",
-    "nyc": "^14.1.1",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
