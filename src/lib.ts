@@ -2,7 +2,7 @@ import { EC2, STS } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
 import { table } from 'table';
 
-import { InstanceFamily, InstanceSize, InstanceType } from './ec2-types';
+import { InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
 import { ProductDescription } from './product-description';
 import { defaultRegions, Region, regionNames } from './regions';
 
@@ -96,7 +96,8 @@ export const defaults = {
 
 export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];
-  families?: InstanceFamily[];
+  // families?:
+  familyTypes?: InstanceFamilyType[];
   sizes?: InstanceSize[];
   priceMax?: number;
   instanceTypes?: InstanceType[];
@@ -107,7 +108,7 @@ export const getGlobalSpotPrices = async (options?: {
   secretAccessKey?: string;
 }) => {
   const {
-    families,
+    familyTypes,
     sizes,
     priceMax,
     productDescriptions,
@@ -123,9 +124,9 @@ export const getGlobalSpotPrices = async (options?: {
 
   if (regions === undefined) regions = defaultRegions;
 
-  if (families && sizes) {
+  if (familyTypes && sizes) {
     if (!instanceTypes) instanceTypes = [];
-    families.forEach(family => {
+    familyTypes.forEach(family => {
       sizes.forEach(size => {
         instanceTypes!.push(`${family}.${size}` as InstanceType);
       });

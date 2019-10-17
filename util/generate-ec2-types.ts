@@ -97,36 +97,75 @@ export const getEc2Types = async () => {
 
   const allInstances = (await getGlobalSpotPrices({ quiet: true })).reduce(
     (list, cur) => {
-      if (cur.InstanceType && list.indexOf(cur.InstanceType) < 0) list.push(cur.InstanceType);
+      if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);
       return list;
     },
     [] as string[],
   );
 
-  const instanceFamilies: string[] = [];
-  const instanceSizes: string[] = [];
+  // const instanceFamilies: string[] = [];
+  const instanceFamilyGeneral = new Set<string>();
+  const instanceFamilyCompute = new Set<string>();
+  const instanceFamilyMemory = new Set<string>();
+  const instanceFamilyStorage = new Set<string>();
+  const instanceFamilyAcceleratedComputing = new Set<string>();
+  const instanceSizes = new Set<string>();
 
   allInstances.forEach(instanceType => {
-    const [type, size] = instanceType.split('.');
-    if (!type || !size || instanceType.split('.').length !== 2) {
+    const [family, size] = instanceType.split('.');
+    if (!family || !size || instanceType.split('.').length !== 2) {
       console.log('found some exceptions:', instanceType);
     }
-    if (instanceFamilies.indexOf(type) < 0) instanceFamilies.push(type);
-    if (instanceSizes.indexOf(size) < 0) instanceSizes.push(size);
+    // instanceFamilies.push(family);
+    if (familyGeneral.includes(family[0])) instanceFamilyGeneral.add(family);
+    if (familyCompute.includes(family[0])) instanceFamilyCompute.add(family);
+    if (familyMemory.includes(family[0])) instanceFamilyMemory.add(family);
+    if (familyStorage.includes(family[0])) instanceFamilyStorage.add(family);
+    if (familyAcceleratedComputing.includes(family[0]))
+      instanceFamilyAcceleratedComputing.add(family);
+    instanceSizes.add(size);
   });
 
   let output = '';
-  output += `export const instanceFamilies = [ '${instanceFamilies
+
+  output += `export const instanceFamilyGeneral = [ '${Array.from(instanceFamilyGeneral)
     .sort(sortFamilies)
     .join("', '")}' ] as const;\n\n`;
-  output += `export type InstanceFamily = typeof instanceFamilies[number];\n\n`;
-  output += `export const instanceSizes = [ '${instanceSizes
+
+  output += `export const instanceFamilyCompute = [ '${Array.from(instanceFamilyCompute)
+    .sort(sortFamilies)
+    .join("', '")}' ] as const;\n\n`;
+
+  output += `export const instanceFamilyMemory = [ '${Array.from(instanceFamilyMemory)
+    .sort(sortFamilies)
+    .join("', '")}' ] as const;\n\n`;
+
+  output += `export const instanceFamilyStorage = [ '${Array.from(instanceFamilyStorage)
+    .sort(sortFamilies)
+    .join("', '")}' ] as const;\n\n`;
+
+  output += `export const instanceFamilyAcceleratedComputing = [ '${Array.from(
+    instanceFamilyAcceleratedComputing,
+  )
+    .sort(sortFamilies)
+    .join("', '")}' ] as const;\n\n`;
+
+  output += `export const instanceFamily = { general: instanceFamilyGeneral, compute: instanceFamilyCompute, memory: instanceFamilyMemory, storage: instanceFamilyStorage, acceleratedComputing: instanceFamilyAcceleratedComputing };\n\n`;
+
+  output += `export const instanceFamilyTypes = [ ...instanceFamilyGeneral, ...instanceFamilyCompute, ...instanceFamilyMemory, ...instanceFamilyStorage, ...instanceFamilyAcceleratedComputing ];\n\n`;
+
+  output += `export type InstanceFamilyType = typeof instanceFamilyTypes[number];\n\n`;
+
+  output += `export const instanceSizes = [ '${Array.from(instanceSizes)
     .sort(sortSizes)
     .join("', '")}' ] as const;\n\n`;
+
   output += `export type InstanceSize = typeof instanceSizes[number];\n\n`;
+
   output += `export const allInstances = [ '${allInstances
     .sort(sortInstances)
     .join("', '")}' ] as const;\n\n`;
+
   output += `export type InstanceType = typeof allInstances[number];`;
 
   output = prettier.format(output, {
