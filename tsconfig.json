@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "esnext",
-    "lib": ["esnext"],
+    "target": "es5",
+    "lib": ["es5"],
     "moduleResolution": "node",
     "strict": true,
     "strictPropertyInitialization": false,
