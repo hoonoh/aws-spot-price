@@ -3,6 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   reporters: ['default'],
   collectCoverageFrom: ['src/**/*.ts'],
+  coverageReporters: ['json'],
   globals: {
     'ts-jest': {
       tsConfig: './tsconfig.jest.json',
