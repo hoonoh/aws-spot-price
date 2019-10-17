@@ -8,26 +8,31 @@ CLI utility to list current global AWS EC2 Spot Instance prices. Requires valid 
 
 ## Options
 
-### --regions | -r
+### --region | -r
 
-AWS regions to search. Accepts multiple string values.
-Defaults to all available AWS regions which does not require opt-in.
+AWS region to fetch data from. Accepts multiple string values.
+Defaults to all available AWS region which does not require opt-in.
 
-### --instanceTypes | -i
+### --family
+
+EC2 instance families to filter. Accepts multiple string values.
+Choose from: `general`, `compute`, `memory`, `storage`, `acceleratedComputing`
+
+### --instanceType | -i
 
 Type of EC2 instance to filter. Accepts multiple string values.
 Enter valid EC2 instance type name. e.g. `-i t3.nano t3a.nano`
 
-### <a name="families"></a>--families | -f
+### <a name="familyType"></a>--familyType | -f
 
-EC2 Family type (`c4`, `c5`, etc..). Accepts multiple string values. Requires `--sizes` option to be used together.
-Internally, `--families` and `--sizes` option will build list of EC2 instance types.
+EC2 Family type (`c4`, `c5`, etc..). Accepts multiple string values. Requires `--size` option to be used together.
+Internally, `--familyType` and `--size` option will build list of EC2 instance types.
 For example, `-f c4 c5 -s large xlarge` is equivalent to `-i c4.large c5.large c4.xlarge c5.xlarge`.
 
-### --sizes | -s
+### --size | -s
 
-EC2 sizes (`large`, `xlarge`, etc..). Accepts multiple string values. Requires `--families` option to be used together.
-See [`--families`](#families) section for more detail.
+EC2 size (`large`, `xlarge`, etc..). Accepts multiple string values. Requires `--familyType` option to be used together.
+See [`--familyType`](#familyType) section for more detail.
 
 ### --limit | -l
 
@@ -37,7 +42,7 @@ Limits list of price information items to be returned.
 
 Maximum price.
 
-### --productDescriptions | -d
+### --productDescription | -d
 
 Instance product description to filter. Accepts multiple string values.
 You can use `linux` or `windows` (all in lowercase) as wildcard.

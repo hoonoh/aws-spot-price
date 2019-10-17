@@ -2,8 +2,9 @@ import * as yargs from 'yargs';
 
 import {
   allInstances,
-  instanceFamilies,
-  InstanceFamily,
+  instanceFamily,
+  InstanceFamilyType,
+  instanceFamilyTypes,
   InstanceSize,
   instanceSizes,
   InstanceType,
@@ -24,28 +25,34 @@ export const main = (argvInput?: string[]) =>
         '$0',
         'get current AWS spot instance prices',
         {
-          regions: {
+          region: {
             alias: 'r',
             describe: 'AWS regions.',
             type: 'array',
             choices: defaultRegions,
             string: true,
           },
-          instanceTypes: {
+          instanceType: {
             alias: 'i',
             describe: 'EC2 type',
             type: 'array',
             choices: allInstances,
             string: true,
           },
-          families: {
-            alias: 'f',
-            describe: 'EC2 instance families. Requires `sizes` parameter.',
+          family: {
+            describe: 'EC2 instance family.',
             type: 'array',
             string: true,
-            choices: instanceFamilies,
+            choices: Object.keys(instanceFamily),
           },
-          sizes: {
+          familyType: {
+            alias: 'f',
+            describe: 'EC2 instance family types. Requires `sizes` parameter.',
+            type: 'array',
+            string: true,
+            choices: instanceFamilyTypes,
+          },
+          size: {
             alias: 's',
             describe: 'EC2 instance sizes. Requires `families` parameter.',
             type: 'array',
@@ -70,7 +77,7 @@ export const main = (argvInput?: string[]) =>
             describe: 'Maximum price',
             type: 'number',
           },
-          productDescriptions: {
+          productDescription: {
             alias: 'd',
             describe:
               'Product descriptions. Choose `windows` or `linux` (all lowercase) as wildcard.',
@@ -95,31 +102,53 @@ export const main = (argvInput?: string[]) =>
 
         async args => {
           const {
-            regions,
-            instanceTypes,
-            families,
-            sizes,
+            region,
+            instanceType,
+            family,
+            familyType,
+            size,
             limit,
             priceMax,
-            productDescriptions,
+            productDescription,
             accessKeyId,
             secretAccessKey,
           } = args;
 
-          if ((!families && sizes) || (families && !sizes)) {
-            console.log('`families` or `sizes` attribute missing.');
+          if ((!familyType && size) || (familyType && !size)) {
+            console.log('`familyTypes` or `sizes` attribute missing.');
             rej();
             return;
           }
 
+          // process instance types
+          let instanceTypeSet: Set<InstanceType> | undefined;
+          if (instanceType) {
+            instanceTypeSet = new Set();
+            (instanceType as InstanceType[]).forEach(type => {
+              instanceTypeSet!.add(type);
+            });
+          }
+
+          // process instance families
+          if (family) {
+            if (!instanceTypeSet) instanceTypeSet = new Set();
+            (family as (keyof typeof instanceFamily)[]).forEach(f => {
+              instanceFamily[f].forEach((type: InstanceFamilyType) => {
+                allInstances
+                  .filter(instance => instance.startsWith(type))
+                  .forEach(instance => instanceTypeSet!.add(instance));
+              });
+            });
+          }
+
           // process product description
           function instanceOfProductDescription(pd: string): pd is ProductDescription {
-            return allProductDescriptions.indexOf(pd as ProductDescription) >= 0;
+            return allProductDescriptions.includes(pd as ProductDescription);
           }
           let productDescriptionsSet: Set<ProductDescription> | undefined;
-          if (productDescriptions) {
+          if (productDescription) {
             productDescriptionsSet = new Set<ProductDescription>();
-            (productDescriptions as (
+            (productDescription as (
               | ProductDescription
               | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
               if (instanceOfProductDescription(pd)) {
@@ -159,20 +188,23 @@ export const main = (argvInput?: string[]) =>
             console.log('Querying current spot prices with options:');
             console.group();
             console.log('limit:', limit);
-            if (regions) console.log('regions:', regions);
-            if (instanceTypes) console.log('instanceTypes:', instanceTypes);
-            if (families) console.log('families:', families);
-            if (sizes) console.log('sizes:', sizes);
+            if (region) console.log('regions:', region.join(', '));
+            if (instanceTypeSet)
+              console.log('instanceTypes:', Array.from(instanceTypeSet).join(', '));
+            if (familyType) console.log('familyTypes:', familyType.join(', '));
+            if (size) console.log('sizes:', size.join(', '));
             if (priceMax) console.log('priceMax:', priceMax);
             if (productDescriptionsSet)
-              console.log('productDescriptions:', Array.from(productDescriptionsSet));
+              console.log('productDescriptions:', Array.from(productDescriptionsSet).join(', '));
             console.groupEnd();
 
             await getGlobalSpotPrices({
-              regions: regions as Region[],
-              instanceTypes: instanceTypes as InstanceType[],
-              families: families as InstanceFamily[],
-              sizes: sizes as InstanceSize[],
+              regions: region as Region[],
+              instanceTypes: instanceTypeSet
+                ? (Array.from(instanceTypeSet) as InstanceType[])
+                : undefined,
+              familyTypes: familyType as InstanceFamilyType[],
+              sizes: size as InstanceSize[],
               limit,
               priceMax,
               productDescriptions: productDescriptionsSet

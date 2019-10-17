@@ -1,4 +1,4 @@
-export const instanceFamilies = [
+export const instanceFamilyGeneral = [
   'a1',
   't1',
   't2',
@@ -14,12 +14,11 @@ export const instanceFamilies = [
   'm5d',
   'm5dn',
   'm5n',
-  'c1',
-  'c3',
-  'c4',
-  'c5',
-  'c5d',
-  'c5n',
+] as const;
+
+export const instanceFamilyCompute = ['c1', 'c3', 'c4', 'c5', 'c5d', 'c5n'] as const;
+
+export const instanceFamilyMemory = [
   'r3',
   'r4',
   'r5',
@@ -31,11 +30,11 @@ export const instanceFamilies = [
   'x1',
   'x1e',
   'z1d',
-  'd2',
-  'h1',
-  'i2',
-  'i3',
-  'i3en',
+] as const;
+
+export const instanceFamilyStorage = ['d2', 'h1', 'i2', 'i3', 'i3en'] as const;
+
+export const instanceFamilyAcceleratedComputing = [
   'f1',
   'g2',
   'g3',
@@ -46,7 +45,23 @@ export const instanceFamilies = [
   'p3dn',
 ] as const;
 
-export type InstanceFamily = typeof instanceFamilies[number];
+export const instanceFamily = {
+  general: instanceFamilyGeneral,
+  compute: instanceFamilyCompute,
+  memory: instanceFamilyMemory,
+  storage: instanceFamilyStorage,
+  acceleratedComputing: instanceFamilyAcceleratedComputing,
+};
+
+export const instanceFamilyTypes = [
+  ...instanceFamilyGeneral,
+  ...instanceFamilyCompute,
+  ...instanceFamilyMemory,
+  ...instanceFamilyStorage,
+  ...instanceFamilyAcceleratedComputing,
+];
+
+export type InstanceFamilyType = typeof instanceFamilyTypes[number];
 
 export const instanceSizes = [
   'nano',
