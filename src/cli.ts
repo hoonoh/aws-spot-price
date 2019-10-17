@@ -1,3 +1,4 @@
+import { sep } from 'path';
 import * as yargs from 'yargs';
 
 import {
@@ -246,7 +247,7 @@ export const main = (argvInput?: string[]) =>
 if (
   require.main &&
   (require.main.filename === module.filename ||
-    require.main.filename.endsWith('/bin/aws-spot-price'))
+    require.main.filename.endsWith(`${sep}bin${sep}aws-spot-price`))
 ) {
   (async () => {
     await main();
