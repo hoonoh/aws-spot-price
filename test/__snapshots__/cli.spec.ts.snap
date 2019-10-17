@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cli test by import should handle invalid credentials error 1`] = `"Invalid AWS credentials provided."`;
+
+exports[`cli test by import should handle invalid usage of accessKeyId and secretAccessKey 1`] = `"\`accessKeyId\` & \`secretAccessKey\` should always be used together."`;
+
+exports[`cli test by import should handle invalid usage of instance families and sizes option 1`] = `"\`families\` or \`sizes\` attribute missing."`;
+
+exports[`cli test by import should print help 1`] = `
+"spot-price
+
+get current AWS spot instance prices
+
+Options:
+  --version                  Show version number                       [boolean]
+  --help                     Show help                                 [boolean]
+  --regions, -r              AWS regions.
+           [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
+          \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
+             \\"eu-north-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-southeast-1\\",
+                                    \\"ap-southeast-2\\", \\"ap-south-1\\", \\"sa-east-1\\"]
+  --instanceTypes, -i        EC2 type
+          [array] [choices: \\"a1.2xlarge\\", \\"a1.4xlarge\\", \\"a1.large\\", \\"a1.medium\\",
+  \\"a1.metal\\", \\"a1.xlarge\\", \\"c1.medium\\", \\"c1.xlarge\\", \\"c3.2xlarge\\", \\"c3.4xlarge\\",
+              \\"c3.8xlarge\\", \\"c3.large\\", \\"c3.xlarge\\", \\"c4.2xlarge\\", \\"c4.4xlarge\\",
+            \\"c4.8xlarge\\", \\"c4.large\\", \\"c4.xlarge\\", \\"c5.12xlarge\\", \\"c5.18xlarge\\",
+            \\"c5.24xlarge\\", \\"c5.2xlarge\\", \\"c5.4xlarge\\", \\"c5.9xlarge\\", \\"c5.large\\",
+          \\"c5.metal\\", \\"c5.xlarge\\", \\"c5d.18xlarge\\", \\"c5d.2xlarge\\", \\"c5d.4xlarge\\",
+        \\"c5d.9xlarge\\", \\"c5d.large\\", \\"c5d.xlarge\\", \\"c5n.18xlarge\\", \\"c5n.2xlarge\\",
+           \\"c5n.4xlarge\\", \\"c5n.9xlarge\\", \\"c5n.large\\", \\"c5n.metal\\", \\"c5n.xlarge\\",
+           \\"d2.2xlarge\\", \\"d2.4xlarge\\", \\"d2.8xlarge\\", \\"d2.xlarge\\", \\"f1.16xlarge\\",
+          \\"f1.2xlarge\\", \\"f1.4xlarge\\", \\"g2.2xlarge\\", \\"g2.8xlarge\\", \\"g3.16xlarge\\",
+     \\"g3.4xlarge\\", \\"g3.8xlarge\\", \\"g3s.xlarge\\", \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\",
+   \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\", \\"g4dn.xlarge\\", \\"h1.16xlarge\\",
+           \\"h1.2xlarge\\", \\"h1.4xlarge\\", \\"h1.8xlarge\\", \\"i2.2xlarge\\", \\"i2.4xlarge\\",
+           \\"i2.8xlarge\\", \\"i2.xlarge\\", \\"i3.16xlarge\\", \\"i3.2xlarge\\", \\"i3.4xlarge\\",
+             \\"i3.8xlarge\\", \\"i3.large\\", \\"i3.metal\\", \\"i3.xlarge\\", \\"i3en.12xlarge\\",
+  \\"i3en.24xlarge\\", \\"i3en.2xlarge\\", \\"i3en.3xlarge\\", \\"i3en.6xlarge\\", \\"i3en.large\\",
+  \\"i3en.metal\\", \\"i3en.xlarge\\", \\"m1.large\\", \\"m1.medium\\", \\"m1.small\\", \\"m1.xlarge\\",
+              \\"m2.2xlarge\\", \\"m2.4xlarge\\", \\"m2.xlarge\\", \\"m3.2xlarge\\", \\"m3.large\\",
+           \\"m3.medium\\", \\"m3.xlarge\\", \\"m4.10xlarge\\", \\"m4.16xlarge\\", \\"m4.2xlarge\\",
+            \\"m4.4xlarge\\", \\"m4.large\\", \\"m4.xlarge\\", \\"m5.12xlarge\\", \\"m5.16xlarge\\",
+            \\"m5.24xlarge\\", \\"m5.2xlarge\\", \\"m5.4xlarge\\", \\"m5.8xlarge\\", \\"m5.large\\",
+        \\"m5.metal\\", \\"m5.xlarge\\", \\"m5a.12xlarge\\", \\"m5a.16xlarge\\", \\"m5a.24xlarge\\",
+         \\"m5a.2xlarge\\", \\"m5a.4xlarge\\", \\"m5a.8xlarge\\", \\"m5a.large\\", \\"m5a.xlarge\\",
+              \\"m5ad.12xlarge\\", \\"m5ad.16xlarge\\", \\"m5ad.24xlarge\\", \\"m5ad.2xlarge\\",
+    \\"m5ad.4xlarge\\", \\"m5ad.8xlarge\\", \\"m5ad.large\\", \\"m5ad.xlarge\\", \\"m5d.12xlarge\\",
+    \\"m5d.16xlarge\\", \\"m5d.24xlarge\\", \\"m5d.2xlarge\\", \\"m5d.4xlarge\\", \\"m5d.8xlarge\\",
+       \\"m5d.large\\", \\"m5d.metal\\", \\"m5d.xlarge\\", \\"m5dn.12xlarge\\", \\"m5dn.16xlarge\\",
+  \\"m5dn.24xlarge\\", \\"m5dn.2xlarge\\", \\"m5dn.4xlarge\\", \\"m5dn.8xlarge\\", \\"m5dn.large\\",
+   \\"m5dn.xlarge\\", \\"m5n.12xlarge\\", \\"m5n.16xlarge\\", \\"m5n.24xlarge\\", \\"m5n.2xlarge\\",
+         \\"m5n.4xlarge\\", \\"m5n.8xlarge\\", \\"m5n.large\\", \\"m5n.xlarge\\", \\"p2.16xlarge\\",
+           \\"p2.8xlarge\\", \\"p2.xlarge\\", \\"p3.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\",
+          \\"p3dn.24xlarge\\", \\"r3.2xlarge\\", \\"r3.4xlarge\\", \\"r3.8xlarge\\", \\"r3.large\\",
+           \\"r3.xlarge\\", \\"r4.16xlarge\\", \\"r4.2xlarge\\", \\"r4.4xlarge\\", \\"r4.8xlarge\\",
+           \\"r4.large\\", \\"r4.xlarge\\", \\"r5.12xlarge\\", \\"r5.16xlarge\\", \\"r5.24xlarge\\",
+  \\"r5.2xlarge\\", \\"r5.4xlarge\\", \\"r5.8xlarge\\", \\"r5.large\\", \\"r5.metal\\", \\"r5.xlarge\\",
+   \\"r5a.12xlarge\\", \\"r5a.16xlarge\\", \\"r5a.24xlarge\\", \\"r5a.2xlarge\\", \\"r5a.4xlarge\\",
+     \\"r5a.8xlarge\\", \\"r5a.large\\", \\"r5a.xlarge\\", \\"r5ad.12xlarge\\", \\"r5ad.16xlarge\\",
+  \\"r5ad.24xlarge\\", \\"r5ad.2xlarge\\", \\"r5ad.4xlarge\\", \\"r5ad.8xlarge\\", \\"r5ad.large\\",
+   \\"r5ad.xlarge\\", \\"r5d.12xlarge\\", \\"r5d.16xlarge\\", \\"r5d.24xlarge\\", \\"r5d.2xlarge\\",
+           \\"r5d.4xlarge\\", \\"r5d.8xlarge\\", \\"r5d.large\\", \\"r5d.metal\\", \\"r5d.xlarge\\",
+              \\"r5dn.12xlarge\\", \\"r5dn.16xlarge\\", \\"r5dn.24xlarge\\", \\"r5dn.2xlarge\\",
+    \\"r5dn.4xlarge\\", \\"r5dn.8xlarge\\", \\"r5dn.large\\", \\"r5dn.xlarge\\", \\"r5n.12xlarge\\",
+    \\"r5n.16xlarge\\", \\"r5n.24xlarge\\", \\"r5n.2xlarge\\", \\"r5n.4xlarge\\", \\"r5n.8xlarge\\",
+   \\"r5n.large\\", \\"r5n.xlarge\\", \\"t1.micro\\", \\"t2.2xlarge\\", \\"t2.large\\", \\"t2.medium\\",
+     \\"t2.micro\\", \\"t2.small\\", \\"t2.xlarge\\", \\"t3.2xlarge\\", \\"t3.large\\", \\"t3.medium\\",
+     \\"t3.micro\\", \\"t3.nano\\", \\"t3.small\\", \\"t3.xlarge\\", \\"t3a.2xlarge\\", \\"t3a.large\\",
+               \\"t3a.medium\\", \\"t3a.micro\\", \\"t3a.nano\\", \\"t3a.small\\", \\"t3a.xlarge\\",
+    \\"x1.16xlarge\\", \\"x1.32xlarge\\", \\"x1e.16xlarge\\", \\"x1e.2xlarge\\", \\"x1e.32xlarge\\",
+      \\"x1e.4xlarge\\", \\"x1e.8xlarge\\", \\"x1e.xlarge\\", \\"z1d.12xlarge\\", \\"z1d.2xlarge\\",
+           \\"z1d.3xlarge\\", \\"z1d.6xlarge\\", \\"z1d.large\\", \\"z1d.metal\\", \\"z1d.xlarge\\"]
+  --families, -f             EC2 instance families. Requires \`sizes\` parameter.
+       [array] [choices: \\"a1\\", \\"c1\\", \\"c3\\", \\"c4\\", \\"c5\\", \\"c5d\\", \\"c5n\\", \\"d2\\", \\"f1\\",
+    \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4dn\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"m1\\", \\"m2\\", \\"m3\\", \\"m4\\",
+      \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"r3\\", \\"r4\\",
+       \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"t1\\", \\"t2\\", \\"t3\\", \\"t3a\\", \\"x1\\",
+                                                                   \\"x1e\\", \\"z1d\\"]
+  --sizes, -s                EC2 instance sizes. Requires \`families\` parameter.
+   [array] [choices: \\"10xlarge\\", \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\",
+   \\"2xlarge\\", \\"32xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\",
+                 \\"large\\", \\"medium\\", \\"metal\\", \\"micro\\", \\"nano\\", \\"small\\", \\"xlarge\\"]
+  --limit, -l                Limit results output length  [number] [default: 20]
+  --priceMax, -p             Maximum price                              [number]
+  --productDescriptions, -d  Product descriptions. Choose \`windows\` or \`linux\`
+                             (all lowercase) as wildcard.
+  [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
+      Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
+           (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
+  --accessKeyId              AWS Access Key ID.                         [string]
+  --secretAccessKey          AWS Secret Access Key.                     [string]"
+`;
+
+exports[`cli test by import should return expected values with default options 1`] = `
+"Querying current spot prices with options:
+limit: 20
+╔══════════╤══════════╤═════════════════════════╤═══════════════╤═══════════════════════╗
+║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2a    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2c    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2d    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1a   │ EU (Stockholm)        ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1b   │ EU (Stockholm)        ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1c   │ EU (Stockholm)        ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1a    │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1b    │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1c    │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1d    │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1f    │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-east-2a    │ US East (Ohio)        ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-east-2b    │ US East (Ohio)        ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-east-2c    │ US East (Ohio)        ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2a    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2b    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2c    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2d    │ US West (Oregon)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3a.nano │ 0.001600 │ Linux/UNIX              │ ca-central-1a │ Canada (Central)      ║
+╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
+║ t3a.nano │ 0.001600 │ Linux/UNIX              │ ca-central-1b │ Canada (Central)      ║
+╚══════════╧══════════╧═════════════════════════╧═══════════════╧═══════════════════════╝
+"
+`;
+
+exports[`cli test by import should return expected values with instance families and sizes 1`] = `
+"Querying current spot prices with options:
+limit: 20
+families: c5
+sizes: large
+╔══════════╤══════════╤═════════════════════════╤═════════════════╤══════════════════════════╗
+║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2a      │ US East (Ohio)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2b      │ US East (Ohio)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2c      │ US East (Ohio)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1a     │ EU (Stockholm)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ EU (Stockholm)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ EU (Stockholm)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1c     │ EU (Stockholm)           ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.028900 │ Linux/UNIX              │ ca-central-1a   │ Canada (Central)         ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.029300 │ Linux/UNIX              │ ca-central-1b   │ Canada (Central)         ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2a │ Asia Pacific (Seoul)     ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2b │ Asia Pacific (Seoul)     ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2c │ Asia Pacific (Seoul)     ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.030300 │ Linux/UNIX              │ eu-west-3c      │ EU (Paris)               ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.030400 │ Linux/UNIX              │ eu-west-3b      │ EU (Paris)               ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.030800 │ Linux/UNIX              │ us-west-1b      │ US West (N. California)  ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.031300 │ Linux/UNIX              │ us-west-1c      │ US West (N. California)  ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.031400 │ Linux/UNIX              │ eu-west-2a      │ EU (London)              ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.032100 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1c │ Asia Pacific (Singapore) ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.032200 │ Linux/UNIX              │ eu-west-2b      │ EU (London)              ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.032600 │ Linux/UNIX              │ us-west-2d      │ US West (Oregon)         ║
+╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
+║ c5.large │ 0.032800 │ Linux/UNIX (Amazon VPC) │ us-east-1f      │ US East (N. Virginia)    ║
+╚══════════╧══════════╧═════════════════════════╧═════════════════╧══════════════════════════╝
+"
+`;
+
+exports[`cli test by import should return expected values with user options 1`] = `
+"Querying current spot prices with options:
+limit: 11
+regions: us-east-1
+instanceTypes: c5.large,c4.xlarge
+priceMax: 0.05
+productDescriptions: Linux/UNIX (Amazon VPC)
+╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
+║ c5.large │ 0.032800 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ c5.large │ 0.037400 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ c5.large │ 0.037600 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ c5.large │ 0.038300 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ c5.large │ 0.038300 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ c5.large │ 0.038400 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ c5.large │ 0.041000 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
+╚══════════╧══════════╧═════════════════════════╧════════════╧═══════════════════════╝
+"
+`;
+
+exports[`cli test by import should return expected values with wildcard product descriptions 1`] = `
+"Querying current spot prices with options:
+limit: 10
+regions: us-east-1
+productDescriptions: Linux/UNIX,Linux/UNIX (Amazon VPC),SUSE Linux,SUSE Linux (Amazon VPC),Red Hat Enterprise Linux,Red Hat Enterprise Linux (Amazon VPC)
+╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3a.nano │ 0.001700 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3a.nano │ 0.001700 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
+║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
+╚══════════╧══════════╧═════════════════════════╧════════════╧═══════════════════════╝
+
+Querying current spot prices with options:
+limit: 10
+regions: us-east-1
+productDescriptions: Windows,Windows (Amazon VPC)
+╔══════════╤══════════╤══════════════════════╤════════════╤═══════════════════════╗
+║ t1.micro │ 0.002000 │ Windows              │ us-east-1a │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows              │ us-east-1b │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows              │ us-east-1c │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows              │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t3a.nano │ 0.006000 │ Windows (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
+╚══════════╧══════════╧══════════════════════╧════════════╧═══════════════════════╝
+"
+`;
+
+exports[`cli test by spawnSync should stdout help screen 1`] = `
+"spot-price
+
+get current AWS spot instance prices
+
+Options:
+  --version                  Show version number                       [boolean]
+  --help                     Show help                                 [boolean]
+  --regions, -r              AWS regions.
+           [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
+          \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
+             \\"eu-north-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-southeast-1\\",
+                                    \\"ap-southeast-2\\", \\"ap-south-1\\", \\"sa-east-1\\"]
+  --instanceTypes, -i        EC2 type
+          [array] [choices: \\"a1.2xlarge\\", \\"a1.4xlarge\\", \\"a1.large\\", \\"a1.medium\\",
+  \\"a1.metal\\", \\"a1.xlarge\\", \\"c1.medium\\", \\"c1.xlarge\\", \\"c3.2xlarge\\", \\"c3.4xlarge\\",
+              \\"c3.8xlarge\\", \\"c3.large\\", \\"c3.xlarge\\", \\"c4.2xlarge\\", \\"c4.4xlarge\\",
+            \\"c4.8xlarge\\", \\"c4.large\\", \\"c4.xlarge\\", \\"c5.12xlarge\\", \\"c5.18xlarge\\",
+            \\"c5.24xlarge\\", \\"c5.2xlarge\\", \\"c5.4xlarge\\", \\"c5.9xlarge\\", \\"c5.large\\",
+          \\"c5.metal\\", \\"c5.xlarge\\", \\"c5d.18xlarge\\", \\"c5d.2xlarge\\", \\"c5d.4xlarge\\",
+        \\"c5d.9xlarge\\", \\"c5d.large\\", \\"c5d.xlarge\\", \\"c5n.18xlarge\\", \\"c5n.2xlarge\\",
+           \\"c5n.4xlarge\\", \\"c5n.9xlarge\\", \\"c5n.large\\", \\"c5n.metal\\", \\"c5n.xlarge\\",
+           \\"d2.2xlarge\\", \\"d2.4xlarge\\", \\"d2.8xlarge\\", \\"d2.xlarge\\", \\"f1.16xlarge\\",
+          \\"f1.2xlarge\\", \\"f1.4xlarge\\", \\"g2.2xlarge\\", \\"g2.8xlarge\\", \\"g3.16xlarge\\",
+     \\"g3.4xlarge\\", \\"g3.8xlarge\\", \\"g3s.xlarge\\", \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\",
+   \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\", \\"g4dn.xlarge\\", \\"h1.16xlarge\\",
+           \\"h1.2xlarge\\", \\"h1.4xlarge\\", \\"h1.8xlarge\\", \\"i2.2xlarge\\", \\"i2.4xlarge\\",
+           \\"i2.8xlarge\\", \\"i2.xlarge\\", \\"i3.16xlarge\\", \\"i3.2xlarge\\", \\"i3.4xlarge\\",
+             \\"i3.8xlarge\\", \\"i3.large\\", \\"i3.metal\\", \\"i3.xlarge\\", \\"i3en.12xlarge\\",
+  \\"i3en.24xlarge\\", \\"i3en.2xlarge\\", \\"i3en.3xlarge\\", \\"i3en.6xlarge\\", \\"i3en.large\\",
+  \\"i3en.metal\\", \\"i3en.xlarge\\", \\"m1.large\\", \\"m1.medium\\", \\"m1.small\\", \\"m1.xlarge\\",
+              \\"m2.2xlarge\\", \\"m2.4xlarge\\", \\"m2.xlarge\\", \\"m3.2xlarge\\", \\"m3.large\\",
+           \\"m3.medium\\", \\"m3.xlarge\\", \\"m4.10xlarge\\", \\"m4.16xlarge\\", \\"m4.2xlarge\\",
+            \\"m4.4xlarge\\", \\"m4.large\\", \\"m4.xlarge\\", \\"m5.12xlarge\\", \\"m5.16xlarge\\",
+            \\"m5.24xlarge\\", \\"m5.2xlarge\\", \\"m5.4xlarge\\", \\"m5.8xlarge\\", \\"m5.large\\",
+        \\"m5.metal\\", \\"m5.xlarge\\", \\"m5a.12xlarge\\", \\"m5a.16xlarge\\", \\"m5a.24xlarge\\",
+         \\"m5a.2xlarge\\", \\"m5a.4xlarge\\", \\"m5a.8xlarge\\", \\"m5a.large\\", \\"m5a.xlarge\\",
+              \\"m5ad.12xlarge\\", \\"m5ad.16xlarge\\", \\"m5ad.24xlarge\\", \\"m5ad.2xlarge\\",
+    \\"m5ad.4xlarge\\", \\"m5ad.8xlarge\\", \\"m5ad.large\\", \\"m5ad.xlarge\\", \\"m5d.12xlarge\\",
+    \\"m5d.16xlarge\\", \\"m5d.24xlarge\\", \\"m5d.2xlarge\\", \\"m5d.4xlarge\\", \\"m5d.8xlarge\\",
+       \\"m5d.large\\", \\"m5d.metal\\", \\"m5d.xlarge\\", \\"m5dn.12xlarge\\", \\"m5dn.16xlarge\\",
+  \\"m5dn.24xlarge\\", \\"m5dn.2xlarge\\", \\"m5dn.4xlarge\\", \\"m5dn.8xlarge\\", \\"m5dn.large\\",
+   \\"m5dn.xlarge\\", \\"m5n.12xlarge\\", \\"m5n.16xlarge\\", \\"m5n.24xlarge\\", \\"m5n.2xlarge\\",
+         \\"m5n.4xlarge\\", \\"m5n.8xlarge\\", \\"m5n.large\\", \\"m5n.xlarge\\", \\"p2.16xlarge\\",
+           \\"p2.8xlarge\\", \\"p2.xlarge\\", \\"p3.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\",
+          \\"p3dn.24xlarge\\", \\"r3.2xlarge\\", \\"r3.4xlarge\\", \\"r3.8xlarge\\", \\"r3.large\\",
+           \\"r3.xlarge\\", \\"r4.16xlarge\\", \\"r4.2xlarge\\", \\"r4.4xlarge\\", \\"r4.8xlarge\\",
+           \\"r4.large\\", \\"r4.xlarge\\", \\"r5.12xlarge\\", \\"r5.16xlarge\\", \\"r5.24xlarge\\",
+  \\"r5.2xlarge\\", \\"r5.4xlarge\\", \\"r5.8xlarge\\", \\"r5.large\\", \\"r5.metal\\", \\"r5.xlarge\\",
+   \\"r5a.12xlarge\\", \\"r5a.16xlarge\\", \\"r5a.24xlarge\\", \\"r5a.2xlarge\\", \\"r5a.4xlarge\\",
+     \\"r5a.8xlarge\\", \\"r5a.large\\", \\"r5a.xlarge\\", \\"r5ad.12xlarge\\", \\"r5ad.16xlarge\\",
+  \\"r5ad.24xlarge\\", \\"r5ad.2xlarge\\", \\"r5ad.4xlarge\\", \\"r5ad.8xlarge\\", \\"r5ad.large\\",
+   \\"r5ad.xlarge\\", \\"r5d.12xlarge\\", \\"r5d.16xlarge\\", \\"r5d.24xlarge\\", \\"r5d.2xlarge\\",
+           \\"r5d.4xlarge\\", \\"r5d.8xlarge\\", \\"r5d.large\\", \\"r5d.metal\\", \\"r5d.xlarge\\",
+              \\"r5dn.12xlarge\\", \\"r5dn.16xlarge\\", \\"r5dn.24xlarge\\", \\"r5dn.2xlarge\\",
+    \\"r5dn.4xlarge\\", \\"r5dn.8xlarge\\", \\"r5dn.large\\", \\"r5dn.xlarge\\", \\"r5n.12xlarge\\",
+    \\"r5n.16xlarge\\", \\"r5n.24xlarge\\", \\"r5n.2xlarge\\", \\"r5n.4xlarge\\", \\"r5n.8xlarge\\",
+   \\"r5n.large\\", \\"r5n.xlarge\\", \\"t1.micro\\", \\"t2.2xlarge\\", \\"t2.large\\", \\"t2.medium\\",
+     \\"t2.micro\\", \\"t2.small\\", \\"t2.xlarge\\", \\"t3.2xlarge\\", \\"t3.large\\", \\"t3.medium\\",
+     \\"t3.micro\\", \\"t3.nano\\", \\"t3.small\\", \\"t3.xlarge\\", \\"t3a.2xlarge\\", \\"t3a.large\\",
+               \\"t3a.medium\\", \\"t3a.micro\\", \\"t3a.nano\\", \\"t3a.small\\", \\"t3a.xlarge\\",
+    \\"x1.16xlarge\\", \\"x1.32xlarge\\", \\"x1e.16xlarge\\", \\"x1e.2xlarge\\", \\"x1e.32xlarge\\",
+      \\"x1e.4xlarge\\", \\"x1e.8xlarge\\", \\"x1e.xlarge\\", \\"z1d.12xlarge\\", \\"z1d.2xlarge\\",
+           \\"z1d.3xlarge\\", \\"z1d.6xlarge\\", \\"z1d.large\\", \\"z1d.metal\\", \\"z1d.xlarge\\"]
+  --families, -f             EC2 instance families. Requires \`sizes\` parameter.
+       [array] [choices: \\"a1\\", \\"c1\\", \\"c3\\", \\"c4\\", \\"c5\\", \\"c5d\\", \\"c5n\\", \\"d2\\", \\"f1\\",
+    \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4dn\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"m1\\", \\"m2\\", \\"m3\\", \\"m4\\",
+      \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"r3\\", \\"r4\\",
+       \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"t1\\", \\"t2\\", \\"t3\\", \\"t3a\\", \\"x1\\",
+                                                                   \\"x1e\\", \\"z1d\\"]
+  --sizes, -s                EC2 instance sizes. Requires \`families\` parameter.
+   [array] [choices: \\"10xlarge\\", \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\",
+   \\"2xlarge\\", \\"32xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\",
+                 \\"large\\", \\"medium\\", \\"metal\\", \\"micro\\", \\"nano\\", \\"small\\", \\"xlarge\\"]
+  --limit, -l                Limit results output length  [number] [default: 20]
+  --priceMax, -p             Maximum price                              [number]
+  --productDescriptions, -d  Product descriptions. Choose \`windows\` or \`linux\`
+                             (all lowercase) as wildcard.
+  [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
+      Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
+           (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
+  --accessKeyId              AWS Access Key ID.                         [string]
+  --secretAccessKey          AWS Secret Access Key.                     [string]
+"
+`;
