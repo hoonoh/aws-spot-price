@@ -107,3 +107,10 @@ export const nockEndpoint = (options: {
       ];
     });
 };
+
+export const consoleMockCallJoin = (type: 'log' | 'warn' | 'error' = 'log') => {
+  // @ts-ignore
+  const { calls }: { calls: string[][] } = console[type].mock;
+  if (calls) return calls.map(sa => sa.join(' ')).join('\n');
+  return '';
+};
