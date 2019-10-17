@@ -3,7 +3,7 @@ import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import * as nock from 'nock';
 
-import { nockEndpoint } from '../test/mock-aws-endpoint';
+import { consoleMockCallJoin, nockEndpoint } from '../test/test-utils';
 import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
 import { defaultRegions, Region } from './regions';
 
@@ -45,7 +45,7 @@ describe('lib', () => {
           priceMax: 1,
           productDescriptions: ['Linux/UNIX'],
           limit: 20,
-          // quiet: true,
+          quiet: true,
         });
       });
 
@@ -134,8 +134,7 @@ describe('lib', () => {
       it('should console log error', async () => {
         await getGlobalSpotPrices({ regions: [region] });
         expect(console.error).toHaveBeenCalled();
-        // @ts-ignore
-        expect(console.error.mock.calls[0][0]).toContain('unexpected getEc2SpotPrice error');
+        expect(consoleMockCallJoin('error')).toContain('unexpected getEc2SpotPrice error');
       });
     });
   });
