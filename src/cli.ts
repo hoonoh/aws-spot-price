@@ -261,6 +261,10 @@ if (
     require.main.filename.endsWith(`${sep}bin${sep}aws-spot-price`))
 ) {
   (async (): Promise<void> => {
-    await main();
+    try {
+      await main();
+    } catch (error) {
+      //
+    }
   })();
 }
