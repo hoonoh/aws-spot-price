@@ -62,18 +62,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
             string: true,
             // demandOption: true, // TEMP
           },
-          limit: {
-            alias: 'l',
-            describe: 'Limit results output length',
-            type: 'number',
-            default: defaults.limit,
-            coerce: (val: number | number[]): number | undefined => {
-              if (typeof val === 'object') {
-                return val.pop();
-              }
-              return val;
-            },
-          },
           priceMax: {
             alias: 'p',
             describe: 'Maximum price',
@@ -91,6 +79,18 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 productDescriptionWildcards,
               ) as (keyof typeof productDescriptionWildcards)[]),
             ],
+          },
+          limit: {
+            alias: 'l',
+            describe: 'Limit results output length',
+            type: 'number',
+            default: defaults.limit,
+            coerce: (val: number | number[]): number | undefined => {
+              if (typeof val === 'object') {
+                return val.pop();
+              }
+              return val;
+            },
           },
           accessKeyId: {
             describe: 'AWS Access Key ID.',
