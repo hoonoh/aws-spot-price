@@ -15,7 +15,8 @@ Defaults to all available AWS region which does not require opt-in.
 
 ### --family
 
-EC2 instance families to filter. Accepts multiple string values.
+EC2 instance families to filter. Will be translated to `--familyType` and `--size` values.
+Accepts multiple string values.
 Choose from: `general`, `compute`, `memory`, `storage`, `acceleratedComputing`
 
 ### --instanceType | -i
@@ -34,10 +35,6 @@ For example, `-f c4 c5 -s large xlarge` is equivalent to `-i c4.large c5.large c
 EC2 size (`large`, `xlarge`, etc..). Accepts multiple string values. Requires `--familyType` option to be used together.
 See [`--familyType`](#familyType) section for more detail.
 
-### --limit | -l
-
-Limits list of price information items to be returned.
-
 ### --priceMax | -p
 
 Maximum price.
@@ -46,6 +43,10 @@ Maximum price.
 
 Instance product description to filter. Accepts multiple string values.
 You can use `linux` or `windows` (all in lowercase) as wildcard.
+
+### --limit | -l
+
+Limits list of price information items to be returned.
 
 ### --accessKeyId
 
