@@ -62,7 +62,7 @@ export const nockEndpoint = (options: {
 
       const instanceData: SpotPrice[] = filter(regionalData[region], (o: SpotPrice) => {
         let rtn = true;
-        if (instanceTypes.length && (!o.InstanceType || instanceTypes.includes(o.InstanceType))) {
+        if (instanceTypes.length && (!o.InstanceType || !instanceTypes.includes(o.InstanceType))) {
           rtn = false;
         }
         if (
