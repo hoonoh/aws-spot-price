@@ -1,5 +1,6 @@
 import { EC2, STS } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
+import * as ora from 'ora';
 import { table } from 'table';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
@@ -139,6 +140,11 @@ export const getGlobalSpotPrices = async (options?: {
     }
   }
 
+  const spinner = ora({
+    text: 'Waiting for data to be retrieved...',
+    discardStdin: false,
+  }).start();
+
   await Promise.all(
     regions.map(async region => {
       const regionsPrices = await getEc2SpotPrice({
@@ -149,10 +155,10 @@ export const getGlobalSpotPrices = async (options?: {
         secretAccessKey,
       });
       rtn = [...rtn, ...regionsPrices];
-      if (!silent) process.stdout.write('.');
+      if (!silent) spinner.text = `Retrieved data from ${region}...`;
     }),
   );
-  if (!silent) process.stdout.write('\n');
+  if (!silent) spinner.succeed('All data retrieved!').stop();
 
   rtn = rtn.reduce(
     (list, cur) => {
