@@ -111,7 +111,7 @@ describe('lib', () => {
 
       it(`should return prices less than ${priceMax}`, () => {
         results.forEach(r => {
-          expect(parseFloat(r.SpotPrice!)).toBeLessThanOrEqual(priceMax);
+          expect(parseFloat(r.SpotPrice || '0')).toBeLessThanOrEqual(priceMax);
         });
       });
     });

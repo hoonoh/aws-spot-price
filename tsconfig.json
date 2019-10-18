@@ -13,5 +13,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "exclude": ["node_modules", "util", "test", "src/*.spec.ts"]
+  "files": [
+    "src/cli.ts",
+    "src/ec2-types.ts",
+    "src/lib.ts",
+    "src/product-description.ts",
+    "src/regions.ts"
+  ],
+  "exclude": ["node_modules"]
 }

@@ -13,13 +13,14 @@ import {
 import { awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
 import {
   allProductDescriptions,
+  instanceOfProductDescription,
   ProductDescription,
   productDescriptionWildcards,
 } from './product-description';
 import { defaultRegions, Region } from './regions';
 
-export const main = (argvInput?: string[]) =>
-  new Promise((res, rej) => {
+export const main = (argvInput?: string[]): Promise<void> =>
+  new Promise((res, rej): void => {
     const y = yargs
       .scriptName('spot-price')
       .command(
@@ -66,7 +67,7 @@ export const main = (argvInput?: string[]) =>
             describe: 'Limit results output length',
             type: 'number',
             default: defaults.limit,
-            coerce: (val: number | number[]) => {
+            coerce: (val: number | number[]): number | undefined => {
               if (typeof val === 'object') {
                 return val.pop();
               }
@@ -102,114 +103,124 @@ export const main = (argvInput?: string[]) =>
         },
 
         async args => {
-          const {
-            region,
-            instanceType,
-            family,
-            familyType,
-            size,
-            limit,
-            priceMax,
-            productDescription,
-            accessKeyId,
-            secretAccessKey,
-          } = args;
-
-          if ((!familyType && size) || (familyType && !size)) {
-            console.log('`familyTypes` or `sizes` attribute missing.');
-            rej();
-            return;
-          }
-
-          // process instance types
-          let instanceTypeSet: Set<InstanceType> | undefined;
-          if (instanceType) {
-            instanceTypeSet = new Set();
-            (instanceType as InstanceType[]).forEach(type => {
-              instanceTypeSet!.add(type);
-            });
-          }
-
-          // process instance families
-          if (family) {
-            if (!instanceTypeSet) instanceTypeSet = new Set();
-            (family as (keyof typeof instanceFamily)[]).forEach(f => {
-              instanceFamily[f].forEach((type: InstanceFamilyType) => {
-                allInstances
-                  .filter(instance => instance.startsWith(type))
-                  .forEach(instance => instanceTypeSet!.add(instance));
-              });
-            });
-          }
-
-          // process product description
-          function instanceOfProductDescription(pd: string): pd is ProductDescription {
-            return allProductDescriptions.includes(pd as ProductDescription);
-          }
-          let productDescriptionsSet: Set<ProductDescription> | undefined;
-          if (productDescription) {
-            productDescriptionsSet = new Set<ProductDescription>();
-            (productDescription as (
-              | ProductDescription
-              | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
-              if (instanceOfProductDescription(pd)) {
-                productDescriptionsSet!.add(pd);
-              } else if (pd === 'linux') {
-                productDescriptionWildcards.linux.forEach(desc =>
-                  productDescriptionsSet!.add(desc),
-                );
-              } else {
-                // `} else if (pd === 'windows') {`
-                // only windows wildcard case left: replaced with else for test coverage
-                productDescriptionWildcards.windows.forEach(desc =>
-                  productDescriptionsSet!.add(desc),
-                );
-              }
-            });
-          }
-
-          if (
-            (accessKeyId !== undefined && secretAccessKey === undefined) ||
-            (accessKeyId === undefined && secretAccessKey !== undefined)
-          ) {
-            console.log('`accessKeyId` & `secretAccessKey` should always be used together.');
-            rej();
-            return;
-          }
-
-          // test credentials
-          const awsCredentialValidity = await awsCredentialsCheck({ accessKeyId, secretAccessKey });
-          if (!awsCredentialValidity) {
-            console.log('Invalid AWS credentials provided.');
-            rej();
-            return;
-          }
-
           try {
+            const {
+              region,
+              instanceType,
+              family,
+              familyType,
+              size,
+              limit,
+              priceMax,
+              productDescription,
+              accessKeyId,
+              secretAccessKey,
+            } = args;
+
+            if ((!familyType && size) || (familyType && !size)) {
+              console.log('`familyTypes` or `sizes` attribute missing.');
+              rej();
+              return;
+            }
+
+            const familyTypeSet = new Set<InstanceFamilyType>();
+            if (familyType) {
+              (familyType as InstanceFamilyType[]).forEach(t => {
+                familyTypeSet.add(t);
+              });
+            }
+
+            const sizeSet = new Set<InstanceSize>();
+            if (size) {
+              (size as InstanceSize[]).forEach(s => {
+                sizeSet.add(s);
+              });
+            }
+
+            // process instance families
+            if (family) {
+              (family as (keyof typeof instanceFamily)[]).forEach(f => {
+                instanceFamily[f].forEach((t: InstanceFamilyType) => {
+                  familyTypeSet.add(t);
+                  allInstances
+                    .filter(instance => instance.startsWith(t))
+                    .forEach(instance => {
+                      sizeSet.add(instance.split('.').pop() as InstanceSize);
+                    });
+                });
+              });
+            }
+
+            // process product description
+            const productDescriptionsSet = new Set<ProductDescription>();
+            if (productDescription) {
+              (productDescription as (
+                | ProductDescription
+                | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
+                if (instanceOfProductDescription(pd)) {
+                  productDescriptionsSet.add(pd);
+                } else if (pd === 'linux') {
+                  productDescriptionWildcards.linux.forEach(desc => {
+                    productDescriptionsSet.add(desc);
+                  });
+                } else {
+                  // `} else if (pd === 'windows') {`
+                  // only windows wildcard case left: replaced with else for test coverage
+                  productDescriptionWildcards.windows.forEach(desc => {
+                    productDescriptionsSet.add(desc);
+                  });
+                }
+              });
+            }
+
+            if (
+              (accessKeyId !== undefined && secretAccessKey === undefined) ||
+              (accessKeyId === undefined && secretAccessKey !== undefined)
+            ) {
+              console.log('`accessKeyId` & `secretAccessKey` should always be used together.');
+              rej();
+              return;
+            }
+
+            // test credentials
+            const awsCredentialValidity = await awsCredentialsCheck({
+              accessKeyId,
+              secretAccessKey,
+            });
+            if (!awsCredentialValidity) {
+              console.log('Invalid AWS credentials provided.');
+              rej();
+              return;
+            }
+
+            const productDescriptionsSetArray = Array.from(productDescriptionsSet);
+            const familyTypeSetArray = Array.from(familyTypeSet);
+            const sizeSetArray = Array.from(sizeSet);
+
             console.log('Querying current spot prices with options:');
             console.group();
             console.log('limit:', limit);
             if (region) console.log('regions:', region.join(', '));
-            if (instanceTypeSet)
-              console.log('instanceTypes:', Array.from(instanceTypeSet).join(', '));
-            if (familyType) console.log('familyTypes:', familyType.join(', '));
-            if (size) console.log('sizes:', size.join(', '));
+            if (instanceType) console.log('instanceTypes:', instanceType.join(', '));
+            if (familyTypeSetArray.length)
+              console.log('familyTypes:', familyTypeSetArray.join(', '));
+            if (sizeSetArray.length) console.log('sizes:', sizeSetArray.join(', '));
             if (priceMax) console.log('priceMax:', priceMax);
-            if (productDescriptionsSet)
-              console.log('productDescriptions:', Array.from(productDescriptionsSet).join(', '));
+            if (productDescriptionsSetArray.length)
+              console.log('productDescriptions:', productDescriptionsSetArray.join(', '));
             console.groupEnd();
 
             await getGlobalSpotPrices({
               regions: region as Region[],
-              instanceTypes: instanceTypeSet
-                ? (Array.from(instanceTypeSet) as InstanceType[])
+              instanceTypes: instanceType as InstanceType[],
+              familyTypes: familyTypeSetArray.length
+                ? (familyTypeSetArray as InstanceFamilyType[])
                 : undefined,
-              familyTypes: familyType as InstanceFamilyType[],
-              sizes: size as InstanceSize[],
+              sizes: sizeSetArray.length ? (sizeSetArray as InstanceSize[]) : undefined,
               limit,
               priceMax,
-              productDescriptions: productDescriptionsSet
-                ? Array.from(productDescriptionsSet)
+              productDescriptions: productDescriptionsSetArray.length
+                ? productDescriptionsSetArray
                 : undefined,
               accessKeyId,
               secretAccessKey,
@@ -236,7 +247,7 @@ export const main = (argvInput?: string[]) =>
     }
 
     /* istanbul ignore next */
-    const cleanExit = () => {
+    const cleanExit = (): void => {
       process.exit();
     };
     process.on('SIGINT', cleanExit); // catch ctrl-c
@@ -249,7 +260,7 @@ if (
   (require.main.filename === module.filename ||
     require.main.filename.endsWith(`${sep}bin${sep}aws-spot-price`))
 ) {
-  (async () => {
+  (async (): Promise<void> => {
     await main();
   })();
 }

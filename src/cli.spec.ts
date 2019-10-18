@@ -77,7 +77,7 @@ describe('cli', () => {
       } catch (error) {
         caughtError = true;
       }
-      expect(caughtError).toBeTrue();
+      expect(caughtError).toBeTruthy();
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
@@ -88,7 +88,7 @@ describe('cli', () => {
       } catch (error) {
         caughtError = true;
       }
-      expect(caughtError).toBeTrue();
+      expect(caughtError).toBeTruthy();
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
@@ -99,7 +99,7 @@ describe('cli', () => {
       } catch (error) {
         caughtError = true;
       }
-      expect(caughtError).toBeTrue();
+      expect(caughtError).toBeTruthy();
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
   });

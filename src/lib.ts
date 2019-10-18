@@ -6,7 +6,7 @@ import { InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
 import { ProductDescription } from './product-description';
 import { defaultRegions, Region, regionNames } from './regions';
 
-const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice) => {
+const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   let rtn = 0;
   const p1SpotPrice = p1.SpotPrice || 0;
   const p2SpotPrice = p2.SpotPrice || 0;
@@ -43,7 +43,7 @@ const getEc2SpotPrice = async (options: {
   productDescriptions?: ProductDescription[];
   accessKeyId?: string;
   secretAccessKey?: string;
-}) => {
+}): Promise<EC2.SpotPrice[]> => {
   const { region, instanceTypes, productDescriptions, accessKeyId, secretAccessKey } = options;
 
   let rtn: EC2.SpotPrice[] = [];
@@ -96,7 +96,6 @@ export const defaults = {
 
 export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];
-  // families?:
   familyTypes?: InstanceFamilyType[];
   sizes?: InstanceSize[];
   priceMax?: number;
@@ -106,7 +105,7 @@ export const getGlobalSpotPrices = async (options?: {
   quiet?: boolean;
   accessKeyId?: string;
   secretAccessKey?: string;
-}) => {
+}): Promise<EC2.SpotPrice[]> => {
   const {
     familyTypes,
     sizes,
@@ -119,18 +118,25 @@ export const getGlobalSpotPrices = async (options?: {
   } = options || {
     limit: defaults.limit,
   };
+
   let { regions, instanceTypes } = options || {};
+
   let rtn: EC2.SpotPrice[] = [];
 
   if (regions === undefined) regions = defaultRegions;
 
   if (familyTypes && sizes) {
-    if (!instanceTypes) instanceTypes = [];
+    const instanceTypesGenerated: InstanceType[] = [];
     familyTypes.forEach(family => {
       sizes.forEach(size => {
-        instanceTypes!.push(`${family}.${size}` as InstanceType);
+        instanceTypesGenerated.push(`${family}.${size}` as InstanceType);
       });
     });
+    if (!instanceTypes) {
+      instanceTypes = instanceTypesGenerated;
+    } else {
+      instanceTypes = instanceTypes.concat(instanceTypesGenerated);
+    }
   }
 
   await Promise.all(
@@ -214,7 +220,7 @@ export const getGlobalSpotPrices = async (options?: {
 export const awsCredentialsCheck = async (options?: {
   accessKeyId?: string;
   secretAccessKey?: string;
-}) => {
+}): Promise<boolean> => {
   const { accessKeyId, secretAccessKey } = options || {};
 
   let isValid = true;
