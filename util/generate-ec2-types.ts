@@ -94,7 +94,7 @@ const sortInstances = (i1: string, i2: string): number => {
 const getEc2Types = async (): Promise<string> => {
   defaultRegions.forEach(region => nockEndpoint({ region })); // TEMP FOR TESTING
 
-  const allInstances = (await getGlobalSpotPrices({ quiet: true })).reduce(
+  const allInstances = (await getGlobalSpotPrices({ silent: true })).reduce(
     (list, cur) => {
       if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);
       return list;

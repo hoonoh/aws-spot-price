@@ -45,7 +45,7 @@ describe('lib', () => {
           priceMax: 1,
           productDescriptions: ['Linux/UNIX'],
           limit: 20,
-          quiet: true,
+          silent: true,
         });
       });
 
@@ -70,7 +70,7 @@ describe('lib', () => {
           instanceTypes: ['c5.2xlarge'],
           productDescriptions: ['Linux/UNIX'],
           limit: 200,
-          quiet: true,
+          silent: true,
         });
       });
 
@@ -101,7 +101,7 @@ describe('lib', () => {
 
         results = await getGlobalSpotPrices({
           priceMax,
-          quiet: true,
+          silent: true,
         });
       });
 
