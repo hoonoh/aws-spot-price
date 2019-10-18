@@ -64,12 +64,17 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should return expected values with instance families and sizes', async () => {
+    it('should return expected values with instance family types and sizes', async () => {
       await main(['-f', 'c5', '-s', 'large']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should handle invalid usage of instance families and sizes option', async () => {
+    it('should handle instance family option', async () => {
+      await main(['--family', 'compute']);
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
+    it('should handle invalid usage of instance family types and sizes option', async () => {
       let caughtError = false;
 
       try {
