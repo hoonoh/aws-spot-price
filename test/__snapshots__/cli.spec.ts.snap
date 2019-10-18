@@ -1,10 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli test by import should handle instance family option 1`] = `
+"Querying current spot prices with options:
+limit: 20
+familyTypes: c1, c3, c4, c5, c5d, c5n
+sizes: medium, xlarge, large, 2xlarge, 4xlarge, 8xlarge, 9xlarge, 12xlarge, 18xlarge, 24xlarge, metal
+╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1a      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1a      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1b      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1b      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1c      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1c      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1d      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1d      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2a      │ US West (Oregon)        ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2b      │ US West (Oregon)        ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2c      │ US West (Oregon)        ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1a      │ EU (Ireland)            ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1b      │ EU (Ireland)            ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1c      │ EU (Ireland)            ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ us-west-1b      │ US West (N. California) ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ us-west-1c      │ US West (N. California) ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.015800 │ Linux/UNIX              │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.015800 │ Linux/UNIX              │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
+╚═══════════╧══════════╧═════════════════════════╧═════════════════╧═════════════════════════╝
+"
+`;
+
 exports[`cli test by import should handle invalid credentials error 1`] = `"Invalid AWS credentials provided."`;
 
 exports[`cli test by import should handle invalid usage of accessKeyId and secretAccessKey 1`] = `"\`accessKeyId\` & \`secretAccessKey\` should always be used together."`;
 
-exports[`cli test by import should handle invalid usage of instance families and sizes option 1`] = `"\`familyTypes\` or \`sizes\` attribute missing."`;
+exports[`cli test by import should handle invalid usage of instance family types and sizes option 1`] = `"\`familyTypes\` or \`sizes\` attribute missing."`;
 
 exports[`cli test by import should print help 1`] = `
 "spot-price
@@ -142,7 +191,7 @@ limit: 20
 "
 `;
 
-exports[`cli test by import should return expected values with instance families and sizes 1`] = `
+exports[`cli test by import should return expected values with instance family types and sizes 1`] = `
 "Querying current spot prices with options:
 limit: 20
 familyTypes: c5
