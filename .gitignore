@@ -1,3 +1,4 @@
-node_modules
-dist
+.vscode
 coverage
+dist
+node_modules

@@ -30,7 +30,8 @@
     "build": "tsc",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "test": "jest --runInBand",
-    "test:coverage": "yarn test --coverage"
+    "test:coverage": "yarn test --coverage",
+    "lint": "eslint **/*.ts"
   },
   "config": {
     "commitizen": {
@@ -41,6 +42,25 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "eslintIgnore": [
+    "dist"
+  ],
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "all",
+    "singleQuote": true
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "reporters": [
+      "default"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "snapshotResolver": "./test/snapshot-resolver.js"
   },
   "release": {
     "branch": "next"
@@ -53,7 +73,6 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
-    "@istanbuljs/nyc-config-typescript": "^0.1.3",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.144",
     "@types/node": "^12.7.5",
@@ -72,10 +91,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "execa": "^3.1.0",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
-    "jest-extended": "^0.11.2",
     "jest-mock-console": "^1.0.0",
     "nock": "^11.4.0",
     "prettier": "^1.18.2",

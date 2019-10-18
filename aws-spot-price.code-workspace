@@ -6,8 +6,6 @@
   ],
 
   "settings": {
-    "cSpell.words": ["dbaeumer", "downlevel", "esbenp", "esnext", "streetsidesoftware"],
-
     // editor
     "editor.rulers": [100],
     "editor.tabSize": 2,
@@ -30,10 +28,7 @@
       { "language": "typescript", "autoFix": true }
     ],
     "eslint.autoFixOnSave": true,
-    "eslint.run": "onType",
-    // "eslint.workingDirectories": [
-    //   // { "directory": "workspaceFolder:xxx", "changeProcessCWD": true },
-    // ]
+    "eslint.run": "onType"
   },
 
   "extensions": {
@@ -41,7 +36,51 @@
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
       "mike-co.import-sorter",
-      "streetsidesoftware.code-spell-checker"
+      "KnisterPeter.vscode-commitizen"
+    ]
+  },
+
+  "launch": {
+    "configurations": [
+      {
+        "name": "current TS file",
+        "type": "node",
+        "request": "launch",
+        "args": ["${relativeFile}"],
+        "sourceMaps": true,
+        "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+        "protocol": "inspector",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "runtimeExecutable": "node",
+        "cwd": "${workspaceRoot}"
+      },
+      {
+        "name": "current TS test file",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceRoot}/node_modules/.bin/jest",
+        "args": ["--runInBand", "--no-cache", "${relativeFile}"],
+        "sourceMaps": true,
+        "protocol": "inspector",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "runtimeExecutable": "node",
+        "cwd": "${workspaceRoot}"
+      },
+      {
+        "name": "current TS test file with selected text as test name",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceRoot}/node_modules/.bin/jest",
+        "args": ["--runInBand", "--no-cache", "-t", "${selectedText}", "${relativeFile}"],
+        "sourceMaps": true,
+        "protocol": "inspector",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "runtimeExecutable": "node",
+        "cwd": "${workspaceRoot}"
+      }
     ]
   }
 }

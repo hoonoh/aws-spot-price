@@ -8,7 +8,7 @@ import { defaultRegions, Region } from '../src/regions';
 
 let allPrices: EC2.SpotPrice[] = [];
 
-const fetchData = async (region: Region, token?: string) => {
+const fetchData = async (region: Region, token?: string): Promise<void> => {
   process.stdout.write('.');
   const ec2 = new EC2({ region });
   const startTime = new Date();
@@ -45,7 +45,7 @@ const { argv } = yargs
           promise.then(() => {
             const lastCount = allPrices.length;
             process.stdout.write(`${region} `);
-            return new Promise(res => {
+            return new Promise((res): void => {
               fetchData(region).then(() => {
                 process.stdout.write(` ${allPrices.length - lastCount} total\n`);
                 res();
@@ -123,7 +123,7 @@ const { argv } = yargs
 
 if (!argv) console.log(argv); // dummy to get around type error;
 
-const cleanExit = () => {
+const cleanExit = (): void => {
   process.exit();
 };
 process.on('SIGINT', cleanExit); // catch ctrl-c

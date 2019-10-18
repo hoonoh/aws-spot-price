@@ -17,3 +17,7 @@ export const productDescriptionWildcards = {
   linux: linuxProductDescriptions,
   windows: windowsProductDescriptions,
 } as const;
+
+export const instanceOfProductDescription = (pd: string): pd is ProductDescription => {
+  return allProductDescriptions.includes(pd as ProductDescription);
+};

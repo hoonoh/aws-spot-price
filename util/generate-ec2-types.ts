@@ -1,6 +1,5 @@
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import * as prettier from 'prettier';
 
 import { getGlobalSpotPrices } from '../src/lib';
@@ -47,7 +46,7 @@ const sizeOrder = [
   'metal',
 ];
 
-const sortFamilies = (f1: string, f2: string) => {
+const sortFamilies = (f1: string, f2: string): number => {
   let rtn = 0;
   if (f1[0] === f2[0]) {
     if (f1 < f2) rtn = -1;
@@ -63,7 +62,7 @@ const sortFamilies = (f1: string, f2: string) => {
   return rtn;
 };
 
-const sortSizes = (s1: string, s2: string) => {
+const sortSizes = (s1: string, s2: string): number => {
   let rtn = 0;
   const i1 = sizeOrder.indexOf(s1);
   const i2 = sizeOrder.indexOf(s2);
@@ -74,7 +73,7 @@ const sortSizes = (s1: string, s2: string) => {
   return rtn;
 };
 
-const sortInstances = (i1: string, i2: string) => {
+const sortInstances = (i1: string, i2: string): number => {
   let rtn = 0;
   const [f1, s1] = i1.split('.');
   const [f2, s2] = i2.split('.');
@@ -92,7 +91,7 @@ const sortInstances = (i1: string, i2: string) => {
   return rtn;
 };
 
-export const getEc2Types = async () => {
+const getEc2Types = async (): Promise<string> => {
   defaultRegions.forEach(region => nockEndpoint({ region })); // TEMP FOR TESTING
 
   const allInstances = (await getGlobalSpotPrices({ quiet: true })).reduce(
@@ -178,7 +177,7 @@ export const getEc2Types = async () => {
 };
 
 if (require.main && require.main.filename === module.filename) {
-  (async () => {
+  (async (): Promise<void> => {
     const targetPath = resolve(__dirname, '../src/ec2-types.ts');
     writeFileSync(targetPath, await getEc2Types());
   })();
