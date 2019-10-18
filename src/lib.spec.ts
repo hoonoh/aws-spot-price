@@ -40,7 +40,7 @@ describe('lib', () => {
         );
 
         results = await getGlobalSpotPrices({
-          families: ['c4', 'c5'],
+          familyTypes: ['c4', 'c5'],
           sizes: ['large', 'xlarge'],
           priceMax: 1,
           productDescriptions: ['Linux/UNIX'],
@@ -65,7 +65,7 @@ describe('lib', () => {
         defaultRegions.forEach(region => nockEndpoint({ region }));
 
         results = await getGlobalSpotPrices({
-          families: ['c4', 'c5'],
+          familyTypes: ['c4', 'c5'],
           sizes: ['large', 'xlarge'],
           instanceTypes: ['c5.2xlarge'],
           productDescriptions: ['Linux/UNIX'],
