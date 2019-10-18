@@ -1,6 +1,7 @@
 import { sep } from 'path';
 import * as yargs from 'yargs';
 
+import { Answers, ui } from './cli-ui';
 import {
   allInstances,
   instanceFamily,
@@ -100,6 +101,11 @@ export const main = (argvInput?: string[]): Promise<void> =>
             describe: 'AWS Secret Access Key.',
             type: 'string',
           },
+          ui: {
+            describe: 'Start with UI mode',
+            type: 'boolean',
+            default: false,
+          },
         },
 
         async args => {
@@ -197,19 +203,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
             const familyTypeSetArray = Array.from(familyTypeSet);
             const sizeSetArray = Array.from(sizeSet);
 
-            console.log('Querying current spot prices with options:');
-            console.group();
-            console.log('limit:', limit);
-            if (region) console.log('regions:', region.join(', '));
-            if (instanceType) console.log('instanceTypes:', instanceType.join(', '));
-            if (familyTypeSetArray.length)
-              console.log('familyTypes:', familyTypeSetArray.join(', '));
-            if (sizeSetArray.length) console.log('sizes:', sizeSetArray.join(', '));
-            if (priceMax) console.log('priceMax:', priceMax);
-            if (productDescriptionsSetArray.length)
-              console.log('productDescriptions:', productDescriptionsSetArray.join(', '));
-            console.groupEnd();
-
             await getGlobalSpotPrices({
               regions: region as Region[],
               instanceTypes: instanceType as InstanceType[],
@@ -242,17 +235,83 @@ export const main = (argvInput?: string[]): Promise<void> =>
       y.exitProcess(false);
       y.parse(argvInput);
       if (argvInput.includes('--help')) res();
+    } else if (process.argv.includes('--ui')) {
+      ui().then(answers => {
+        if (answers) {
+          let params: string[] = [];
+          (Object.keys(answers) as (keyof Answers)[]).forEach(p => {
+            switch (p) {
+              case 'region':
+                if (answers[p].length) {
+                  params.push('-r');
+                  params = [...params, ...answers[p]];
+                }
+                break;
+
+              case 'familyType':
+                if (answers[p].length) {
+                  params.push('-f');
+                  params = [...params, ...answers[p]];
+                }
+                break;
+              case 'size':
+                if (answers[p].length) {
+                  params.push('-s');
+                  params = [...params, ...answers[p]];
+                }
+                break;
+              case 'productDescription':
+                if (answers[p].length) {
+                  params.push('-d');
+                  params = [...params, ...answers[p]];
+                }
+                break;
+              case 'maxPrice':
+                if (answers[p]) {
+                  params.push('-p');
+                  params.push(answers[p].toString());
+                }
+                break;
+              case 'limit':
+                if (answers[p]) {
+                  params.push('-l');
+                  params.push(answers[p].toString());
+                }
+                break;
+
+              case 'accessKeyId':
+                if (answers[p]) {
+                  params.push('--accessKeyId');
+                  params.push(answers[p]);
+                }
+                break;
+              case 'secretAccessKey':
+                if (answers[p]) {
+                  params.push('--secretAccessKey');
+                  params.push(answers[p]);
+                }
+                break;
+
+              default:
+                break;
+            }
+          });
+          y.parse(params);
+        } else {
+          console.log('aborted');
+        }
+      });
     } else {
       y.parse(process.argv);
     }
-
-    /* istanbul ignore next */
-    const cleanExit = (): void => {
-      process.exit();
-    };
-    process.on('SIGINT', cleanExit); // catch ctrl-c
-    process.on('SIGTERM', cleanExit); // catch kill
   });
+
+/* istanbul ignore next */
+const cleanExit = (): void => {
+  process.exit();
+};
+process.on('SIGINT', cleanExit); // catch ctrl-c
+process.on('SIGTERM', cleanExit); // catch kill
 
 /* istanbul ignore if */
 if (

@@ -102,7 +102,7 @@ export const getGlobalSpotPrices = async (options?: {
   instanceTypes?: InstanceType[];
   productDescriptions?: ProductDescription[];
   limit?: number;
-  quiet?: boolean;
+  silent?: boolean;
   accessKeyId?: string;
   secretAccessKey?: string;
 }): Promise<EC2.SpotPrice[]> => {
@@ -112,7 +112,7 @@ export const getGlobalSpotPrices = async (options?: {
     priceMax,
     productDescriptions,
     limit,
-    quiet,
+    silent,
     accessKeyId,
     secretAccessKey,
   } = options || {
@@ -149,10 +149,10 @@ export const getGlobalSpotPrices = async (options?: {
         secretAccessKey,
       });
       rtn = [...rtn, ...regionsPrices];
-      if (!quiet) process.stdout.write('.');
+      if (!silent) process.stdout.write('.');
     }),
   );
-  if (!quiet) process.stdout.write('\n');
+  if (!silent) process.stdout.write('\n');
 
   rtn = rtn.reduce(
     (list, cur) => {
@@ -164,13 +164,10 @@ export const getGlobalSpotPrices = async (options?: {
   );
 
   // log output
-  const tableOutput: (string | undefined)[][] = [];
   rtn = rtn.sort(sortSpotPrice).reduce(
     (list, price, idx, arr) => {
       // since price info without price or region will be pointless..
       if (!price.SpotPrice || !price.AvailabilityZone) return list;
-
-      const regionName = regionNames[price.AvailabilityZone.slice(0, -1) as Region];
 
       // look for duplicate
       let duplicate = find(list, {
@@ -190,18 +187,7 @@ export const getGlobalSpotPrices = async (options?: {
         duplicate = undefined;
       }
 
-      if (duplicate === undefined) {
-        if (!quiet) {
-          tableOutput.push([
-            price.InstanceType,
-            price.SpotPrice,
-            price.ProductDescription,
-            price.AvailabilityZone,
-            regionName,
-          ]);
-        }
-        list.push(price);
-      }
+      if (duplicate === undefined) list.push(price);
 
       // stop reduce loop if list has reached limit
       if (limit && list.length >= limit) arr.splice(0);
@@ -211,8 +197,31 @@ export const getGlobalSpotPrices = async (options?: {
     [] as EC2.SpotPrice[],
   );
 
-  if (tableOutput.length) console.log(table(tableOutput));
-  else if (!quiet) console.log('no matching records found');
+  if (!silent) {
+    if (rtn.length > 0) {
+      console.log(
+        table(
+          rtn.reduce(
+            (list, price) => {
+              list.push([
+                price.InstanceType,
+                price.SpotPrice,
+                price.ProductDescription,
+                price.AvailabilityZone,
+                price.AvailabilityZone
+                  ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
+                  : undefined,
+              ]);
+              return list;
+            },
+            [] as (string | undefined)[][],
+          ),
+        ),
+      );
+    } else {
+      console.log('no matching records found');
+    }
+  }
 
   return rtn;
 };
