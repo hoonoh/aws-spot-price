@@ -1,10 +1,11 @@
 .eslint*
 .git*
 .prettier*
-*.map
-*.spec.*
+.vscode/
 *.code-workspace
 *.config.js
+*.map
+*.spec.*
 coverage
 docs/
 node_modules/
