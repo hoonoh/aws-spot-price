@@ -1,3 +1,7 @@
+<a href="https://npmjs.org/package/aws-spot-price">
+  <img src="https://img.shields.io/npm/v/aws-spot-price.svg" alt="version" />
+</a>
+
 # aws-spot-price
 
 CLI utility to list current global AWS EC2 Spot Instance prices. Requires valid AWS Access & Secret keys.
