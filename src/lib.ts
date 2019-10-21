@@ -1,4 +1,4 @@
-import { EC2, STS } from 'aws-sdk';
+import { config, EC2, STS } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
@@ -47,9 +47,9 @@ class Ec2SpotPriceError extends Error {
     Object.setPrototypeOf(this, Ec2SpotPriceError.prototype);
   }
 
-  region: string;
+  readonly region: string;
 
-  code: string;
+  readonly code: string;
 }
 
 const getEc2SpotPrice = async (options: {
@@ -269,13 +269,33 @@ export const getGlobalSpotPrices = async (options?: {
   return rtn;
 };
 
+type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
+
+export class AuthError extends Error {
+  constructor(message: string, code: AuthErrorCode) {
+    super(message);
+    this.code = code;
+    Object.setPrototypeOf(this, AuthError.prototype);
+  }
+
+  readonly code: AuthErrorCode;
+}
+
 export const awsCredentialsCheck = async (options?: {
   accessKeyId?: string;
   secretAccessKey?: string;
-}): Promise<boolean> => {
+}): Promise<void> => {
   const { accessKeyId, secretAccessKey } = options || {};
 
-  let isValid = true;
+  if (
+    !accessKeyId &&
+    !secretAccessKey &&
+    !config.credentials &&
+    !(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY)
+  ) {
+    throw new AuthError('AWS credentials unavailable.', 'CredentialsNotFound');
+  }
+
   try {
     const sts = new STS({
       accessKeyId,
@@ -283,7 +303,6 @@ export const awsCredentialsCheck = async (options?: {
     });
     await sts.getCallerIdentity().promise();
   } catch (error) {
-    isValid = false;
+    throw new AuthError(error.message, 'UnAuthorized');
   }
-  return isValid;
 };

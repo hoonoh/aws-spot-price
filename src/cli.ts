@@ -11,7 +11,7 @@ import {
   instanceSizes,
   InstanceType,
 } from './ec2-types';
-import { awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
+import { AuthError, awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
 import {
   allProductDescriptions,
   instanceOfProductDescription,
@@ -189,15 +189,10 @@ export const main = (argvInput?: string[]): Promise<void> =>
             }
 
             // test credentials
-            const awsCredentialValidity = await awsCredentialsCheck({
+            await awsCredentialsCheck({
               accessKeyId,
               secretAccessKey,
             });
-            if (!awsCredentialValidity) {
-              console.log('Invalid AWS credentials provided.');
-              rej();
-              return;
-            }
 
             const productDescriptionsSetArray = Array.from(productDescriptionsSet);
             const familyTypeSetArray = Array.from(familyTypeSet);
@@ -221,9 +216,18 @@ export const main = (argvInput?: string[]): Promise<void> =>
 
             res();
           } catch (error) {
-            /* istanbul ignore next */
-            console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
-            /* istanbul ignore next */
+            if (error instanceof AuthError) {
+              if (error.code === 'UnAuthorized') {
+                console.log('Invalid AWS credentials provided.');
+              } else {
+                // error.reason === 'CredentialsNotFound'
+                console.log('AWS credentials are not found.');
+              }
+            } else {
+              /* istanbul ignore next */
+              console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
+              /* istanbul ignore next */
+            }
             rej();
           }
         },
