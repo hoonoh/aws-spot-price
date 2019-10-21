@@ -3,9 +3,15 @@ import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import * as nock from 'nock';
 
-import { consoleMockCallJoin, nockEndpoint } from '../test/test-utils';
+import {
+  consoleMockCallJoin,
+  mockAwsCredentials,
+  mockAwsCredentialsClear,
+  mockDefaultRegionEndpoints,
+  mockDefaultRegionEndpointsClear,
+} from '../test/test-utils';
 import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
-import { defaultRegions, Region } from './regions';
+import { Region } from './regions';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
@@ -15,13 +21,13 @@ describe('lib', () => {
 
       beforeAll(async () => {
         restoreConsole = mockConsole();
-        defaultRegions.forEach(region => nockEndpoint({ region }));
+        mockDefaultRegionEndpoints();
         results = await getGlobalSpotPrices();
       });
 
       afterAll(() => {
         restoreConsole();
-        nock.cleanAll();
+        mockDefaultRegionEndpointsClear();
       });
 
       it('should return expected values', () => {
@@ -33,9 +39,7 @@ describe('lib', () => {
       let results: SpotPrice[];
 
       beforeAll(async () => {
-        defaultRegions.forEach(region =>
-          nockEndpoint({ region, maxLength: 5, returnPartialBlankValues: true }),
-        );
+        mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
 
         results = await getGlobalSpotPrices({
           familyTypes: ['c4', 'c5'],
@@ -48,7 +52,7 @@ describe('lib', () => {
       });
 
       afterAll(() => {
-        nock.cleanAll();
+        mockDefaultRegionEndpointsClear();
       });
 
       it('should return expected values', () => {
@@ -60,7 +64,7 @@ describe('lib', () => {
       let results: SpotPrice[];
 
       beforeAll(async () => {
-        defaultRegions.forEach(region => nockEndpoint({ region }));
+        mockDefaultRegionEndpoints();
 
         results = await getGlobalSpotPrices({
           familyTypes: ['c4', 'c5'],
@@ -73,7 +77,7 @@ describe('lib', () => {
       });
 
       afterAll(() => {
-        nock.cleanAll();
+        mockDefaultRegionEndpointsClear();
       });
 
       it('should contain all instance types', () => {
@@ -95,7 +99,7 @@ describe('lib', () => {
       let results: SpotPrice[];
 
       beforeAll(async () => {
-        defaultRegions.forEach(region => nockEndpoint({ region }));
+        mockDefaultRegionEndpoints();
 
         results = await getGlobalSpotPrices({
           priceMax,
@@ -104,7 +108,7 @@ describe('lib', () => {
       });
 
       afterAll(() => {
-        nock.cleanAll();
+        mockDefaultRegionEndpointsClear();
       });
 
       it(`should return prices less than ${priceMax}`, () => {
@@ -120,6 +124,7 @@ describe('lib', () => {
 
       beforeAll(() => {
         restoreConsole = mockConsole();
+        mockAwsCredentials();
         nock(`https://ec2.${region}.amazonaws.com`)
           .persist()
           .post('/')
@@ -127,6 +132,7 @@ describe('lib', () => {
       });
       afterAll(() => {
         restoreConsole();
+        mockAwsCredentialsClear();
         nock.cleanAll();
       });
       it('should console log error', async () => {
@@ -142,47 +148,42 @@ describe('lib', () => {
       nock.cleanAll();
     });
 
-    it('should return false', async () => {
-      nock('https://sts.amazonaws.com')
-        .persist()
-        .post('/')
-        .reply(
-          403,
-          `<ErrorResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-              <Error>
-                <Type>Sender</Type>
-                <Code>MissingAuthenticationToken</Code>
-                <Message>Request is missing Authentication Token</Message>
-              </Error>
-              <RequestId>4fc0d3ee-efef-11e9-9282-3b7bffe54a9b</RequestId>
-            </ErrorResponse>`,
-        );
-      const results = await awsCredentialsCheck();
-      expect(results).toBeFalsy();
+    describe('should throw error', () => {
+      beforeEach(() => {
+        mockAwsCredentials(true);
+      });
+
+      afterEach(() => {
+        mockAwsCredentialsClear();
+      });
+
+      it('should throw error', async () => {
+        let threwError = false;
+        try {
+          await awsCredentialsCheck();
+        } catch (error) {
+          threwError = true;
+        }
+        expect(threwError).toBeTruthy();
+      });
     });
 
-    it('should return true', async () => {
-      nock('https://sts.amazonaws.com')
-        .persist()
-        .post('/')
-        .reply(
-          200,
-          `<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-              <GetCallerIdentityResult>
-              <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
-                <UserId>EXAMPLE</UserId>
-                <Account>123456789012</Account>
-              </GetCallerIdentityResult>
-              <ResponseMetadata>
-                <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
-              </ResponseMetadata>
-            </GetCallerIdentityResponse>`,
-        );
-      const results = await awsCredentialsCheck({
-        accessKeyId: 'accessKeyId',
-        secretAccessKey: 'secretAccessKey',
+    describe('should not throw error', () => {
+      beforeEach(() => {
+        mockAwsCredentials();
       });
-      expect(results).toBeTruthy();
+      afterEach(() => {
+        mockAwsCredentialsClear();
+      });
+      it('should not throw error', async () => {
+        let threwError = false;
+        try {
+          await awsCredentialsCheck();
+        } catch (error) {
+          threwError = true;
+        }
+        expect(threwError).toBeFalsy();
+      });
     });
   });
 });

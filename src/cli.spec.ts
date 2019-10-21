@@ -1,22 +1,26 @@
 import { spawnSync } from 'child_process';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
-import * as nock from 'nock';
 import { resolve } from 'path';
 
-import { consoleMockCallJoin, nockEndpoint } from '../test/test-utils';
+import {
+  consoleMockCallJoin,
+  mockAwsCredentials,
+  mockAwsCredentialsClear,
+  mockDefaultRegionEndpoints,
+  mockDefaultRegionEndpointsClear,
+} from '../test/test-utils';
 import { main } from './cli';
-import { defaultRegions } from './regions';
 
 describe('cli', () => {
   describe('test by import', () => {
     let restoreConsole: RestoreConsole;
 
     beforeAll(() => {
-      defaultRegions.forEach(region => nockEndpoint({ region }));
+      mockDefaultRegionEndpoints();
     });
 
     afterAll(() => {
-      nock.cleanAll();
+      mockDefaultRegionEndpointsClear();
     });
 
     beforeEach(() => {
@@ -94,8 +98,22 @@ describe('cli', () => {
       expect(caughtError).toBeTruthy();
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
+  });
 
-    it('should handle invalid credentials error', async () => {
+  describe('should handle invalid credentials error', () => {
+    let restoreConsole: RestoreConsole;
+
+    beforeAll(() => {
+      mockAwsCredentials(true);
+      restoreConsole = mockConsole();
+    });
+
+    afterAll(() => {
+      mockAwsCredentialsClear();
+      restoreConsole();
+    });
+
+    it('should throw error', async () => {
       let caughtError = false;
       try {
         await main(['--accessKeyId', 'rand', '--secretAccessKey', 'rand']);
