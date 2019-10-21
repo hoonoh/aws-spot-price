@@ -16,6 +16,7 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   } else if (p1SpotPrice > p2SpotPrice) {
     rtn = 1;
   }
+
   // AWS SDK will always return instance type.
   // If instance type data is not returned by aws api endpoint,
   // it seems SDK will filter it out by default.
@@ -26,6 +27,7 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
       rtn = 1;
     }
   }
+
   if (rtn === 0) {
     const p1AvailabilityZone = p1.AvailabilityZone || '';
     const p2AvailabilityZone = p2.AvailabilityZone || '';
@@ -35,6 +37,15 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
       rtn = 1;
     }
   }
+
+  if (rtn === 0 && p1.ProductDescription && p2.ProductDescription) {
+    if (p1.ProductDescription < p2.ProductDescription) {
+      rtn = -1;
+    } else if (p1.ProductDescription > p2.ProductDescription) {
+      rtn = 1;
+    }
+  }
+
   return rtn;
 };
 
