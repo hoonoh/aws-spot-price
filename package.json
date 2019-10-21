@@ -30,8 +30,9 @@
     "build:ec2-types": "ts-node -T util/generate-ec2-types.ts",
     "build": "tsc",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
-    "test": "jest --runInBand",
+    "test": "jest --runInBand --verbose",
     "test:coverage": "yarn test --coverage",
+    "test:ci": "yarn test:coverage --ci",
     "lint": "eslint **/*.ts"
   },
   "config": {
