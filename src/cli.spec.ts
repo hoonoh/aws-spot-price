@@ -12,12 +12,10 @@ describe('cli', () => {
     let restoreConsole: RestoreConsole;
 
     beforeAll(() => {
-      jest.setTimeout(30000);
       defaultRegions.forEach(region => nockEndpoint({ region }));
     });
 
     afterAll(() => {
-      jest.setTimeout(5000);
       nock.cleanAll();
     });
 
