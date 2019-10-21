@@ -25,6 +25,11 @@ type Answer2 = {
 
 export type Answers = Answer1 & Answer2;
 
+const onCancel = (): void => {
+  console.log('aborted');
+  process.exit();
+};
+
 export const ui = async (): Promise<Answers | undefined> => {
   try {
     const question1 = [
@@ -62,7 +67,7 @@ export const ui = async (): Promise<Answers | undefined> => {
       },
     ];
 
-    const answer1: Answer1 = await prompt(question1);
+    const answer1: Answer1 = await prompt(question1, { onCancel });
 
     const familyTypePreSelectedSet = new Set<InstanceFamilyType>();
     const sizePreSelectedSet = new Set<InstanceSize>();
@@ -162,7 +167,7 @@ export const ui = async (): Promise<Answers | undefined> => {
       },
     ];
 
-    const answer2: Answer2 = await prompt(question2);
+    const answer2: Answer2 = await prompt(question2, { onCancel });
 
     return { ...answer1, ...answer2 };
   } catch (error) {

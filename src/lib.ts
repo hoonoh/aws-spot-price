@@ -38,9 +38,23 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   return rtn;
 };
 
-const getEc2SpotPrice = async (options: {
+class Ec2SpotPriceError extends Error {
+  constructor(message: string, region: Region, code: string) {
+    super(message);
+    this.name = 'Ec2SpotPriceError';
+    this.region = region;
+    this.code = code;
+    Object.setPrototypeOf(this, Ec2SpotPriceError.prototype);
+  }
+
   region: string;
-  instanceTypes?: string[];
+
+  code: string;
+}
+
+const getEc2SpotPrice = async (options: {
+  region: Region;
+  instanceTypes?: InstanceType[];
   productDescriptions?: ProductDescription[];
   accessKeyId?: string;
   secretAccessKey?: string;
@@ -82,10 +96,14 @@ const getEc2SpotPrice = async (options: {
       rtn = list.filter(history => history.InstanceType).sort(sortSpotPrice);
     }
   } catch (error) {
-    console.error(
-      'unexpected getEc2SpotPrice error.',
-      JSON.stringify({ region, instanceTypes, productDescriptions, error }, null, 2),
-    );
+    if (error && error.code && (error.code === 'AuthFailure' || error.code === 'OptInRequired')) {
+      throw new Ec2SpotPriceError(error.message, region, error.code);
+    } else {
+      console.error(
+        'unexpected getEc2SpotPrice error.',
+        JSON.stringify({ region, instanceTypes, productDescriptions, error }, null, 2),
+      );
+    }
   }
 
   return rtn;
@@ -140,25 +158,44 @@ export const getGlobalSpotPrices = async (options?: {
     }
   }
 
-  const spinner = ora({
-    text: 'Waiting for data to be retrieved...',
-    discardStdin: false,
-  }).start();
+  let spinner: ora.Ora | undefined;
+  let spinnerText: string | undefined;
+  if (!silent && process.env.NODE_ENV !== 'test') {
+    spinner = ora({
+      text: 'Waiting for data to be retrieved...',
+      discardStdin: false,
+    }).start();
+  }
 
   await Promise.all(
     regions.map(async region => {
-      const regionsPrices = await getEc2SpotPrice({
-        region,
-        instanceTypes,
-        productDescriptions,
-        accessKeyId,
-        secretAccessKey,
-      });
-      rtn = [...rtn, ...regionsPrices];
-      if (!silent) spinner.text = `Retrieved data from ${region}...`;
+      try {
+        const regionsPrices = await getEc2SpotPrice({
+          region,
+          instanceTypes,
+          productDescriptions,
+          accessKeyId,
+          secretAccessKey,
+        });
+        rtn = [...rtn, ...regionsPrices];
+        if (spinner) {
+          spinnerText = `Retrieved data from ${region}...`;
+          spinner.text = spinnerText;
+        }
+      } catch (error) {
+        if (error instanceof Ec2SpotPriceError && spinner) {
+          spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
+          spinner = ora({
+            text: spinnerText || spinner.text,
+            discardStdin: false,
+          }).start();
+        } else {
+          console.error(error);
+        }
+      }
     }),
   );
-  if (!silent) spinner.succeed('All data retrieved!').stop();
+  if (spinner) spinner.succeed('All data retrieved!').stop();
 
   rtn = rtn.reduce(
     (list, cur) => {
