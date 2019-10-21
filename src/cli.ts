@@ -18,7 +18,7 @@ import {
   ProductDescription,
   productDescriptionWildcards,
 } from './product-description';
-import { defaultRegions, Region } from './regions';
+import { allRegions, Region } from './regions';
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
@@ -32,7 +32,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             alias: 'r',
             describe: 'AWS regions.',
             type: 'array',
-            choices: defaultRegions,
+            choices: allRegions,
             string: true,
           },
           instanceType: {
@@ -298,7 +298,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
           });
           y.parse(params);
         } else {
-          console.log('aborted');
+          console.log('Unexpected UI answers. aborted.');
         }
       });
     } else {
