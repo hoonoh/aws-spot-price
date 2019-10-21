@@ -34,3 +34,7 @@ jobs:
 
       - codecov/upload:
           file: ./coverage/lcov.info
+
+      - run:
+          name: release
+          command: yarn semantic-release || true
