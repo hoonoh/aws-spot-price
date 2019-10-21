@@ -21,6 +21,5 @@
     "src/product-description.ts",
     "src/regions.ts"
   ],
-  "include": ["types/js-modules.ts"],
   "exclude": ["node_modules"]
 }

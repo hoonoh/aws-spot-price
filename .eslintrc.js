@@ -30,7 +30,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.spec.ts'],
+      files: ['test/*.js'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 0,
+      },
+    },
+    {
+      files: ['**/*.spec.ts', 'test/jest.setup.js'],
       env: {
         'jest/globals': true,
       },

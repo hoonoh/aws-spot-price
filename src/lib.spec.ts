@@ -14,14 +14,12 @@ describe('lib', () => {
       let restoreConsole: RestoreConsole;
 
       beforeAll(async () => {
-        jest.setTimeout(30000);
         restoreConsole = mockConsole();
         defaultRegions.forEach(region => nockEndpoint({ region }));
         results = await getGlobalSpotPrices();
       });
 
       afterAll(() => {
-        jest.setTimeout(5000);
         restoreConsole();
         nock.cleanAll();
       });

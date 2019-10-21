@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cli test by import should handle instance family option 1`] = `
-"Querying current spot prices with options:
-limit: 20
-familyTypes: c1, c3, c4, c5, c5d, c5n
-sizes: medium, xlarge, large, 2xlarge, 4xlarge, 8xlarge, 9xlarge, 12xlarge, 18xlarge, 24xlarge, metal
-╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
+"╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1a      │ US East (N. Virginia)   ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1a      │ US East (N. Virginia)   ║
@@ -66,8 +62,9 @@ Options:
   --region, -r              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
           \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
-             \\"eu-north-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-southeast-1\\",
-                                    \\"ap-southeast-2\\", \\"ap-south-1\\", \\"sa-east-1\\"]
+                  \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
+             \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
+                                                      \\"me-south-1\\", \\"sa-east-1\\"]
   --instanceType, -i        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
       \\"a1.4xlarge\\", \\"a1.metal\\", \\"t1.micro\\", \\"t2.micro\\", \\"t2.small\\", \\"t2.medium\\",
@@ -133,21 +130,20 @@ Options:
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-  --limit, -l               Limit results output length   [number] [default: 20]
   --priceMax, -p            Maximum price                               [number]
   --productDescription, -d  Product descriptions. Choose \`windows\` or \`linux\`
                             (all lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
+  --limit, -l               Limit results output length   [number] [default: 20]
   --accessKeyId             AWS Access Key ID.                          [string]
-  --secretAccessKey         AWS Secret Access Key.                      [string]"
+  --secretAccessKey         AWS Secret Access Key.                      [string]
+  --ui                      Start with UI mode        [boolean] [default: false]"
 `;
 
 exports[`cli test by import should return expected values with default options 1`] = `
-"Querying current spot prices with options:
-limit: 20
-╔══════════╤══════════╤═════════════════════════╤═══════════════╤═══════════════════════╗
+"╔══════════╤══════════╤═════════════════════════╤═══════════════╤═══════════════════════╗
 ║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2a    │ US West (Oregon)      ║
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
 ║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2c    │ US West (Oregon)      ║
@@ -192,11 +188,7 @@ limit: 20
 `;
 
 exports[`cli test by import should return expected values with instance family types and sizes 1`] = `
-"Querying current spot prices with options:
-limit: 20
-familyTypes: c5
-sizes: large
-╔══════════╤══════════╤═════════════════════════╤═════════════════╤══════════════════════════╗
+"╔══════════╤══════════╤═════════════════════════╤═════════════════╤══════════════════════════╗
 ║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2a      │ US East (Ohio)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2b      │ US East (Ohio)           ║
@@ -204,8 +196,6 @@ sizes: large
 ║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2c      │ US East (Ohio)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1a     │ EU (Stockholm)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ EU (Stockholm)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ EU (Stockholm)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
@@ -243,22 +233,12 @@ sizes: large
 `;
 
 exports[`cli test by import should return expected values with user options 1`] = `
-"Querying current spot prices with options:
-limit: 11
-regions: us-east-1
-instanceTypes: c5.large, c4.xlarge
-priceMax: 0.05
-productDescriptions: Linux/UNIX (Amazon VPC)
-╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
+"╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
 ║ c5.large │ 0.032800 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ c5.large │ 0.037400 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
 ╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
 ║ c5.large │ 0.037600 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
 ╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
 ║ c5.large │ 0.038300 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ c5.large │ 0.038300 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
 ╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
 ║ c5.large │ 0.038400 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
 ╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
@@ -268,11 +248,7 @@ productDescriptions: Linux/UNIX (Amazon VPC)
 `;
 
 exports[`cli test by import should return expected values with wildcard product descriptions 1`] = `
-"Querying current spot prices with options:
-limit: 10
-regions: us-east-1
-productDescriptions: Linux/UNIX, Linux/UNIX (Amazon VPC), SUSE Linux, SUSE Linux (Amazon VPC), Red Hat Enterprise Linux, Red Hat Enterprise Linux (Amazon VPC)
-╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
+"╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
 ║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
 ╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
 ║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
@@ -294,10 +270,6 @@ productDescriptions: Linux/UNIX, Linux/UNIX (Amazon VPC), SUSE Linux, SUSE Linux
 ║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
 ╚══════════╧══════════╧═════════════════════════╧════════════╧═══════════════════════╝
 
-Querying current spot prices with options:
-limit: 10
-regions: us-east-1
-productDescriptions: Windows, Windows (Amazon VPC)
 ╔══════════╤══════════╤══════════════════════╤════════════╤═══════════════════════╗
 ║ t1.micro │ 0.002000 │ Windows              │ us-east-1a │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
@@ -333,8 +305,9 @@ Options:
   --region, -r              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
           \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
-             \\"eu-north-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-southeast-1\\",
-                                    \\"ap-southeast-2\\", \\"ap-south-1\\", \\"sa-east-1\\"]
+                  \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
+             \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
+                                                      \\"me-south-1\\", \\"sa-east-1\\"]
   --instanceType, -i        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
       \\"a1.4xlarge\\", \\"a1.metal\\", \\"t1.micro\\", \\"t2.micro\\", \\"t2.small\\", \\"t2.medium\\",
@@ -400,14 +373,15 @@ Options:
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-  --limit, -l               Limit results output length   [number] [default: 20]
   --priceMax, -p            Maximum price                               [number]
   --productDescription, -d  Product descriptions. Choose \`windows\` or \`linux\`
                             (all lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
+  --limit, -l               Limit results output length   [number] [default: 20]
   --accessKeyId             AWS Access Key ID.                          [string]
   --secretAccessKey         AWS Secret Access Key.                      [string]
+  --ui                      Start with UI mode        [boolean] [default: false]
 "
 `;

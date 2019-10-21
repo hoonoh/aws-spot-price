@@ -1,6 +1,6 @@
 {
   "name": "aws-spot-price",
-  "version": "0.0.6",
+  "version": "0.0.0-development",
   "description": "CLI utility to list current global AWS EC2 Spot Instance prices.",
   "keywords": [
     "aws",
@@ -61,7 +61,10 @@
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
-    "snapshotResolver": "./test/snapshot-resolver.js"
+    "snapshotResolver": "./test/snapshot-resolver.js",
+    "setupFilesAfterEnv": [
+      "./test/jest.setup.js"
+    ]
   },
   "release": {
     "branch": "next"
