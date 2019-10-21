@@ -91,20 +91,6 @@ const nockEndpoint = (options: {
                 returnPartialBlankValues &&
                 nextIndex === undefined &&
                 idx === instanceDataSlice.length - 1;
-              if (returnWithBlank)
-                process.stdout.write(
-                  `\n\nSKIPPED: ${JSON.stringify(
-                    {
-                      InstanceType: d.InstanceType,
-                      ProductDescription: d.ProductDescription,
-                      SpotPrice: d.SpotPrice,
-                      Timestamp: d.Timestamp,
-                      AvailabilityZone: d.AvailabilityZone,
-                    },
-                    null,
-                    2,
-                  )}\n\n`,
-                );
               return `<item>
               <instanceType>${d.InstanceType}</instanceType>
               <productDescription>${d.ProductDescription}</productDescription>
