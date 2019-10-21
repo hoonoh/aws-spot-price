@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli should handle invalid credentials error should throw error 1`] = `"Invalid AWS credentials provided."`;
+
 exports[`cli test by import should handle instance family option 1`] = `
 "╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1a      │ US East (N. Virginia)   ║
@@ -10,9 +12,9 @@ exports[`cli test by import should handle instance family option 1`] = `
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1b      │ US East (N. Virginia)   ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1c      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1c      │ US East (N. Virginia)   ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1c      │ US East (N. Virginia)   ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1d      │ US East (N. Virginia)   ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
@@ -34,18 +36,16 @@ exports[`cli test by import should handle instance family option 1`] = `
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.014800 │ Linux/UNIX              │ us-west-1c      │ US West (N. California) ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.015800 │ Linux/UNIX              │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
+║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.015800 │ Linux/UNIX              │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
+╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
+║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
 ╚═══════════╧══════════╧═════════════════════════╧═════════════════╧═════════════════════════╝
 "
 `;
-
-exports[`cli test by import should handle invalid credentials error 1`] = `"Invalid AWS credentials provided."`;
 
 exports[`cli test by import should handle invalid usage of accessKeyId and secretAccessKey 1`] = `"\`accessKeyId\` & \`secretAccessKey\` should always be used together."`;
 
@@ -275,17 +275,17 @@ exports[`cli test by import should return expected values with wildcard product 
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
 ║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
 ║ t1.micro │ 0.002000 │ Windows              │ us-east-1b │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
 ║ t1.micro │ 0.002000 │ Windows              │ us-east-1c │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
 ║ t1.micro │ 0.002000 │ Windows              │ us-east-1d │ US East (N. Virginia) ║
+╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
+║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
 ║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
