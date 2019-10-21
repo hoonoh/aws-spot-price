@@ -16,9 +16,11 @@ jobs:
 
       - run: yarn install
 
+      - run: yarn build
+
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test:coverage
+      - run: yarn test:ci
