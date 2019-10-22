@@ -217,6 +217,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
 
             res();
           } catch (error) {
+            /* istanbul ignore else */
             if (error instanceof AuthError) {
               if (error.code === 'UnAuthorized') {
                 console.log('Invalid AWS credentials provided.');
@@ -225,9 +226,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 console.log('AWS credentials are not found.');
               }
             } else {
-              /* istanbul ignore next */
               console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
-              /* istanbul ignore next */
             }
             rej();
           }
