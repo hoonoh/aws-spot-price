@@ -51,7 +51,7 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
 
 class Ec2SpotPriceError extends Error {
   constructor(message: string, region: Region, code: string) {
-    super(message);
+    super(message) /* istanbul ignore next */;
     this.name = 'Ec2SpotPriceError';
     this.region = region;
     this.code = code;
@@ -268,7 +268,7 @@ export const getGlobalSpotPrices = async (options?: {
                 price.AvailabilityZone,
                 price.AvailabilityZone
                   ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-                  : undefined,
+                  : /* istanbul ignore next */ undefined,
               ]);
               return list;
             },
