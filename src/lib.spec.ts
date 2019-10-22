@@ -3,14 +3,15 @@ import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import * as nock from 'nock';
 
+import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
 import {
-  consoleMockCallJoin,
-  mockAwsCredentials,
-  mockAwsCredentialsClear,
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
-} from '../test/test-utils';
-import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
+} from '../test/mock-ec2-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
+import { InstanceFamilyType, InstanceSize } from './ec2-types';
+import { getGlobalSpotPrices } from './lib';
+import { ProductDescription } from './product-description';
 import { Region } from './regions';
 
 describe('lib', () => {
@@ -37,15 +38,17 @@ describe('lib', () => {
 
     describe('run with specific options', () => {
       let results: SpotPrice[];
+      const familyTypes: InstanceFamilyType[] = ['c4', 'c5'];
+      const sizes: InstanceSize[] = ['large', 'xlarge'];
+      const productDescriptions: ProductDescription[] = ['Linux/UNIX'];
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
 
         results = await getGlobalSpotPrices({
-          familyTypes: ['c4', 'c5'],
-          sizes: ['large', 'xlarge'],
-          priceMax: 1,
-          productDescriptions: ['Linux/UNIX'],
+          familyTypes,
+          sizes,
+          productDescriptions,
           limit: 20,
           silent: true,
         });
@@ -56,7 +59,93 @@ describe('lib', () => {
       });
 
       it('should return expected values', () => {
-        expect(results).toMatchSnapshot();
+        expect(results).toBeDefined();
+        expect(results.length).toEqual(20);
+        if (results) {
+          results.forEach(result => {
+            expect(result.InstanceType).toBeDefined();
+            expect(result.ProductDescription).toBeDefined();
+            if (result.InstanceType && result.ProductDescription) {
+              expect(
+                familyTypes.includes(result.InstanceType.split('.').shift() as InstanceFamilyType),
+              ).toBeTruthy();
+              expect(
+                sizes.includes(result.InstanceType.split('.').pop() as InstanceSize),
+              ).toBeTruthy();
+              expect(
+                productDescriptions.includes(result.ProductDescription as ProductDescription),
+              ).toBeTruthy();
+            }
+          });
+        }
+      });
+    });
+
+    describe('run with family type only', () => {
+      let results: SpotPrice[];
+      const familyTypes: InstanceFamilyType[] = ['c1', 'c3', 'c4'];
+
+      beforeAll(async () => {
+        mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
+
+        results = await getGlobalSpotPrices({
+          familyTypes,
+          limit: 20,
+          silent: true,
+        });
+      });
+
+      afterAll(() => {
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(results).toBeDefined();
+        expect(results.length).toEqual(20);
+        if (results) {
+          results.forEach(result => {
+            expect(result.InstanceType).toBeDefined();
+            if (result.InstanceType) {
+              expect(
+                familyTypes.includes(result.InstanceType.split('.').shift() as InstanceFamilyType),
+              ).toBeTruthy();
+            }
+          });
+        }
+      });
+    });
+
+    describe('run with family sizes only', () => {
+      let results: SpotPrice[];
+      const sizes: InstanceSize[] = ['small', 'medium', 'large'];
+
+      beforeAll(async () => {
+        mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
+
+        results = await getGlobalSpotPrices({
+          sizes,
+          limit: 20,
+          silent: true,
+        });
+      });
+
+      afterAll(() => {
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(results).toBeDefined();
+        expect(results.length).toEqual(20);
+        if (results) {
+          results.forEach(result => {
+            expect(result.InstanceType).toBeDefined();
+            if (result.InstanceType) {
+              expect(
+                sizes.includes(result.InstanceType.split('.').pop() as InstanceSize),
+              ).toBeTruthy();
+            }
+          });
+        }
       });
     });
 
@@ -139,50 +228,6 @@ describe('lib', () => {
         await getGlobalSpotPrices({ regions: [region] });
         expect(console.error).toHaveBeenCalled();
         expect(consoleMockCallJoin('error')).toContain('unexpected getEc2SpotPrice error');
-      });
-    });
-  });
-
-  describe('awsCredentialsCheck', () => {
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
-    describe('should throw error', () => {
-      beforeEach(() => {
-        mockAwsCredentials(true);
-      });
-
-      afterEach(() => {
-        mockAwsCredentialsClear();
-      });
-
-      it('should throw error', async () => {
-        let threwError = false;
-        try {
-          await awsCredentialsCheck();
-        } catch (error) {
-          threwError = true;
-        }
-        expect(threwError).toBeTruthy();
-      });
-    });
-
-    describe('should not throw error', () => {
-      beforeEach(() => {
-        mockAwsCredentials();
-      });
-      afterEach(() => {
-        mockAwsCredentialsClear();
-      });
-      it('should not throw error', async () => {
-        let threwError = false;
-        try {
-          await awsCredentialsCheck();
-        } catch (error) {
-          threwError = true;
-        }
-        expect(threwError).toBeFalsy();
       });
     });
   });

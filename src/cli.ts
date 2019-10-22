@@ -1,7 +1,8 @@
 import { sep } from 'path';
 import * as yargs from 'yargs';
 
-import { Answers, ui } from './cli-ui';
+import { ui } from './cli-ui';
+import { AuthError, awsCredentialsCheck } from './credential';
 import {
   allInstances,
   instanceFamily,
@@ -11,7 +12,7 @@ import {
   instanceSizes,
   InstanceType,
 } from './ec2-types';
-import { AuthError, awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
+import { defaults, getGlobalSpotPrices } from './lib';
 import {
   allProductDescriptions,
   instanceOfProductDescription,
@@ -28,6 +29,11 @@ export const main = (argvInput?: string[]): Promise<void> =>
         '$0',
         'get current AWS spot instance prices',
         {
+          ui: {
+            describe: 'Start with UI mode',
+            type: 'boolean',
+            default: false,
+          },
           region: {
             alias: 'r',
             describe: 'AWS regions.',
@@ -50,18 +56,17 @@ export const main = (argvInput?: string[]): Promise<void> =>
           },
           familyType: {
             alias: 'f',
-            describe: 'EC2 instance family types. Requires `sizes` parameter.',
+            describe: 'EC2 instance family types.',
             type: 'array',
             string: true,
             choices: instanceFamilyTypes,
           },
           size: {
             alias: 's',
-            describe: 'EC2 instance sizes. Requires `families` parameter.',
+            describe: 'EC2 instance sizes.',
             type: 'array',
             choices: instanceSizes,
             string: true,
-            // demandOption: true, // TEMP
           },
           priceMax: {
             alias: 'p',
@@ -101,11 +106,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
             describe: 'AWS Secret Access Key.',
             type: 'string',
           },
-          ui: {
-            describe: 'Start with UI mode',
-            type: 'boolean',
-            default: false,
-          },
         },
 
         async args => {
@@ -121,13 +121,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               productDescription,
               accessKeyId,
               secretAccessKey,
-            } = args;
-
-            if ((!familyType && size) || (familyType && !size)) {
-              console.log('`familyTypes` or `sizes` attribute missing.');
-              rej();
-              return;
-            }
+            } = args.ui ? { ...(await ui()), instanceType: undefined } : args;
 
             const familyTypeSet = new Set<InstanceFamilyType>();
             if (familyType) {
@@ -163,15 +157,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
               (productDescription as (
                 | ProductDescription
                 | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
+                /* istanbul ignore else */
                 if (instanceOfProductDescription(pd)) {
                   productDescriptionsSet.add(pd);
                 } else if (pd === 'linux') {
                   productDescriptionWildcards.linux.forEach(desc => {
                     productDescriptionsSet.add(desc);
                   });
-                } else {
-                  // `} else if (pd === 'windows') {`
-                  // only windows wildcard case left: replaced with else for test coverage
+                } else if (pd === 'windows') {
                   productDescriptionWildcards.windows.forEach(desc => {
                     productDescriptionsSet.add(desc);
                   });
@@ -179,11 +172,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
               });
             }
 
-            if (
-              (accessKeyId !== undefined && secretAccessKey === undefined) ||
-              (accessKeyId === undefined && secretAccessKey !== undefined)
-            ) {
-              console.log('`accessKeyId` & `secretAccessKey` should always be used together.');
+            if (accessKeyId && !secretAccessKey) {
+              console.log('`secretAccessKey` missing.');
+              rej();
+              return;
+            }
+
+            if (!accessKeyId && secretAccessKey) {
+              console.log('`accessKeyId` missing.');
               rej();
               return;
             }
@@ -216,6 +212,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
 
             res();
           } catch (error) {
+            /* istanbul ignore else */
             if (error instanceof AuthError) {
               if (error.code === 'UnAuthorized') {
                 console.log('Invalid AWS credentials provided.');
@@ -224,9 +221,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 console.log('AWS credentials are not found.');
               }
             } else {
-              /* istanbul ignore next */
               console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
-              /* istanbul ignore next */
             }
             rej();
           }
@@ -239,72 +234,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
       y.exitProcess(false);
       y.parse(argvInput);
       if (argvInput.includes('--help')) res();
-    } else if (process.argv.includes('--ui')) {
-      ui().then(answers => {
-        if (answers) {
-          let params: string[] = [];
-          (Object.keys(answers) as (keyof Answers)[]).forEach(p => {
-            switch (p) {
-              case 'region':
-                if (answers[p].length) {
-                  params.push('-r');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-
-              case 'familyType':
-                if (answers[p].length) {
-                  params.push('-f');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-              case 'size':
-                if (answers[p].length) {
-                  params.push('-s');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-              case 'productDescription':
-                if (answers[p].length) {
-                  params.push('-d');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-              case 'maxPrice':
-                if (answers[p]) {
-                  params.push('-p');
-                  params.push(answers[p].toString());
-                }
-                break;
-              case 'limit':
-                if (answers[p]) {
-                  params.push('-l');
-                  params.push(answers[p].toString());
-                }
-                break;
-
-              case 'accessKeyId':
-                if (answers[p]) {
-                  params.push('--accessKeyId');
-                  params.push(answers[p]);
-                }
-                break;
-              case 'secretAccessKey':
-                if (answers[p]) {
-                  params.push('--secretAccessKey');
-                  params.push(answers[p]);
-                }
-                break;
-
-              default:
-                break;
-            }
-          });
-          y.parse(params);
-        } else {
-          console.log('Unexpected UI answers. aborted.');
-        }
-      });
     } else {
       y.parse(process.argv);
     }

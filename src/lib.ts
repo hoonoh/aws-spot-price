@@ -1,9 +1,9 @@
-import { config, EC2, STS } from 'aws-sdk';
+import { EC2 } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
 
-import { InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
+import { allInstances, InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
 import { ProductDescription } from './product-description';
 import { defaultRegions, Region, regionNames } from './regions';
 
@@ -51,7 +51,7 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
 
 class Ec2SpotPriceError extends Error {
   constructor(message: string, region: Region, code: string) {
-    super(message);
+    super(message) /* istanbul ignore next */;
     this.name = 'Ec2SpotPriceError';
     this.region = region;
     this.code = code;
@@ -155,22 +155,43 @@ export const getGlobalSpotPrices = async (options?: {
 
   if (regions === undefined) regions = defaultRegions;
 
-  if (familyTypes && sizes) {
-    const instanceTypesGenerated: InstanceType[] = [];
-    familyTypes.forEach(family => {
-      sizes.forEach(size => {
-        instanceTypesGenerated.push(`${family}.${size}` as InstanceType);
+  if (familyTypes || sizes) {
+    const instanceTypesGenerated = new Set<InstanceType>();
+    /* istanbul ignore else */
+    if (familyTypes && sizes) {
+      familyTypes.forEach(type => {
+        sizes.forEach(size => {
+          instanceTypesGenerated.add(`${type}.${size}` as InstanceType);
+        });
       });
-    });
+    } else if (familyTypes) {
+      familyTypes.forEach(type => {
+        allInstances
+          .filter((instance: InstanceType) => instance.startsWith(`${type}.`))
+          .forEach((instance: InstanceType) => {
+            instanceTypesGenerated.add(instance);
+          });
+      });
+    } else if (sizes) {
+      sizes.forEach(size => {
+        allInstances
+          .filter((instance: InstanceType) => instance.endsWith(`.${size}`))
+          .forEach((instance: InstanceType) => {
+            instanceTypesGenerated.add(instance);
+          });
+      });
+    }
+    const instanceTypesGeneratedArray = Array.from(instanceTypesGenerated);
     if (!instanceTypes) {
-      instanceTypes = instanceTypesGenerated;
+      instanceTypes = instanceTypesGeneratedArray;
     } else {
-      instanceTypes = instanceTypes.concat(instanceTypesGenerated);
+      instanceTypes = instanceTypes.concat(instanceTypesGeneratedArray);
     }
   }
 
   let spinner: ora.Ora | undefined;
   let spinnerText: string | undefined;
+  /* istanbul ignore if */
   if (!silent && process.env.NODE_ENV !== 'test') {
     spinner = ora({
       text: 'Waiting for data to be retrieved...',
@@ -189,11 +210,13 @@ export const getGlobalSpotPrices = async (options?: {
           secretAccessKey,
         });
         rtn = [...rtn, ...regionsPrices];
+        /* istanbul ignore if */
         if (spinner) {
           spinnerText = `Retrieved data from ${region}...`;
           spinner.text = spinnerText;
         }
       } catch (error) {
+        /* istanbul ignore if */
         if (error instanceof Ec2SpotPriceError && spinner) {
           spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
           spinner = ora({
@@ -206,6 +229,7 @@ export const getGlobalSpotPrices = async (options?: {
       }
     }),
   );
+  /* istanbul ignore if */
   if (spinner) spinner.succeed('All data retrieved!').stop();
 
   rtn = rtn.reduce(
@@ -264,7 +288,7 @@ export const getGlobalSpotPrices = async (options?: {
                 price.AvailabilityZone,
                 price.AvailabilityZone
                   ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-                  : undefined,
+                  : /* istanbul ignore next */ undefined,
               ]);
               return list;
             },
@@ -278,42 +302,4 @@ export const getGlobalSpotPrices = async (options?: {
   }
 
   return rtn;
-};
-
-type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
-
-export class AuthError extends Error {
-  constructor(message: string, code: AuthErrorCode) {
-    super(message);
-    this.code = code;
-    Object.setPrototypeOf(this, AuthError.prototype);
-  }
-
-  readonly code: AuthErrorCode;
-}
-
-export const awsCredentialsCheck = async (options?: {
-  accessKeyId?: string;
-  secretAccessKey?: string;
-}): Promise<void> => {
-  const { accessKeyId, secretAccessKey } = options || {};
-
-  if (
-    !accessKeyId &&
-    !secretAccessKey &&
-    !config.credentials &&
-    !(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY)
-  ) {
-    throw new AuthError('AWS credentials unavailable.', 'CredentialsNotFound');
-  }
-
-  try {
-    const sts = new STS({
-      accessKeyId,
-      secretAccessKey,
-    });
-    await sts.getCallerIdentity().promise();
-  } catch (error) {
-    throw new AuthError(error.message, 'UnAuthorized');
-  }
 };
