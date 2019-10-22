@@ -1,19 +1,13 @@
-import { config } from 'aws-sdk';
 import * as nock from 'nock';
 
 export const mockAwsCredentials = (
-  options: { fail?: boolean; disableEnv?: boolean; disableConfig?: boolean } = {},
+  options: { fail?: boolean; disableEnv?: boolean } = {},
 ): void => {
-  const { fail, disableEnv, disableConfig } = options;
+  const { fail, disableEnv } = options;
 
   if (!disableEnv) {
     process.env.AWS_ACCESS_KEY_ID = 'accessKeyId';
     process.env.AWS_SECRET_ACCESS_KEY = 'secretAccessKey';
-  }
-
-  if (!disableConfig) {
-    config.accessKeyId = 'accessKeyId';
-    config.secretAccessKey = 'secretAccessKey';
   }
 
   if (fail) {
@@ -54,6 +48,4 @@ export const mockAwsCredentials = (
 export const mockAwsCredentialsClear = (): void => {
   delete process.env.AWS_ACCESS_KEY_ID;
   delete process.env.AWS_SECRET_ACCESS_KEY;
-  delete config.accessKeyId;
-  delete config.secretAccessKey;
 };
