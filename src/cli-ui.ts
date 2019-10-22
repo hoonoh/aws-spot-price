@@ -83,21 +83,26 @@ export const ui = async (): Promise<Answers | undefined> => {
         });
       });
     }
+
     const familyTypePreSelected = Array.from(familyTypePreSelectedSet);
     const sizePreSelected = Array.from(sizePreSelectedSet);
 
-    let familyTypePreSelectMessage = '(select none to include all)';
-    if (answer1.family.length > 0) {
-      const last = answer1.family.pop();
-      const list = answer1.family.length ? `${answer1.family.join(', ')} and ${last}` : last;
-      familyTypePreSelectMessage = `(${list} sizes are pre-selected)`;
-    }
+    const generateFamilyHint = (type: string): string => {
+      const familyCopy = answer1.family.concat();
+      if (familyCopy.length > 0) {
+        const last = familyCopy.pop();
+        const list = familyCopy.length ? `${familyCopy.join(', ')} and ${last}` : last;
+        return `Instance family ${type} related to '${list}' families are pre-selected`;
+      }
+      return 'select none to include all';
+    };
 
     const question2 = [
       {
         type: 'autocompleteMultiselect',
         name: 'familyType',
-        message: `Select EC2 Family Type ${familyTypePreSelectMessage}`,
+        message: 'Select EC2 Family Type',
+        hint: generateFamilyHint('types'),
         instructions: false,
         choices: instanceFamilyTypes.reduce(
           (list, familyType) => {
@@ -114,7 +119,8 @@ export const ui = async (): Promise<Answers | undefined> => {
       {
         type: 'autocompleteMultiselect',
         name: 'size',
-        message: `Select EC2 Family Size ${familyTypePreSelectMessage}`,
+        message: 'Select EC2 Family Size',
+        hint: generateFamilyHint('sizes'),
         instructions: false,
         choices: instanceSizes.reduce(
           (list, size) => {
@@ -161,9 +167,9 @@ export const ui = async (): Promise<Answers | undefined> => {
         message: `Enter AWS accessKeyId (optional)`,
       },
       {
-        type: 'invisible',
+        type: (prev: string | undefined): string | undefined => (prev ? 'invisible' : undefined),
         name: 'secretAccessKey',
-        message: `Enter AWS secretAccessKey (optional)`,
+        message: `Enter AWS secretAccessKey`,
       },
     ];
 
