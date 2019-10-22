@@ -3,7 +3,7 @@ import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
 
-import { InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
+import { allInstances, InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
 import { ProductDescription } from './product-description';
 import { defaultRegions, Region, regionNames } from './regions';
 
@@ -155,17 +155,37 @@ export const getGlobalSpotPrices = async (options?: {
 
   if (regions === undefined) regions = defaultRegions;
 
-  if (familyTypes && sizes) {
-    const instanceTypesGenerated: InstanceType[] = [];
-    familyTypes.forEach(family => {
-      sizes.forEach(size => {
-        instanceTypesGenerated.push(`${family}.${size}` as InstanceType);
+  if (familyTypes || sizes) {
+    const instanceTypesGenerated = new Set<InstanceType>();
+    /* istanbul ignore else */
+    if (familyTypes && sizes) {
+      familyTypes.forEach(type => {
+        sizes.forEach(size => {
+          instanceTypesGenerated.add(`${type}.${size}` as InstanceType);
+        });
       });
-    });
+    } else if (familyTypes) {
+      familyTypes.forEach(type => {
+        allInstances
+          .filter((instance: InstanceType) => instance.startsWith(`${type}.`))
+          .forEach((instance: InstanceType) => {
+            instanceTypesGenerated.add(instance);
+          });
+      });
+    } else if (sizes) {
+      sizes.forEach(size => {
+        allInstances
+          .filter((instance: InstanceType) => instance.endsWith(`.${size}`))
+          .forEach((instance: InstanceType) => {
+            instanceTypesGenerated.add(instance);
+          });
+      });
+    }
+    const instanceTypesGeneratedArray = Array.from(instanceTypesGenerated);
     if (!instanceTypes) {
-      instanceTypes = instanceTypesGenerated;
+      instanceTypes = instanceTypesGeneratedArray;
     } else {
-      instanceTypes = instanceTypes.concat(instanceTypesGenerated);
+      instanceTypes = instanceTypes.concat(instanceTypesGeneratedArray);
     }
   }
 
