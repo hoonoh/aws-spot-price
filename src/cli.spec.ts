@@ -87,7 +87,18 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should handle invalid usage of accessKeyId and secretAccessKey', async () => {
+    it('should handle missing accessKeyId', async () => {
+      let caughtError = false;
+      try {
+        await main(['--secretAccessKey', 'rand']);
+      } catch (error) {
+        caughtError = true;
+      }
+      expect(caughtError).toBeTruthy();
+      expect(consoleMockCallJoin()).toContain('`accessKeyId` missing.');
+    });
+
+    it('should handle missing secretAccessKey', async () => {
       let caughtError = false;
       try {
         await main(['--accessKeyId', 'rand']);
@@ -95,7 +106,7 @@ describe('cli', () => {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
-      expect(consoleMockCallJoin()).toMatchSnapshot();
+      expect(consoleMockCallJoin()).toContain('`secretAccessKey` missing.');
     });
 
     describe('ui mode', () => {

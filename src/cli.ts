@@ -1,7 +1,7 @@
 import { sep } from 'path';
 import * as yargs from 'yargs';
 
-import { Answers, ui } from './cli-ui';
+import { ui } from './cli-ui';
 import { AuthError, awsCredentialsCheck } from './credential';
 import {
   allInstances,
@@ -111,74 +111,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
 
         async args => {
           try {
-            if (args.ui) {
-              const answers = await ui();
-              if (answers) {
-                let params: string[] = [];
-                (Object.keys(answers) as (keyof Answers)[]).forEach(p => {
-                  switch (p) {
-                    case 'region':
-                      if (answers[p].length) {
-                        params.push('-r');
-                        params = [...params, ...answers[p]];
-                      }
-                      break;
-
-                    case 'familyType':
-                      if (answers[p].length) {
-                        params.push('-f');
-                        params = [...params, ...answers[p]];
-                      }
-                      break;
-                    case 'size':
-                      if (answers[p].length) {
-                        params.push('-s');
-                        params = [...params, ...answers[p]];
-                      }
-                      break;
-                    case 'productDescription':
-                      if (answers[p].length) {
-                        params.push('-d');
-                        params = [...params, ...answers[p]];
-                      }
-                      break;
-                    case 'maxPrice':
-                      if (answers[p]) {
-                        params.push('-p');
-                        params.push(answers[p].toString());
-                      }
-                      break;
-                    case 'limit':
-                      if (answers[p]) {
-                        params.push('-l');
-                        params.push(answers[p].toString());
-                      }
-                      break;
-
-                    case 'accessKeyId':
-                      if (answers[p]) {
-                        params.push('--accessKeyId');
-                        params.push(answers[p]);
-                      }
-                      break;
-                    case 'secretAccessKey':
-                      if (answers[p]) {
-                        params.push('--secretAccessKey');
-                        params.push(answers[p]);
-                      }
-                      break;
-
-                    default:
-                      break;
-                  }
-                });
-                y.parse(params);
-              } else {
-                console.log('Unexpected UI answers. aborted.');
-              }
-              return;
-            }
-
             const {
               region,
               instanceType,
@@ -190,7 +122,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               productDescription,
               accessKeyId,
               secretAccessKey,
-            } = args;
+            } = args.ui ? { ...(await ui()), instanceType: undefined } : args;
 
             if ((!familyType && size) || (familyType && !size)) {
               console.log('`familyTypes` or `sizes` attribute missing.');
@@ -248,11 +180,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
               });
             }
 
-            if (
-              (accessKeyId !== undefined && secretAccessKey === undefined) ||
-              (accessKeyId === undefined && secretAccessKey !== undefined)
-            ) {
-              console.log('`accessKeyId` & `secretAccessKey` should always be used together.');
+            if (accessKeyId && !secretAccessKey) {
+              console.log('`secretAccessKey` missing.');
+              rej();
+              return;
+            }
+
+            if (!accessKeyId && secretAccessKey) {
+              console.log('`accessKeyId` missing.');
               rej();
               return;
             }
