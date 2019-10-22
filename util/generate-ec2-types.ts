@@ -3,8 +3,6 @@ import { resolve } from 'path';
 import * as prettier from 'prettier';
 
 import { getGlobalSpotPrices } from '../src/lib';
-import { defaultRegions } from '../src/regions';
-import { nockEndpoint } from '../test/test-utils';
 
 const familyGeneral = ['a', 't', 'm'];
 
@@ -92,8 +90,6 @@ const sortInstances = (i1: string, i2: string): number => {
 };
 
 const getEc2Types = async (): Promise<string> => {
-  defaultRegions.forEach(region => nockEndpoint({ region })); // TEMP FOR TESTING
-
   const allInstances = (await getGlobalSpotPrices({ silent: true })).reduce(
     (list, cur) => {
       if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);

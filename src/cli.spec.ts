@@ -2,13 +2,12 @@ import { spawnSync } from 'child_process';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { resolve } from 'path';
 
+import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
 import {
-  consoleMockCallJoin,
-  mockAwsCredentials,
-  mockAwsCredentialsClear,
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
-} from '../test/test-utils';
+} from '../test/mock-ec2-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
 import { main } from './cli';
 
 describe('cli', () => {
@@ -76,19 +75,18 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should handle invalid usage of instance family types and sizes option', async () => {
+    it('should handle missing accessKeyId', async () => {
       let caughtError = false;
-
       try {
-        await main(['-f', 'c5']);
+        await main(['--secretAccessKey', 'rand']);
       } catch (error) {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
-      expect(consoleMockCallJoin()).toMatchSnapshot();
+      expect(consoleMockCallJoin()).toContain('`accessKeyId` missing.');
     });
 
-    it('should handle invalid usage of accessKeyId and secretAccessKey', async () => {
+    it('should handle missing secretAccessKey', async () => {
       let caughtError = false;
       try {
         await main(['--accessKeyId', 'rand']);
@@ -96,7 +94,30 @@ describe('cli', () => {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
-      expect(consoleMockCallJoin()).toMatchSnapshot();
+      expect(consoleMockCallJoin()).toContain('`secretAccessKey` missing.');
+    });
+
+    describe('ui mode', () => {
+      beforeAll(() => {
+        process.env.UI_INJECT = JSON.stringify([
+          ['us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'],
+          [],
+          ['c4', 'r5', 'f1'],
+          ['nano', 'micro', 'small', 'medium', 'large'],
+          ['Linux/UNIX', 'SUSE Linux'],
+          0.5,
+          10,
+        ]);
+      });
+
+      afterAll(() => {
+        delete process.env.UI_INJECT;
+      });
+
+      it('should return expected result', async () => {
+        await main(['--ui']);
+        expect(consoleMockCallJoin()).toMatchSnapshot();
+      });
     });
   });
 
@@ -104,7 +125,7 @@ describe('cli', () => {
     let restoreConsole: RestoreConsole;
 
     beforeAll(() => {
-      mockAwsCredentials(true);
+      mockAwsCredentials({ fail: true });
       restoreConsole = mockConsole();
     });
 
@@ -121,7 +142,7 @@ describe('cli', () => {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
-      expect(consoleMockCallJoin()).toMatchSnapshot();
+      expect(consoleMockCallJoin()).toEqual('Invalid AWS credentials provided.');
     });
   });
 
