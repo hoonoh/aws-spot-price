@@ -56,14 +56,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
           },
           familyType: {
             alias: 'f',
-            describe: 'EC2 instance family types. Requires `sizes` parameter.',
+            describe: 'EC2 instance family types.',
             type: 'array',
             string: true,
             choices: instanceFamilyTypes,
           },
           size: {
             alias: 's',
-            describe: 'EC2 instance sizes. Requires `families` parameter.',
+            describe: 'EC2 instance sizes.',
             type: 'array',
             choices: instanceSizes,
             string: true,
