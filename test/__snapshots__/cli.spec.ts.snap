@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cli should handle invalid credentials error should throw error 1`] = `"Invalid AWS credentials provided."`;
-
 exports[`cli test by import should handle instance family option 1`] = `
 "╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1a      │ US East (N. Virginia)   ║
@@ -46,8 +44,6 @@ exports[`cli test by import should handle instance family option 1`] = `
 ╚═══════════╧══════════╧═════════════════════════╧═════════════════╧═════════════════════════╝
 "
 `;
-
-exports[`cli test by import should handle invalid usage of instance family types and sizes option 1`] = `"\`familyTypes\` or \`sizes\` attribute missing."`;
 
 exports[`cli test by import should print help 1`] = `
 "spot-price

@@ -142,7 +142,7 @@ describe('cli', () => {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
-      expect(consoleMockCallJoin()).toMatchSnapshot();
+      expect(consoleMockCallJoin()).toEqual('Invalid AWS credentials provided.');
     });
   });
 

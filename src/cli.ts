@@ -67,7 +67,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
             type: 'array',
             choices: instanceSizes,
             string: true,
-            // demandOption: true, // TEMP
           },
           priceMax: {
             alias: 'p',
@@ -158,15 +157,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
               (productDescription as (
                 | ProductDescription
                 | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
+                /* istanbul ignore else */
                 if (instanceOfProductDescription(pd)) {
                   productDescriptionsSet.add(pd);
                 } else if (pd === 'linux') {
                   productDescriptionWildcards.linux.forEach(desc => {
                     productDescriptionsSet.add(desc);
                   });
-                } else {
-                  // `} else if (pd === 'windows') {`
-                  // only windows wildcard case left: replaced with else for test coverage
+                } else if (pd === 'windows') {
                   productDescriptionWildcards.windows.forEach(desc => {
                     productDescriptionsSet.add(desc);
                   });
