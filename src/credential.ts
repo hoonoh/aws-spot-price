@@ -4,7 +4,7 @@ type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
 
 export class AuthError extends Error {
   constructor(message: string, code: AuthErrorCode) {
-    super(message);
+    super(message) /* istanbul ignore next */;
     this.code = code;
     Object.setPrototypeOf(this, AuthError.prototype);
   }
@@ -21,7 +21,7 @@ export const awsCredentialsCheck = async (options?: {
   if (
     !accessKeyId &&
     !secretAccessKey &&
-    !(config.credentials && config.credentials.accessKeyId) &&
+    !config.credentials &&
     !(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY)
   ) {
     throw new AuthError('AWS credentials unavailable.', 'CredentialsNotFound');
