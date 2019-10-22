@@ -47,8 +47,6 @@ exports[`cli test by import should handle instance family option 1`] = `
 "
 `;
 
-exports[`cli test by import should handle invalid usage of accessKeyId and secretAccessKey 1`] = `"\`accessKeyId\` & \`secretAccessKey\` should always be used together."`;
-
 exports[`cli test by import should handle invalid usage of instance family types and sizes option 1`] = `"\`familyTypes\` or \`sizes\` attribute missing."`;
 
 exports[`cli test by import should print help 1`] = `

@@ -53,7 +53,7 @@ describe('cli-ui', () => {
         expect(result.familyType.sort()).toEqual(Array.from(instanceFamilyCompute).sort());
         expect(result.size.sort()).toEqual(getFamilySize(['compute']).sort());
         expect(result.productDescription).toHaveLength(0);
-        expect(result.maxPrice).toBeFalsy();
+        expect(result.priceMax).toBeFalsy();
         expect(result.limit).toBeFalsy();
         expect(result.accessKeyId).toBeFalsy();
       }
@@ -89,7 +89,7 @@ describe('cli-ui', () => {
         );
         expect(result.size.sort()).toEqual(getFamilySize(['general', 'memory']).sort());
         expect(result.productDescription).toHaveLength(0);
-        expect(result.maxPrice).toBeFalsy();
+        expect(result.priceMax).toBeFalsy();
         expect(result.limit).toBeFalsy();
         expect(result.accessKeyId).toBeFalsy();
       }
@@ -126,7 +126,7 @@ describe('cli-ui', () => {
         expect(result.familyType.sort()).toEqual(['c4', 'r5', 'f1'].sort());
         expect(result.size.sort()).toEqual(['nano', 'micro', 'small', 'medium', 'large'].sort());
         expect(result.productDescription.sort()).toEqual(['Linux/UNIX', 'SUSE Linux'].sort());
-        expect(result.maxPrice).toEqual(0.5);
+        expect(result.priceMax).toEqual(0.5);
         expect(result.limit).toEqual(21);
         expect(result.accessKeyId).toEqual('accessKeyId');
         expect(result.secretAccessKey).toEqual('secretAccessKey');
