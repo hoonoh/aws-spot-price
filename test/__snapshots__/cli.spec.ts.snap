@@ -59,6 +59,7 @@ get current AWS spot instance prices
 Options:
   --version                 Show version number                        [boolean]
   --help                    Show help                                  [boolean]
+  --ui                      Start with UI mode        [boolean] [default: false]
   --region, -r              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
           \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
@@ -138,8 +139,7 @@ Options:
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
   --limit, -l               Limit results output length   [number] [default: 20]
   --accessKeyId             AWS Access Key ID.                          [string]
-  --secretAccessKey         AWS Secret Access Key.                      [string]
-  --ui                      Start with UI mode        [boolean] [default: false]"
+  --secretAccessKey         AWS Secret Access Key.                      [string]"
 `;
 
 exports[`cli test by import should return expected values with default options 1`] = `
@@ -291,6 +291,31 @@ exports[`cli test by import should return expected values with wildcard product 
 ╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
 ║ t3a.nano │ 0.006000 │ Windows (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
 ╚══════════╧══════════╧══════════════════════╧════════════╧═══════════════════════╝
+"
+`;
+
+exports[`cli test by import ui mode should return expected result 1`] = `
+"╔══════════╤══════════╤════════════╤════════════╤═════════════════════════╗
+║ c4.large │ 0.018100 │ Linux/UNIX │ us-east-2a │ US East (Ohio)          ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ c4.large │ 0.018100 │ Linux/UNIX │ us-east-2c │ US East (Ohio)          ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ c4.large │ 0.019500 │ Linux/UNIX │ us-east-2b │ US East (Ohio)          ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ r5.large │ 0.020900 │ Linux/UNIX │ us-east-2a │ US East (Ohio)          ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ r5.large │ 0.021100 │ Linux/UNIX │ us-east-2c │ US East (Ohio)          ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ r5.large │ 0.021200 │ Linux/UNIX │ us-east-2b │ US East (Ohio)          ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ c4.large │ 0.029300 │ Linux/UNIX │ us-west-1b │ US West (N. California) ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ c4.large │ 0.029300 │ Linux/UNIX │ us-west-1c │ US West (N. California) ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ c4.large │ 0.031300 │ Linux/UNIX │ us-west-2c │ US West (Oregon)        ║
+╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
+║ c4.large │ 0.031500 │ Linux/UNIX │ us-west-2a │ US West (Oregon)        ║
+╚══════════╧══════════╧════════════╧════════════╧═════════════════════════╝
 "
 `;
 

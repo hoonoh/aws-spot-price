@@ -29,6 +29,11 @@ export const main = (argvInput?: string[]): Promise<void> =>
         '$0',
         'get current AWS spot instance prices',
         {
+          ui: {
+            describe: 'Start with UI mode',
+            type: 'boolean',
+            default: false,
+          },
           region: {
             alias: 'r',
             describe: 'AWS regions.',
@@ -102,15 +107,78 @@ export const main = (argvInput?: string[]): Promise<void> =>
             describe: 'AWS Secret Access Key.',
             type: 'string',
           },
-          ui: {
-            describe: 'Start with UI mode',
-            type: 'boolean',
-            default: false,
-          },
         },
 
         async args => {
           try {
+            if (args.ui) {
+              const answers = await ui();
+              if (answers) {
+                let params: string[] = [];
+                (Object.keys(answers) as (keyof Answers)[]).forEach(p => {
+                  switch (p) {
+                    case 'region':
+                      if (answers[p].length) {
+                        params.push('-r');
+                        params = [...params, ...answers[p]];
+                      }
+                      break;
+
+                    case 'familyType':
+                      if (answers[p].length) {
+                        params.push('-f');
+                        params = [...params, ...answers[p]];
+                      }
+                      break;
+                    case 'size':
+                      if (answers[p].length) {
+                        params.push('-s');
+                        params = [...params, ...answers[p]];
+                      }
+                      break;
+                    case 'productDescription':
+                      if (answers[p].length) {
+                        params.push('-d');
+                        params = [...params, ...answers[p]];
+                      }
+                      break;
+                    case 'maxPrice':
+                      if (answers[p]) {
+                        params.push('-p');
+                        params.push(answers[p].toString());
+                      }
+                      break;
+                    case 'limit':
+                      if (answers[p]) {
+                        params.push('-l');
+                        params.push(answers[p].toString());
+                      }
+                      break;
+
+                    case 'accessKeyId':
+                      if (answers[p]) {
+                        params.push('--accessKeyId');
+                        params.push(answers[p]);
+                      }
+                      break;
+                    case 'secretAccessKey':
+                      if (answers[p]) {
+                        params.push('--secretAccessKey');
+                        params.push(answers[p]);
+                      }
+                      break;
+
+                    default:
+                      break;
+                  }
+                });
+                y.parse(params);
+              } else {
+                console.log('Unexpected UI answers. aborted.');
+              }
+              return;
+            }
+
             const {
               region,
               instanceType,
@@ -239,72 +307,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
       y.exitProcess(false);
       y.parse(argvInput);
       if (argvInput.includes('--help')) res();
-    } else if (process.argv.includes('--ui')) {
-      ui().then(answers => {
-        if (answers) {
-          let params: string[] = [];
-          (Object.keys(answers) as (keyof Answers)[]).forEach(p => {
-            switch (p) {
-              case 'region':
-                if (answers[p].length) {
-                  params.push('-r');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-
-              case 'familyType':
-                if (answers[p].length) {
-                  params.push('-f');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-              case 'size':
-                if (answers[p].length) {
-                  params.push('-s');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-              case 'productDescription':
-                if (answers[p].length) {
-                  params.push('-d');
-                  params = [...params, ...answers[p]];
-                }
-                break;
-              case 'maxPrice':
-                if (answers[p]) {
-                  params.push('-p');
-                  params.push(answers[p].toString());
-                }
-                break;
-              case 'limit':
-                if (answers[p]) {
-                  params.push('-l');
-                  params.push(answers[p].toString());
-                }
-                break;
-
-              case 'accessKeyId':
-                if (answers[p]) {
-                  params.push('--accessKeyId');
-                  params.push(answers[p]);
-                }
-                break;
-              case 'secretAccessKey':
-                if (answers[p]) {
-                  params.push('--secretAccessKey');
-                  params.push(answers[p]);
-                }
-                break;
-
-              default:
-                break;
-            }
-          });
-          y.parse(params);
-        } else {
-          console.log('Unexpected UI answers. aborted.');
-        }
-      });
     } else {
       y.parse(process.argv);
     }
