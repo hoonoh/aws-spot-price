@@ -1,4 +1,4 @@
-import { config, EC2, STS } from 'aws-sdk';
+import { EC2 } from 'aws-sdk';
 import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
@@ -171,6 +171,7 @@ export const getGlobalSpotPrices = async (options?: {
 
   let spinner: ora.Ora | undefined;
   let spinnerText: string | undefined;
+  /* istanbul ignore if */
   if (!silent && process.env.NODE_ENV !== 'test') {
     spinner = ora({
       text: 'Waiting for data to be retrieved...',
@@ -189,11 +190,13 @@ export const getGlobalSpotPrices = async (options?: {
           secretAccessKey,
         });
         rtn = [...rtn, ...regionsPrices];
+        /* istanbul ignore if */
         if (spinner) {
           spinnerText = `Retrieved data from ${region}...`;
           spinner.text = spinnerText;
         }
       } catch (error) {
+        /* istanbul ignore if */
         if (error instanceof Ec2SpotPriceError && spinner) {
           spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
           spinner = ora({
@@ -206,6 +209,7 @@ export const getGlobalSpotPrices = async (options?: {
       }
     }),
   );
+  /* istanbul ignore if */
   if (spinner) spinner.succeed('All data retrieved!').stop();
 
   rtn = rtn.reduce(
@@ -278,42 +282,4 @@ export const getGlobalSpotPrices = async (options?: {
   }
 
   return rtn;
-};
-
-type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
-
-export class AuthError extends Error {
-  constructor(message: string, code: AuthErrorCode) {
-    super(message);
-    this.code = code;
-    Object.setPrototypeOf(this, AuthError.prototype);
-  }
-
-  readonly code: AuthErrorCode;
-}
-
-export const awsCredentialsCheck = async (options?: {
-  accessKeyId?: string;
-  secretAccessKey?: string;
-}): Promise<void> => {
-  const { accessKeyId, secretAccessKey } = options || {};
-
-  if (
-    !accessKeyId &&
-    !secretAccessKey &&
-    !config.credentials &&
-    !(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY)
-  ) {
-    throw new AuthError('AWS credentials unavailable.', 'CredentialsNotFound');
-  }
-
-  try {
-    const sts = new STS({
-      accessKeyId,
-      secretAccessKey,
-    });
-    await sts.getCallerIdentity().promise();
-  } catch (error) {
-    throw new AuthError(error.message, 'UnAuthorized');
-  }
 };

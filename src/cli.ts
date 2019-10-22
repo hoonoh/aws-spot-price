@@ -2,6 +2,7 @@ import { sep } from 'path';
 import * as yargs from 'yargs';
 
 import { Answers, ui } from './cli-ui';
+import { AuthError, awsCredentialsCheck } from './credential';
 import {
   allInstances,
   instanceFamily,
@@ -11,7 +12,7 @@ import {
   instanceSizes,
   InstanceType,
 } from './ec2-types';
-import { AuthError, awsCredentialsCheck, defaults, getGlobalSpotPrices } from './lib';
+import { defaults, getGlobalSpotPrices } from './lib';
 import {
   allProductDescriptions,
   instanceOfProductDescription,
