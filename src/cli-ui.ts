@@ -25,6 +25,7 @@ type Answer2 = {
 
 export type Answers = Answer1 & Answer2;
 
+/* istanbul ignore next */
 const onCancel = (): void => {
   console.log('aborted');
   process.exit();
@@ -32,6 +33,10 @@ const onCancel = (): void => {
 
 export const ui = async (): Promise<Answers | undefined> => {
   try {
+    /* istanbul ignore next */
+    const inject = process.env.UI_INJECT ? JSON.parse(process.env.UI_INJECT) : undefined;
+    /* istanbul ignore next */
+    if (inject) prompt.inject(inject.splice(0, 2));
     const question1 = [
       {
         type: 'autocompleteMultiselect',
@@ -96,6 +101,16 @@ export const ui = async (): Promise<Answers | undefined> => {
       }
       return 'select none to include all';
     };
+
+    /* istanbul ignore next */
+    if (inject) {
+      familyTypePreSelected.forEach(type => {
+        if (typeof inject[0] === 'object' && !inject[0].includes(type)) inject[0].push(type);
+      });
+      sizePreSelected.forEach(size => {
+        if (typeof inject[1] === 'object' && !inject[1].includes(size)) inject[1].push(size);
+      });
+    }
 
     const question2 = [
       {
@@ -173,10 +188,13 @@ export const ui = async (): Promise<Answers | undefined> => {
       },
     ];
 
+    /* istanbul ignore next */
+    if (inject) prompt.inject(inject);
     const answer2: Answer2 = await prompt(question2, { onCancel });
 
     return { ...answer1, ...answer2 };
   } catch (error) {
+    /* istanbul ignore next */
     return undefined;
   }
 };

@@ -97,6 +97,29 @@ describe('cli', () => {
       expect(caughtError).toBeTruthy();
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
+
+    describe('ui mode', () => {
+      beforeAll(() => {
+        process.env.UI_INJECT = JSON.stringify([
+          ['us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'],
+          [],
+          ['c4', 'r5', 'f1'],
+          ['nano', 'micro', 'small', 'medium', 'large'],
+          ['Linux/UNIX', 'SUSE Linux'],
+          0.5,
+          10,
+        ]);
+      });
+
+      afterAll(() => {
+        delete process.env.UI_INJECT;
+      });
+
+      it('should return expected result', async () => {
+        await main(['--ui']);
+        expect(consoleMockCallJoin()).toMatchSnapshot();
+      });
+    });
   });
 
   describe('should handle invalid credentials error', () => {
