@@ -56,16 +56,13 @@ Choose from: `general`, `compute`, `memory`, `storage`, `acceleratedComputing`
 Type of EC2 instance to filter. Accepts multiple string values.
 Enter valid EC2 instance type name. e.g. `-i t3.nano t3a.nano`
 
-#### <a name="familyType"></a>--familyType | -f
+#### --familyType | -f
 
-EC2 Family type (`c4`, `c5`, etc..). Accepts multiple string values. Requires `--size` option to be used together.
-Internally, `--familyType` and `--size` option will build list of EC2 instance types.
-For example, `-f c4 c5 -s large xlarge` is equivalent to `-i c4.large c5.large c4.xlarge c5.xlarge`.
+EC2 Family type (`c4`, `c5`, etc..). Accepts multiple string values.
 
 #### --size | -s
 
-EC2 size (`large`, `xlarge`, etc..). Accepts multiple string values. Requires `--familyType` option to be used together.
-See [`--familyType`](#familyType) section for more detail.
+EC2 size (`large`, `xlarge`, etc..). Accepts multiple string values.
 
 #### --priceMax | -p
 

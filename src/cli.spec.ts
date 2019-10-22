@@ -75,18 +75,6 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should handle invalid usage of instance family types and sizes option', async () => {
-      let caughtError = false;
-
-      try {
-        await main(['-f', 'c5']);
-      } catch (error) {
-        caughtError = true;
-      }
-      expect(caughtError).toBeTruthy();
-      expect(consoleMockCallJoin()).toMatchSnapshot();
-    });
-
     it('should handle missing accessKeyId', async () => {
       let caughtError = false;
       try {

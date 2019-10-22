@@ -124,12 +124,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
               secretAccessKey,
             } = args.ui ? { ...(await ui()), instanceType: undefined } : args;
 
-            if ((!familyType && size) || (familyType && !size)) {
-              console.log('`familyTypes` or `sizes` attribute missing.');
-              rej();
-              return;
-            }
-
             const familyTypeSet = new Set<InstanceFamilyType>();
             if (familyType) {
               (familyType as InstanceFamilyType[]).forEach(t => {
