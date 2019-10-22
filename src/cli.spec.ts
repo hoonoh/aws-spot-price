@@ -2,13 +2,12 @@ import { spawnSync } from 'child_process';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { resolve } from 'path';
 
+import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
 import {
-  consoleMockCallJoin,
-  mockAwsCredentials,
-  mockAwsCredentialsClear,
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
-} from '../test/test-utils';
+} from '../test/mock-ec2-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
 import { main } from './cli';
 
 describe('cli', () => {
@@ -104,7 +103,7 @@ describe('cli', () => {
     let restoreConsole: RestoreConsole;
 
     beforeAll(() => {
-      mockAwsCredentials(true);
+      mockAwsCredentials({ fail: true });
       restoreConsole = mockConsole();
     });
 

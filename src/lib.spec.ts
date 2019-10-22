@@ -3,14 +3,13 @@ import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import * as nock from 'nock';
 
+import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
 import {
-  consoleMockCallJoin,
-  mockAwsCredentials,
-  mockAwsCredentialsClear,
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
-} from '../test/test-utils';
-import { awsCredentialsCheck, getGlobalSpotPrices } from './lib';
+} from '../test/mock-ec2-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
+import { getGlobalSpotPrices } from './lib';
 import { Region } from './regions';
 
 describe('lib', () => {
@@ -139,50 +138,6 @@ describe('lib', () => {
         await getGlobalSpotPrices({ regions: [region] });
         expect(console.error).toHaveBeenCalled();
         expect(consoleMockCallJoin('error')).toContain('unexpected getEc2SpotPrice error');
-      });
-    });
-  });
-
-  describe('awsCredentialsCheck', () => {
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
-    describe('should throw error', () => {
-      beforeEach(() => {
-        mockAwsCredentials(true);
-      });
-
-      afterEach(() => {
-        mockAwsCredentialsClear();
-      });
-
-      it('should throw error', async () => {
-        let threwError = false;
-        try {
-          await awsCredentialsCheck();
-        } catch (error) {
-          threwError = true;
-        }
-        expect(threwError).toBeTruthy();
-      });
-    });
-
-    describe('should not throw error', () => {
-      beforeEach(() => {
-        mockAwsCredentials();
-      });
-      afterEach(() => {
-        mockAwsCredentialsClear();
-      });
-      it('should not throw error', async () => {
-        let threwError = false;
-        try {
-          await awsCredentialsCheck();
-        } catch (error) {
-          threwError = true;
-        }
-        expect(threwError).toBeFalsy();
       });
     });
   });
