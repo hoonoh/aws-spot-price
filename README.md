@@ -4,6 +4,8 @@
 
 # aws-spot-price
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hoonoh/aws-spot-price.svg)](https://greenkeeper.io/)
+
 CLI utility to list current global AWS EC2 Spot Instance prices. Requires valid AWS Access & Secret keys.
 
 ## Example
