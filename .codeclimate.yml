@@ -1,0 +1,31 @@
+version: "2"
+plugins:
+  eslint:
+    enabled: true
+
+exclude_patterns:
+  - "test/"
+  - "src/**/*.spec.ts"
+  - ".circleci/"
+  - "bin/"
+  - "docs/"
+  - "patches/"
+  - "util/"
+  - ".codeclimate.yml"
+  - ".eslintrc.js"
+  - ".gitignore"
+  - ".npmignore"
+  - ".prettierignore"
+  - "CHANGELOG.md"
+  - "README.md"
+  - "aws-spot-price.code-workspace"
+  - "commitlint.config.js"
+  - "package.json"
+  - "tsconfig.json"
+  - "yarn.lock"
+
+checks:
+  file-lines:
+    enabled: false
+  method-lines:
+    enabled: false
