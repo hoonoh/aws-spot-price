@@ -3,16 +3,16 @@ import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import * as nock from 'nock';
 
-import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
+import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import {
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
-} from '../test/mock-ec2-endpoints';
-import { consoleMockCallJoin } from '../test/utils';
-import { InstanceFamilyType, InstanceSize } from './ec2-types';
+} from '../../test/mock-ec2-endpoints';
+import { consoleMockCallJoin } from '../../test/utils';
+import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
+import { ProductDescription } from '../constants/product-description';
+import { Region } from '../constants/regions';
 import { getGlobalSpotPrices } from './lib';
-import { ProductDescription } from './product-description';
-import { Region } from './regions';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
