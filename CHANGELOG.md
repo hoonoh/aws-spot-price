@@ -1,4 +1,18 @@
-## [0.0.6](https://github.com/hoonoh/aws-spot-price/compare/v0.0.5...v0.0.6) (2019-10-18)
+# 0.2.0 (https://github.com/hoonoh/aws-spot-price/compare/v0.1.0...v0.2.0) (2019-10-22)
+
+
+### Features
+
+* allow using familyType or size option by itself ([bd0af8b](https://github.com/hoonoh/aws-spot-price/commit/bd0af8b6c55e44cb674a1d345f75cc4e25c05e9a))
+
+
+
+# [0.1.0](https://github.com/hoonoh/aws-spot-price/compare/v0.0.5...v0.1.0) (2019-10-21)
+
+
+### Bug Fixes
+
+* fix credential timeout bug & update related mocks ([2cab624](https://github.com/hoonoh/aws-spot-price/commit/2cab624fde0d8795b6de8c0d57fe5e5ef0c47be1))
 
 
 ### Features
