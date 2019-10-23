@@ -20,6 +20,7 @@ import { allRegions, Region } from './constants/regions';
 import { AuthError, awsCredentialsCheck } from './lib/credential';
 import { defaults, getGlobalSpotPrices } from './lib/lib';
 import { ui } from './lib/ui';
+import { generateTypeSizeSetsFromFamily } from './lib/utils';
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
@@ -123,31 +124,27 @@ export const main = (argvInput?: string[]): Promise<void> =>
               secretAccessKey,
             } = args.ui ? { ...(await ui()), instanceType: undefined } : args;
 
-            const familyTypeSet = new Set<InstanceFamilyType>();
+            // process instance families
+            let familyTypeSet: Set<InstanceFamilyType>;
+            let sizeSet: Set<InstanceSize>;
+            if (family) {
+              ({ familyTypeSet, sizeSet } = generateTypeSizeSetsFromFamily(
+                family as (keyof typeof instanceFamily)[],
+              ));
+            } else {
+              familyTypeSet = new Set<InstanceFamilyType>();
+              sizeSet = new Set<InstanceSize>();
+            }
+
             if (familyType) {
               (familyType as InstanceFamilyType[]).forEach(t => {
                 familyTypeSet.add(t);
               });
             }
 
-            const sizeSet = new Set<InstanceSize>();
             if (size) {
               (size as InstanceSize[]).forEach(s => {
                 sizeSet.add(s);
-              });
-            }
-
-            // process instance families
-            if (family) {
-              (family as (keyof typeof instanceFamily)[]).forEach(f => {
-                instanceFamily[f].forEach((t: InstanceFamilyType) => {
-                  familyTypeSet.add(t);
-                  allInstances
-                    .filter(instance => instance.startsWith(t))
-                    .forEach(instance => {
-                      sizeSet.add(instance.split('.').pop() as InstanceSize);
-                    });
-                });
               });
             }
 
