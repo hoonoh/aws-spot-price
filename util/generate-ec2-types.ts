@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 import * as prettier from 'prettier';
 
-import { getGlobalSpotPrices } from '../src/lib';
+import { getGlobalSpotPrices } from '../src/lib/lib';
 
 const familyGeneral = ['a', 't', 'm'];
 
@@ -174,7 +174,7 @@ const getEc2Types = async (): Promise<string> => {
 
 if (require.main && require.main.filename === module.filename) {
   (async (): Promise<void> => {
-    const targetPath = resolve(__dirname, '../src/ec2-types.ts');
+    const targetPath = resolve(__dirname, '../src/constants/ec2-types.ts');
     writeFileSync(targetPath, await getEc2Types());
   })();
 }

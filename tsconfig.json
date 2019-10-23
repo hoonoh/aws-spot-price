@@ -15,11 +15,11 @@
   },
   "files": [
     "src/cli.ts",
-    "src/cli-ui.ts",
-    "src/ec2-types.ts",
-    "src/lib.ts",
-    "src/product-description.ts",
-    "src/regions.ts"
+    "src/constants/ec2-types.ts",
+    "src/constants/product-description.ts",
+    "src/constants/regions.ts",
+    "src/lib/lib.ts",
+    "src/lib/ui.ts"
   ],
   "exclude": ["node_modules"]
 }

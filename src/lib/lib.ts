@@ -3,9 +3,14 @@ import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
 
-import { allInstances, InstanceFamilyType, InstanceSize, InstanceType } from './ec2-types';
-import { ProductDescription } from './product-description';
-import { defaultRegions, Region, regionNames } from './regions';
+import {
+  allInstances,
+  InstanceFamilyType,
+  InstanceSize,
+  InstanceType,
+} from '../constants/ec2-types';
+import { ProductDescription } from '../constants/product-description';
+import { defaultRegions, Region, regionNames } from '../constants/regions';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   let rtn = 0;

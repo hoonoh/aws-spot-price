@@ -1,8 +1,6 @@
 import { sep } from 'path';
 import * as yargs from 'yargs';
 
-import { ui } from './cli-ui';
-import { AuthError, awsCredentialsCheck } from './credential';
 import {
   allInstances,
   instanceFamily,
@@ -11,15 +9,17 @@ import {
   InstanceSize,
   instanceSizes,
   InstanceType,
-} from './ec2-types';
-import { defaults, getGlobalSpotPrices } from './lib';
+} from './constants/ec2-types';
 import {
   allProductDescriptions,
   instanceOfProductDescription,
   ProductDescription,
   productDescriptionWildcards,
-} from './product-description';
-import { allRegions, Region } from './regions';
+} from './constants/product-description';
+import { allRegions, Region } from './constants/regions';
+import { AuthError, awsCredentialsCheck } from './lib/credential';
+import { defaults, getGlobalSpotPrices } from './lib/lib';
+import { ui } from './lib/ui';
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {

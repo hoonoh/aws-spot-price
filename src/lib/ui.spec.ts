@@ -1,4 +1,3 @@
-import { ui } from './cli-ui';
 import {
   allInstances,
   instanceFamily,
@@ -6,7 +5,8 @@ import {
   instanceFamilyGeneral,
   instanceFamilyMemory,
   InstanceSize,
-} from './ec2-types';
+} from '../constants/ec2-types';
+import { ui } from './ui';
 
 const getFamilySize = (family: string[]): string[] => {
   const types = Object.keys(instanceFamily).reduce(

@@ -7,9 +7,9 @@ import {
   instanceFamilyTypes,
   InstanceSize,
   instanceSizes,
-} from './ec2-types';
-import { allProductDescriptions, ProductDescription } from './product-description';
-import { allRegions, Region, regionNames } from './regions';
+} from '../constants/ec2-types';
+import { allProductDescriptions, ProductDescription } from '../constants/product-description';
+import { allRegions, Region, regionNames } from '../constants/regions';
 
 type Answer1 = { region: Region[]; family: (keyof typeof instanceFamily)[] };
 

@@ -1,9 +1,9 @@
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import * as nock from 'nock';
 
-import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
-import { consoleMockCallJoin } from '../test/utils';
-import { main } from './cli';
+import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
+import { consoleMockCallJoin } from '../../test/utils';
+import { main } from '../cli';
 import { awsCredentialsCheck } from './credential';
 
 // mock fs to disable ~/.aws/credentials

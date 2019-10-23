@@ -5,7 +5,7 @@ import * as nock from 'nock';
 import { resolve } from 'path';
 import { parse } from 'querystring';
 
-import { allRegions, defaultRegions, Region } from '../src/regions';
+import { allRegions, defaultRegions, Region } from '../src/constants/regions';
 import { mockAwsCredentials, mockAwsCredentialsClear } from './mock-credential-endpoints';
 
 const data = JSON.parse(
