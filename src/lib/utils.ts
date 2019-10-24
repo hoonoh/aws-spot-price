@@ -1,12 +1,13 @@
 import {
   allInstances,
   instanceFamily,
+  InstanceFamily,
   InstanceFamilyType,
   InstanceSize,
 } from '../constants/ec2-types';
 
 export const generateTypeSizeSetsFromFamily = (
-  families: (keyof typeof instanceFamily)[],
+  families: InstanceFamily[],
 ): {
   familyTypeSet: Set<InstanceFamilyType>;
   sizeSet: Set<InstanceSize>;

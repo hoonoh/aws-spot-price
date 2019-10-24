@@ -2,6 +2,7 @@ import { Choice, prompt } from 'prompts';
 
 import {
   instanceFamily,
+  InstanceFamily,
   InstanceFamilyType,
   instanceFamilyTypes,
   InstanceSize,
@@ -11,7 +12,7 @@ import { allProductDescriptions, ProductDescription } from '../constants/product
 import { allRegions, Region, regionNames } from '../constants/regions';
 import { generateTypeSizeSetsFromFamily } from './utils';
 
-type Answer1 = { region: Region[]; family: (keyof typeof instanceFamily)[] };
+type Answer1 = { region: Region[]; family: InstanceFamily[] };
 
 type Answer2 = {
   familyType: InstanceFamilyType[];

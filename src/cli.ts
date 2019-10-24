@@ -4,6 +4,7 @@ import * as yargs from 'yargs';
 import {
   allInstances,
   instanceFamily,
+  InstanceFamily,
   InstanceFamilyType,
   instanceFamilyTypes,
   InstanceSize,
@@ -15,6 +16,7 @@ import {
   instanceOfProductDescription,
   ProductDescription,
   productDescriptionWildcards,
+  ProductDescriptionWildcards,
 } from './constants/product-description';
 import { allRegions, Region } from './constants/regions';
 import { AuthError, awsCredentialsCheck } from './lib/credential';
@@ -82,9 +84,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             string: true,
             choices: [
               ...allProductDescriptions,
-              ...(Object.keys(
-                productDescriptionWildcards,
-              ) as (keyof typeof productDescriptionWildcards)[]),
+              ...(Object.keys(productDescriptionWildcards) as ProductDescriptionWildcards[]),
             ],
           },
           limit: {
@@ -129,7 +129,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             let sizeSet: Set<InstanceSize>;
             if (family) {
               ({ familyTypeSet, sizeSet } = generateTypeSizeSetsFromFamily(
-                family as (keyof typeof instanceFamily)[],
+                family as InstanceFamily[],
               ));
             } else {
               familyTypeSet = new Set<InstanceFamilyType>();
@@ -151,22 +151,22 @@ export const main = (argvInput?: string[]): Promise<void> =>
             // process product description
             const productDescriptionsSet = new Set<ProductDescription>();
             if (productDescription) {
-              (productDescription as (
-                | ProductDescription
-                | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
-                /* istanbul ignore else */
-                if (instanceOfProductDescription(pd)) {
-                  productDescriptionsSet.add(pd);
-                } else if (pd === 'linux') {
-                  productDescriptionWildcards.linux.forEach(desc => {
-                    productDescriptionsSet.add(desc);
-                  });
-                } else if (pd === 'windows') {
-                  productDescriptionWildcards.windows.forEach(desc => {
-                    productDescriptionsSet.add(desc);
-                  });
-                }
-              });
+              (productDescription as (ProductDescription | ProductDescriptionWildcards)[]).forEach(
+                pd => {
+                  /* istanbul ignore else */
+                  if (instanceOfProductDescription(pd)) {
+                    productDescriptionsSet.add(pd);
+                  } else if (pd === 'linux') {
+                    productDescriptionWildcards.linux.forEach(desc => {
+                      productDescriptionsSet.add(desc);
+                    });
+                  } else if (pd === 'windows') {
+                    productDescriptionWildcards.windows.forEach(desc => {
+                      productDescriptionsSet.add(desc);
+                    });
+                  }
+                },
+              );
             }
 
             if (accessKeyId && !secretAccessKey) {
