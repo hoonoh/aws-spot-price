@@ -53,6 +53,8 @@ export const instanceFamily = {
   acceleratedComputing: instanceFamilyAcceleratedComputing,
 };
 
+export type InstanceFamily = keyof typeof instanceFamily;
+
 export const instanceFamilyTypes = [
   ...instanceFamilyGeneral,
   ...instanceFamilyCompute,

@@ -4,6 +4,7 @@ import * as yargs from 'yargs';
 import {
   allInstances,
   instanceFamily,
+  InstanceFamily,
   InstanceFamilyType,
   instanceFamilyTypes,
   InstanceSize,
@@ -15,11 +16,13 @@ import {
   instanceOfProductDescription,
   ProductDescription,
   productDescriptionWildcards,
+  ProductDescriptionWildcards,
 } from './constants/product-description';
 import { allRegions, Region } from './constants/regions';
 import { AuthError, awsCredentialsCheck } from './lib/credential';
 import { defaults, getGlobalSpotPrices } from './lib/lib';
 import { ui } from './lib/ui';
+import { generateTypeSizeSetsFromFamily } from './lib/utils';
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
@@ -81,9 +84,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             string: true,
             choices: [
               ...allProductDescriptions,
-              ...(Object.keys(
-                productDescriptionWildcards,
-              ) as (keyof typeof productDescriptionWildcards)[]),
+              ...(Object.keys(productDescriptionWildcards) as ProductDescriptionWildcards[]),
             ],
           },
           limit: {
@@ -123,53 +124,49 @@ export const main = (argvInput?: string[]): Promise<void> =>
               secretAccessKey,
             } = args.ui ? { ...(await ui()), instanceType: undefined } : args;
 
-            const familyTypeSet = new Set<InstanceFamilyType>();
+            // process instance families
+            let familyTypeSet: Set<InstanceFamilyType>;
+            let sizeSet: Set<InstanceSize>;
+            if (family) {
+              ({ familyTypeSet, sizeSet } = generateTypeSizeSetsFromFamily(
+                family as InstanceFamily[],
+              ));
+            } else {
+              familyTypeSet = new Set<InstanceFamilyType>();
+              sizeSet = new Set<InstanceSize>();
+            }
+
             if (familyType) {
               (familyType as InstanceFamilyType[]).forEach(t => {
                 familyTypeSet.add(t);
               });
             }
 
-            const sizeSet = new Set<InstanceSize>();
             if (size) {
               (size as InstanceSize[]).forEach(s => {
                 sizeSet.add(s);
               });
             }
 
-            // process instance families
-            if (family) {
-              (family as (keyof typeof instanceFamily)[]).forEach(f => {
-                instanceFamily[f].forEach((t: InstanceFamilyType) => {
-                  familyTypeSet.add(t);
-                  allInstances
-                    .filter(instance => instance.startsWith(t))
-                    .forEach(instance => {
-                      sizeSet.add(instance.split('.').pop() as InstanceSize);
-                    });
-                });
-              });
-            }
-
             // process product description
             const productDescriptionsSet = new Set<ProductDescription>();
             if (productDescription) {
-              (productDescription as (
-                | ProductDescription
-                | keyof typeof productDescriptionWildcards)[]).forEach(pd => {
-                /* istanbul ignore else */
-                if (instanceOfProductDescription(pd)) {
-                  productDescriptionsSet.add(pd);
-                } else if (pd === 'linux') {
-                  productDescriptionWildcards.linux.forEach(desc => {
-                    productDescriptionsSet.add(desc);
-                  });
-                } else if (pd === 'windows') {
-                  productDescriptionWildcards.windows.forEach(desc => {
-                    productDescriptionsSet.add(desc);
-                  });
-                }
-              });
+              (productDescription as (ProductDescription | ProductDescriptionWildcards)[]).forEach(
+                pd => {
+                  /* istanbul ignore else */
+                  if (instanceOfProductDescription(pd)) {
+                    productDescriptionsSet.add(pd);
+                  } else if (pd === 'linux') {
+                    productDescriptionWildcards.linux.forEach(desc => {
+                      productDescriptionsSet.add(desc);
+                    });
+                  } else if (pd === 'windows') {
+                    productDescriptionWildcards.windows.forEach(desc => {
+                      productDescriptionsSet.add(desc);
+                    });
+                  }
+                },
+              );
             }
 
             if (accessKeyId && !secretAccessKey) {
