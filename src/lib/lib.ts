@@ -3,14 +3,10 @@ import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
 
-import {
-  allInstances,
-  InstanceFamilyType,
-  InstanceSize,
-  InstanceType,
-} from '../constants/ec2-types';
+import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
 import { defaultRegions, Region, regionNames } from '../constants/regions';
+import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   let rtn = 0;
@@ -161,36 +157,14 @@ export const getGlobalSpotPrices = async (options?: {
   if (regions === undefined) regions = defaultRegions;
 
   if (familyTypes || sizes) {
-    const instanceTypesGenerated = new Set<InstanceType>();
-    /* istanbul ignore else */
-    if (familyTypes && sizes) {
-      familyTypes.forEach(type => {
-        sizes.forEach(size => {
-          instanceTypesGenerated.add(`${type}.${size}` as InstanceType);
-        });
-      });
-    } else if (familyTypes) {
-      familyTypes.forEach(type => {
-        allInstances
-          .filter((instance: InstanceType) => instance.startsWith(`${type}.`))
-          .forEach((instance: InstanceType) => {
-            instanceTypesGenerated.add(instance);
-          });
-      });
-    } else if (sizes) {
-      sizes.forEach(size => {
-        allInstances
-          .filter((instance: InstanceType) => instance.endsWith(`.${size}`))
-          .forEach((instance: InstanceType) => {
-            instanceTypesGenerated.add(instance);
-          });
-      });
-    }
-    const instanceTypesGeneratedArray = Array.from(instanceTypesGenerated);
+    const { instanceTypes: instanceTypesGenerated } = generateInstantTypesFromFamilyTypeSize({
+      familyTypes,
+      sizes,
+    });
     if (!instanceTypes) {
-      instanceTypes = instanceTypesGeneratedArray;
+      instanceTypes = instanceTypesGenerated;
     } else {
-      instanceTypes = instanceTypes.concat(instanceTypesGeneratedArray);
+      instanceTypes = instanceTypes.concat(instanceTypesGenerated);
     }
   }
 

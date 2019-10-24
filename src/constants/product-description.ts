@@ -18,6 +18,8 @@ export const productDescriptionWildcards = {
   windows: windowsProductDescriptions,
 } as const;
 
+export type ProductDescriptionWildcards = keyof typeof productDescriptionWildcards;
+
 export const instanceOfProductDescription = (pd: string): pd is ProductDescription => {
   return allProductDescriptions.includes(pd as ProductDescription);
 };

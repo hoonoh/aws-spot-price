@@ -147,6 +147,8 @@ const getEc2Types = async (): Promise<string> => {
 
   output += `export const instanceFamily = { general: instanceFamilyGeneral, compute: instanceFamilyCompute, memory: instanceFamilyMemory, storage: instanceFamilyStorage, acceleratedComputing: instanceFamilyAcceleratedComputing };\n\n`;
 
+  output += `export type InstanceFamily = keyof typeof instanceFamily;\n\n`;
+
   output += `export const instanceFamilyTypes = [ ...instanceFamilyGeneral, ...instanceFamilyCompute, ...instanceFamilyMemory, ...instanceFamilyStorage, ...instanceFamilyAcceleratedComputing ];\n\n`;
 
   output += `export type InstanceFamilyType = typeof instanceFamilyTypes[number];\n\n`;

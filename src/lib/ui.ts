@@ -1,8 +1,8 @@
 import { Choice, prompt } from 'prompts';
 
 import {
-  allInstances,
   instanceFamily,
+  InstanceFamily,
   InstanceFamilyType,
   instanceFamilyTypes,
   InstanceSize,
@@ -10,8 +10,9 @@ import {
 } from '../constants/ec2-types';
 import { allProductDescriptions, ProductDescription } from '../constants/product-description';
 import { allRegions, Region, regionNames } from '../constants/regions';
+import { generateTypeSizeSetsFromFamily } from './utils';
 
-type Answer1 = { region: Region[]; family: (keyof typeof instanceFamily)[] };
+type Answer1 = { region: Region[]; family: InstanceFamily[] };
 
 type Answer2 = {
   familyType: InstanceFamilyType[];
@@ -76,23 +77,10 @@ export const ui = async (): Promise<Answers> => {
 
   const answer1: Answer1 = await prompt(question1, { onCancel });
 
-  const familyTypePreSelectedSet = new Set<InstanceFamilyType>();
-  const sizePreSelectedSet = new Set<InstanceSize>();
-  if (answer1.family.length > 0) {
-    answer1.family.forEach(family => {
-      instanceFamily[family].forEach((type: InstanceFamilyType) => {
-        familyTypePreSelectedSet.add(type);
-        allInstances
-          .filter(instance => instance.startsWith(type))
-          .forEach(instance => {
-            sizePreSelectedSet.add(instance.split('.').pop() as InstanceSize);
-          });
-      });
-    });
-  }
+  const { familyTypeSet, sizeSet } = generateTypeSizeSetsFromFamily(answer1.family);
 
-  const familyTypePreSelected = Array.from(familyTypePreSelectedSet);
-  const sizePreSelected = Array.from(sizePreSelectedSet);
+  const familyTypePreSelected = Array.from(familyTypeSet);
+  const sizePreSelected = Array.from(sizeSet);
 
   const generateFamilyHint = (type: string): string => {
     const familyCopy = answer1.family.concat();
