@@ -111,7 +111,7 @@
     "conventional-changelog-cli": "^2.0.25",
     "cz-conventional-changelog": "3.0.2",
     "eslint": "^6.4.0",
-    "eslint-config-airbnb-typescript": "^5.0.0",
+    "eslint-config-airbnb-typescript": "^6.0.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.18.2",
