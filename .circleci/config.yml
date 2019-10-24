@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@1.0.5
+  sonarcloud: sonarsource/sonarcloud@1.0.0
 
 jobs:
   build:
@@ -35,6 +35,14 @@ jobs:
             ./cc-test-reporter before-build
             yarn test:ci
             ./cc-test-reporter after-build
+
+      - run:
+          name: version env
+          command: |
+            echo "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')" >> $BASH_ENV
+            source $BASH_ENV
+
+      - sonarcloud/scan
 
       - store_artifacts:
           path: ./coverage
