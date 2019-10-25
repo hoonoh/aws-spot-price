@@ -225,6 +225,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
         },
       )
       .demandCommand()
+      .detectLocale(false)
       .help();
 
     if (argvInput) {
