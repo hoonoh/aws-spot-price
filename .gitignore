@@ -1,5 +1,6 @@
+.scannerwork
 .vscode
 coverage
 dist
+junit.xml
 node_modules
-.scannerwork
