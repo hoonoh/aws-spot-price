@@ -1,9 +1,31 @@
+import { config } from 'aws-sdk';
+import * as fs from 'fs';
 import * as nock from 'nock';
+import { sep } from 'path';
+
+let readFileSyncMock: jest.SpyInstance;
 
 export const mockAwsCredentials = (
   options: { fail?: boolean; disableEnv?: boolean } = {},
 ): void => {
   const { fail, disableEnv } = options;
+
+  config.credentials = null;
+
+  const mock = (): void => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    readFileSyncMock = jest.spyOn(fs, 'readFileSync').mockImplementation((...args: any) => {
+      const path = args[0] as string;
+      if (!path.includes(`${sep}.aws${sep}`)) {
+        readFileSyncMock.mockRestore();
+        const rtn = fs.readFileSync(args[0], args[1]);
+        mock();
+        return rtn;
+      }
+      return Buffer.from('');
+    });
+  };
+  mock();
 
   if (!disableEnv) {
     process.env.AWS_ACCESS_KEY_ID = 'accessKeyId';
@@ -48,4 +70,6 @@ export const mockAwsCredentials = (
 export const mockAwsCredentialsClear = (): void => {
   delete process.env.AWS_ACCESS_KEY_ID;
   delete process.env.AWS_SECRET_ACCESS_KEY;
+  if (readFileSyncMock) readFileSyncMock.mockRestore();
+  nock.cleanAll();
 };
