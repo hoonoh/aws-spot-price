@@ -1,10 +1,12 @@
-<a href="https://npmjs.org/package/aws-spot-price">
-  <img src="https://img.shields.io/npm/v/aws-spot-price.svg" alt="version" />
-</a>
-
 # aws-spot-price
 
-CLI utility to list current global AWS EC2 Spot Instance prices. Requires valid AWS Access & Secret keys.
+[![npm](https://img.shields.io/npm/v/aws-spot-price)](https://www.npmjs.com/package/aws-spot-price)
+[![Build Status](https://dev.azure.com/aws-spot-price/aws-spot-price/_apis/build/status/hoonoh.aws-spot-price?branchName=master)](https://dev.azure.com/aws-spot-price/aws-spot-price/_build/latest?definitionId=1&branchName=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hoonoh_aws-spot-price&metric=alert_status)](https://sonarcloud.io/dashboard?id=hoonoh_aws-spot-price)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hoonoh_aws-spot-price&metric=coverage)](https://sonarcloud.io/component_measures?id=hoonoh_aws-spot-price&metric=coverage&view=list)
+[![Greenkeeper badge](https://badges.greenkeeper.io/hoonoh/aws-spot-price.svg)](https://greenkeeper.io/)
+
+CLI utility to list current global AWS EC2 Spot Instance prices.
 
 ## Example
 
