@@ -37,7 +37,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.spec.ts', 'test/jest.setup.js'],
+      files: ['**/*.spec.ts', 'test/jest.setup.js', 'test/**/*.ts'],
       env: {
         'jest/globals': true,
       },
@@ -48,6 +48,7 @@ module.exports = {
       rules: {
         'import/no-extraneous-dependencies': 0,
         '@typescript-eslint/ban-ts-ignore': 0,
+        'no-underscore-dangle': 0,
       },
     },
   ],
