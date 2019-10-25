@@ -1,0 +1,48 @@
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: $(node_version)
+    displayName: "Install Node.js $(node_version)"
+
+  - task: CacheBeta@0
+    inputs:
+      key: yarn | $(Agent.OS) | yarn.lock
+      path: $(YARN_CACHE_FOLDER)
+    displayName: Cache Yarn packages
+
+  - script: yarn remove commitizen cz-conventional-changelog @semantic-release/changelog @semantic-release/git @semantic-release/github semantic-release&& yarn
+    displayName: "Install dependencies for Node.js 8.x"
+    condition: eq(variables['node_version'], '8.x')
+
+  - script: yarn --frozen-lockfile
+    displayName: "Install dependencies"
+    condition: ne(variables['node_version'], '8.x')
+
+  - script: yarn build
+    displayName: "Build"
+
+  # Run test:ci
+  - script: yarn test:ci
+    displayName: "Run tests"
+
+  # Publish CI test results
+  - task: PublishTestResults@2
+    displayName: "Publish test results"
+    condition: succeededOrFailed()
+    inputs:
+      testRunner: JUnit
+      testResultsFiles: "junit.xml"
+      testRunTitle: "CI Tests $(Agent.OS)"
+
+  # Publish CI test coverage results
+  - task: PublishCodeCoverageResults@1
+    displayName: "Publish test coverage results"
+    condition: succeededOrFailed()
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
+      reportDirectory: "$(Build.SourcesDirectory)/coverage"
+
+  - script: yarn semantic-release || true
+    displayName: Release
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/next'))
