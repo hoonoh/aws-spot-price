@@ -32,7 +32,7 @@
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "test": "jest --runInBand --verbose",
     "test:coverage": "yarn test --coverage",
-    "test:ci": "yarn test:coverage --ci --reporters=jest-junit --coverageReporters cobertura",
+    "test:ci": "yarn test:coverage --ci --reporters=jest-junit --coverageReporters lcov --coverageReporters cobertura",
     "lint": "eslint **/*.ts",
     "semantic-release": "semantic-release"
   },
