@@ -6,10 +6,6 @@ import { consoleMockCallJoin } from '../../test/utils';
 import { main } from '../cli';
 import { awsCredentialsCheck } from './credential';
 
-// mock fs to disable ~/.aws/credentials
-// eslint-disable-next-line global-require
-jest.mock('fs', () => new (require('metro-memory-fs'))());
-
 describe('credential', () => {
   describe('awsCredentialsCheck', () => {
     afterEach(() => {
@@ -92,15 +88,18 @@ describe('credential', () => {
       });
 
       it('should print no credential found', async () => {
+        let threwError = false;
         try {
           await main();
         } catch (error) {
+          threwError = true;
           expect(consoleMockCallJoin()).toContain('AWS credentials are not found.');
         }
+        expect(threwError).toBeTruthy();
       });
     });
 
-    describe('handle no credential found', () => {
+    describe('handle invalid credentials', () => {
       beforeEach(() => {
         mockAwsCredentials({ disableEnv: true, fail: true });
         restoreConsole = mockConsole();
@@ -112,11 +111,14 @@ describe('credential', () => {
       });
 
       it('should print invalid credential', async () => {
+        let threwError = false;
         try {
           await main(['--accessKeyId', 'temp', '--secretAccessKey', 'temp2']);
         } catch (error) {
+          threwError = true;
           expect(consoleMockCallJoin()).toContain('Invalid AWS credentials provided.');
         }
+        expect(threwError).toBeTruthy();
       });
     });
   });

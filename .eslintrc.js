@@ -33,10 +33,11 @@ module.exports = {
       files: ['test/*.js'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-var-requires': 0,
       },
     },
     {
-      files: ['**/*.spec.ts', 'test/jest.setup.js'],
+      files: ['**/*.spec.ts', 'test/jest.setup.js', 'test/**/*.ts'],
       env: {
         'jest/globals': true,
       },
@@ -47,6 +48,7 @@ module.exports = {
       rules: {
         'import/no-extraneous-dependencies': 0,
         '@typescript-eslint/ban-ts-ignore': 0,
+        'no-underscore-dangle': 0,
       },
     },
   ],
