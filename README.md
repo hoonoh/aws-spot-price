@@ -79,6 +79,10 @@ You can use `linux` or `windows` (all in lowercase) as wildcard.
 
 Limits list of price information items to be returned.
 
+#### --json | -j
+
+Outputs in JSON format. This option will silence any progress output.
+
 #### <a name="accessKeyId"></a>--accessKeyId
 
 Specific AWS Access Key ID. Requires `--secretAccessKey` option to be used together.
