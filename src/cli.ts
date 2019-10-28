@@ -99,6 +99,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
               return val;
             },
           },
+          json: {
+            alias: 'j',
+            describe: 'Outputs in JSON format',
+            type: 'boolean',
+            default: false,
+          },
           accessKeyId: {
             describe: 'AWS Access Key ID.',
             type: 'string',
@@ -120,9 +126,10 @@ export const main = (argvInput?: string[]): Promise<void> =>
               limit,
               priceMax,
               productDescription,
+              json,
               accessKeyId,
               secretAccessKey,
-            } = args.ui ? { ...(await ui()), instanceType: undefined } : args;
+            } = args.ui ? { ...(await ui()), instanceType: undefined, json: false } : args;
 
             // process instance families
             let familyTypeSet: Set<InstanceFamilyType>;
@@ -191,7 +198,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             const familyTypeSetArray = Array.from(familyTypeSet);
             const sizeSetArray = Array.from(sizeSet);
 
-            await getGlobalSpotPrices({
+            const results = await getGlobalSpotPrices({
               regions: region as Region[],
               instanceTypes: instanceType as InstanceType[],
               familyTypes: familyTypeSetArray.length ? familyTypeSetArray : undefined,
@@ -203,7 +210,10 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 : undefined,
               accessKeyId,
               secretAccessKey,
+              silent: json,
             });
+
+            if (json) console.log(JSON.stringify(results, null, 2));
 
             res();
           } catch (error) {
