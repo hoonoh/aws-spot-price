@@ -194,10 +194,8 @@ export const main = (argvInput?: string[]): Promise<void> =>
             await getGlobalSpotPrices({
               regions: region as Region[],
               instanceTypes: instanceType as InstanceType[],
-              familyTypes: familyTypeSetArray.length
-                ? (familyTypeSetArray as InstanceFamilyType[])
-                : undefined,
-              sizes: sizeSetArray.length ? (sizeSetArray as InstanceSize[]) : undefined,
+              familyTypes: familyTypeSetArray.length ? familyTypeSetArray : undefined,
+              sizes: sizeSetArray.length ? sizeSetArray : undefined,
               limit,
               priceMax,
               productDescriptions: productDescriptionsSetArray.length
