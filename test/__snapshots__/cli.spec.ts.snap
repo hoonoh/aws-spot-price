@@ -1,5 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`cli test by import should handle JSON output option 1`] = `
+"[
+  {
+    \\"AvailabilityZone\\": \\"us-east-1a\\",
+    \\"InstanceType\\": \\"t3.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001600\\",
+    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1b\\",
+    \\"InstanceType\\": \\"t3.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001600\\",
+    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1c\\",
+    \\"InstanceType\\": \\"t3.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001600\\",
+    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1d\\",
+    \\"InstanceType\\": \\"t3.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001600\\",
+    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1f\\",
+    \\"InstanceType\\": \\"t3.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001600\\",
+    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1a\\",
+    \\"InstanceType\\": \\"t3a.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001700\\",
+    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1c\\",
+    \\"InstanceType\\": \\"t3a.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001700\\",
+    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1b\\",
+    \\"InstanceType\\": \\"t3a.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001800\\",
+    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1d\\",
+    \\"InstanceType\\": \\"t3a.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001800\\",
+    \\"Timestamp\\": \\"2019-10-15T20:21:10.000Z\\"
+  },
+  {
+    \\"AvailabilityZone\\": \\"us-east-1f\\",
+    \\"InstanceType\\": \\"t3a.nano\\",
+    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"SpotPrice\\": \\"0.001800\\",
+    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+  }
+]"
+`;
+
 exports[`cli test by import should handle instance family option 1`] = `
 "╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1a      │ US East (N. Virginia)   ║
@@ -131,6 +206,7 @@ Options:
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
   --limit, -l               Limit results output length   [number] [default: 20]
+  --json, -j                Outputs in JSON format    [boolean] [default: false]
   --accessKeyId             AWS Access Key ID.                          [string]
   --secretAccessKey         AWS Secret Access Key.                      [string]"
 `;
@@ -398,6 +474,7 @@ Options:
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
   --limit, -l               Limit results output length   [number] [default: 20]
+  --json, -j                Outputs in JSON format    [boolean] [default: false]
   --accessKeyId             AWS Access Key ID.                          [string]
   --secretAccessKey         AWS Secret Access Key.                      [string]
 "

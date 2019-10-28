@@ -75,6 +75,19 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
+    it('should handle JSON output option', async () => {
+      await main(['--json', '-r', 'us-east-1', '-l', '10']);
+      const results = consoleMockCallJoin();
+      const resultsObject = JSON.parse(results);
+      expect(results).toMatchSnapshot();
+      expect(Object.keys(resultsObject).length).toEqual(10);
+      Object.keys(resultsObject).forEach(key => {
+        expect(
+          (resultsObject[key].AvailabilityZone as string).startsWith('us-east-1'),
+        ).toBeTruthy();
+      });
+    });
+
     it('should handle missing accessKeyId', async () => {
       let caughtError = false;
       try {
