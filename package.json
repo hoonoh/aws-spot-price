@@ -86,7 +86,6 @@
   },
   "dependencies": {
     "aws-sdk": "^2.544.0",
-    "lodash": "^4.17.15",
     "ora": "^4.0.2",
     "patch-package": "^6.2.0",
     "prompts": "^2.2.1",
@@ -121,6 +120,7 @@
     "jest": "^24.9.0",
     "jest-junit": "^9.0.0",
     "jest-mock-console": "^1.0.0",
+    "lodash": "^4.17.15",
     "nock": "^11.4.0",
     "postinstall-postinstall": "^2.0.0",
     "prettier": "^1.18.2",

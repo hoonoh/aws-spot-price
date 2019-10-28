@@ -1,5 +1,4 @@
 import { EC2 } from 'aws-sdk';
-import { find, findIndex } from 'lodash';
 import * as ora from 'ora';
 import { table } from 'table';
 
@@ -10,42 +9,22 @@ import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   let rtn = 0;
-  const p1SpotPrice = p1.SpotPrice || 0;
-  const p2SpotPrice = p2.SpotPrice || 0;
-  if (p1SpotPrice < p2SpotPrice) {
-    rtn = -1;
-  } else if (p1SpotPrice > p2SpotPrice) {
-    rtn = 1;
-  }
 
-  // AWS SDK will always return instance type.
-  // If instance type data is not returned by aws api endpoint,
-  // it seems SDK will filter it out by default.
-  if (rtn === 0 && p1.InstanceType && p2.InstanceType) {
-    if (p1.InstanceType < p2.InstanceType) {
-      rtn = -1;
-    } else if (p1.InstanceType > p2.InstanceType) {
-      rtn = 1;
+  const sort = (s1?: string, s2?: string): void => {
+    /* istanbul ignore else */
+    if (rtn === 0 && s1 && s2) {
+      if (s1 < s2) {
+        rtn = -1;
+      } else if (s1 > s2) {
+        rtn = 1;
+      }
     }
-  }
+  };
 
-  if (rtn === 0) {
-    const p1AvailabilityZone = p1.AvailabilityZone || '';
-    const p2AvailabilityZone = p2.AvailabilityZone || '';
-    if (p1AvailabilityZone < p2AvailabilityZone) {
-      rtn = -1;
-    } else if (p1AvailabilityZone > p2AvailabilityZone) {
-      rtn = 1;
-    }
-  }
-
-  if (rtn === 0 && p1.ProductDescription && p2.ProductDescription) {
-    if (p1.ProductDescription < p2.ProductDescription) {
-      rtn = -1;
-    } else if (p1.ProductDescription > p2.ProductDescription) {
-      rtn = 1;
-    }
-  }
+  sort(p1.SpotPrice, p2.SpotPrice);
+  sort(p1.InstanceType, p2.InstanceType);
+  sort(p1.AvailabilityZone, p2.AvailabilityZone);
+  sort(p1.ProductDescription, p2.ProductDescription);
 
   return rtn;
 };
@@ -152,8 +131,6 @@ export const getGlobalSpotPrices = async (options?: {
 
   let { regions, instanceTypes } = options || {};
 
-  let rtn: EC2.SpotPrice[] = [];
-
   if (regions === undefined) regions = defaultRegions;
 
   if (familyTypes || sizes) {
@@ -178,7 +155,7 @@ export const getGlobalSpotPrices = async (options?: {
     }).start();
   }
 
-  await Promise.all(
+  const rtn: EC2.SpotPrice[] = await Promise.all(
     regions.map(async region => {
       try {
         const regionsPrices = await getEc2SpotPrice({
@@ -188,12 +165,12 @@ export const getGlobalSpotPrices = async (options?: {
           accessKeyId,
           secretAccessKey,
         });
-        rtn = [...rtn, ...regionsPrices];
         /* istanbul ignore if */
         if (spinner) {
           spinnerText = `Retrieved data from ${region}...`;
           spinner.text = spinnerText;
         }
+        return regionsPrices;
       } catch (error) {
         /* istanbul ignore if */
         if (error instanceof Ec2SpotPriceError && spinner) {
@@ -205,55 +182,69 @@ export const getGlobalSpotPrices = async (options?: {
         } else {
           console.error(error);
         }
+        return [];
       }
     }),
-  );
-  /* istanbul ignore if */
-  if (spinner) spinner.succeed('All data retrieved!').stop();
+  ).then(results => {
+    /* istanbul ignore if */
+    if (spinner) spinner.succeed('All data retrieved!').stop();
+    return results
+      .reduce(
+        (finalList: EC2.SpotPrice[], curList: EC2.SpotPrice[]) => {
+          const curListFiltered = curList.filter(
+            // filter price info without region or price greater than priceMax
+            price => {
+              // 1. remove if data missing any of the required attributes
+              // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
+              if (
+                !price.AvailabilityZone ||
+                !price.SpotPrice ||
+                !price.InstanceType ||
+                (priceMax !== undefined && parseFloat(price.SpotPrice) > priceMax)
+              )
+                return false;
 
-  rtn = rtn.reduce(
-    (list, cur) => {
-      if (priceMax && cur.SpotPrice && parseFloat(cur.SpotPrice) > priceMax) return list;
-      list.push(cur);
-      return list;
-    },
-    [] as EC2.SpotPrice[],
-  );
+              return true;
+            },
+          );
+          // look for duplicate and remove prev data if older than current
+          const curListReduced = curListFiltered.reduce(
+            (list, cur) => {
+              const duplicates = list.filter(
+                prevPrice =>
+                  cur.AvailabilityZone &&
+                  cur.AvailabilityZone === prevPrice.AvailabilityZone &&
+                  cur.InstanceType &&
+                  cur.InstanceType === prevPrice.InstanceType &&
+                  cur.ProductDescription &&
+                  cur.ProductDescription === prevPrice.ProductDescription,
+              );
+              if (duplicates.length) {
+                while (duplicates.length) {
+                  const dupe = duplicates.pop();
+                  if (dupe && cur.Timestamp && dupe.Timestamp && cur.Timestamp > dupe.Timestamp) {
+                    list.splice(list.indexOf(dupe));
+                    list.push(cur);
+                  }
+                }
+              } else {
+                list.push(cur);
+              }
+              return list;
+            },
+            [] as EC2.SpotPrice[],
+          );
+          return finalList.concat(curListReduced);
+        },
+        [] as EC2.SpotPrice[],
+      )
+      .sort(sortSpotPrice);
+  });
+
+  // limit output
+  if (limit && rtn.length > limit) rtn.splice(limit);
 
   // log output
-  rtn = rtn.sort(sortSpotPrice).reduce(
-    (list, price, idx, arr) => {
-      // since price info without price or region will be pointless..
-      if (!price.SpotPrice || !price.AvailabilityZone) return list;
-
-      // look for duplicate
-      let duplicate = find(list, {
-        InstanceType: price.InstanceType,
-        ProductDescription: price.ProductDescription,
-        AvailabilityZone: price.AvailabilityZone,
-      });
-
-      // if current price data timestamp is more recent, remove previous..
-      if (
-        duplicate &&
-        duplicate.Timestamp &&
-        price.Timestamp &&
-        duplicate.Timestamp < price.Timestamp
-      ) {
-        list.splice(findIndex(list, price), 1);
-        duplicate = undefined;
-      }
-
-      if (duplicate === undefined) list.push(price);
-
-      // stop reduce loop if list has reached limit
-      if (limit && list.length >= limit) arr.splice(0);
-
-      return list;
-    },
-    [] as EC2.SpotPrice[],
-  );
-
   if (!silent) {
     if (rtn.length > 0) {
       console.log(

@@ -37,7 +37,7 @@ export const ui = async (): Promise<Answers> => {
   /* istanbul ignore next */
   if (process.env.UI_INJECT) {
     inject = JSON.parse(process.env.UI_INJECT);
-    if (inject) prompt.inject(inject.splice(0, 2));
+    if (inject) prompt.inject(inject);
   }
 
   const question1 = [
@@ -95,12 +95,12 @@ export const ui = async (): Promise<Answers> => {
   /* istanbul ignore next */
   if (inject) {
     familyTypePreSelected.forEach(type => {
-      if (inject && typeof inject[0] === 'object' && !inject[0].includes(type))
-        inject[0].push(type);
+      if (inject && typeof inject[2] === 'object' && !inject[2].includes(type))
+        inject[2].push(type);
     });
     sizePreSelected.forEach(size => {
-      if (inject && typeof inject[1] === 'object' && !inject[1].includes(size))
-        inject[1].push(size);
+      if (inject && typeof inject[3] === 'object' && !inject[3].includes(size))
+        inject[3].push(size);
     });
   }
 
@@ -181,7 +181,6 @@ export const ui = async (): Promise<Answers> => {
   ];
 
   /* istanbul ignore next */
-  if (inject) prompt.inject(inject);
   const answer2: Answer2 = await prompt(question2, { onCancel });
 
   return { ...answer1, ...answer2 };
