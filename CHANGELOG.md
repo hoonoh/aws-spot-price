@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [0.4.4](https://github.com/hoonoh/aws-spot-price/compare/v0.4.3...v0.4.4) (2019-10-29)
+
+
+### Bug Fixes
+
+* fix npm dist-tag 401 error ([#21](https://github.com/hoonoh/aws-spot-price/issues/21)) ([fecce18](https://github.com/hoonoh/aws-spot-price/commit/fecce18aebe33c1c35476a52e86bcdcb94245d1c))
+
 ## [0.4.3](https://github.com/hoonoh/aws-spot-price/compare/v0.4.2...v0.4.3) (2019-10-29)
 
 
