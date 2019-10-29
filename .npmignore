@@ -1,6 +1,9 @@
+.azure*.yml
+.codeclimate.yml
 .eslint*
 .git*
 .prettier*
+.scannerwork/
 .vscode/
 *.code-workspace
 *.config.js
@@ -8,7 +11,9 @@
 *.spec.*
 coverage
 docs/
+junit.xml
 node_modules/
+sonar-project.properties
 src/
 test/
 tsconfig*.json
