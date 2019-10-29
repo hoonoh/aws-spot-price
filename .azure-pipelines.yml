@@ -54,7 +54,7 @@ jobs:
       # semantic-release run only on node 10.x & master branch (releases to next dist-tag)
       - script: yarn semantic-release || true
         displayName: Release
-        condition: and(eq(variables['node_version'], '10.x'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        condition: and(succeeded(), eq(variables['node_version'], '10.x'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         env:
           NPM_TOKEN: $(NPM_TOKEN)
           GH_TOKEN: $(GH_TOKEN)
