@@ -20,6 +20,7 @@ jobs:
       - bash: |
           echo "##vso[task.setvariable variable=PACKAGE_VERSION]$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')"
           echo "##vso[task.setvariable variable=CURRENT_GIT_TAG]$(git describe --tags | tr -d '[:space:]')"
+          echo "//registry.npmjs.org/:_authToken=$(NPM_TOKEN)" >> .npmrc
       - script: npm dist-tag add aws-spot-price@$(PACKAGE_VERSION) $(CURRENT_GIT_TAG)
         displayName: "NPM dist-tag $(CURRENT_GIT_TAG)"
         env:
