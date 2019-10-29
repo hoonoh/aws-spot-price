@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [0.4.1](https://github.com/hoonoh/aws-spot-price/compare/v0.4.0...v0.4.1) (2019-10-29)
+
+
+### Bug Fixes
+
+* fix release routine on bad builds ([#17](https://github.com/hoonoh/aws-spot-price/issues/17)) ([95fea80](https://github.com/hoonoh/aws-spot-price/commit/95fea80a00d92a7a2599e95eab7f0224542deec8))
+
 # [0.4.0](https://github.com/hoonoh/aws-spot-price/compare/v0.3.0...v0.4.0) (2019-10-29)
 
 
