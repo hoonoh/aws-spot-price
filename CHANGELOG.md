@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [0.4.3](https://github.com/hoonoh/aws-spot-price/compare/v0.4.2...v0.4.3) (2019-10-29)
+
+
+### Bug Fixes
+
+* add missing line 'strategy' ([#20](https://github.com/hoonoh/aws-spot-price/issues/20)) ([cf847c8](https://github.com/hoonoh/aws-spot-price/commit/cf847c80b82aec8cc9861b385eacd1c928d2e9a7))
+
 ## [0.4.2](https://github.com/hoonoh/aws-spot-price/compare/v0.4.1...v0.4.2) (2019-10-29)
 
 
