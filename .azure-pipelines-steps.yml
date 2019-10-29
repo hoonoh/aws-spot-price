@@ -21,6 +21,10 @@ steps:
   - script: yarn build
     displayName: "Build"
 
+  # Check linting
+  - script: yarn lint
+    displayName: "Check linting"
+
   # Run test:ci
   - script: yarn test:ci
     displayName: "Run tests"
@@ -41,8 +45,3 @@ steps:
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
-      reportDirectory: "$(Build.SourcesDirectory)/coverage"
-
-  - script: yarn semantic-release || true
-    displayName: Release
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/next'))

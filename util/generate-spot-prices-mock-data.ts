@@ -4,7 +4,7 @@ import { find, uniqWith, xorWith } from 'lodash';
 import { resolve } from 'path';
 import * as yargs from 'yargs';
 
-import { defaultRegions, Region } from '../src/regions';
+import { defaultRegions, Region } from '../src/constants/regions';
 
 let allPrices: EC2.SpotPrice[] = [];
 
