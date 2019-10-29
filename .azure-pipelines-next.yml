@@ -1,0 +1,63 @@
+trigger:
+  - next
+
+jobs:
+  - job: Linux
+    pool:
+      vmImage: ubuntu-16.04
+    strategy:
+      matrix:
+        node_10_x:
+          node_version: 10.x
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: $(node_version)
+        displayName: "Install Node.js $(node_version)"
+
+      - task: CacheBeta@0
+        inputs:
+          key: yarn | $(Agent.OS) | yarn.lock
+          path: $(YARN_CACHE_FOLDER)
+        displayName: Cache Yarn packages
+
+      - script: yarn --frozen-lockfile
+        displayName: "Install dependencies"
+
+      - script: yarn build
+        displayName: "Build"
+
+      - script: yarn lint
+        displayName: "Check linting"
+        condition: succeeded()
+
+      - script: yarn test:ci
+        displayName: "Run tests"
+        condition: succeeded()
+
+      - script: rm -rf coverage/lcov-report
+        displayName: "Clean coverage artifacts"
+
+      - task: PublishTestResults@2
+        displayName: "Publish test results"
+        condition: succeededOrFailed()
+        inputs:
+          testRunner: JUnit
+          testResultsFiles: "junit.xml"
+          testRunTitle: "CI Tests $(Agent.OS)"
+
+      - task: PublishCodeCoverageResults@1
+        displayName: "Publish test coverage results"
+        condition: succeededOrFailed()
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
+          reportDirectory: "$(Build.SourcesDirectory)/coverage"
+
+      - script: yarn semantic-release || true
+        displayName: Release
+        condition: succeeded()
+
+variables:
+  CI: true
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
