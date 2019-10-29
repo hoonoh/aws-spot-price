@@ -29,10 +29,6 @@ steps:
   - script: yarn test:ci
     displayName: "Run tests"
 
-  # Clean coverage report artifacts
-  - script: rm -rf coverage/lcov-report
-    displayName: "Clean coverage artifacts"
-
   # Publish CI test results
   - task: PublishTestResults@2
     displayName: "Publish test results"
@@ -49,4 +45,3 @@ steps:
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
-      reportDirectory: "$(Build.SourcesDirectory)/coverage"

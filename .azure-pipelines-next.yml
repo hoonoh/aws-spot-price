@@ -35,9 +35,6 @@ jobs:
         displayName: "Run tests"
         condition: succeeded()
 
-      - script: rm -rf coverage/lcov-report
-        displayName: "Clean coverage artifacts"
-
       - task: PublishTestResults@2
         displayName: "Publish test results"
         condition: succeededOrFailed()
@@ -52,7 +49,6 @@ jobs:
         inputs:
           codeCoverageTool: Cobertura
           summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
-          reportDirectory: "$(Build.SourcesDirectory)/coverage"
 
       - script: yarn semantic-release || true
         displayName: Release
