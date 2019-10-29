@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+# [0.4.0](https://github.com/hoonoh/aws-spot-price/compare/v0.3.0...v0.4.0) (2019-10-29)
+
+
+### Features
+
+* **cli:** add JSON output option ([#14](https://github.com/hoonoh/aws-spot-price/issues/14)) ([fe85751](https://github.com/hoonoh/aws-spot-price/commit/fe85751f7e82050f55a56aed3ad5c3195ad25380))
+
 # [0.3.0](https://github.com/hoonoh/aws-spot-price/compare/v0.2.0...v0.3.0) (2019-10-23)
 
 
@@ -58,6 +65,3 @@
 ### Features
 
 * log out selected options ([dc099e2](https://github.com/hoonoh/aws-spot-price/commit/dc099e2329d8b5914fea3aab709c2583e07dbb44))
-
-
-
