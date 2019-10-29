@@ -20,14 +20,17 @@ steps:
 
   - script: yarn build
     displayName: "Build"
+    condition: succeededOrFailed()
 
   # Check linting
   - script: yarn lint
     displayName: "Check linting"
+    condition: succeededOrFailed()
 
   # Run test:ci
   - script: yarn test:ci
     displayName: "Run tests"
+    condition: succeededOrFailed()
 
   # Publish CI test results
   - task: PublishTestResults@2
