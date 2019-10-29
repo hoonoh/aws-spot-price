@@ -1,8 +1,28 @@
 trigger:
-  - master
+  branches:
+    include:
+      - master
+  tags:
+    include:
+      - latest
 
 jobs:
+  - job: Release
+    condition: eq(variables['Build.SourceBranch'], 'refs/tags/latest')
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+      - template: .azure-pipelines-steps.yml
+      - bash: |
+          echo "##vso[task.setvariable variable=PACKAGE_VERSION]$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')"
+          echo "##vso[task.setvariable variable=CURRENT_GIT_TAG]$(git describe --tags | tr -d '[:space:]')"
+      - script: npm dist-tag add aws-spot-price@$(PACKAGE_VERSION) $(CURRENT_GIT_TAG)
+        displayName: "NPM dist-tag $(CURRENT_GIT_TAG)"
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+
   - job: Linux
+    condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
       vmImage: ubuntu-16.04
     strategy:
@@ -24,15 +44,23 @@ jobs:
           organization: "hoonoh"
           scannerMode: "CLI"
           configMode: "file"
-        condition: and(succeeded(), eq(variables['node_version'], '10.x'))
+        condition: eq(variables['node_version'], '10.x')
       - task: SonarCloudAnalyze@1
-        condition: and(succeeded(), eq(variables['node_version'], '10.x'))
+        condition: eq(variables['node_version'], '10.x')
       - task: SonarCloudPublish@1
         inputs:
           pollingTimeoutSec: "300"
-        condition: and(succeeded(), eq(variables['node_version'], '10.x'))
+        condition: eq(variables['node_version'], '10.x')
+      # semantic-release run only on node 10.x & master branch (releases to next dist-tag)
+      - script: yarn semantic-release || true
+        displayName: Release
+        condition: and(eq(variables['node_version'], '10.x'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+          GH_TOKEN: $(GH_TOKEN)
 
   - job: Windows
+    condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
       vmImage: vs2017-win2016
     strategy:
@@ -51,6 +79,7 @@ jobs:
       - template: .azure-pipelines-steps.yml
 
   - job: macOS
+    condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
       vmImage: macos-10.13
     strategy:
