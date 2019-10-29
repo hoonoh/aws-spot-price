@@ -1,4 +1,9 @@
-# 0.2.0 (https://github.com/hoonoh/aws-spot-price/compare/v0.1.0...v0.2.0) (2019-10-22)
+# aws-spot-price changelog
+
+# [0.3.0](https://github.com/hoonoh/aws-spot-price/compare/v0.2.0...v0.3.0) (2019-10-23)
+
+
+# [0.2.0](https://github.com/hoonoh/aws-spot-price/compare/v0.1.0...v0.2.0) (2019-10-22)
 
 
 ### Features

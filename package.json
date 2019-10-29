@@ -1,6 +1,6 @@
 {
   "name": "aws-spot-price",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CLI utility to list current global AWS EC2 Spot Instance prices.",
   "keywords": [
     "aws",
@@ -57,9 +57,6 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "reporters": [
-      "default"
-    ],
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
@@ -76,12 +73,21 @@
       [
         "@semantic-release/changelog",
         {
-          "changelogTitle": "aws-spot-price"
+          "changelogTitle": "# aws-spot-price changelog"
         }
       ],
       "@semantic-release/npm",
       "@semantic-release/github",
-      "@semantic-release/git"
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
     ]
   },
   "dependencies": {
