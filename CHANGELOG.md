@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [0.4.2](https://github.com/hoonoh/aws-spot-price/compare/v0.4.1...v0.4.2) (2019-10-29)
+
+
+### Bug Fixes
+
+* update npmignore ([#18](https://github.com/hoonoh/aws-spot-price/issues/18)) ([3b8e7fd](https://github.com/hoonoh/aws-spot-price/commit/3b8e7fd11c1db8e7603d00be36ce2c576bb9dac9))
+
 ## [0.4.1](https://github.com/hoonoh/aws-spot-price/compare/v0.4.0...v0.4.1) (2019-10-29)
 
 
