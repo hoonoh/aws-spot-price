@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [0.4.5](https://github.com/hoonoh/aws-spot-price/compare/v0.4.4...v0.4.5) (2019-10-30)
+
+
+### Performance Improvements
+
+* distribute via webpack bundling ([#22](https://github.com/hoonoh/aws-spot-price/issues/22)) ([fe6e73d](https://github.com/hoonoh/aws-spot-price/commit/fe6e73dae4c17750948960fb2d6d35223c8df37f))
+
 ## [0.4.4](https://github.com/hoonoh/aws-spot-price/compare/v0.4.3...v0.4.4) (2019-10-29)
 
 
