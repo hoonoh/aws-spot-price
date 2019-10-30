@@ -1,4 +1,4 @@
-import { EC2 } from 'aws-sdk';
+import * as EC2 from 'aws-sdk/clients/ec2';
 import * as ora from 'ora';
 import { table } from 'table';
 

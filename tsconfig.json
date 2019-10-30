@@ -9,9 +9,7 @@
     "sourceMap": true,
     "downlevelIteration": true,
     "rootDir": "src",
-    "outDir": "dist",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "noEmit": true
   },
   "files": [
     "src/cli.ts",

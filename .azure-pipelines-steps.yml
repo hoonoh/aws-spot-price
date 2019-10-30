@@ -27,6 +27,11 @@ steps:
     displayName: "Check linting"
     condition: succeededOrFailed()
 
+  # Check types
+  - script: yarn lint:types
+    displayName: "Check types"
+    condition: succeededOrFailed()
+
   # Run test:ci
   - script: yarn test:ci
     displayName: "Run tests"

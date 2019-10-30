@@ -1,28 +1,30 @@
 version: "2"
-plugins:
-  eslint:
-    enabled: true
 
 exclude_patterns:
-  - "test/"
-  - "src/**/*.spec.ts"
+  - .azure-pipelines-steps.yml
+  - .azure-pipelines.yml
   - ".circleci/"
-  - "bin/"
-  - "docs/"
-  - "patches/"
-  - "util/"
   - ".codeclimate.yml"
   - ".eslintrc.js"
   - ".gitignore"
   - ".npmignore"
   - ".prettierignore"
-  - "CHANGELOG.md"
-  - "README.md"
   - "aws-spot-price.code-workspace"
+  - "bin/"
+  - "CHANGELOG.md"
   - "commitlint.config.js"
+  - "docs/"
   - "package.json"
+  - "patches/"
+  - "README.md"
+  - "src/**/*.spec.ts"
+  - "test/"
   - "tsconfig.json"
+  - "util/"
   - "yarn.lock"
+  - sonar-project.properties
+  - sonar-project.properties
+  - webpack.config.js
 
 checks:
   file-lines:
