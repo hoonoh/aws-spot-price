@@ -1,4 +1,4 @@
-import { EC2 } from 'aws-sdk';
+import * as EC2 from 'aws-sdk/clients/ec2';
 import { readFileSync, writeFileSync } from 'fs';
 import { find, uniqWith, xorWith } from 'lodash';
 import { resolve } from 'path';

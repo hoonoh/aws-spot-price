@@ -23,14 +23,15 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    'no-console': 0,
+    'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
+    'no-console': 0,
     'no-param-reassign': 0,
     'prettier/prettier': 'error',
   },
   overrides: [
     {
-      files: ['test/*.js'],
+      files: ['test/*.js', 'webpack.config.js'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-var-requires': 0,

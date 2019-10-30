@@ -13,8 +13,12 @@ coverage
 docs/
 junit.xml
 node_modules/
+patches/
 sonar-project.properties
 src/
+stats.json
 test/
 tsconfig*.json
 util/
+webpack.config.js
+yarn.lock
