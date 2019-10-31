@@ -14,25 +14,29 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Build
-        run: yarn build
-
       - name: Generate ec2-types
         run: yarn build:ec2-types
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Build
+        run: yarn build
+
       - name: Check linting
         run: yarn lint
 
       - name: Check types
         run: yarn lint:types
 
-      - name: Run tests
-        run: yarn test:ci
+      - name: Run tests and update snapshots
+        run: yarn test -u
+
+      - name: Log git diffs
+        run: git diff
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v1.6.0
+        uses: peter-evans/create-pull-request@v1.6.0-multi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_MESSAGE: "fix: update ec2-types"
