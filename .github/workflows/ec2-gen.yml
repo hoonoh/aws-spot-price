@@ -37,3 +37,4 @@ jobs:
           PULL_REQUEST_TITLE: "fix: update ec2-types"
           PULL_REQUEST_BRANCH: ec2-types/patch
           BRANCH_SUFFIX: none
+#
