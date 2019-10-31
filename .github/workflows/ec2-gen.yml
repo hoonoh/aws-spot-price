@@ -1,8 +1,6 @@
 name: keep ec2 types up to date
 
-on:
-  schedule:
-    - cron: "0 0 * * *"
+on: [pull_request]
 
 jobs:
   build:
