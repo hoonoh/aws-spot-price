@@ -17,10 +17,10 @@ exclude_patterns:
   - "package.json"
   - "patches/"
   - "README.md"
+  - "scripts/"
   - "src/**/*.spec.ts"
   - "test/"
   - "tsconfig.json"
-  - "util/"
   - "yarn.lock"
   - sonar-project.properties
   - sonar-project.properties
