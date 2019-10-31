@@ -1,0 +1,44 @@
+name: keep ec2 types up to date
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Generate ec2-types
+        run: yarn build:ec2-types
+
+      - name: Check git status
+        id: git-status
+        run: echo "##[set-output name=results;]$(git status -s)"
+
+      - name: Check linting
+        run: yarn lint
+
+      - name: Check types
+        run: yarn lint:types
+
+      - name: Run tests
+        run: yarn test:ci
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1.6.0
+        if: steps.git-status.outputs.results != '' && success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MESSAGE: "fix: update ec2-types"
+          PULL_REQUEST_TITLE: "fix: update ec2-types"
+          PULL_REQUEST_BRANCH: ec2-types/patch
+          BRANCH_SUFFIX: none
