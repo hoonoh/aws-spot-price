@@ -19,11 +19,9 @@ jobs:
 
       - name: Generate ec2-types
         run: yarn build:ec2-types
-
-      - name: Check git status
-        id: git-status
-        run: echo "##[set-output name=results;]$(git status -s)"
-
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Check linting
         run: yarn lint
 
@@ -35,7 +33,6 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1.6.0
-        if: steps.git-status.outputs.results != '' && success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_MESSAGE: "fix: update ec2-types"
