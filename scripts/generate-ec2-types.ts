@@ -90,7 +90,14 @@ const sortInstances = (i1: string, i2: string): number => {
 };
 
 const getEc2Types = async (): Promise<string> => {
-  const allInstances = (await getGlobalSpotPrices({ silent: true })).reduce(
+  let prices;
+  try {
+    prices = await getGlobalSpotPrices({ silent: true });
+  } catch (error) {
+    console.log(`getGlobalSpotPrices error: ${error}`);
+    process.exit(1);
+  }
+  const allInstances = prices.reduce(
     (list, cur) => {
       if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);
       return list;

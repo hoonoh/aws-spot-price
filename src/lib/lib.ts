@@ -38,7 +38,7 @@ class Ec2SpotPriceError extends Error {
     Object.setPrototypeOf(this, Ec2SpotPriceError.prototype);
   }
 
-  readonly region: string;
+  readonly region: Region;
 
   readonly code: string;
 }
@@ -87,7 +87,13 @@ const getEc2SpotPrice = async (options: {
       rtn = list.filter(history => history.InstanceType).sort(sortSpotPrice);
     }
   } catch (error) {
-    if (error && error.code && (error.code === 'AuthFailure' || error.code === 'OptInRequired')) {
+    if (
+      error &&
+      error.code &&
+      (error.code === 'AuthFailure' ||
+        error.code === 'OptInRequired' ||
+        error.code === 'CredentialsError')
+    ) {
       throw new Ec2SpotPriceError(error.message, region, error.code);
     } else {
       console.error(
@@ -173,12 +179,16 @@ export const getGlobalSpotPrices = async (options?: {
         return regionsPrices;
       } catch (error) {
         /* istanbul ignore if */
-        if (error instanceof Ec2SpotPriceError && spinner) {
-          spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
-          spinner = ora({
-            text: spinnerText || spinner.text,
-            discardStdin: false,
-          }).start();
+        if (error instanceof Ec2SpotPriceError) {
+          if (spinner) {
+            spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
+            spinner = ora({
+              text: spinnerText || spinner.text,
+              discardStdin: false,
+            }).start();
+          } else {
+            throw error;
+          }
         } else {
           console.error(error);
         }
