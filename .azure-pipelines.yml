@@ -8,6 +8,10 @@ trigger:
   paths:
     include:
       - "*"
+      - patches/*
+      - scripts/*
+      - src/*
+      - test/*
     exclude:
       - .github/*
       - bin/*
