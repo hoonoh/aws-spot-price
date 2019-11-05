@@ -24,7 +24,7 @@ module.exports = {
         loader: 'string-replace-loader',
         options: {
           search: "from './module'",
-          replace: "from '../../aws-spot-price/dist/module'",
+          replace: "from '../dist/module'",
         },
       },
       {
@@ -40,5 +40,5 @@ module.exports = {
       },
     ],
   },
-  externals: [/aws-spot-price\/dist/],
+  externals: [/dist\/module$/],
 };
