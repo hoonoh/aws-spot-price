@@ -19,8 +19,8 @@ import {
   ProductDescriptionWildcards,
 } from './constants/product-description';
 import { allRegions, Region } from './constants/regions';
+import { defaults, getGlobalSpotPrices } from './lib/core';
 import { AuthError, awsCredentialsCheck } from './lib/credential';
-import { defaults, getGlobalSpotPrices } from './lib/lib';
 import { ui } from './lib/ui';
 import { generateTypeSizeSetsFromFamily } from './lib/utils';
 

@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 import * as prettier from 'prettier';
 
-import { getGlobalSpotPrices } from '../src/lib/lib';
+import { getGlobalSpotPrices } from '../src/lib/core';
 
 const familyGeneral = ['a', 't', 'm'];
 

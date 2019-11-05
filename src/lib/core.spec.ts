@@ -12,7 +12,7 @@ import { consoleMockCallJoin } from '../../test/utils';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
 import { Region } from '../constants/regions';
-import { getGlobalSpotPrices } from './lib';
+import { getGlobalSpotPrices } from './core';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
