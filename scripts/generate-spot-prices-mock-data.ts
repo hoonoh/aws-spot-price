@@ -1,8 +1,8 @@
-import * as EC2 from 'aws-sdk/clients/ec2';
+import EC2 from 'aws-sdk/clients/ec2';
 import { readFileSync, writeFileSync } from 'fs';
 import { find, uniqWith, xorWith } from 'lodash';
 import { resolve } from 'path';
-import * as yargs from 'yargs';
+import yargs from 'yargs';
 
 import { defaultRegions, Region } from '../src/constants/regions';
 

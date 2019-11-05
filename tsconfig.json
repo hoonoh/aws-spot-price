@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "es5",
-    "lib": ["es5"],
+    "target": "esnext",
+    "lib": ["esnext"],
     "moduleResolution": "node",
     "strict": true,
     "strictPropertyInitialization": false,
@@ -11,7 +11,8 @@
     "rootDir": "src",
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "types"
+    "declarationDir": "types",
+    "esModuleInterop": true
   },
   "files": [
     "src/cli.ts",
@@ -20,7 +21,9 @@
     "src/constants/product-description.ts",
     "src/constants/regions.ts",
     "src/lib/core.ts",
-    "src/lib/ui.ts"
+    "src/lib/credential.ts",
+    "src/lib/ui.ts",
+    "src/lib/utils.ts"
   ],
   "exclude": ["node_modules"]
 }

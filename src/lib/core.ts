@@ -1,4 +1,4 @@
-import * as EC2 from 'aws-sdk/clients/ec2';
+import EC2 from 'aws-sdk/clients/ec2';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';

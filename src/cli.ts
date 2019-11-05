@@ -1,7 +1,7 @@
-import * as ora from 'ora';
+import ora from 'ora';
 import { sep } from 'path';
 import { table } from 'table';
-import * as yargs from 'yargs';
+import yargs from 'yargs';
 
 import { ui } from './lib/ui';
 import {

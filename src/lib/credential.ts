@@ -1,4 +1,4 @@
-import * as STS from 'aws-sdk/clients/sts';
+import STS from 'aws-sdk/clients/sts';
 
 type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
 

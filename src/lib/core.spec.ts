@@ -1,7 +1,7 @@
 import { SpotPrice } from 'aws-sdk/clients/ec2';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
-import * as nock from 'nock';
+import nock from 'nock';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import {

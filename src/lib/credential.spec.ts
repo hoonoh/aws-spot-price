@@ -1,5 +1,5 @@
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
-import * as nock from 'nock';
+import nock from 'nock';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import { consoleMockCallJoin } from '../../test/utils';
