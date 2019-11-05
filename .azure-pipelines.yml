@@ -5,27 +5,6 @@ trigger:
   tags:
     include:
       - latest
-  paths:
-    include:
-      - "*"
-      - patches/*
-      - scripts/*
-      - src/*
-      - test/*
-    exclude:
-      - .github/*
-      - bin/*
-      - docs/*
-      - "*.md"
-      - .codeclimate.yml
-      - .eslintrc.js
-      - .gitignore
-      - .npmignore
-      - .prettierignore
-      - aws-spot-price.code-workspace
-      - commitlint.config.js
-      - webpack.config.js
-      - yarn.lock
 
 jobs:
   - job: Release
