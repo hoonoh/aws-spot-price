@@ -128,14 +128,13 @@ export const getGlobalSpotPrices = async (options?: {
     priceMax,
     productDescriptions,
     limit,
-    silent,
     accessKeyId,
     secretAccessKey,
   } = options || {
     limit: defaults.limit,
   };
 
-  let { regions, instanceTypes } = options || {};
+  let { regions, instanceTypes, silent } = options || {};
 
   if (regions === undefined) regions = defaultRegions;
 
@@ -150,6 +149,8 @@ export const getGlobalSpotPrices = async (options?: {
       instanceTypes = instanceTypes.concat(instanceTypesGenerated);
     }
   }
+
+  if (silent === undefined) silent = true;
 
   let spinner: ora.Ora | undefined;
   let spinnerText: string | undefined;

@@ -160,7 +160,7 @@ describe('cli', () => {
   });
 
   describe('test by spawnSync', () => {
-    const cliJsPath = resolve(__dirname, '../dist/aws-spot-price.bundle.js');
+    const cliJsPath = resolve(__dirname, '../dist/cli.js');
     it('should stdout help screen', () => {
       const s = spawnSync('node', [cliJsPath, '--help'], { encoding: 'utf-8' });
       expect(s.stdout).toMatchSnapshot();

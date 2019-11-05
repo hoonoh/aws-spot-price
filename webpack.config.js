@@ -2,14 +2,16 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: path.resolve(__dirname, 'src/cli.ts'),
+  entry: {
+    cli: path.resolve(__dirname, 'src/cli.ts'),
+    module: path.resolve(__dirname, 'src/module.ts'),
+  },
   resolve: {
     extensions: ['.js', '.json', '.ts'],
   },
   output: {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, 'dist'),
-    filename: 'aws-spot-price.bundle.js',
   },
   stats: {
     warningsFilter: [/node_modules\/yargs/],
@@ -17,6 +19,14 @@ module.exports = {
   target: 'node',
   module: {
     rules: [
+      {
+        test: /cli\.ts$/,
+        loader: 'string-replace-loader',
+        options: {
+          search: "from './module'",
+          replace: "from '../../aws-spot-price/dist/module'",
+        },
+      },
       {
         test: /\.tsx?$/,
         use: [
@@ -30,4 +40,5 @@ module.exports = {
       },
     ],
   },
+  externals: [/aws-spot-price\/dist/],
 };

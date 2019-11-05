@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "lib": ["es5"],
     "moduleResolution": "node",
@@ -9,10 +9,13 @@
     "sourceMap": true,
     "downlevelIteration": true,
     "rootDir": "src",
-    "noEmit": true
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "types"
   },
   "files": [
     "src/cli.ts",
+    "src/module.ts",
     "src/constants/ec2-types.ts",
     "src/constants/product-description.ts",
     "src/constants/regions.ts",

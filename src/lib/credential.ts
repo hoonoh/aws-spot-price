@@ -1,4 +1,4 @@
-import STS = require('aws-sdk/clients/sts');
+import * as STS from 'aws-sdk/clients/sts';
 
 type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
 

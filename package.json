@@ -22,9 +22,11 @@
     "name": "hoonoh"
   },
   "bin": "bin/aws-spot-price",
+  "main": "dist/module.js",
+  "types": "types/module.d.ts",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "yarn clean && yarn build",
+    "prepublishOnly": "yarn clean && yarn build && yarn types",
     "clean": "rm -rf dist && rm -rf coverage",
     "build:ec2-types": "ts-node -T scripts/generate-ec2-types.ts",
     "build": "patch-package && webpack",
@@ -33,7 +35,7 @@
     "test:coverage": "yarn test --coverage",
     "test:ci": "yarn test:coverage --ci --reporters=jest-junit --coverageReporters lcov --coverageReporters cobertura",
     "lint": "eslint **/*.ts",
-    "lint:types": "tsc",
+    "types": "tsc",
     "semantic-release": "semantic-release"
   },
   "config": {
@@ -47,7 +49,8 @@
     }
   },
   "eslintIgnore": [
-    "dist"
+    "dist",
+    "types"
   ],
   "prettier": {
     "printWidth": 100,
@@ -129,6 +132,7 @@
     "prettier": "^1.18.2",
     "prompts": "^2.2.1",
     "semantic-release": "^15.13.27",
+    "string-replace-loader": "^2.2.0",
     "table": "^5.4.6",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",

@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../dist/aws-spot-price.bundle');
+require('../dist/cli');

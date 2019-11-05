@@ -1,28 +1,29 @@
 import { sep } from 'path';
 import * as yargs from 'yargs';
 
+import { ui } from './lib/ui';
 import {
   allInstances,
+  allProductDescriptions,
+  allRegions,
+  AuthError,
+  awsCredentialsCheck,
+  defaults,
+  generateTypeSizeSetsFromFamily,
+  getGlobalSpotPrices,
   instanceFamily,
   InstanceFamily,
   InstanceFamilyType,
   instanceFamilyTypes,
+  instanceOfProductDescription,
   InstanceSize,
   instanceSizes,
   InstanceType,
-} from './constants/ec2-types';
-import {
-  allProductDescriptions,
-  instanceOfProductDescription,
   ProductDescription,
   productDescriptionWildcards,
   ProductDescriptionWildcards,
-} from './constants/product-description';
-import { allRegions, Region } from './constants/regions';
-import { defaults, getGlobalSpotPrices } from './lib/core';
-import { AuthError, awsCredentialsCheck } from './lib/credential';
-import { ui } from './lib/ui';
-import { generateTypeSizeSetsFromFamily } from './lib/utils';
+  Region,
+} from './module';
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
