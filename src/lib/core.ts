@@ -1,10 +1,8 @@
 import * as EC2 from 'aws-sdk/clients/ec2';
-import * as ora from 'ora';
-import { table } from 'table';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
-import { defaultRegions, Region, regionNames } from '../constants/regions';
+import { defaultRegions, Region } from '../constants/regions';
 import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
@@ -29,7 +27,7 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   return rtn;
 };
 
-class Ec2SpotPriceError extends Error {
+export class Ec2SpotPriceError extends Error {
   constructor(message: string, region: Region, code: string) {
     super(message) /* istanbul ignore next */;
     this.name = 'Ec2SpotPriceError';
@@ -118,9 +116,11 @@ export const getGlobalSpotPrices = async (options?: {
   instanceTypes?: InstanceType[];
   productDescriptions?: ProductDescription[];
   limit?: number;
-  silent?: boolean;
   accessKeyId?: string;
   secretAccessKey?: string;
+  onRegionFetch?: (region: Region) => void;
+  onRegionFetchFail?: (error: Ec2SpotPriceError) => void;
+  onFetchComplete?: Function;
 }): Promise<EC2.SpotPrice[]> => {
   const {
     familyTypes,
@@ -130,11 +130,14 @@ export const getGlobalSpotPrices = async (options?: {
     limit,
     accessKeyId,
     secretAccessKey,
+    onRegionFetch,
+    onRegionFetchFail,
+    onFetchComplete,
   } = options || {
     limit: defaults.limit,
   };
 
-  let { regions, instanceTypes, silent } = options || {};
+  let { regions, instanceTypes } = options || {};
 
   if (regions === undefined) regions = defaultRegions;
 
@@ -150,18 +153,6 @@ export const getGlobalSpotPrices = async (options?: {
     }
   }
 
-  if (silent === undefined) silent = true;
-
-  let spinner: ora.Ora | undefined;
-  let spinnerText: string | undefined;
-  /* istanbul ignore if */
-  if (!silent && process.env.NODE_ENV !== 'test') {
-    spinner = ora({
-      text: 'Waiting for data to be retrieved...',
-      discardStdin: false,
-    }).start();
-  }
-
   const rtn: EC2.SpotPrice[] = await Promise.all(
     regions.map(async region => {
       try {
@@ -173,20 +164,13 @@ export const getGlobalSpotPrices = async (options?: {
           secretAccessKey,
         });
         /* istanbul ignore if */
-        if (spinner) {
-          spinnerText = `Retrieved data from ${region}...`;
-          spinner.text = spinnerText;
-        }
+        if (onRegionFetch) onRegionFetch(region);
         return regionsPrices;
       } catch (error) {
         /* istanbul ignore if */
         if (error instanceof Ec2SpotPriceError) {
-          if (spinner) {
-            spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
-            spinner = ora({
-              text: spinnerText || spinner.text,
-              discardStdin: false,
-            }).start();
+          if (onRegionFetchFail) {
+            onRegionFetchFail(error);
           } else {
             throw error;
           }
@@ -198,7 +182,7 @@ export const getGlobalSpotPrices = async (options?: {
     }),
   ).then(results => {
     /* istanbul ignore if */
-    if (spinner) spinner.succeed('All data retrieved!').stop();
+    if (onFetchComplete) onFetchComplete();
     return results
       .reduce(
         (finalList: EC2.SpotPrice[], curList: EC2.SpotPrice[]) => {
@@ -254,33 +238,6 @@ export const getGlobalSpotPrices = async (options?: {
 
   // limit output
   if (limit && rtn.length > limit) rtn.splice(limit);
-
-  // log output
-  if (!silent) {
-    if (rtn.length > 0) {
-      console.log(
-        table(
-          rtn.reduce(
-            (list, price) => {
-              list.push([
-                price.InstanceType,
-                price.SpotPrice,
-                price.ProductDescription,
-                price.AvailabilityZone,
-                price.AvailabilityZone
-                  ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-                  : /* istanbul ignore next */ undefined,
-              ]);
-              return list;
-            },
-            [] as (string | undefined)[][],
-          ),
-        ),
-      );
-    } else {
-      console.log('no matching records found');
-    }
-  }
 
   return rtn;
 };

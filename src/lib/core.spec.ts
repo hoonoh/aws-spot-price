@@ -50,7 +50,6 @@ describe('lib', () => {
           sizes,
           productDescriptions,
           limit: 20,
-          silent: true,
         });
       });
 
@@ -91,7 +90,6 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           familyTypes,
           limit: 20,
-          silent: true,
         });
       });
 
@@ -125,7 +123,6 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           sizes,
           limit: 20,
-          silent: true,
         });
       });
 
@@ -161,7 +158,6 @@ describe('lib', () => {
           instanceTypes: ['c5.2xlarge'],
           productDescriptions: ['Linux/UNIX'],
           limit: 200,
-          silent: true,
         });
       });
 
@@ -192,7 +188,6 @@ describe('lib', () => {
 
         results = await getGlobalSpotPrices({
           priceMax,
-          silent: true,
         });
       });
 

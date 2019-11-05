@@ -1,4 +1,6 @@
+import * as ora from 'ora';
 import { sep } from 'path';
+import { table } from 'table';
 import * as yargs from 'yargs';
 
 import { ui } from './lib/ui';
@@ -9,6 +11,7 @@ import {
   AuthError,
   awsCredentialsCheck,
   defaults,
+  Ec2SpotPriceError,
   generateTypeSizeSetsFromFamily,
   getGlobalSpotPrices,
   instanceFamily,
@@ -23,6 +26,7 @@ import {
   productDescriptionWildcards,
   ProductDescriptionWildcards,
   Region,
+  regionNames,
 } from './module';
 
 export const main = (argvInput?: string[]): Promise<void> =>
@@ -199,6 +203,37 @@ export const main = (argvInput?: string[]): Promise<void> =>
             const familyTypeSetArray = Array.from(familyTypeSet);
             const sizeSetArray = Array.from(sizeSet);
 
+            let spinnerText: string | undefined;
+            let spinner: ora.Ora | undefined;
+            let onRegionFetch: ((reg: Region) => void) | undefined;
+            let onRegionFetchFail: ((error: Ec2SpotPriceError) => void) | undefined;
+            let onFetchComplete: (() => void) | undefined;
+
+            if (!json && process.env.NODE_ENV !== 'test') {
+              spinner = ora({
+                text: 'Waiting for data to be retrieved...',
+                discardStdin: false,
+              }).start();
+
+              onRegionFetch = (reg: Region): void => {
+                spinnerText = `Retrieved data from ${reg}...`;
+                if (spinner) spinner.text = spinnerText;
+              };
+              onRegionFetchFail = (error: Ec2SpotPriceError): void => {
+                if (spinner)
+                  spinner.fail(`Failed to retrieve data from ${error.region}. (${error.code})`);
+                let text = spinnerText;
+                if (!text && spinner) text = spinner.text;
+                spinner = ora({
+                  text,
+                  discardStdin: false,
+                }).start();
+              };
+              onFetchComplete = (): void => {
+                if (spinner) spinner.succeed('All data retrieved!').stop();
+              };
+            }
+
             const results = await getGlobalSpotPrices({
               regions: region as Region[],
               instanceTypes: instanceType as InstanceType[],
@@ -211,10 +246,36 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 : undefined,
               accessKeyId,
               secretAccessKey,
-              silent: json,
+              onRegionFetch,
+              onRegionFetchFail,
+              onFetchComplete,
             });
 
-            if (json) console.log(JSON.stringify(results, null, 2));
+            if (json) {
+              console.log(JSON.stringify(results, null, 2));
+            } else if (results.length > 0) {
+              console.log(
+                table(
+                  results.reduce(
+                    (list, price) => {
+                      list.push([
+                        price.InstanceType,
+                        price.SpotPrice,
+                        price.ProductDescription,
+                        price.AvailabilityZone,
+                        price.AvailabilityZone
+                          ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
+                          : /* istanbul ignore next */ undefined,
+                      ]);
+                      return list;
+                    },
+                    [] as (string | undefined)[][],
+                  ),
+                ),
+              );
+            } else {
+              console.log('no matching records found');
+            }
 
             res();
           } catch (error) {
