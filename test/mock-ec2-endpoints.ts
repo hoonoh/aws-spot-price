@@ -1,7 +1,7 @@
 import { SpotPrice } from 'aws-sdk/clients/ec2';
 import { readFileSync } from 'fs';
 import { filter } from 'lodash';
-import * as nock from 'nock';
+import nock from 'nock';
 import { resolve } from 'path';
 import { parse } from 'querystring';
 

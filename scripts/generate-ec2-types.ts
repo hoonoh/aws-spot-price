@@ -1,8 +1,8 @@
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
-import * as prettier from 'prettier';
+import prettier from 'prettier';
 
-import { getGlobalSpotPrices } from '../src/lib/lib';
+import { getGlobalSpotPrices } from '../src/lib/core';
 
 const familyGeneral = ['a', 't', 'm'];
 
@@ -92,7 +92,7 @@ const sortInstances = (i1: string, i2: string): number => {
 const getEc2Types = async (): Promise<string> => {
   let prices;
   try {
-    prices = await getGlobalSpotPrices({ silent: true });
+    prices = await getGlobalSpotPrices();
   } catch (error) {
     console.log(`getGlobalSpotPrices error: ${error}`);
     process.exit(1);

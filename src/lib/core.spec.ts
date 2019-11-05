@@ -1,7 +1,7 @@
 import { SpotPrice } from 'aws-sdk/clients/ec2';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
-import * as nock from 'nock';
+import nock from 'nock';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import {
@@ -12,7 +12,7 @@ import { consoleMockCallJoin } from '../../test/utils';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
 import { Region } from '../constants/regions';
-import { getGlobalSpotPrices } from './lib';
+import { getGlobalSpotPrices } from './core';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
@@ -50,7 +50,6 @@ describe('lib', () => {
           sizes,
           productDescriptions,
           limit: 20,
-          silent: true,
         });
       });
 
@@ -91,7 +90,6 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           familyTypes,
           limit: 20,
-          silent: true,
         });
       });
 
@@ -125,7 +123,6 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           sizes,
           limit: 20,
-          silent: true,
         });
       });
 
@@ -161,7 +158,6 @@ describe('lib', () => {
           instanceTypes: ['c5.2xlarge'],
           productDescriptions: ['Linux/UNIX'],
           limit: 200,
-          silent: true,
         });
       });
 
@@ -192,7 +188,6 @@ describe('lib', () => {
 
         results = await getGlobalSpotPrices({
           priceMax,
-          silent: true,
         });
       });
 

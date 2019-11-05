@@ -27,7 +27,7 @@ jobs:
         run: yarn lint
 
       - name: Check types
-        run: yarn lint:types
+        run: yarn types
 
       - name: Run tests and update snapshots
         run: yarn test -u
