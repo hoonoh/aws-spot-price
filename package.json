@@ -27,13 +27,13 @@
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "yarn clean && yarn build && yarn types",
-    "clean": "rm -rf dist && rm -rf coverage",
+    "clean": "rm -rf dist && rm -rf types && rm -rf coverage",
     "build:ec2-types": "ts-node -T scripts/generate-ec2-types.ts",
     "build": "patch-package && webpack",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "test": "patch-package && jest --runInBand --verbose",
     "test:coverage": "yarn test --coverage",
-    "test:ci": "yarn test:coverage --ci --reporters=jest-junit --coverageReporters lcov --coverageReporters cobertura",
+    "test:ci": "yarn test:coverage --reporters=default jest-junit --coverageReporters lcov --coverageReporters cobertura",
     "lint": "eslint **/*.ts",
     "types": "tsc",
     "semantic-release": "semantic-release"
