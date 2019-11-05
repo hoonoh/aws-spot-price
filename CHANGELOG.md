@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+# [0.5.0](https://github.com/hoonoh/aws-spot-price/compare/v0.4.6...v0.5.0) (2019-11-05)
+
+
+### Features
+
+* add module ([#26](https://github.com/hoonoh/aws-spot-price/issues/26)) ([aea2cf1](https://github.com/hoonoh/aws-spot-price/commit/aea2cf19d11fa8e08f2114ebf4b58c3e4b346801))
+
 ## [0.4.6](https://github.com/hoonoh/aws-spot-price/compare/v0.4.5...v0.4.6) (2019-10-30)
 
 
