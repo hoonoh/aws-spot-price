@@ -6,6 +6,8 @@ trigger:
     include:
       - latest
   paths:
+    include:
+      - "*"
     exclude:
       - .github/*
       - bin/*
