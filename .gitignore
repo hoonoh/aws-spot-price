@@ -4,3 +4,4 @@ coverage
 dist
 junit.xml
 node_modules
+types

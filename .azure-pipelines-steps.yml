@@ -28,7 +28,7 @@ steps:
     condition: succeededOrFailed()
 
   # Check types
-  - script: yarn lint:types
+  - script: yarn types
     displayName: "Check types"
     condition: succeededOrFailed()
 

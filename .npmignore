@@ -14,11 +14,11 @@ docs/
 junit.xml
 node_modules/
 patches/
+scripts/
 sonar-project.properties
 src/
 stats.json
 test/
 tsconfig*.json
-util/
 webpack.config.js
 yarn.lock
