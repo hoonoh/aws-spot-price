@@ -92,7 +92,7 @@ const sortInstances = (i1: string, i2: string): number => {
 const getEc2Types = async (): Promise<string> => {
   let prices;
   try {
-    prices = await getGlobalSpotPrices();
+    prices = await getGlobalSpotPrices({});
   } catch (error) {
     console.log(`getGlobalSpotPrices error: ${error}`);
     process.exit(1);

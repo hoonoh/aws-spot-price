@@ -20,14 +20,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /cli\.ts$/,
-        loader: 'string-replace-loader',
-        options: {
-          search: "from './module'",
-          replace: "from '../dist/module'",
-        },
-      },
-      {
         test: /\.tsx?$/,
         use: [
           {
@@ -40,5 +32,5 @@ module.exports = {
       },
     ],
   },
-  externals: [/dist\/module$/],
+  externals: [/\.\/module$/],
 };
