@@ -139,6 +139,6 @@
     "typescript": "^3.6.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
-    "yargs": "^14.2.0"
+    "yargs": "^15.0.1"
   }
 }
