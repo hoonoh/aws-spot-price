@@ -32,7 +32,7 @@ export const instanceFamilyMemory = [
   'z1d',
 ] as const;
 
-export const instanceFamilyStorage = ['d2', 'h1', 'i2', 'i3', 'i3en'] as const;
+export const instanceFamilyStorage = ['d2', 'h1', 'i2', 'i3', 'i3en', 'inf1'] as const;
 
 export const instanceFamilyAcceleratedComputing = [
   'f1',
@@ -324,6 +324,10 @@ export const allInstances = [
   'i3en.12xlarge',
   'i3en.24xlarge',
   'i3en.metal',
+  'inf1.xlarge',
+  'inf1.2xlarge',
+  'inf1.6xlarge',
+  'inf1.24xlarge',
   'f1.2xlarge',
   'f1.4xlarge',
   'f1.16xlarge',
