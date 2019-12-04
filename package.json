@@ -123,7 +123,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
-    "jest-junit": "^9.0.0",
+    "jest-junit": "^10.0.0",
     "jest-mock-console": "^1.0.0",
     "lodash": "^4.17.15",
     "nock": "^11.4.0",
