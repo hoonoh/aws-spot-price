@@ -100,7 +100,7 @@
     "@commitlint/cli": "^8.2.0",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/git": "^7.0.16",
-    "@semantic-release/github": "^5.5.4",
+    "@semantic-release/github": "^6.0.0",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.144",
     "@types/node": "^13.1.0",
