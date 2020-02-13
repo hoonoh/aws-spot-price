@@ -98,7 +98,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
-    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/github": "^5.5.4",
     "@types/jest": "^25.1.0",
@@ -113,7 +113,7 @@
     "aws-sdk": "^2.544.0",
     "commitizen": "^4.0.3",
     "conventional-changelog-cli": "^2.0.25",
-    "cz-conventional-changelog": "3.0.2",
+    "cz-conventional-changelog": "3.1.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-typescript": "^6.0.0",
     "eslint-config-prettier": "^6.3.0",
