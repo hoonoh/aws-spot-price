@@ -23,12 +23,11 @@
     "importSorter.sortConfiguration.removeUnusedImports": true,
 
     // eslint
-    "eslint.validate": [
-      { "language": "javascript", "autoFix": true },
-      { "language": "typescript", "autoFix": true }
-    ],
-    "eslint.autoFixOnSave": true,
-    "eslint.run": "onType"
+    "eslint.validate": ["javascript", "typescript"],
+    "eslint.run": "onType",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
 
   "extensions": {
