@@ -114,7 +114,7 @@
     "commitizen": "4.0.3",
     "conventional-changelog-cli": "2.0.31",
     "cz-conventional-changelog": "3.1.0",
-    "eslint-config-airbnb-typescript": "6.3.2",
+    "eslint-config-airbnb-typescript": "7.0.0",
     "eslint-config-prettier": "6.10.0",
     "eslint-import-resolver-typescript": "2.0.0",
     "eslint-plugin-import": "2.20.1",
