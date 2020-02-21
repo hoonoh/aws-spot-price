@@ -256,21 +256,18 @@ export const main = (argvInput?: string[]): Promise<void> =>
             } else if (results.length > 0) {
               console.log(
                 table(
-                  results.reduce(
-                    (list, price) => {
-                      list.push([
-                        price.InstanceType,
-                        price.SpotPrice,
-                        price.ProductDescription,
-                        price.AvailabilityZone,
-                        price.AvailabilityZone
-                          ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-                          : /* istanbul ignore next */ undefined,
-                      ]);
-                      return list;
-                    },
-                    [] as (string | undefined)[][],
-                  ),
+                  results.reduce((list, price) => {
+                    list.push([
+                      price.InstanceType,
+                      price.SpotPrice,
+                      price.ProductDescription,
+                      price.AvailabilityZone,
+                      price.AvailabilityZone
+                        ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
+                        : /* istanbul ignore next */ undefined,
+                    ]);
+                    return list;
+                  }, [] as (string | undefined)[][]),
                 ),
               );
             } else {

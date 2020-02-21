@@ -14,15 +14,12 @@ const data = JSON.parse(
 
 type RegionalData = { [region in Region]: SpotPrice[] };
 
-const regionalData: RegionalData = allRegions.reduce(
-  (list, region) => {
-    list[region] = filter(data, (o: SpotPrice) => {
-      return o.AvailabilityZone && o.AvailabilityZone.startsWith(region);
-    });
-    return list;
-  },
-  {} as RegionalData,
-);
+const regionalData: RegionalData = allRegions.reduce((list, region) => {
+  list[region] = filter(data, (o: SpotPrice) => {
+    return o.AvailabilityZone && o.AvailabilityZone.startsWith(region);
+  });
+  return list;
+}, {} as RegionalData);
 
 /**
  * @param region
@@ -43,23 +40,17 @@ const nockEndpoint = (options: {
 
       const index = params.NextToken ? parseInt(params.NextToken as string, 10) : 0;
 
-      const instanceTypes = Object.keys(params).reduce(
-        (prev, key) => {
-          const value = params[key];
-          if (key.startsWith('InstanceType') && typeof value === 'string') prev.push(value);
-          return prev;
-        },
-        [] as string[],
-      );
+      const instanceTypes = Object.keys(params).reduce((prev, key) => {
+        const value = params[key];
+        if (key.startsWith('InstanceType') && typeof value === 'string') prev.push(value);
+        return prev;
+      }, [] as string[]);
 
-      const productDescriptions = Object.keys(params).reduce(
-        (prev, key) => {
-          const value = params[key];
-          if (key.startsWith('ProductDescription') && typeof value === 'string') prev.push(value);
-          return prev;
-        },
-        [] as string[],
-      );
+      const productDescriptions = Object.keys(params).reduce((prev, key) => {
+        const value = params[key];
+        if (key.startsWith('ProductDescription') && typeof value === 'string') prev.push(value);
+        return prev;
+      }, [] as string[]);
 
       const instanceData: SpotPrice[] = filter(regionalData[region], (o: SpotPrice) => {
         let rtn = true;

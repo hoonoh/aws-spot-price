@@ -97,13 +97,10 @@ const getEc2Types = async (): Promise<string> => {
     console.log(`getGlobalSpotPrices error: ${error}`);
     process.exit(1);
   }
-  const allInstances = prices.reduce(
-    (list, cur) => {
-      if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);
-      return list;
-    },
-    [] as string[],
-  );
+  const allInstances = prices.reduce((list, cur) => {
+    if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);
+    return list;
+  }, [] as string[]);
 
   // const instanceFamilies: string[] = [];
   const instanceFamilyGeneral = new Set<string>();
