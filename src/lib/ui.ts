@@ -46,32 +46,26 @@ export const ui = async (): Promise<Answers> => {
       name: 'region',
       message: 'Select regions (select none for default regions)',
       instructions: false,
-      choices: allRegions.reduce(
-        (list, region) => {
-          list.push({
-            title: `${regionNames[region]} - ${region}`,
-            value: region,
-          });
-          return list;
-        },
-        [] as Choice[],
-      ),
+      choices: allRegions.reduce((list, region) => {
+        list.push({
+          title: `${regionNames[region]} - ${region}`,
+          value: region,
+        });
+        return list;
+      }, [] as Choice[]),
     },
     {
       type: 'multiselect',
       name: 'family',
       message: 'Select EC2 Family',
       instructions: false,
-      choices: Object.keys(instanceFamily).reduce(
-        (list, family) => {
-          list.push({
-            title: family,
-            value: family,
-          });
-          return list;
-        },
-        [] as Choice[],
-      ),
+      choices: Object.keys(instanceFamily).reduce((list, family) => {
+        list.push({
+          title: family,
+          value: family,
+        });
+        return list;
+      }, [] as Choice[]),
     },
   ];
 
@@ -111,17 +105,14 @@ export const ui = async (): Promise<Answers> => {
       message: 'Select EC2 Family Type',
       hint: generateFamilyHint('types'),
       instructions: false,
-      choices: instanceFamilyTypes.reduce(
-        (list, familyType) => {
-          list.push({
-            title: familyType,
-            value: familyType,
-            selected: familyTypePreSelected.includes(familyType),
-          });
-          return list;
-        },
-        [] as (Choice | { selected: boolean })[],
-      ),
+      choices: instanceFamilyTypes.reduce((list, familyType) => {
+        list.push({
+          title: familyType,
+          value: familyType,
+          selected: familyTypePreSelected.includes(familyType),
+        });
+        return list;
+      }, [] as (Choice | { selected: boolean })[]),
     },
     {
       type: 'autocompleteMultiselect',
@@ -129,17 +120,14 @@ export const ui = async (): Promise<Answers> => {
       message: 'Select EC2 Family Size',
       hint: generateFamilyHint('sizes'),
       instructions: false,
-      choices: instanceSizes.reduce(
-        (list, size) => {
-          list.push({
-            title: size,
-            value: size,
-            selected: sizePreSelected.includes(size),
-          });
-          return list;
-        },
-        [] as (Choice | { selected: boolean })[],
-      ),
+      choices: instanceSizes.reduce((list, size) => {
+        list.push({
+          title: size,
+          value: size,
+          selected: sizePreSelected.includes(size),
+        });
+        return list;
+      }, [] as (Choice | { selected: boolean })[]),
     },
     {
       type: 'autocompleteMultiselect',

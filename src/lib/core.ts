@@ -184,55 +184,49 @@ export const getGlobalSpotPrices = async (options?: {
     /* istanbul ignore if */
     if (onFetchComplete) onFetchComplete();
     return results
-      .reduce(
-        (finalList: EC2.SpotPrice[], curList: EC2.SpotPrice[]) => {
-          const curListFiltered = curList.filter(
-            // filter price info without region or price greater than priceMax
-            price => {
-              // 1. remove if data missing any of the required attributes
-              // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
-              if (
-                !price.AvailabilityZone ||
-                !price.SpotPrice ||
-                !price.InstanceType ||
-                (priceMax !== undefined && parseFloat(price.SpotPrice) > priceMax)
-              )
-                return false;
+      .reduce((finalList: EC2.SpotPrice[], curList: EC2.SpotPrice[]) => {
+        const curListFiltered = curList.filter(
+          // filter price info without region or price greater than priceMax
+          price => {
+            // 1. remove if data missing any of the required attributes
+            // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
+            if (
+              !price.AvailabilityZone ||
+              !price.SpotPrice ||
+              !price.InstanceType ||
+              (priceMax !== undefined && parseFloat(price.SpotPrice) > priceMax)
+            )
+              return false;
 
-              return true;
-            },
+            return true;
+          },
+        );
+        // look for duplicate and remove prev data if older than current
+        const curListReduced = curListFiltered.reduce((list, cur) => {
+          const duplicates = list.filter(
+            prevPrice =>
+              cur.AvailabilityZone &&
+              cur.AvailabilityZone === prevPrice.AvailabilityZone &&
+              cur.InstanceType &&
+              cur.InstanceType === prevPrice.InstanceType &&
+              cur.ProductDescription &&
+              cur.ProductDescription === prevPrice.ProductDescription,
           );
-          // look for duplicate and remove prev data if older than current
-          const curListReduced = curListFiltered.reduce(
-            (list, cur) => {
-              const duplicates = list.filter(
-                prevPrice =>
-                  cur.AvailabilityZone &&
-                  cur.AvailabilityZone === prevPrice.AvailabilityZone &&
-                  cur.InstanceType &&
-                  cur.InstanceType === prevPrice.InstanceType &&
-                  cur.ProductDescription &&
-                  cur.ProductDescription === prevPrice.ProductDescription,
-              );
-              if (duplicates.length) {
-                while (duplicates.length) {
-                  const dupe = duplicates.pop();
-                  if (dupe && cur.Timestamp && dupe.Timestamp && cur.Timestamp > dupe.Timestamp) {
-                    list.splice(list.indexOf(dupe));
-                    list.push(cur);
-                  }
-                }
-              } else {
+          if (duplicates.length) {
+            while (duplicates.length) {
+              const dupe = duplicates.pop();
+              if (dupe && cur.Timestamp && dupe.Timestamp && cur.Timestamp > dupe.Timestamp) {
+                list.splice(list.indexOf(dupe));
                 list.push(cur);
               }
-              return list;
-            },
-            [] as EC2.SpotPrice[],
-          );
-          return finalList.concat(curListReduced);
-        },
-        [] as EC2.SpotPrice[],
-      )
+            }
+          } else {
+            list.push(cur);
+          }
+          return list;
+        }, [] as EC2.SpotPrice[]);
+        return finalList.concat(curListReduced);
+      }, [] as EC2.SpotPrice[])
       .sort(sortSpotPrice);
   });
 
