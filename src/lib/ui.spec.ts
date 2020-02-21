@@ -9,14 +9,11 @@ import {
 import { ui } from './ui';
 
 const getFamilySize = (family: string[]): string[] => {
-  const types = Object.keys(instanceFamily).reduce(
-    (list, f) => {
-      // @ts-ignore
-      if (family.includes(f)) return list.concat(instanceFamily[f] as string[]);
-      return list;
-    },
-    [] as string[],
-  );
+  const types = Object.keys(instanceFamily).reduce((list, f) => {
+    // @ts-ignore
+    if (family.includes(f)) return list.concat(instanceFamily[f] as string[]);
+    return list;
+  }, [] as string[]);
   const instances = allInstances.filter(i => types.includes(i.split('.').shift() as string));
   const sizes = new Set<InstanceSize>();
   instances.forEach(i => {
