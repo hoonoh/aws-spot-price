@@ -42,4 +42,3 @@ jobs:
           commit-message: 'fix: update ec2-types'
           title: 'fix: update ec2-types'
           branch: ec2-types/patch
-          branch-suffix: none
