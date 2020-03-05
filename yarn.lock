@@ -1017,10 +1017,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.0.tgz#a2502fb7ce9b6626fdbfc2e2a496f472de1bdd05"
   integrity sha512-gDE8JJEygpay7IjA/u3JiIURvwZW08f0cZSZLAzFoX/ZmeqvS0Sqv+97aKuHpNsalAMMhwPe+iAS6fQbfmbt7A==
 
-"@types/prompts@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@types/prompts/-/prompts-2.0.3.tgz#9928714a7a5c2017919f8fecef517369d27dd5df"
-  integrity sha512-5+r923liPATAzRQhLTGfrRuel9vv7Mk1DZ/CJkgRrLctmM9QeOIbuVolA7wAACaw+m0Ysug85CjPbkb5ZgE1Ag==
+"@types/prompts@2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/prompts/-/prompts-2.0.4.tgz#dbd829fe8114a8ffe17503bd767a047c285268f6"
+  integrity sha512-UlgMLjQMxfAUHesZDFeOlIZD8nyuX8HMdkcT2swgP1QLoLlPvTTZmEr7oYQgP8HxDl+dS45I0Mf/7fFya/Z9jw==
 
 "@types/retry@^0.12.0":
   version "0.12.0"
