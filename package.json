@@ -105,7 +105,7 @@
     "@types/lodash": "4.14.149",
     "@types/node": "13.9.0",
     "@types/prettier": "1.19.0",
-    "@types/prompts": "2.0.4",
+    "@types/prompts": "2.0.5",
     "@types/table": "4.0.7",
     "@types/yargs": "15.0.4",
     "@typescript-eslint/eslint-plugin": "2.23.0",
