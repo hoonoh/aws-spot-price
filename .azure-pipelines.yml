@@ -82,7 +82,7 @@ jobs:
   - job: macOS
     condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
-      vmImage: macos-10.13
+      vmImage: macOS-10.15
     strategy:
       matrix:
         node_10_x:
