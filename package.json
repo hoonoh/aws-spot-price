@@ -129,7 +129,7 @@
     "lodash": "4.17.15",
     "nock": "12.0.3",
     "ora": "4.0.3",
-    "patch-package": "6.2.1",
+    "patch-package": "6.2.2",
     "prettier": "1.19.1",
     "prompts": "2.3.2",
     "semantic-release": "17.0.4",
