@@ -125,7 +125,7 @@
     "husky": "4.2.5",
     "jest-junit": "10.0.0",
     "jest-mock-console": "1.0.0",
-    "jest": "25.3.0",
+    "jest": "25.4.0",
     "lodash": "4.17.15",
     "nock": "12.0.3",
     "ora": "4.0.3",
