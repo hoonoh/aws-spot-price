@@ -104,7 +104,7 @@
     "@semantic-release/github": "7.0.5",
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
-    "@types/node": "13.13.0",
+    "@types/node": "13.13.1",
     "@types/prettier": "1.19.1",
     "@types/prompts": "2.0.5",
     "@types/table": "5.0.0",
