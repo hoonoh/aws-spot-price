@@ -45,7 +45,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prettier": "prettier --check \"(src|test)/**/*.ts\""
     }
   },
   "eslintIgnore": [
