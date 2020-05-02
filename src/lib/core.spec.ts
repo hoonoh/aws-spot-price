@@ -209,10 +209,7 @@ describe('lib', () => {
       beforeAll(() => {
         restoreConsole = mockConsole();
         mockAwsCredentials();
-        nock(`https://ec2.${region}.amazonaws.com`)
-          .persist()
-          .post('/')
-          .reply(400, '');
+        nock(`https://ec2.${region}.amazonaws.com`).persist().post('/').reply(400, '');
       });
       afterAll(() => {
         restoreConsole();

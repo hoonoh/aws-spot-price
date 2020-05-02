@@ -45,7 +45,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prettier": "prettier --check \"(src|test)/**/*.ts\""
     }
   },
   "eslintIgnore": [
@@ -105,7 +106,7 @@
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
     "@types/node": "13.13.4",
-    "@types/prettier": "1.19.1",
+    "@types/prettier": "2.0.0",
     "@types/prompts": "2.0.6",
     "@types/table": "5.0.0",
     "@types/yargs": "15.0.4",
@@ -130,7 +131,7 @@
     "nock": "12.0.3",
     "ora": "4.0.4",
     "patch-package": "6.2.2",
-    "prettier": "1.19.1",
+    "prettier": "2.0.5",
     "prompts": "2.3.2",
     "semantic-release": "17.0.7",
     "table": "5.4.6",
