@@ -115,7 +115,7 @@
     "aws-sdk": "2.669.0",
     "commitizen": "4.0.5",
     "conventional-changelog-cli": "2.0.31",
-    "cz-conventional-changelog": "3.1.0",
+    "cz-conventional-changelog": "3.2.0",
     "eslint-config-airbnb-typescript": "7.2.1",
     "eslint-config-prettier": "6.11.0",
     "eslint-import-resolver-typescript": "2.0.0",
