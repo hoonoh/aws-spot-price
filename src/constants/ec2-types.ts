@@ -14,6 +14,7 @@ export const instanceFamilyGeneral = [
   'm5d',
   'm5dn',
   'm5n',
+  'm6g',
 ] as const;
 
 export const instanceFamilyCompute = ['c1', 'c3', 'c4', 'c5', 'c5d', 'c5n'] as const;
@@ -184,6 +185,15 @@ export const allInstances = [
   'm5n.12xlarge',
   'm5n.16xlarge',
   'm5n.24xlarge',
+  'm6g.medium',
+  'm6g.large',
+  'm6g.xlarge',
+  'm6g.2xlarge',
+  'm6g.4xlarge',
+  'm6g.8xlarge',
+  'm6g.12xlarge',
+  'm6g.16xlarge',
+  'm6g.metal',
   'c1.medium',
   'c1.xlarge',
   'c3.large',
