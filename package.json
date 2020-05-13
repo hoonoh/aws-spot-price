@@ -109,7 +109,7 @@
     "@types/prettier": "2.0.0",
     "@types/prompts": "2.0.8",
     "@types/table": "5.0.0",
-    "@types/yargs": "15.0.4",
+    "@types/yargs": "15.0.5",
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
     "aws-sdk": "2.676.0",
