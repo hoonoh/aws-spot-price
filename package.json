@@ -133,7 +133,7 @@
     "patch-package": "6.2.2",
     "prettier": "2.0.5",
     "prompts": "2.3.2",
-    "semantic-release": "17.0.7",
+    "semantic-release": "17.0.8",
     "table": "5.4.6",
     "ts-jest": "26.0.0",
     "ts-loader": "7.0.5",
