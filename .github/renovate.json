@@ -1,29 +1,13 @@
 {
   "extends": [
-    ":separateMajorReleases",
-    ":combinePatchMinorReleases",
-    ":ignoreUnstable",
-    ":prImmediately",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":updateNotScheduled",
-    ":automergeDisabled",
-    ":ignoreModulesAndTests",
-    ":autodetectPinVersions",
-    ":prHourlyLimit2",
-    ":prConcurrentLimit20",
-    "group:monorepos",
-    "group:recommended",
-    "helpers:disableTypesNodeMajor"
+    "config:base",
+    ":automergeMinor",
+    ":automergeLinters",
+    "schedule:weekly",
+    "group:allNonMajor",
+    ":pinOnlyDevDependencies"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "packageRules": [
-    {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    },
-    {
-      "depTypeList": ["devDependencies"],
-      "automerge": true
-    }
   ]
 }
