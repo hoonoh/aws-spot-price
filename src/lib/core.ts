@@ -120,7 +120,7 @@ export const getGlobalSpotPrices = async (options?: {
   secretAccessKey?: string;
   onRegionFetch?: (region: Region) => void;
   onRegionFetchFail?: (error: Ec2SpotPriceError) => void;
-  onFetchComplete?: Function;
+  onFetchComplete?: () => void;
 }): Promise<EC2.SpotPrice[]> => {
   const {
     familyTypes,
