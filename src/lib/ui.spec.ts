@@ -10,7 +10,6 @@ import { ui } from './ui';
 
 const getFamilySize = (family: string[]): string[] => {
   const types = Object.keys(instanceFamily).reduce((list, f) => {
-    // @ts-ignore
     if (family.includes(f)) return list.concat(instanceFamily[f] as string[]);
     return list;
   }, [] as string[]);
