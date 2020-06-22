@@ -124,7 +124,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint": "7.2.0",
     "husky": "4.2.5",
-    "jest-junit": "10.0.0",
+    "jest-junit": "11.0.0",
     "jest-mock-console": "1.0.1",
     "jest": "26.0.1",
     "lodash": "4.17.15",
