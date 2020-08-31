@@ -134,7 +134,7 @@
     "prettier": "2.1.1",
     "prompts": "2.3.2",
     "semantic-release": "17.1.1",
-    "table": "5.4.6",
+    "table": "6.0.1",
     "ts-jest": "26.3.0",
     "ts-loader": "8.0.3",
     "ts-node": "9.0.0",
