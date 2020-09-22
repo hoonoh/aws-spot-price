@@ -108,7 +108,7 @@
     "@types/node": "13.13.21",
     "@types/prettier": "2.1.1",
     "@types/prompts": "2.0.9",
-    "@types/table": "5.0.0",
+    "@types/table": "6.0.0",
     "@types/yargs": "15.0.5",
     "@typescript-eslint/eslint-plugin": "4.1.1",
     "@typescript-eslint/parser": "4.1.1",
