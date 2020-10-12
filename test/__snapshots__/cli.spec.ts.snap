@@ -126,16 +126,16 @@ exports[`cli test by import should print help 1`] = `
 get current AWS spot instance prices
 
 Options:
-  --version                 Show version number                        [boolean]
-  --help                    Show help                                  [boolean]
-  --ui                      Start with UI mode        [boolean] [default: false]
-  --region, -r              AWS regions.
+      --version             Show version number                        [boolean]
+      --help                Show help                                  [boolean]
+      --ui                  Start with UI mode        [boolean] [default: false]
+  -r, --region              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
           \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
                   \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
              \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
                                                       \\"me-south-1\\", \\"sa-east-1\\"]
-  --instanceType, -i        EC2 type
+  -i, --instanceType        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
       \\"a1.4xlarge\\", \\"a1.metal\\", \\"t1.micro\\", \\"t2.micro\\", \\"t2.small\\", \\"t2.medium\\",
        \\"t2.large\\", \\"t2.xlarge\\", \\"t2.2xlarge\\", \\"t3.nano\\", \\"t3.micro\\", \\"t3.small\\",
@@ -204,30 +204,30 @@ Options:
                   \\"g4dn.xlarge\\", \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\",
       \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"p2.xlarge\\", \\"p2.8xlarge\\",
       \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\"]
-  --family                  EC2 instance family.
+      --family              EC2 instance family.
                     [array] [choices: \\"general\\", \\"compute\\", \\"memory\\", \\"storage\\",
                                                          \\"acceleratedComputing\\"]
-  --familyType, -f          EC2 instance family types.
+  -f, --familyType          EC2 instance family types.
        [array] [choices: \\"a1\\", \\"t1\\", \\"t2\\", \\"t3\\", \\"t3a\\", \\"t4g\\", \\"m1\\", \\"m2\\", \\"m3\\",
      \\"m4\\", \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"m6g\\", \\"m6gd\\", \\"c1\\", \\"c3\\",
        \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\", \\"r3\\", \\"r4\\", \\"r5\\",
    \\"r5a\\", \\"r5ad\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"x1\\", \\"x1e\\", \\"z1d\\", \\"d2\\",
   \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"inf1\\", \\"f1\\", \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4dn\\", \\"p2\\", \\"p3\\",
                                                                          \\"p3dn\\"]
-  --size, -s                EC2 instance sizes.
+  -s, --size                EC2 instance sizes.
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-  --priceMax, -p            Maximum price                               [number]
-  --productDescription, -d  Product descriptions. Choose \`windows\` or \`linux\`
+  -p, --priceMax            Maximum price                               [number]
+  -d, --productDescription  Product descriptions. Choose \`windows\` or \`linux\`
                             (all lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
-  --limit, -l               Limit results output length   [number] [default: 20]
-  --json, -j                Outputs in JSON format    [boolean] [default: false]
-  --accessKeyId             AWS Access Key ID.                          [string]
-  --secretAccessKey         AWS Secret Access Key.                      [string]"
+  -l, --limit               Limit results output length   [number] [default: 20]
+  -j, --json                Outputs in JSON format    [boolean] [default: false]
+      --accessKeyId         AWS Access Key ID.                          [string]
+      --secretAccessKey     AWS Secret Access Key.                      [string]"
 `;
 
 exports[`cli test by import should return expected values with default options 1`] = `
@@ -413,16 +413,16 @@ exports[`cli test by spawnSync should stdout help screen 1`] = `
 get current AWS spot instance prices
 
 Options:
-  --version                 Show version number                        [boolean]
-  --help                    Show help                                  [boolean]
-  --ui                      Start with UI mode        [boolean] [default: false]
-  --region, -r              AWS regions.
+      --version             Show version number                        [boolean]
+      --help                Show help                                  [boolean]
+      --ui                  Start with UI mode        [boolean] [default: false]
+  -r, --region              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
           \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
                   \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
              \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
                                                       \\"me-south-1\\", \\"sa-east-1\\"]
-  --instanceType, -i        EC2 type
+  -i, --instanceType        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
       \\"a1.4xlarge\\", \\"a1.metal\\", \\"t1.micro\\", \\"t2.micro\\", \\"t2.small\\", \\"t2.medium\\",
        \\"t2.large\\", \\"t2.xlarge\\", \\"t2.2xlarge\\", \\"t3.nano\\", \\"t3.micro\\", \\"t3.small\\",
@@ -491,29 +491,29 @@ Options:
                   \\"g4dn.xlarge\\", \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\",
       \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"p2.xlarge\\", \\"p2.8xlarge\\",
       \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\"]
-  --family                  EC2 instance family.
+      --family              EC2 instance family.
                     [array] [choices: \\"general\\", \\"compute\\", \\"memory\\", \\"storage\\",
                                                          \\"acceleratedComputing\\"]
-  --familyType, -f          EC2 instance family types.
+  -f, --familyType          EC2 instance family types.
        [array] [choices: \\"a1\\", \\"t1\\", \\"t2\\", \\"t3\\", \\"t3a\\", \\"t4g\\", \\"m1\\", \\"m2\\", \\"m3\\",
      \\"m4\\", \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"m6g\\", \\"m6gd\\", \\"c1\\", \\"c3\\",
        \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\", \\"r3\\", \\"r4\\", \\"r5\\",
    \\"r5a\\", \\"r5ad\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"x1\\", \\"x1e\\", \\"z1d\\", \\"d2\\",
   \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"inf1\\", \\"f1\\", \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4dn\\", \\"p2\\", \\"p3\\",
                                                                          \\"p3dn\\"]
-  --size, -s                EC2 instance sizes.
+  -s, --size                EC2 instance sizes.
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-  --priceMax, -p            Maximum price                               [number]
-  --productDescription, -d  Product descriptions. Choose \`windows\` or \`linux\`
+  -p, --priceMax            Maximum price                               [number]
+  -d, --productDescription  Product descriptions. Choose \`windows\` or \`linux\`
                             (all lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
-  --limit, -l               Limit results output length   [number] [default: 20]
-  --json, -j                Outputs in JSON format    [boolean] [default: false]
-  --accessKeyId             AWS Access Key ID.                          [string]
-  --secretAccessKey         AWS Secret Access Key.                      [string]
+  -l, --limit               Limit results output length   [number] [default: 20]
+  -j, --json                Outputs in JSON format    [boolean] [default: false]
+      --accessKeyId         AWS Access Key ID.                          [string]
+      --secretAccessKey     AWS Secret Access Key.                      [string]
 "
 `;
