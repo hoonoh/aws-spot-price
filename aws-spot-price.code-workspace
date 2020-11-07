@@ -12,21 +12,14 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
 
-    // importSorter
-    "importSorter.generalConfiguration.sortOnBeforeSave": true,
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
-    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
-    "importSorter.importStringConfiguration.quoteMark": "single",
-    "importSorter.importStringConfiguration.tabSize": 2,
-    "importSorter.importStringConfiguration.trailingComma": "multiLine",
-    "importSorter.sortConfiguration.removeUnusedDefaultImports": true,
-    "importSorter.sortConfiguration.removeUnusedImports": true,
-
     // eslint
     "eslint.validate": ["javascript", "typescript"],
     "eslint.run": "onType",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   },
 
@@ -34,7 +27,6 @@
     "recommendations": [
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
-      "mike-co.import-sorter",
       "KnisterPeter.vscode-commitizen"
     ]
   },

@@ -1,31 +1,32 @@
-import ora from 'ora';
 import { sep } from 'path';
+
+import ora from 'ora';
 import { table } from 'table';
 import yargs from 'yargs';
 
 import { ui } from './lib/ui';
 import {
+  AuthError,
+  Ec2SpotPriceError,
+  InstanceFamily,
+  InstanceFamilyType,
+  InstanceSize,
+  InstanceType,
+  ProductDescription,
+  ProductDescriptionWildcards,
+  Region,
   allInstances,
   allProductDescriptions,
   allRegions,
-  AuthError,
   awsCredentialsCheck,
   defaults,
-  Ec2SpotPriceError,
   generateTypeSizeSetsFromFamily,
   getGlobalSpotPrices,
   instanceFamily,
-  InstanceFamily,
-  InstanceFamilyType,
   instanceFamilyTypes,
   instanceOfProductDescription,
-  InstanceSize,
   instanceSizes,
-  InstanceType,
-  ProductDescription,
   productDescriptionWildcards,
-  ProductDescriptionWildcards,
-  Region,
   regionNames,
 } from './module';
 

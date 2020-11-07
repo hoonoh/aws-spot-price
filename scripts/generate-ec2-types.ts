@@ -1,5 +1,6 @@
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
+
 import prettier from 'prettier';
 
 import { getGlobalSpotPrices } from '../src/lib/core';
