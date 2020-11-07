@@ -1,15 +1,15 @@
 import { Choice, prompt } from 'prompts';
 
 import {
-  instanceFamily,
   InstanceFamily,
   InstanceFamilyType,
-  instanceFamilyTypes,
   InstanceSize,
+  instanceFamily,
+  instanceFamilyTypes,
   instanceSizes,
 } from '../constants/ec2-types';
-import { allProductDescriptions, ProductDescription } from '../constants/product-description';
-import { allRegions, Region, regionNames } from '../constants/regions';
+import { ProductDescription, allProductDescriptions } from '../constants/product-description';
+import { Region, allRegions, regionNames } from '../constants/regions';
 import { generateTypeSizeSetsFromFamily } from './utils';
 
 type Answer1 = { region: Region[]; family: InstanceFamily[] };

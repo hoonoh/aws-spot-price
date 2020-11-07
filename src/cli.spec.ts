@@ -1,6 +1,7 @@
 import { spawnSync } from 'child_process';
-import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { resolve } from 'path';
+
+import mockConsole, { RestoreConsole } from 'jest-mock-console';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
 import {
@@ -163,6 +164,7 @@ describe('cli', () => {
     const cliJsPath = resolve(__dirname, '../dist/cli.js');
     it('should stdout help screen', () => {
       const s = spawnSync('node', [cliJsPath, '--help'], { encoding: 'utf-8' });
+      console.log(s.stdout);
       expect(s.stdout).toMatchSnapshot();
     });
   });
