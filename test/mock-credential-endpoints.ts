@@ -1,7 +1,8 @@
-import { config } from 'aws-sdk';
 import fs from 'fs';
-import nock from 'nock';
 import { sep } from 'path';
+
+import { config } from 'aws-sdk';
+import nock from 'nock';
 
 let readFileSyncMock: jest.SpyInstance;
 

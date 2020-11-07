@@ -2,7 +2,7 @@ import EC2 from 'aws-sdk/clients/ec2';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
-import { defaultRegions, Region } from '../constants/regions';
+import { Region, defaultRegions } from '../constants/regions';
 import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {

@@ -1,10 +1,10 @@
 import {
-  allInstances,
-  instanceFamily,
   InstanceFamily,
   InstanceFamilyType,
   InstanceSize,
   InstanceType,
+  allInstances,
+  instanceFamily,
 } from '../constants/ec2-types';
 
 export const generateTypeSizeSetsFromFamily = (
