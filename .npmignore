@@ -2,9 +2,12 @@
 .codeclimate.yml
 .eslint*
 .git*
+.pnp.js
 .prettier*
 .scannerwork/
 .vscode/
+.yarn/
+.yarnrc.yml
 *.code-workspace
 *.config.js
 *.map

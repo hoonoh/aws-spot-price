@@ -10,11 +10,7 @@ steps:
       path: $(YARN_CACHE_FOLDER)
     displayName: Cache Yarn packages
 
-  - script: yarn remove commitizen cz-conventional-changelog @semantic-release/changelog @semantic-release/git @semantic-release/github semantic-release&& yarn
-    displayName: "Install dependencies for Node.js 8.x"
-    condition: eq(variables['node_version'], '8.x')
-
-  - script: yarn --frozen-lockfile
+  - script: yarn --immutable
     displayName: "Install dependencies"
     condition: ne(variables['node_version'], '8.x')
 
