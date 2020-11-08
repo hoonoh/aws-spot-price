@@ -203,7 +203,8 @@ Options:
           \\"g2.8xlarge\\", \\"g3.4xlarge\\", \\"g3.8xlarge\\", \\"g3.16xlarge\\", \\"g3s.xlarge\\",
                   \\"g4dn.xlarge\\", \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\",
       \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"p2.xlarge\\", \\"p2.8xlarge\\",
-      \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\"]
+      \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\",
+                                                                 \\"p4d.24xlarge\\"]
       --family              EC2 instance family.
                     [array] [choices: \\"general\\", \\"compute\\", \\"memory\\", \\"storage\\",
                                                          \\"acceleratedComputing\\"]
@@ -213,7 +214,7 @@ Options:
        \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\", \\"r3\\", \\"r4\\", \\"r5\\",
    \\"r5a\\", \\"r5ad\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"x1\\", \\"x1e\\", \\"z1d\\", \\"d2\\",
   \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"inf1\\", \\"f1\\", \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4dn\\", \\"p2\\", \\"p3\\",
-                                                                         \\"p3dn\\"]
+                                                                  \\"p3dn\\", \\"p4d\\"]
   -s, --size                EC2 instance sizes.
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
@@ -490,7 +491,8 @@ Options:
           \\"g2.8xlarge\\", \\"g3.4xlarge\\", \\"g3.8xlarge\\", \\"g3.16xlarge\\", \\"g3s.xlarge\\",
                   \\"g4dn.xlarge\\", \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\",
       \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"p2.xlarge\\", \\"p2.8xlarge\\",
-      \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\"]
+      \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\",
+                                                                 \\"p4d.24xlarge\\"]
       --family              EC2 instance family.
                     [array] [choices: \\"general\\", \\"compute\\", \\"memory\\", \\"storage\\",
                                                          \\"acceleratedComputing\\"]
@@ -500,7 +502,7 @@ Options:
        \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\", \\"r3\\", \\"r4\\", \\"r5\\",
    \\"r5a\\", \\"r5ad\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"x1\\", \\"x1e\\", \\"z1d\\", \\"d2\\",
   \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"inf1\\", \\"f1\\", \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4dn\\", \\"p2\\", \\"p3\\",
-                                                                         \\"p3dn\\"]
+                                                                  \\"p3dn\\", \\"p4d\\"]
   -s, --size                EC2 instance sizes.
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
