@@ -7,15 +7,17 @@ module.exports = {
     module: path.resolve(__dirname, 'src/module.ts'),
   },
   resolve: {
-    extensions: ['.js', '.json', '.ts'],
+    extensions: ['.js', '.json', '.ts', '.cjs', '.mjs'],
   },
   output: {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, 'dist'),
   },
-  stats: {
-    warningsFilter: [/node_modules\/yargs/],
-  },
+  ignoreWarnings: [
+    {
+      module: /node_modules\/yargs/,
+    },
+  ],
   target: 'node',
   module: {
     rules: [
@@ -32,5 +34,9 @@ module.exports = {
       },
     ],
   },
-  externals: [/\.\/module$/],
+  externals: {
+    cliui: 'commonjs2 cliui',
+    y18n: 'commonjs2 y18n',
+    'yargs-parser': 'commonjs2 yargs-parser',
+  },
 };

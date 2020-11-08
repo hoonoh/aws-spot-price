@@ -2,7 +2,7 @@ import { sep } from 'path';
 
 import ora from 'ora';
 import { table } from 'table';
-import yargs from 'yargs';
+import yargs from 'yargs/yargs';
 
 import { ui } from './lib/ui';
 import {
@@ -32,7 +32,7 @@ import {
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
-    const y = yargs
+    const y = yargs()
       .scriptName('spot-price')
       .command(
         '$0',
