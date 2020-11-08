@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 import EC2 from 'aws-sdk/clients/ec2';
 import { find, uniqWith, xorWith } from 'lodash';
-import yargs from 'yargs';
+import yargs from 'yargs/yargs';
 
 import { Region, defaultRegions } from '../src/constants/regions';
 
@@ -23,7 +23,7 @@ const fetchData = async (region: Region, token?: string): Promise<void> => {
 
 const jsonPath = resolve(__dirname, '../test/spot-prices-mock.json');
 
-const { argv } = yargs
+const { argv } = yargs()
   .scriptName('generate-spot-prices-mock')
   .command(
     '$0',

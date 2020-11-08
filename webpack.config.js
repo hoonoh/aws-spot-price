@@ -7,15 +7,18 @@ module.exports = {
     module: path.resolve(__dirname, 'src/module.ts'),
   },
   resolve: {
-    extensions: ['.js', '.json', '.ts'],
+    extensions: ['.js', '.json', '.ts', '.cjs', '.mjs'],
+    mainFields: ['main'], // yargs build fix
   },
   output: {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, 'dist'),
   },
-  stats: {
-    warningsFilter: [/node_modules\/yargs/],
-  },
+  ignoreWarnings: [
+    {
+      module: /node_modules\/yargs/,
+    },
+  ],
   target: 'node',
   module: {
     rules: [
