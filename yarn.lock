@@ -1824,10 +1824,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prompts@npm:^2":
-  version: 2.4.0
-  resolution: "@types/prompts@npm:2.4.0"
-  checksum: 9d5b490dbad2a89ed17b6bf5ef4430b045d61677ccd75e2d18b119cee97a2aa0329f573925032c22fe5d1b2a95b32f318156cb74b60ff8b36b488c36c4ee36b4
+"@types/prompts@npm:2.0.9":
+  version: 2.0.9
+  resolution: "@types/prompts@npm:2.0.9"
+  dependencies:
+    "@types/node": "*"
+  checksum: af5d0fe57b7ef6a00935178ecf69f8f0bab41f8989ddaa75096d20a3405035cda9ebef471b883454f4cb3da816f754daf130e558b185d9358179317fc321967d
   languageName: node
   linkType: hard
 
@@ -2326,13 +2328,6 @@ __metadata:
   version: 4.2.2
   resolution: "@xtuc/long@npm:4.2.2"
   checksum: ec09a359f98e9f8c47bf6c965e73b520a1a65e93f1febf6472babc8b6b0b425a2084452be103da5be11aec8c502ecfa29400713d55ef774579d04f691db44a2d
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/lockfile@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@yarnpkg/lockfile@npm:1.1.0"
-  checksum: 76f3f2625334fb4d37881408643b61ae08e1cfcdeb5db3e3e92f626b3535f99e963df8bafe5c07d85aa1dd09a308939eb4d0667ed4a4e93e645417b6af6e9a2f
   languageName: node
   linkType: hard
 
@@ -2916,7 +2911,7 @@ __metadata:
     "@types/lodash": 4.14.164
     "@types/node": 13.13.30
     "@types/prettier": 2.1.5
-    "@types/prompts": ^2
+    "@types/prompts": 2.0.9
     "@types/table": 6.0.0
     "@types/yargs": 15.0.9
     "@typescript-eslint/eslint-plugin": 4.6.0
@@ -2940,10 +2935,9 @@ __metadata:
     lodash: 4.17.20
     nock: 13.0.4
     ora: 5.1.0
-    patch-package: 6.2.2
     prettier: 2.1.2
     prettier-plugin-import-sort: ^0.0.6
-    prompts: ^2.4.0
+    prompts: 2.4.0
     semantic-release: 17.2.2
     table: 6.0.3
     ts-jest: 26.4.3
@@ -4404,7 +4398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^6.0.0, cross-spawn@npm:^6.0.5":
+"cross-spawn@npm:^6.0.0":
   version: 6.0.5
   resolution: "cross-spawn@npm:6.0.5"
   dependencies:
@@ -5885,16 +5879,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-yarn-workspace-root@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "find-yarn-workspace-root@npm:1.2.1"
-  dependencies:
-    fs-extra: ^4.0.3
-    micromatch: ^3.1.4
-  checksum: df97013b720daefe2746726144ed00b7b33a0e7f90213ba9e8e5c2c43e053903b2007b1496b7ab9a4694ca6dfae82cf97989e1d184c5e249e679412bdb215957
-  languageName: node
-  linkType: hard
-
 "findup-sync@npm:^3.0.0":
   version: 3.0.0
   resolution: "findup-sync@npm:3.0.0"
@@ -5997,28 +5981,6 @@ __metadata:
     jsonfile: ^4.0.0
     universalify: ^0.1.0
   checksum: 056a96d4f55ab8728b021e251175a4a6440d1edb5845e6c2e8e010019bde3e63de188a0eb99386c21c71804ca1a571cd6e08f507971f10a2bc4f4f7667720fa4
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "fs-extra@npm:4.0.3"
-  dependencies:
-    graceful-fs: ^4.1.2
-    jsonfile: ^4.0.0
-    universalify: ^0.1.0
-  checksum: ad42def19446c82543ebfa707250de2e1adff8f1c902f9cad3946f69b3dad326696f70e86c3aebeab4bc4f19ff3ef9abee0460d7fb775122f3dc9142a4b1280f
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "fs-extra@npm:7.0.1"
-  dependencies:
-    graceful-fs: ^4.1.2
-    jsonfile: ^4.0.0
-    universalify: ^0.1.0
-  checksum: 0de3773953a13b517f053dbfa291166da076cc563cdd8f0ecefc64018ab15d2614f1707860b82e6b0e41695f613c1855f410749bd01bcb585f0243b1018a6595
   languageName: node
   linkType: hard
 
@@ -8403,15 +8365,6 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"klaw-sync@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "klaw-sync@npm:6.0.0"
-  dependencies:
-    graceful-fs: ^4.1.11
-  checksum: 40112f582d6b906ff556f2c8b67376bc1cad1939da981ac8265fcf6e46cad3bd521e7b9d1bd7e63016d744e7952eca4cb7a0da77466732c6b4e7fd51d42d76a4
-  languageName: node
-  linkType: hard
-
 "kleur@npm:^3.0.3":
   version: 3.0.3
   resolution: "kleur@npm:3.0.3"
@@ -10649,28 +10602,6 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"patch-package@npm:6.2.2":
-  version: 6.2.2
-  resolution: "patch-package@npm:6.2.2"
-  dependencies:
-    "@yarnpkg/lockfile": ^1.1.0
-    chalk: ^2.4.2
-    cross-spawn: ^6.0.5
-    find-yarn-workspace-root: ^1.2.1
-    fs-extra: ^7.0.1
-    is-ci: ^2.0.0
-    klaw-sync: ^6.0.0
-    minimist: ^1.2.0
-    rimraf: ^2.6.3
-    semver: ^5.6.0
-    slash: ^2.0.0
-    tmp: ^0.0.33
-  bin:
-    patch-package: index.js
-  checksum: 4225ee1028f387ed2c00d9c0d7ffbb03dba5b8adc26a6cc116e0f38f4cd08d232defa20dbca51bce088964d787291715f3603b496abc608f0c392643dd3d3a46
-  languageName: node
-  linkType: hard
-
 "path-exists@npm:^2.0.0":
   version: 2.1.0
   resolution: "path-exists@npm:2.1.0"
@@ -10977,6 +10908,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"prompts@npm:2.4.0":
+  version: 2.4.0
+  resolution: "prompts@npm:2.4.0"
+  dependencies:
+    kleur: ^3.0.3
+    sisteransi: ^1.0.5
+  checksum: fd375679ad53bb6a85ac1edf6d3f48b4a120a9aac87d3f0e50756c02013f1e9ee835f10ba18edc2f21048cf8423a986aff8f75ee42f03ce1ebf1d1c65f5ef3cf
+  languageName: node
+  linkType: hard
+
 "prompts@npm:^2.0.1":
   version: 2.2.1
   resolution: "prompts@npm:2.2.1"
@@ -10984,16 +10925,6 @@ fsevents@^2.1.2:
     kleur: ^3.0.3
     sisteransi: ^1.0.3
   checksum: cfdc2ceca22f289540d44763132d484ab631a7a8f711a81c5c8044f8d056a7ae2576b725c62b1d4475ae16cae240f5874e42b436bf7bda070fc8e3e5ac3752b5
-  languageName: node
-  linkType: hard
-
-"prompts@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "prompts@npm:2.4.0"
-  dependencies:
-    kleur: ^3.0.3
-    sisteransi: ^1.0.5
-  checksum: fd375679ad53bb6a85ac1edf6d3f48b4a120a9aac87d3f0e50756c02013f1e9ee835f10ba18edc2f21048cf8423a986aff8f75ee42f03ce1ebf1d1c65f5ef3cf
   languageName: node
   linkType: hard
 
@@ -12215,13 +12146,6 @@ resolve@^1.13.1:
   version: 1.0.5
   resolution: "sisteransi@npm:1.0.5"
   checksum: 6554debe10fa4c6a7e8d58531313fdb61c39bb435ba420f8d7a01d8aaffecc654cca846b586e33f3c904350e24f229d5bbd8069abdb583c93252849a0f73e933
-  languageName: node
-  linkType: hard
-
-"slash@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "slash@npm:2.0.0"
-  checksum: 19b39a8b711b2820521ed23f915ecd86c6f1f64190a26ea2890367bcdbf6963b9f812c78dde91836cef67674f8463fe1cee1d58414716992f2949b102ffc57a1
   languageName: node
   linkType: hard
 

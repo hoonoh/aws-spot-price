@@ -45,7 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.164"],
             ["@types/node", "npm:13.13.30"],
             ["@types/prettier", "npm:2.1.5"],
-            ["@types/prompts", "npm:2.4.0"],
+            ["@types/prompts", "npm:2.0.9"],
             ["@types/table", "npm:6.0.0"],
             ["@types/yargs", "npm:15.0.9"],
             ["@typescript-eslint/eslint-plugin", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.6.0"],
@@ -69,7 +69,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.20"],
             ["nock", "npm:13.0.4"],
             ["ora", "npm:5.1.0"],
-            ["patch-package", "npm:6.2.2"],
             ["prettier", "npm:2.1.2"],
             ["prettier-plugin-import-sort", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:0.0.6"],
             ["prompts", "npm:2.4.0"],
@@ -2036,10 +2035,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/prompts", [
-        ["npm:2.4.0", {
-          "packageLocation": "./.yarn/cache/@types-prompts-npm-2.4.0-5b5caba459-9d5b490dba.zip/node_modules/@types/prompts/",
+        ["npm:2.0.9", {
+          "packageLocation": "./.yarn/cache/@types-prompts-npm-2.0.9-9e9606692d-af5d0fe57b.zip/node_modules/@types/prompts/",
           "packageDependencies": [
-            ["@types/prompts", "npm:2.4.0"]
+            ["@types/prompts", "npm:2.0.9"],
+            ["@types/node", "npm:13.13.4"]
           ],
           "linkType": "HARD",
         }]
@@ -2627,15 +2627,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@xtuc-long-npm-4.2.2-37236e6d72-ec09a359f9.zip/node_modules/@xtuc/long/",
           "packageDependencies": [
             ["@xtuc/long", "npm:4.2.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@yarnpkg/lockfile", [
-        ["npm:1.1.0", {
-          "packageLocation": "./.yarn/cache/@yarnpkg-lockfile-npm-1.1.0-6e0da4acd2-76f3f26253.zip/node_modules/@yarnpkg/lockfile/",
-          "packageDependencies": [
-            ["@yarnpkg/lockfile", "npm:1.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3295,7 +3286,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.164"],
             ["@types/node", "npm:13.13.30"],
             ["@types/prettier", "npm:2.1.5"],
-            ["@types/prompts", "npm:2.4.0"],
+            ["@types/prompts", "npm:2.0.9"],
             ["@types/table", "npm:6.0.0"],
             ["@types/yargs", "npm:15.0.9"],
             ["@typescript-eslint/eslint-plugin", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.6.0"],
@@ -3319,7 +3310,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.20"],
             ["nock", "npm:13.0.4"],
             ["ora", "npm:5.1.0"],
-            ["patch-package", "npm:6.2.2"],
             ["prettier", "npm:2.1.2"],
             ["prettier-plugin-import-sort", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:0.0.6"],
             ["prompts", "npm:2.4.0"],
@@ -6561,17 +6551,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["find-yarn-workspace-root", [
-        ["npm:1.2.1", {
-          "packageLocation": "./.yarn/cache/find-yarn-workspace-root-npm-1.2.1-91f28f6b79-df97013b72.zip/node_modules/find-yarn-workspace-root/",
-          "packageDependencies": [
-            ["find-yarn-workspace-root", "npm:1.2.1"],
-            ["fs-extra", "npm:4.0.3"],
-            ["micromatch", "npm:3.1.10"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["findup-sync", [
         ["npm:3.0.0", {
           "packageLocation": "./.yarn/cache/findup-sync-npm-3.0.0-aed78587f5-be03bd98fc.zip/node_modules/findup-sync/",
@@ -6678,26 +6657,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["fs-extra", [
-        ["npm:4.0.3", {
-          "packageLocation": "./.yarn/cache/fs-extra-npm-4.0.3-2a1f6bc181-ad42def194.zip/node_modules/fs-extra/",
-          "packageDependencies": [
-            ["fs-extra", "npm:4.0.3"],
-            ["graceful-fs", "npm:4.2.4"],
-            ["jsonfile", "npm:4.0.0"],
-            ["universalify", "npm:0.1.2"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:7.0.1", {
-          "packageLocation": "./.yarn/cache/fs-extra-npm-7.0.1-b33a5e53e9-0de3773953.zip/node_modules/fs-extra/",
-          "packageDependencies": [
-            ["fs-extra", "npm:7.0.1"],
-            ["graceful-fs", "npm:4.2.4"],
-            ["jsonfile", "npm:4.0.0"],
-            ["universalify", "npm:0.1.2"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:8.1.0", {
           "packageLocation": "./.yarn/cache/fs-extra-npm-8.1.0-197473387f-056a96d4f5.zip/node_modules/fs-extra/",
           "packageDependencies": [
@@ -9249,16 +9208,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["klaw-sync", [
-        ["npm:6.0.0", {
-          "packageLocation": "./.yarn/cache/klaw-sync-npm-6.0.0-251c1a2fa5-40112f582d.zip/node_modules/klaw-sync/",
-          "packageDependencies": [
-            ["klaw-sync", "npm:6.0.0"],
-            ["graceful-fs", "npm:4.2.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["kleur", [
         ["npm:3.0.3", {
           "packageLocation": "./.yarn/cache/kleur-npm-3.0.3-f6f53649a4-20ef0e37fb.zip/node_modules/kleur/",
@@ -11701,27 +11650,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["patch-package", [
-        ["npm:6.2.2", {
-          "packageLocation": "./.yarn/cache/patch-package-npm-6.2.2-4f0fecfa7b-4225ee1028.zip/node_modules/patch-package/",
-          "packageDependencies": [
-            ["patch-package", "npm:6.2.2"],
-            ["@yarnpkg/lockfile", "npm:1.1.0"],
-            ["chalk", "npm:2.4.2"],
-            ["cross-spawn", "npm:6.0.5"],
-            ["find-yarn-workspace-root", "npm:1.2.1"],
-            ["fs-extra", "npm:7.0.1"],
-            ["is-ci", "npm:2.0.0"],
-            ["klaw-sync", "npm:6.0.0"],
-            ["minimist", "npm:1.2.5"],
-            ["rimraf", "npm:2.7.1"],
-            ["semver", "npm:5.7.1"],
-            ["slash", "npm:2.0.0"],
-            ["tmp", "npm:0.0.33"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["path-exists", [
         ["npm:2.1.0", {
           "packageLocation": "./.yarn/cache/path-exists-npm-2.1.0-be4aa2cccc-71664885c5.zip/node_modules/path-exists/",
@@ -13340,13 +13268,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["slash", [
-        ["npm:2.0.0", {
-          "packageLocation": "./.yarn/cache/slash-npm-2.0.0-69009eac54-19b39a8b71.zip/node_modules/slash/",
-          "packageDependencies": [
-            ["slash", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:3.0.0", {
           "packageLocation": "./.yarn/cache/slash-npm-3.0.0-b87de2279a-fc3e8597d8.zip/node_modules/slash/",
           "packageDependencies": [
