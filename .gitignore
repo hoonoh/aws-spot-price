@@ -1,5 +1,6 @@
 .scannerwork
 .vscode
+.yarn
 coverage
 dist
 junit.xml
