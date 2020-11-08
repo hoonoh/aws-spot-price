@@ -1,5 +1,13 @@
 # aws-spot-price changelog
 
+## [0.5.9](https://github.com/hoonoh/aws-spot-price/compare/v0.5.8...v0.5.9) (2020-11-08)
+
+
+### Bug Fixes
+
+* add semantic-release dependencies ([#300](https://github.com/hoonoh/aws-spot-price/issues/300)) ([07aac92](https://github.com/hoonoh/aws-spot-price/commit/07aac92a89d506a74e841548831f4c1a9dd0ab1a))
+* update ec2-types ([#298](https://github.com/hoonoh/aws-spot-price/issues/298)) ([953f72d](https://github.com/hoonoh/aws-spot-price/commit/953f72d124c9bd2d49f6d8455e1dbfe94e7d90f6))
+
 ## [0.5.8](https://github.com/hoonoh/aws-spot-price/compare/v0.5.7...v0.5.8) (2020-09-15)
 
 
