@@ -1,7 +1,11 @@
 .scannerwork
 .vscode
-.yarn
-coverage
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*coverage
 dist
 junit.xml
 node_modules
