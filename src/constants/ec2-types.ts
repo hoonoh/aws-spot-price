@@ -59,6 +59,7 @@ export const instanceFamilyAcceleratedComputing = [
   'p2',
   'p3',
   'p3dn',
+  'p4d',
 ] as const;
 
 export const instanceFamily = {
@@ -444,6 +445,7 @@ export const allInstances = [
   'p3.8xlarge',
   'p3.16xlarge',
   'p3dn.24xlarge',
+  'p4d.24xlarge',
 ] as const;
 
 export type InstanceType = typeof allInstances[number];
