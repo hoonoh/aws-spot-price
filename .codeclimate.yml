@@ -21,6 +21,7 @@ exclude_patterns:
   - "src/**/*.spec.ts"
   - "test/"
   - "tsconfig.json"
+  - ".yarn/"
   - "yarn.lock"
   - sonar-project.properties
   - sonar-project.properties
