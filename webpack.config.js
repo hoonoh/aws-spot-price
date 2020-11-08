@@ -8,6 +8,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.cjs', '.mjs'],
+    mainFields: ['main'], // yargs build fix
   },
   output: {
     libraryTarget: 'commonjs',
@@ -34,9 +35,5 @@ module.exports = {
       },
     ],
   },
-  externals: {
-    cliui: 'commonjs2 cliui',
-    y18n: 'commonjs2 y18n',
-    'yargs-parser': 'commonjs2 yargs-parser',
-  },
+  externals: [/\.\/module$/],
 };
