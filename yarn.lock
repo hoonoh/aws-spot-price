@@ -1408,7 +1408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/commit-analyzer@npm:^8.0.0, @semantic-release/commit-analyzer@npm:^8.0.1":
+"@semantic-release/commit-analyzer@npm:8.0.1, @semantic-release/commit-analyzer@npm:^8.0.0":
   version: 8.0.1
   resolution: "@semantic-release/commit-analyzer@npm:8.0.1"
   dependencies:
@@ -1502,6 +1502,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@semantic-release/npm@npm:7.0.6":
+  version: 7.0.6
+  resolution: "@semantic-release/npm@npm:7.0.6"
+  dependencies:
+    "@semantic-release/error": ^2.2.0
+    aggregate-error: ^3.0.0
+    execa: ^4.0.0
+    fs-extra: ^9.0.0
+    lodash: ^4.17.15
+    nerf-dart: ^1.0.0
+    normalize-url: ^5.0.0
+    npm: ^6.13.0
+    rc: ^1.2.8
+    read-pkg: ^5.0.0
+    registry-auth-token: ^4.0.0
+    semver: ^7.1.2
+    tempy: ^0.5.0
+  peerDependencies:
+    semantic-release: ">=16.0.0 <18.0.0"
+  checksum: 0c1996913fbc2f9bc8a83f55c3cad76231850d3de4dde8ce43a1a7a9c27184808228f33db2b8742ffed798154f2791d4e1bdb88868a53a4f79927b7858395668
+  languageName: node
+  linkType: hard
+
 "@semantic-release/npm@npm:^7.0.0":
   version: 7.0.3
   resolution: "@semantic-release/npm@npm:7.0.3"
@@ -1525,26 +1548,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:^7.0.6":
-  version: 7.0.6
-  resolution: "@semantic-release/npm@npm:7.0.6"
+"@semantic-release/release-notes-generator@npm:9.0.1":
+  version: 9.0.1
+  resolution: "@semantic-release/release-notes-generator@npm:9.0.1"
   dependencies:
-    "@semantic-release/error": ^2.2.0
-    aggregate-error: ^3.0.0
-    execa: ^4.0.0
-    fs-extra: ^9.0.0
-    lodash: ^4.17.15
-    nerf-dart: ^1.0.0
-    normalize-url: ^5.0.0
-    npm: ^6.13.0
-    rc: ^1.2.8
-    read-pkg: ^5.0.0
-    registry-auth-token: ^4.0.0
-    semver: ^7.1.2
-    tempy: ^0.5.0
+    conventional-changelog-angular: ^5.0.0
+    conventional-changelog-writer: ^4.0.0
+    conventional-commits-filter: ^2.0.0
+    conventional-commits-parser: ^3.0.0
+    debug: ^4.0.0
+    get-stream: ^5.0.0
+    import-from: ^3.0.0
+    into-stream: ^5.0.0
+    lodash: ^4.17.4
+    read-pkg-up: ^7.0.0
   peerDependencies:
-    semantic-release: ">=16.0.0 <18.0.0"
-  checksum: 0c1996913fbc2f9bc8a83f55c3cad76231850d3de4dde8ce43a1a7a9c27184808228f33db2b8742ffed798154f2791d4e1bdb88868a53a4f79927b7858395668
+    semantic-release: ">=15.8.0 <18.0.0"
+  checksum: 0bc0933f31a725114d7a804e53cdc058b75242ebdc5c9fa2424057152ecd0c10da3c0bf6bc7481fb317e1b914c61bf75491738d29029c374a5456b4d44330d99
   languageName: node
   linkType: hard
 
@@ -1565,26 +1585,6 @@ __metadata:
   peerDependencies:
     semantic-release: ">=15.8.0 <18.0.0"
   checksum: 8cc137c0bbf9874cf9ea72e3c49e3bad6a078a0f683506ad9a49c9d92aef64a07fe1767a27554717e795477f055d1d7933941a6d1039ff68779978a2c8ad6f69
-  languageName: node
-  linkType: hard
-
-"@semantic-release/release-notes-generator@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "@semantic-release/release-notes-generator@npm:9.0.1"
-  dependencies:
-    conventional-changelog-angular: ^5.0.0
-    conventional-changelog-writer: ^4.0.0
-    conventional-commits-filter: ^2.0.0
-    conventional-commits-parser: ^3.0.0
-    debug: ^4.0.0
-    get-stream: ^5.0.0
-    import-from: ^3.0.0
-    into-stream: ^5.0.0
-    lodash: ^4.17.4
-    read-pkg-up: ^7.0.0
-  peerDependencies:
-    semantic-release: ">=15.8.0 <18.0.0"
-  checksum: 0bc0933f31a725114d7a804e53cdc058b75242ebdc5c9fa2424057152ecd0c10da3c0bf6bc7481fb317e1b914c61bf75491738d29029c374a5456b4d44330d99
   languageName: node
   linkType: hard
 
@@ -2948,11 +2948,11 @@ __metadata:
   dependencies:
     "@commitlint/cli": 11.0.0
     "@semantic-release/changelog": 5.0.1
-    "@semantic-release/commit-analyzer": ^8.0.1
+    "@semantic-release/commit-analyzer": 8.0.1
     "@semantic-release/git": 9.0.0
     "@semantic-release/github": 7.1.1
-    "@semantic-release/npm": ^7.0.6
-    "@semantic-release/release-notes-generator": ^9.0.1
+    "@semantic-release/npm": 7.0.6
+    "@semantic-release/release-notes-generator": 9.0.1
     "@types/jest": 26.0.15
     "@types/lodash": 4.14.164
     "@types/node": 13.13.30
@@ -2974,7 +2974,7 @@ __metadata:
     eslint-plugin-jest: 24.1.0
     eslint-plugin-prettier: 3.1.4
     husky: 4.3.0
-    import-sort-style-module: ^6.0.0
+    import-sort-style-module: 6.0.0
     jest: 26.6.1
     jest-junit: 12.0.0
     jest-mock-console: 1.0.1
@@ -2982,7 +2982,7 @@ __metadata:
     nock: 13.0.4
     ora: 5.1.0
     prettier: 2.1.2
-    prettier-plugin-import-sort: ^0.0.6
+    prettier-plugin-import-sort: 0.0.6
     prompts: 2.4.0
     semantic-release: 17.2.2
     table: 6.0.3
@@ -6923,7 +6923,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"import-sort-style-module@npm:^6.0.0":
+"import-sort-style-module@npm:6.0.0":
   version: 6.0.0
   resolution: "import-sort-style-module@npm:6.0.0"
   checksum: 15b9649bb3a67842f9d6522495a8b3b005f572a9db758c0c4f47a4b00d035ff4b2929fc158020e4e82f6fa4443253fd5949a57c85c5c7d20cb032617c8875dac
@@ -11059,7 +11059,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"prettier-plugin-import-sort@npm:^0.0.6":
+"prettier-plugin-import-sort@npm:0.0.6":
   version: 0.0.6
   resolution: "prettier-plugin-import-sort@npm:0.0.6"
   dependencies:
