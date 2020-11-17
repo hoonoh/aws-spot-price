@@ -99,11 +99,11 @@ exports[`cli test by import should handle instance family option 1`] = `
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2c      │ US West (Oregon)        ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1a      │ EU (Ireland)            ║
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1a      │ Europe (Ireland)        ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1b      │ EU (Ireland)            ║
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1b      │ Europe (Ireland)        ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1c      │ EU (Ireland)            ║
+║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1c      │ Europe (Ireland)        ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
 ║ c1.medium │ 0.014800 │ Linux/UNIX              │ us-west-1b      │ US West (N. California) ║
 ╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
@@ -131,9 +131,9 @@ Options:
       --ui                  Start with UI mode        [boolean] [default: false]
   -r, --region              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
-          \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
-                  \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
-             \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
+    \\"af-south-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-south-1\\",
+             \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ca-central-1\\", \\"eu-central-1\\",
+              \\"eu-north-1\\", \\"eu-south-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
                                                       \\"me-south-1\\", \\"sa-east-1\\"]
   -i, --instanceType        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
@@ -239,11 +239,11 @@ exports[`cli test by import should return expected values with default options 1
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
 ║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2d    │ US West (Oregon)      ║
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1a   │ EU (Stockholm)        ║
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1a   │ Europe (Stockholm)    ║
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1b   │ EU (Stockholm)        ║
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1b   │ Europe (Stockholm)    ║
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1c   │ EU (Stockholm)        ║
+║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1c   │ Europe (Stockholm)    ║
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
 ║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1a    │ US East (N. Virginia) ║
 ╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
@@ -284,11 +284,11 @@ exports[`cli test by import should return expected values with instance family t
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2c      │ US East (Ohio)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1a     │ EU (Stockholm)           ║
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1a     │ Europe (Stockholm)       ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ EU (Stockholm)           ║
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ Europe (Stockholm)       ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1c     │ EU (Stockholm)           ║
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1c     │ Europe (Stockholm)       ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.028900 │ Linux/UNIX              │ ca-central-1a   │ Canada (Central)         ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
@@ -300,19 +300,19 @@ exports[`cli test by import should return expected values with instance family t
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2c │ Asia Pacific (Seoul)     ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030300 │ Linux/UNIX              │ eu-west-3c      │ EU (Paris)               ║
+║ c5.large │ 0.030300 │ Linux/UNIX              │ eu-west-3c      │ Europe (Paris)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030400 │ Linux/UNIX              │ eu-west-3b      │ EU (Paris)               ║
+║ c5.large │ 0.030400 │ Linux/UNIX              │ eu-west-3b      │ Europe (Paris)           ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.030800 │ Linux/UNIX              │ us-west-1b      │ US West (N. California)  ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.031300 │ Linux/UNIX              │ us-west-1c      │ US West (N. California)  ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.031400 │ Linux/UNIX              │ eu-west-2a      │ EU (London)              ║
+║ c5.large │ 0.031400 │ Linux/UNIX              │ eu-west-2a      │ Europe (London)          ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.032100 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1c │ Asia Pacific (Singapore) ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.032200 │ Linux/UNIX              │ eu-west-2b      │ EU (London)              ║
+║ c5.large │ 0.032200 │ Linux/UNIX              │ eu-west-2b      │ Europe (London)          ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
 ║ c5.large │ 0.032600 │ Linux/UNIX              │ us-west-2d      │ US West (Oregon)         ║
 ╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
@@ -419,9 +419,9 @@ Options:
       --ui                  Start with UI mode        [boolean] [default: false]
   -r, --region              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
-          \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
-                  \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
-             \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
+    \\"af-south-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-south-1\\",
+             \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ca-central-1\\", \\"eu-central-1\\",
+              \\"eu-north-1\\", \\"eu-south-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
                                                       \\"me-south-1\\", \\"sa-east-1\\"]
   -i, --instanceType        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",

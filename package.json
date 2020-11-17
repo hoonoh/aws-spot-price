@@ -29,6 +29,7 @@
     "prepublishOnly": "yarn clean && yarn build && yarn types",
     "clean": "rm -rf dist && rm -rf types && rm -rf coverage",
     "build:ec2-types": "ts-node -T scripts/generate-ec2-types.ts",
+    "build:regions": "ts-node -T scripts/generate-regions.ts",
     "build": "webpack",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "test": "jest --runInBand --verbose",
