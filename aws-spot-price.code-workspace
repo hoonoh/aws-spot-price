@@ -7,6 +7,8 @@
 
   "settings": {
     "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "eslint.nodePath": ".yarn/sdks",
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
 
     // editor
     "editor.rulers": [100],
@@ -29,7 +31,8 @@
     "recommendations": [
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
-      "KnisterPeter.vscode-commitizen"
+      "KnisterPeter.vscode-commitizen",
+      "arcanis.vscode-zipfs"
     ]
   },
 
