@@ -32,11 +32,14 @@ jobs:
       - name: Run tests and update snapshots
         run: yarn test -u
 
+      - name: Rollback .pnp.js
+        run: git checkout @ -- .pnp.js
+
       - name: Log git diffs
         run: git diff
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'fix: update ec2-types'
