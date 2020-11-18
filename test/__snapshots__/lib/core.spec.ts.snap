@@ -8,6 +8,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001500",
     "Timestamp": 2019-10-15T22:41:58.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-west-2c",
@@ -15,6 +17,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001500",
     "Timestamp": 2019-10-15T07:13:00.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-west-2d",
@@ -22,6 +26,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001500",
     "Timestamp": 2019-10-15T23:09:28.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "eu-north-1a",
@@ -29,6 +35,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T12:45:20.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "eu-north-1b",
@@ -36,6 +44,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T12:45:20.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "eu-north-1c",
@@ -43,6 +53,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T12:45:20.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-1a",
@@ -50,6 +62,8 @@ Array [
     "ProductDescription": "Linux/UNIX (Amazon VPC)",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:09:43.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-1b",
@@ -57,6 +71,8 @@ Array [
     "ProductDescription": "Linux/UNIX (Amazon VPC)",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:09:43.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-1c",
@@ -64,6 +80,8 @@ Array [
     "ProductDescription": "Linux/UNIX (Amazon VPC)",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:09:43.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-1d",
@@ -71,6 +89,8 @@ Array [
     "ProductDescription": "Linux/UNIX (Amazon VPC)",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:09:43.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-1f",
@@ -78,6 +98,8 @@ Array [
     "ProductDescription": "Linux/UNIX (Amazon VPC)",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:09:43.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-2a",
@@ -85,6 +107,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T12:01:55.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-2b",
@@ -92,6 +116,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T12:01:55.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-east-2c",
@@ -99,6 +125,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T12:01:55.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-west-2a",
@@ -106,6 +134,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:08:19.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-west-2b",
@@ -113,6 +143,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:08:19.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-west-2c",
@@ -120,6 +152,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:08:19.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "us-west-2d",
@@ -127,6 +161,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T17:08:19.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "ca-central-1a",
@@ -134,6 +170,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T15:04:27.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
   Object {
     "AvailabilityZone": "ca-central-1b",
@@ -141,6 +179,8 @@ Array [
     "ProductDescription": "Linux/UNIX",
     "SpotPrice": "0.001600",
     "Timestamp": 2019-10-15T15:04:27.000Z,
+    "memoryGb": 1,
+    "vCpu": 2,
   },
 ]
 `;

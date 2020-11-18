@@ -119,6 +119,8 @@ describe('cli', () => {
           ['c4', 'r5', 'f1'],
           ['nano', 'micro', 'small', 'medium', 'large'],
           ['Linux/UNIX', 'SUSE Linux'],
+          undefined,
+          undefined,
           0.5,
           10,
         ]);

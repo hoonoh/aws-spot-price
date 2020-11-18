@@ -35,6 +35,8 @@ describe('cli-ui', () => {
         undefined,
         undefined,
         undefined,
+        undefined,
+        undefined,
       ]);
     });
 
@@ -66,6 +68,8 @@ describe('cli-ui', () => {
         [],
         [],
         [],
+        undefined,
+        undefined,
         undefined,
         undefined,
         undefined,
@@ -102,6 +106,8 @@ describe('cli-ui', () => {
         ['c4', 'r5', 'f1'],
         ['nano', 'micro', 'small', 'medium', 'large'],
         ['Linux/UNIX', 'SUSE Linux'],
+        undefined,
+        undefined,
         0.5,
         21,
         'accessKeyId',
