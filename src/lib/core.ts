@@ -234,7 +234,7 @@ export const getGlobalSpotPrices = async (options?: {
         results
           .flatMap(r => {
             // look for duplicate and remove prev data if older than current
-            const rtn2 = r.reduce((reduced, cur) => {
+            return r.reduce((reduced, cur) => {
               const duplicateIndex = reduced.findIndex(
                 info =>
                   cur.AvailabilityZone &&
@@ -242,16 +242,19 @@ export const getGlobalSpotPrices = async (options?: {
                   cur.InstanceType &&
                   cur.InstanceType === info.InstanceType &&
                   cur.ProductDescription &&
-                  cur.ProductDescription === info.ProductDescription &&
-                  cur.Timestamp &&
-                  info.Timestamp &&
-                  cur.Timestamp >= info.Timestamp,
+                  cur.ProductDescription === info.ProductDescription,
               );
-              if (duplicateIndex >= 0) reduced.splice(duplicateIndex, 1);
-              reduced.push(cur);
+              if (duplicateIndex >= 0) {
+                const dupeTimestamp = reduced[duplicateIndex].Timestamp;
+                if (cur.Timestamp && dupeTimestamp && cur.Timestamp > dupeTimestamp) {
+                  reduced.splice(duplicateIndex, 1);
+                  reduced.push(cur);
+                }
+              } else {
+                reduced.push(cur);
+              }
               return reduced;
             }, [] as EC2.SpotPrice[]);
-            return rtn2;
           })
           .map(async r => {
             const rExtended = { ...r } as SpotPriceExtended;
@@ -282,7 +285,7 @@ export const getGlobalSpotPrices = async (options?: {
       );
     })
     .then(results => {
-      const rtn2 = results
+      return results
         .filter(
           // filter out info without region or price greater than priceMax
           info => {
@@ -310,7 +313,6 @@ export const getGlobalSpotPrices = async (options?: {
           },
         )
         .sort(sortSpotPrice);
-      return rtn2;
     });
 
   // limit output
