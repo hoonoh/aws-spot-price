@@ -1,4 +1,4 @@
-name: keep ec2 types up to date
+name: update constants
 
 on:
   schedule:
@@ -14,14 +14,20 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
 
+      - name: Generate regions
+        run: yarn build:regions
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Generate ec2-types
         run: yarn build:ec2-types
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: Generate regions
-        run: yarn build:regions
+      - name: Generate ec2-info
+        run: yarn build:ec2-info
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

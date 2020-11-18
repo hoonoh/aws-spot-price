@@ -37,7 +37,7 @@ import {
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
     const y = yargs()
-      .scriptName('spot-price')
+      .scriptName('aws-spot-price')
       .command(
         '$0',
         'get current AWS spot instance prices',
@@ -80,6 +80,16 @@ export const main = (argvInput?: string[]): Promise<void> =>
             type: 'array',
             choices: instanceSizes,
             string: true,
+          },
+          minVCPU: {
+            alias: 'mc',
+            describe: 'Minimum VCPU count',
+            type: 'number',
+          },
+          minMemoryGB: {
+            alias: 'mm',
+            describe: 'Minimum memory (GB)',
+            type: 'number',
           },
           priceMax: {
             alias: 'p',
@@ -134,6 +144,8 @@ export const main = (argvInput?: string[]): Promise<void> =>
               familyType,
               size,
               limit,
+              minVCPU,
+              minMemoryGB,
               priceMax,
               productDescription,
               json,
@@ -245,6 +257,8 @@ export const main = (argvInput?: string[]): Promise<void> =>
               familyTypes: familyTypeSetArray.length ? familyTypeSetArray : undefined,
               sizes: sizeSetArray.length ? sizeSetArray : undefined,
               limit,
+              minVCPU,
+              minMemoryGB,
               priceMax,
               productDescriptions: productDescriptionsSetArray.length
                 ? productDescriptionsSetArray
@@ -265,6 +279,8 @@ export const main = (argvInput?: string[]): Promise<void> =>
                     list.push([
                       price.InstanceType,
                       price.SpotPrice,
+                      price.vCpu ? `${price.vCpu?.toString()}vCPU` : undefined,
+                      price.memoryGb ? `${price.memoryGb?.toString()}GiB` : undefined,
                       price.ProductDescription,
                       price.AvailabilityZone,
                       price.AvailabilityZone

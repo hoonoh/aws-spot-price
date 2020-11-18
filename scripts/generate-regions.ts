@@ -4,7 +4,6 @@ import { resolve } from 'path';
 import prettier from 'prettier';
 
 import EC2 from 'aws-sdk/clients/ec2';
-import { allRegions } from '../src/constants/regions';
 
 // https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
 // https://a0.awsstatic.com/plc/js/1.0.104/plc/plc-setup.js // find convertRegion -> regionMap
@@ -61,13 +60,14 @@ const knownRegionNames: Record<string, string> = {
 if (require.main && require.main.filename === module.filename) {
   (async (): Promise<void> => {
     const ec2 = new EC2({ region: 'us-east-1' });
-    const regions = (await ec2.describeRegions({ AllRegions: true }).promise()).Regions.sort(
-      // order @ https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
-      (a, b) => {
-        if (a.RegionName.startsWith('us-') && !b.RegionName.startsWith('us-')) return -1;
-        return -(a.RegionName < b.RegionName);
-      },
-    );
+    const regions =
+      (await ec2.describeRegions({ AllRegions: true }).promise()).Regions?.sort(
+        // order @ https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+        (a, b) => {
+          if (a.RegionName?.startsWith('us-') && !b.RegionName?.startsWith('us-')) return -1;
+          return -((a.RegionName || '') < (b.RegionName || ''));
+        },
+      ) || [];
     let output = '';
 
     output += `export const allRegions = [
@@ -79,7 +79,7 @@ if (require.main && require.main.filename === module.filename) {
     output += `export const defaultRegions: Region[] = [
       ${regions
         .map(r => {
-          if (r.OptInStatus.endsWith('not-required')) return `'${r.RegionName}',\n`;
+          if (r.OptInStatus?.endsWith('not-required')) return `'${r.RegionName}',\n`;
           return `// '${r.RegionName}', // requires opt-in\n`;
         })
         .join('')}

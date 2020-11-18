@@ -1,4 +1,5 @@
 import EC2 from 'aws-sdk/clients/ec2';
+import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
@@ -104,15 +105,57 @@ const getEc2SpotPrice = async (options: {
   return rtn;
 };
 
+// aws-sdk-js EC2.InstanceType is not always up to date.
+type Ec2InstanceInfos = Record<InstanceType | string, { vCpu?: number; memoryGb?: number }>;
+
+export const getEc2Info = async (
+  {
+    region,
+    InstanceTypes,
+    log,
+  }: { region?: string; InstanceTypes?: (InstanceType | string)[]; log?: boolean } = {
+    region: 'us-east-1',
+  },
+): Promise<Ec2InstanceInfos> => {
+  const ec2 = new EC2({ region });
+
+  const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
+    const rtn: Ec2InstanceInfos = {};
+    const res = await ec2
+      .describeInstanceTypes({ NextToken, MaxResults: 100, InstanceTypes })
+      .promise();
+    res.InstanceTypes?.forEach(i => {
+      if (i.InstanceType) {
+        rtn[i.InstanceType] = {
+          vCpu: i.VCpuInfo?.DefaultVCpus,
+          memoryGb: i.MemoryInfo?.SizeInMiB ? Math.round(i.MemoryInfo.SizeInMiB / 1024) : undefined,
+        };
+      }
+    });
+    if (log) {
+      console.log(
+        `${region}: found ${res.InstanceTypes?.length}${res.NextToken ? ', fetching more...' : ''}`,
+      );
+    }
+    const next = res.NextToken ? await fetchInfo(res.NextToken) : undefined;
+    return { ...rtn, ...next };
+  };
+  return fetchInfo();
+};
+
 export const defaults = {
   limit: 20,
 };
+
+export type SpotPriceExtended = EC2.SpotPrice & Ec2InstanceInfo;
 
 export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];
   familyTypes?: InstanceFamilyType[];
   sizes?: InstanceSize[];
   priceMax?: number;
+  minVCPU?: number;
+  minMemoryGB?: number;
   instanceTypes?: InstanceType[];
   productDescriptions?: ProductDescription[];
   limit?: number;
@@ -121,11 +164,13 @@ export const getGlobalSpotPrices = async (options?: {
   onRegionFetch?: (region: Region) => void;
   onRegionFetchFail?: (error: Ec2SpotPriceError) => void;
   onFetchComplete?: () => void;
-}): Promise<EC2.SpotPrice[]> => {
+}): Promise<SpotPriceExtended[]> => {
   const {
     familyTypes,
     sizes,
     priceMax,
+    minVCPU,
+    minMemoryGB,
     productDescriptions,
     limit,
     accessKeyId,
@@ -153,7 +198,7 @@ export const getGlobalSpotPrices = async (options?: {
     }
   }
 
-  const rtn: EC2.SpotPrice[] = await Promise.all(
+  const rtn: SpotPriceExtended[] = await Promise.all(
     regions.map(async region => {
       try {
         const regionsPrices = await getEc2SpotPrice({
@@ -180,55 +225,93 @@ export const getGlobalSpotPrices = async (options?: {
         return [];
       }
     }),
-  ).then(results => {
-    /* istanbul ignore if */
-    if (onFetchComplete) onFetchComplete();
-    return results
-      .reduce((finalList: EC2.SpotPrice[], curList: EC2.SpotPrice[]) => {
-        const curListFiltered = curList.filter(
-          // filter price info without region or price greater than priceMax
-          price => {
-            // 1. remove if data missing any of the required attributes
-            // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
-            if (
-              !price.AvailabilityZone ||
-              !price.SpotPrice ||
-              !price.InstanceType ||
-              (priceMax !== undefined && parseFloat(price.SpotPrice) > priceMax)
-            )
-              return false;
+  )
+    .then(results => {
+      // attach ec2 instance type info
+      /* istanbul ignore if */
+      if (onFetchComplete) onFetchComplete();
+      return Promise.all(
+        results
+          .flatMap(r => {
+            // look for duplicate and remove prev data if older than current
+            const rtn2 = r.reduce((reduced, cur) => {
+              const duplicateIndex = reduced.findIndex(
+                info =>
+                  cur.AvailabilityZone &&
+                  cur.AvailabilityZone === info.AvailabilityZone &&
+                  cur.InstanceType &&
+                  cur.InstanceType === info.InstanceType &&
+                  cur.ProductDescription &&
+                  cur.ProductDescription === info.ProductDescription &&
+                  cur.Timestamp &&
+                  info.Timestamp &&
+                  cur.Timestamp >= info.Timestamp,
+              );
+              if (duplicateIndex >= 0) reduced.splice(duplicateIndex, 1);
+              reduced.push(cur);
+              return reduced;
+            }, [] as EC2.SpotPrice[]);
+            return rtn2;
+          })
+          .map(async r => {
+            const rExtended = { ...r } as SpotPriceExtended;
+            const instanceInfo = Object.entries(ec2Info).find(
+              ([instanceType]) => instanceType === r.InstanceType,
+            )?.[1];
+            if (instanceInfo) {
+              rExtended.vCpu = instanceInfo.vCpu;
+              rExtended.memoryGb = instanceInfo.memoryGb;
+            } else {
+              // fetch intance info data from aws
+              const region = rExtended.AvailabilityZone?.match(/^.+\d/)?.[0];
+              if (region && rExtended.InstanceType) {
+                const desc = await getEc2Info({ region, InstanceTypes: [rExtended.InstanceType] });
 
-            return true;
-          },
-        );
-        // look for duplicate and remove prev data if older than current
-        const curListReduced = curListFiltered.reduce((list, cur) => {
-          const duplicates = list.filter(
-            prevPrice =>
-              cur.AvailabilityZone &&
-              cur.AvailabilityZone === prevPrice.AvailabilityZone &&
-              cur.InstanceType &&
-              cur.InstanceType === prevPrice.InstanceType &&
-              cur.ProductDescription &&
-              cur.ProductDescription === prevPrice.ProductDescription,
-          );
-          if (duplicates.length) {
-            while (duplicates.length) {
-              const dupe = duplicates.pop();
-              if (dupe && cur.Timestamp && dupe.Timestamp && cur.Timestamp > dupe.Timestamp) {
-                list.splice(list.indexOf(dupe));
-                list.push(cur);
+                if (desc[rExtended.InstanceType].vCpu && desc[rExtended.InstanceType].memoryGb) {
+                  ec2Info[rExtended.InstanceType] = {
+                    vCpu: desc[rExtended.InstanceType].vCpu,
+                    memoryGb: desc[rExtended.InstanceType].memoryGb,
+                  };
+                  rExtended.vCpu = desc[rExtended.InstanceType].vCpu;
+                  rExtended.memoryGb = desc[rExtended.InstanceType].memoryGb;
+                }
               }
             }
-          } else {
-            list.push(cur);
-          }
-          return list;
-        }, [] as EC2.SpotPrice[]);
-        return finalList.concat(curListReduced);
-      }, [] as EC2.SpotPrice[])
-      .sort(sortSpotPrice);
-  });
+            return rExtended;
+          }),
+      );
+    })
+    .then(results => {
+      const rtn2 = results
+        .filter(
+          // filter out info without region or price greater than priceMax
+          info => {
+            // 1. remove if data missing any of the required attributes
+            // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
+            // 2. remove if minimum vcpu / memory requirements does not meet requirements
+            if (!info.AvailabilityZone || !info.SpotPrice || !info.InstanceType) {
+              return false;
+            }
+            if (priceMax !== undefined && parseFloat(info.SpotPrice) > priceMax) {
+              return false;
+            }
+
+            if (minVCPU !== undefined && info.vCpu !== undefined && info.vCpu < minVCPU) {
+              return false;
+            }
+            if (
+              minMemoryGB !== undefined &&
+              info.memoryGb !== undefined &&
+              info.memoryGb < minMemoryGB
+            ) {
+              return false;
+            }
+            return true;
+          },
+        )
+        .sort(sortSpotPrice);
+      return rtn2;
+    });
 
   // limit output
   if (limit && rtn.length > limit) rtn.splice(limit);

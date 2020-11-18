@@ -1,4 +1,4 @@
-import { Choice, prompt } from 'prompts';
+import { Choice, prompt } from 'prompts/index';
 
 import {
   InstanceFamily,
@@ -19,6 +19,8 @@ type Answer2 = {
   size: InstanceSize[];
   productDescription: ProductDescription[];
   priceMax: number;
+  minVCPU: number;
+  minMemoryGB: number;
   limit: number;
   accessKeyId: string;
   secretAccessKey: string;
@@ -138,6 +140,22 @@ export const ui = async (): Promise<Answers> => {
         title: desc,
         value: desc,
       })),
+    },
+    {
+      type: 'number',
+      name: 'minVCPU',
+      message: `Select minimum vCPU count`,
+      initial: 1,
+      increment: 1,
+      min: 1,
+    },
+    {
+      type: 'number',
+      name: 'minMemoryGB',
+      message: `Select minimum memory (GiB)`,
+      initial: 1,
+      increment: 1,
+      min: 1,
     },
     {
       type: 'number',
