@@ -10,9 +10,7 @@
     "downlevelIteration": true,
     "rootDir": ".",
     "sourceRoot": "src",
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationDir": "types",
+    "noEmit": true,
     "esModuleInterop": true
   },
   "exclude": ["node_modules"]

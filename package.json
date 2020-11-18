@@ -31,6 +31,7 @@
     "build:ec2-info": "ts-node -T scripts/generate-ec2-info.ts",
     "build:ec2-types": "ts-node -T scripts/generate-ec2-types.ts",
     "build:regions": "ts-node -T scripts/generate-regions.ts",
+    "build:types": "tsc -p tsconfig.build-types.json",
     "build": "webpack",
     "build:analyze": "yarn build --profile --json > webpack-status.json && yarn dlx webpack-bundle-analyzer webpack-status.json",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",

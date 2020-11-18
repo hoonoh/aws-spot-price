@@ -2,7 +2,7 @@ steps:
   - task: NodeTool@0
     inputs:
       versionSpec: $(node_version)
-    displayName: "Install Node.js $(node_version)"
+    displayName: 'Install Node.js $(node_version)'
 
   - task: CacheBeta@0
     inputs:
@@ -11,41 +11,46 @@ steps:
     displayName: Cache Yarn packages
 
   - script: yarn --immutable
-    displayName: "Install dependencies"
+    displayName: 'Install dependencies'
     condition: ne(variables['node_version'], '8.x')
 
   - script: yarn build
-    displayName: "Build"
+    displayName: 'Build'
     condition: succeededOrFailed()
 
   # Check linting
   - script: yarn lint
-    displayName: "Check linting"
+    displayName: 'Check linting'
     condition: succeededOrFailed()
 
   # Check types
   - script: yarn types
-    displayName: "Check types"
+    displayName: 'Check types'
+    condition: succeededOrFailed()
+
+  # Build types
+  - script: yarn build:types
+    displayName: 'Build types'
     condition: succeededOrFailed()
 
   # Run test:ci
   - script: yarn test:ci
-    displayName: "Run tests"
+    displayName: 'Run tests'
     condition: succeededOrFailed()
 
   # Publish CI test results
   - task: PublishTestResults@2
-    displayName: "Publish test results"
+    displayName: 'Publish test results'
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
-      testResultsFiles: "junit.xml"
-      testRunTitle: "CI Tests $(Agent.OS)"
+      testResultsFiles: 'junit.xml'
+      testRunTitle: 'CI Tests $(Agent.OS)'
 
   # Publish CI test coverage results
   - task: PublishCodeCoverageResults@1
-    displayName: "Publish test coverage results"
+    displayName: 'Publish test coverage results'
     condition: succeededOrFailed()
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
+      summaryFileLocation: '$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
