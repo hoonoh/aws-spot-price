@@ -136,6 +136,7 @@ export const getEc2Info = async ({
         };
       }
     });
+    /* istanbul ignore if */
     if (log) {
       console.log(
         `${region}: found ${res.InstanceTypes?.length}${res.NextToken ? ', fetching more...' : ''}`,
@@ -148,7 +149,12 @@ export const getEc2Info = async ({
 };
 
 export const defaults = {
-  limit: 20,
+  limit: 30,
+  wide: false,
+  reduceAZ: true,
+  minVCPU: 1,
+  minMemoryGiB: 0.5,
+  priceMax: 5,
 };
 
 export type SpotPriceExtended = EC2.SpotPrice & Ec2InstanceInfo;
@@ -163,6 +169,7 @@ export const getGlobalSpotPrices = async (options?: {
   instanceTypes?: InstanceType[];
   productDescriptions?: ProductDescription[];
   limit?: number;
+  reduceAZ?: boolean;
   accessKeyId?: string;
   secretAccessKey?: string;
   onRegionFetch?: (region: Region) => void;
@@ -177,6 +184,7 @@ export const getGlobalSpotPrices = async (options?: {
     minMemoryGiB,
     productDescriptions,
     limit,
+    reduceAZ,
     accessKeyId,
     secretAccessKey,
     onRegionFetch,
@@ -188,7 +196,7 @@ export const getGlobalSpotPrices = async (options?: {
 
   let { regions, instanceTypes } = options || {};
 
-  if (regions === undefined) regions = defaultRegions;
+  if (regions === undefined || !regions.length) regions = defaultRegions;
 
   if (familyTypes || sizes) {
     const { instanceTypes: instanceTypesGenerated } = generateInstantTypesFromFamilyTypeSize({
@@ -238,7 +246,7 @@ export const getGlobalSpotPrices = async (options?: {
         results
           .flatMap(r => {
             // look for duplicate and remove prev data if older than current
-            return r.reduce((reduced, cur) => {
+            const reduceToLatest = r.reduce((reduced, cur) => {
               const duplicateIndex = reduced.findIndex(
                 info =>
                   cur.AvailabilityZone &&
@@ -259,6 +267,34 @@ export const getGlobalSpotPrices = async (options?: {
               }
               return reduced;
             }, [] as EC2.SpotPrice[]);
+
+            if (!reduceAZ) return reduceToLatest;
+
+            // reduce results by region, choosing by cheapest record
+            return reduceToLatest.reduce((reduced, cur) => {
+              const duplicateIndex = reduced.findIndex(info => {
+                const curRegion = cur.AvailabilityZone?.match(/^.+\d{1,}/)?.[0];
+                const infoRegion = cur.AvailabilityZone?.match(/^.+\d{1,}/)?.[0];
+                return (
+                  curRegion &&
+                  curRegion === infoRegion &&
+                  cur.InstanceType &&
+                  cur.InstanceType === info.InstanceType &&
+                  cur.ProductDescription &&
+                  cur.ProductDescription === info.ProductDescription
+                );
+              });
+              if (duplicateIndex >= 0) {
+                const dupeSpotPrice = reduced[duplicateIndex].SpotPrice;
+                if (cur.SpotPrice && dupeSpotPrice && cur.SpotPrice < dupeSpotPrice) {
+                  reduced.splice(duplicateIndex, 1);
+                  reduced.push(cur);
+                }
+              } else {
+                reduced.push(cur);
+              }
+              return reduced;
+            }, [] as SpotPriceExtended[]);
           })
           .map(async r => {
             const rExtended = { ...r } as SpotPriceExtended;

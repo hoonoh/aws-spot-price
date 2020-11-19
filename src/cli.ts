@@ -1,7 +1,7 @@
 import { sep } from 'path';
 
 import ora from 'ora';
-import { table } from 'table';
+import { table, TableColumns } from 'table';
 import yargs from 'yargs/yargs';
 
 import { ui } from './lib/ui';
@@ -119,6 +119,18 @@ export const main = (argvInput?: string[]): Promise<void> =>
               return val;
             },
           },
+          reduceAZ: {
+            alias: 'raz',
+            describe: 'Reduce results with cheapest Availability Zone within Region',
+            type: 'boolean',
+            default: defaults.reduceAZ,
+          },
+          wide: {
+            alias: 'w',
+            describe: 'Output results with detail (vCPU, memory, etc)',
+            type: 'boolean',
+            default: defaults.wide,
+          },
           json: {
             alias: 'j',
             describe: 'Outputs in JSON format',
@@ -144,6 +156,8 @@ export const main = (argvInput?: string[]): Promise<void> =>
               familyType,
               size,
               limit,
+              reduceAZ,
+              wide,
               minVCPU,
               minMemoryGiB,
               priceMax,
@@ -196,6 +210,9 @@ export const main = (argvInput?: string[]): Promise<void> =>
                   }
                 },
               );
+            } else {
+              // defaults to linux product
+              productDescriptionsSet.add('Linux/UNIX');
             }
 
             if (accessKeyId && !secretAccessKey) {
@@ -257,6 +274,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               familyTypes: familyTypeSetArray.length ? familyTypeSetArray : undefined,
               sizes: sizeSetArray.length ? sizeSetArray : undefined,
               limit,
+              reduceAZ,
               minVCPU,
               minMemoryGiB,
               priceMax,
@@ -273,23 +291,68 @@ export const main = (argvInput?: string[]): Promise<void> =>
             if (json) {
               console.log(JSON.stringify(results, null, 2));
             } else if (results.length > 0) {
+              // shorten price strings
+              let trailingZeroLen = Number.POSITIVE_INFINITY;
+              results.forEach(r => {
+                const len = r.SpotPrice?.match(/0+$/)?.[0].length;
+                if (len !== undefined && len < trailingZeroLen) trailingZeroLen = len;
+              });
+              if (trailingZeroLen !== Number.POSITIVE_INFINITY) {
+                results.forEach(r => {
+                  if (r.SpotPrice !== undefined) {
+                    r.SpotPrice = r.SpotPrice.slice(0, -trailingZeroLen);
+                  }
+                });
+              }
+
+              let tableHeader: (string | undefined)[][] | undefined;
+              let tableData: (string | undefined)[][] | undefined;
+              let tableFormat: Record<number, TableColumns> | undefined;
+
+              if (!wide) {
+                tableHeader = [['Type', 'Price', 'Platform', 'Availability Zone']];
+                tableData = results.map(info => [
+                  info.InstanceType,
+                  info.SpotPrice,
+                  info.ProductDescription,
+                  info.AvailabilityZone,
+                ]);
+                tableFormat = {
+                  0: { alignment: 'left' },
+                  1: { alignment: 'right' },
+                  2: { alignment: 'left' },
+                  3: { alignment: 'left' },
+                };
+              } else {
+                tableHeader = [
+                  ['Type', 'Price', 'vCPU', 'RAM', 'Platform', 'Availability Zone', 'Region'],
+                ];
+                tableData = results.map(info => [
+                  info.InstanceType,
+                  info.SpotPrice,
+                  info.vCpu ? info.vCpu?.toString() : undefined,
+                  info.memoryGiB ? info.memoryGiB?.toString() : undefined,
+                  info.ProductDescription,
+                  info.AvailabilityZone,
+                  info.AvailabilityZone
+                    ? regionNames[info.AvailabilityZone.slice(0, -1) as Region]
+                    : /* istanbul ignore next */ undefined,
+                ]);
+                tableFormat = {
+                  0: { alignment: 'left' },
+                  1: { alignment: 'right' },
+                  2: { alignment: 'right' },
+                  3: { alignment: 'right' },
+                  4: { alignment: 'left' },
+                  5: { alignment: 'left' },
+                  6: { alignment: 'left' },
+                };
+              }
               console.log(
-                table(
-                  results.reduce((list, price) => {
-                    list.push([
-                      price.InstanceType,
-                      price.SpotPrice,
-                      price.vCpu ? `${price.vCpu?.toString()}vCPU` : undefined,
-                      price.memoryGiB ? `${price.memoryGiB?.toString()}GiB` : undefined,
-                      price.ProductDescription,
-                      price.AvailabilityZone,
-                      price.AvailabilityZone
-                        ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-                        : /* istanbul ignore next */ undefined,
-                    ]);
-                    return list;
-                  }, [] as (string | undefined)[][]),
-                ),
+                table([...tableHeader, ...tableData], {
+                  drawHorizontalLine: (index, tableSize) => index <= 1 || index === tableSize,
+                  columns: tableFormat,
+                }),
               );
             } else {
               console.log('no matching records found');

@@ -1,4 +1,4 @@
-import { Choice, prompt } from 'prompts/index';
+import { Choice, prompt } from 'prompts';
 
 import {
   InstanceFamily,
@@ -10,6 +10,7 @@ import {
 } from '../constants/ec2-types';
 import { ProductDescription, allProductDescriptions } from '../constants/product-description';
 import { Region, allRegions, regionNames } from '../constants/regions';
+import { defaults } from './core';
 import { generateTypeSizeSetsFromFamily } from './utils';
 
 type Answer1 = { region: Region[]; family: InstanceFamily[] };
@@ -21,7 +22,9 @@ type Answer2 = {
   priceMax: number;
   minVCPU: number;
   minMemoryGiB: number;
+  reduceAZ: boolean;
   limit: number;
+  wide: boolean;
   accessKeyId: string;
   secretAccessKey: string;
 };
@@ -134,18 +137,19 @@ export const ui = async (): Promise<Answers> => {
     {
       type: 'autocompleteMultiselect',
       name: 'productDescription',
-      message: `Select EC2 Product description (select none to include all)`,
+      message: `Select Platform`,
       instructions: false,
-      choices: allProductDescriptions.map(desc => ({
+      choices: allProductDescriptions.map((desc, idx) => ({
         title: desc,
         value: desc,
+        selected: idx === 0,
       })),
     },
     {
       type: 'number',
       name: 'minVCPU',
       message: `Select minimum vCPU count`,
-      initial: 1,
+      initial: defaults.minVCPU,
       increment: 1,
       min: 1,
     },
@@ -153,7 +157,7 @@ export const ui = async (): Promise<Answers> => {
       type: 'number',
       name: 'minMemoryGiB',
       message: `Select minimum memory (GiB)`,
-      initial: 0.5,
+      initial: defaults.minMemoryGiB,
       increment: 0.5,
       min: 0.5,
     },
@@ -161,7 +165,7 @@ export const ui = async (): Promise<Answers> => {
       type: 'number',
       name: 'priceMax',
       message: `Select maximum price`,
-      initial: 5,
+      initial: defaults.priceMax,
       float: true,
       round: 4,
       increment: 0.0001,
@@ -171,8 +175,20 @@ export const ui = async (): Promise<Answers> => {
       type: 'number',
       name: 'limit',
       message: `Select result limit`,
-      initial: 20,
+      initial: defaults.limit,
       min: 1,
+    },
+    {
+      type: 'confirm',
+      name: 'reduceAZ',
+      message: `Reduce results with cheapest Availability Zone within Region`,
+      initial: defaults.reduceAZ,
+    },
+    {
+      type: 'confirm',
+      name: 'wide',
+      message: `Output results with detail (vCPU, memory, etc)`,
+      initial: defaults.wide,
     },
     {
       type: 'text',
