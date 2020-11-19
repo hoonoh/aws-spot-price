@@ -108,15 +108,17 @@ const getEc2SpotPrice = async (options: {
 // aws-sdk-js EC2.InstanceType is not always up to date.
 type Ec2InstanceInfos = Record<InstanceType | string, { vCpu?: number; memoryGb?: number }>;
 
-export const getEc2Info = async (
-  {
-    region,
-    InstanceTypes,
-    log,
-  }: { region?: string; InstanceTypes?: (InstanceType | string)[]; log?: boolean } = {
-    region: 'us-east-1',
-  },
-): Promise<Ec2InstanceInfos> => {
+export const getEc2Info = async ({
+  region,
+  InstanceTypes,
+  log,
+}: {
+  region?: string;
+  InstanceTypes?: (InstanceType | string)[];
+  log?: boolean;
+} = {}): Promise<Ec2InstanceInfos> => {
+  if (!region) region = 'us-east-1';
+
   const ec2 = new EC2({ region });
 
   const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
@@ -128,7 +130,9 @@ export const getEc2Info = async (
       if (i.InstanceType) {
         rtn[i.InstanceType] = {
           vCpu: i.VCpuInfo?.DefaultVCpus,
-          memoryGb: i.MemoryInfo?.SizeInMiB ? Math.round(i.MemoryInfo.SizeInMiB / 1024) : undefined,
+          memoryGb: i.MemoryInfo?.SizeInMiB
+            ? Math.ceil((i.MemoryInfo.SizeInMiB / 1024) * 1000) / 1000 // ceil to 3rd decimal place
+            : undefined,
         };
       }
     });
