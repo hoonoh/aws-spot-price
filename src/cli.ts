@@ -12,11 +12,11 @@ import {
   InstanceFamilyType,
   InstanceSize,
   InstanceType,
-  ProductDescription,
-  ProductDescriptionWildcards,
+  Platform,
+  PlatformsWildcards,
   Region,
   allInstances,
-  allProductDescriptions,
+  allPlatforms,
   allRegions,
   awsCredentialsCheck,
   defaults,
@@ -24,9 +24,9 @@ import {
   getGlobalSpotPrices,
   instanceFamily,
   instanceFamilyTypes,
-  instanceOfProductDescription,
+  instanceOfPlatforms,
   instanceSizes,
-  productDescriptionWildcards,
+  platformWildcards,
   regionNames,
 } from './module';
 
@@ -96,16 +96,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
             describe: 'Maximum price limit',
             type: 'number',
           },
-          productDescription: {
-            alias: 'd',
-            describe:
-              'Product descriptions. Choose `windows` or `linux` (all lowercase) as wildcard.',
+          platforms: {
+            alias: 'p',
+            describe: 'Platforms. Choose `windows` or `linux` (all lowercase) as wildcard.',
             type: 'array',
             string: true,
-            choices: [
-              ...allProductDescriptions,
-              ...(Object.keys(productDescriptionWildcards) as ProductDescriptionWildcards[]),
-            ],
+            choices: [...allPlatforms, ...(Object.keys(platformWildcards) as PlatformsWildcards[])],
           },
           limit: {
             alias: 'l',
@@ -161,7 +157,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               minVCPU,
               minMemoryGiB,
               priceLimit,
-              productDescription,
+              platforms,
               json,
               accessKeyId,
               secretAccessKey,
@@ -191,29 +187,27 @@ export const main = (argvInput?: string[]): Promise<void> =>
               });
             }
 
-            // process product description
-            const productDescriptionsSet = new Set<ProductDescription>();
-            if (productDescription) {
-              (productDescription as (ProductDescription | ProductDescriptionWildcards)[]).forEach(
-                pd => {
-                  /* istanbul ignore else */
-                  if (instanceOfProductDescription(pd)) {
-                    productDescriptionsSet.add(pd);
-                  } else if (pd === 'linux') {
-                    productDescriptionWildcards.linux.forEach(desc => {
-                      productDescriptionsSet.add(desc);
-                    });
-                  } else if (pd === 'windows') {
-                    productDescriptionWildcards.windows.forEach(desc => {
-                      productDescriptionsSet.add(desc);
-                    });
-                  }
-                },
-              );
+            // process platforms
+            const platformsSet = new Set<Platform>();
+            if (platforms) {
+              (platforms as (Platform | PlatformsWildcards)[]).forEach(pd => {
+                /* istanbul ignore else */
+                if (instanceOfPlatforms(pd)) {
+                  platformsSet.add(pd);
+                } else if (pd === 'linux') {
+                  platformWildcards.linux.forEach(desc => {
+                    platformsSet.add(desc);
+                  });
+                } else if (pd === 'windows') {
+                  platformWildcards.windows.forEach(desc => {
+                    platformsSet.add(desc);
+                  });
+                }
+              });
             } else {
               // defaults to linux product
-              productDescriptionsSet.add('Linux/UNIX');
-              productDescriptionsSet.add('Linux/UNIX (Amazon VPC)');
+              platformsSet.add('Linux/UNIX');
+              platformsSet.add('Linux/UNIX (Amazon VPC)');
             }
 
             if (accessKeyId && !secretAccessKey) {
@@ -234,7 +228,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               secretAccessKey,
             });
 
-            const productDescriptionsSetArray = Array.from(productDescriptionsSet);
+            const platformsSetArray = Array.from(platformsSet);
             const familyTypeSetArray = Array.from(familyTypeSet);
             const sizeSetArray = Array.from(sizeSet);
 
@@ -280,7 +274,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               minVCPU,
               minMemoryGiB,
               priceLimit,
-              productDescriptions: productDescriptionsSetArray,
+              platforms: platformsSetArray,
               accessKeyId,
               secretAccessKey,
               onRegionFetch,
@@ -294,12 +288,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
               // shorten price strings
               let trailingZeroLen = Number.POSITIVE_INFINITY;
               results.forEach(r => {
-                const len = r.SpotPrice.match(/0+$/)?.[0].length || 0;
+                const len = r.spotPrice.match(/0+$/)?.[0].length || 0;
                 if (len !== undefined && len < trailingZeroLen) trailingZeroLen = len;
               });
               if (trailingZeroLen !== Number.POSITIVE_INFINITY && trailingZeroLen > 0) {
                 results.forEach(r => {
-                  r.SpotPrice = r.SpotPrice.slice(0, -trailingZeroLen);
+                  r.spotPrice = r.spotPrice.slice(0, -trailingZeroLen);
                 });
               }
 
@@ -310,10 +304,10 @@ export const main = (argvInput?: string[]): Promise<void> =>
               if (!wide) {
                 tableHeader = [['Type', 'Price', 'Platform', 'Availability Zone']];
                 tableData = results.map(info => [
-                  info.InstanceType,
-                  info.SpotPrice,
-                  info.ProductDescription,
-                  info.AvailabilityZone,
+                  info.instanceType,
+                  info.spotPrice,
+                  info.platform,
+                  info.availabilityZone,
                 ]);
                 tableFormat = {
                   0: { alignment: 'left' },
@@ -326,14 +320,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
                   ['Type', 'Price', 'vCPU', 'RAM', 'Platform', 'Availability Zone', 'Region'],
                 ];
                 tableData = results.map(info => [
-                  info.InstanceType,
-                  info.SpotPrice,
+                  info.instanceType,
+                  info.spotPrice,
                   info.vCpu ? info.vCpu.toString() : 'unknown',
                   info.memoryGiB ? info.memoryGiB.toString() : 'unknown',
-                  info.ProductDescription,
-                  info.AvailabilityZone,
-                  info.AvailabilityZone
-                    ? regionNames[info.AvailabilityZone.slice(0, -1) as Region]
+                  info.platform,
+                  info.availabilityZone,
+                  info.availabilityZone
+                    ? regionNames[info.availabilityZone.slice(0, -1) as Region]
                     : /* istanbul ignore next */ undefined,
                 ]);
                 tableFormat = {

@@ -48,7 +48,7 @@ const nockEndpoint = (options: {
           return prev;
         }, [] as string[]);
 
-        const productDescriptions = Object.keys(params).reduce((prev, key) => {
+        const platforms = Object.keys(params).reduce((prev, key) => {
           const value = params[key];
           if (key.startsWith('ProductDescription') && typeof value === 'string') prev.push(value);
           return prev;
@@ -63,8 +63,8 @@ const nockEndpoint = (options: {
             rtn = false;
           }
           if (
-            productDescriptions.length &&
-            (!o.ProductDescription || !productDescriptions.includes(o.ProductDescription))
+            platforms.length &&
+            (!o.ProductDescription || !platforms.includes(o.ProductDescription))
           ) {
             rtn = false;
           }

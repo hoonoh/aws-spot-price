@@ -60,7 +60,7 @@ describe('cli', () => {
         '10',
         '-l',
         '11',
-        '-d',
+        '-p',
         'Linux/UNIX (Amazon VPC)',
         '-i',
         'c5.large',
@@ -73,31 +73,31 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should return expected values with wildcard product descriptions', async () => {
-      await main(['-r', 'us-east-1', '-l', '10', '-d', 'linux', '--raz', 'false']);
-      await main(['-r', 'us-east-1', '-l', '10', '-d', 'windows', '--raz', 'false']);
+    it('should return expected values with wildcard platforms', async () => {
+      await main(['-r', 'us-east-1', '-l', '10', '-p', 'linux', '--raz', 'false']);
+      await main(['-r', 'us-east-1', '-l', '10', '-p', 'windows', '--raz', 'false']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should return expected values with instance family types and sizes', async () => {
-      await main(['-f', 'c5', '-s', 'large', '--raz', 'false', '-l', '20', '-d', 'linux']);
+      await main(['-f', 'c5', '-s', 'large', '--raz', 'false', '-l', '20', '-p', 'linux']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should handle instance family option', async () => {
-      await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-d', 'linux']);
+      await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-p', 'linux']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should handle JSON output option', async () => {
-      await main(['--json', '-r', 'us-east-1', '-l', '10', '--raz', 'false', '-d', 'linux']);
+      await main(['--json', '-r', 'us-east-1', '-l', '10', '--raz', 'false', '-p', 'linux']);
       const results = consoleMockCallJoin();
       const resultsObject = JSON.parse(results);
       expect(results).toMatchSnapshot();
       expect(Object.keys(resultsObject).length).toEqual(10);
       Object.keys(resultsObject).forEach(key => {
         expect(
-          (resultsObject[key].AvailabilityZone as string).startsWith('us-east-1'),
+          (resultsObject[key].availabilityZone as string).startsWith('us-east-1'),
         ).toBeTruthy();
       });
     });
@@ -137,7 +137,7 @@ describe('cli', () => {
       });
 
       it('should return expected values', async () => {
-        await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-d', 'linux', '-w']);
+        await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-p', 'linux', '-w']);
         expect(consoleMockCallJoin()).toMatchSnapshot();
       });
     });

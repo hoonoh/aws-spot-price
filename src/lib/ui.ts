@@ -8,7 +8,7 @@ import {
   instanceFamilyTypes,
   instanceSizes,
 } from '../constants/ec2-types';
-import { ProductDescription, allProductDescriptions } from '../constants/product-description';
+import { Platform, allPlatforms } from '../constants/platform';
 import { Region, allRegions, regionNames } from '../constants/regions';
 import { defaults } from './core';
 import { generateTypeSizeSetsFromFamily } from './utils';
@@ -18,7 +18,7 @@ type Answer1 = { region: Region[]; family: InstanceFamily[] };
 type Answer2 = {
   familyType: InstanceFamilyType[];
   size: InstanceSize[];
-  productDescription: ProductDescription[];
+  platforms: Platform[];
   priceLimit: number;
   minVCPU: number;
   minMemoryGiB: number;
@@ -136,13 +136,13 @@ export const ui = async (): Promise<Answers> => {
     },
     {
       type: 'autocompleteMultiselect',
-      name: 'productDescription',
+      name: 'platforms',
       message: `Select Platform`,
       instructions: false,
-      choices: allProductDescriptions.map((desc, idx) => ({
+      choices: allPlatforms.map((desc, idx) => ({
         title: desc,
         value: desc,
-        selected: idx === 0,
+        selected: idx <= 1,
       })),
     },
     {

@@ -1,4 +1,3 @@
-import { SpotPrice } from 'aws-sdk/clients/ec2';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import nock from 'nock';
@@ -11,14 +10,14 @@ import {
 import { consoleMockCallJoin } from '../../test/utils';
 import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
-import { ProductDescription } from '../constants/product-description';
+import { Platform } from '../constants/platform';
 import { Region } from '../constants/regions';
-import { getEc2Info, getGlobalSpotPrices } from './core';
+import { getEc2Info, getGlobalSpotPrices, SpotPriceExtended } from './core';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
     describe('run with default options', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
       let restoreConsole: RestoreConsole;
 
       beforeAll(async () => {
@@ -38,10 +37,10 @@ describe('lib', () => {
     });
 
     describe('run with specific options', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
       const familyTypes: InstanceFamilyType[] = ['c4', 'c5'];
       const sizes: InstanceSize[] = ['large', 'xlarge'];
-      const productDescriptions: ProductDescription[] = ['Linux/UNIX'];
+      const platforms: Platform[] = ['Linux/UNIX'];
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
@@ -49,7 +48,7 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           familyTypes,
           sizes,
-          productDescriptions,
+          platforms,
           limit: 20,
           reduceAZ: false,
         });
@@ -64,18 +63,16 @@ describe('lib', () => {
         expect(results.length).toEqual(20);
         if (results) {
           results.forEach(result => {
-            expect(result.InstanceType).toBeDefined();
-            expect(result.ProductDescription).toBeDefined();
-            if (result.InstanceType && result.ProductDescription) {
+            expect(result.instanceType).toBeDefined();
+            expect(result.platform).toBeDefined();
+            if (result.instanceType && result.platform) {
               expect(
-                familyTypes.includes(result.InstanceType.split('.').shift() as InstanceFamilyType),
+                familyTypes.includes(result.instanceType.split('.').shift() as InstanceFamilyType),
               ).toBeTruthy();
               expect(
-                sizes.includes(result.InstanceType.split('.').pop() as InstanceSize),
+                sizes.includes(result.instanceType.split('.').pop() as InstanceSize),
               ).toBeTruthy();
-              expect(
-                productDescriptions.includes(result.ProductDescription as ProductDescription),
-              ).toBeTruthy();
+              expect(platforms.includes(result.platform as Platform)).toBeTruthy();
             }
           });
         }
@@ -83,7 +80,7 @@ describe('lib', () => {
     });
 
     describe('run with family type only', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
       const familyTypes: InstanceFamilyType[] = ['c1', 'c3', 'c4'];
 
       beforeAll(async () => {
@@ -105,10 +102,10 @@ describe('lib', () => {
         expect(results.length).toEqual(20);
         if (results) {
           results.forEach(result => {
-            expect(result.InstanceType).toBeDefined();
-            if (result.InstanceType) {
+            expect(result.instanceType).toBeDefined();
+            if (result.instanceType) {
               expect(
-                familyTypes.includes(result.InstanceType.split('.').shift() as InstanceFamilyType),
+                familyTypes.includes(result.instanceType.split('.').shift() as InstanceFamilyType),
               ).toBeTruthy();
             }
           });
@@ -117,7 +114,7 @@ describe('lib', () => {
     });
 
     describe('run with family sizes only', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
       const sizes: InstanceSize[] = ['small', 'medium', 'large'];
 
       beforeAll(async () => {
@@ -139,10 +136,10 @@ describe('lib', () => {
         expect(results.length).toEqual(20);
         if (results) {
           results.forEach(result => {
-            expect(result.InstanceType).toBeDefined();
-            if (result.InstanceType) {
+            expect(result.instanceType).toBeDefined();
+            if (result.instanceType) {
               expect(
-                sizes.includes(result.InstanceType.split('.').pop() as InstanceSize),
+                sizes.includes(result.instanceType.split('.').pop() as InstanceSize),
               ).toBeTruthy();
             }
           });
@@ -151,7 +148,7 @@ describe('lib', () => {
     });
 
     describe('check instance types mix', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints();
@@ -160,7 +157,7 @@ describe('lib', () => {
           familyTypes: ['c4', 'c5'],
           sizes: ['large', 'xlarge'],
           instanceTypes: ['c5.2xlarge'],
-          productDescriptions: ['Linux/UNIX'],
+          platforms: ['Linux/UNIX'],
           limit: 200,
           reduceAZ: false,
         });
@@ -171,11 +168,11 @@ describe('lib', () => {
       });
 
       it('should contain all instance types', () => {
-        const c4large = filter(results, { InstanceType: 'c4.large' });
-        const c5large = filter(results, { InstanceType: 'c5.large' });
-        const c4xlarge = filter(results, { InstanceType: 'c4.xlarge' });
-        const c5xlarge = filter(results, { InstanceType: 'c5.xlarge' });
-        const c52xlarge = filter(results, { InstanceType: 'c5.2xlarge' });
+        const c4large = filter(results, { instanceType: 'c4.large' });
+        const c5large = filter(results, { instanceType: 'c5.large' });
+        const c4xlarge = filter(results, { instanceType: 'c4.xlarge' });
+        const c5xlarge = filter(results, { instanceType: 'c5.xlarge' });
+        const c52xlarge = filter(results, { instanceType: 'c5.2xlarge' });
         expect(c4large.length).toBeGreaterThan(0);
         expect(c5large.length).toBeGreaterThan(0);
         expect(c4xlarge.length).toBeGreaterThan(0);
@@ -186,7 +183,7 @@ describe('lib', () => {
 
     describe('filter max price', () => {
       const priceLimit = 0.0018;
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints();
@@ -203,7 +200,7 @@ describe('lib', () => {
 
       it(`should return prices less than ${priceLimit}`, () => {
         results.forEach(r => {
-          expect(parseFloat(r.SpotPrice || '0')).toBeLessThanOrEqual(priceLimit);
+          expect(parseFloat(r.spotPrice || '0')).toBeLessThanOrEqual(priceLimit);
         });
       });
     });
@@ -264,7 +261,7 @@ describe('lib', () => {
     });
 
     describe('should fetch ec2 instance type info dynamically if not found from constants', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
       let restoreConsole: RestoreConsole;
       let t3aNanoInfo: Ec2InstanceInfo | undefined;
 
@@ -288,7 +285,7 @@ describe('lib', () => {
     });
 
     describe('should filter by minVCPU & minMemoryGiB', () => {
-      let results: SpotPrice[];
+      let results: SpotPriceExtended[];
       let restoreConsole: RestoreConsole;
 
       beforeAll(async () => {
