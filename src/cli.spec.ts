@@ -48,7 +48,7 @@ describe('cli', () => {
     });
 
     it('should return expected values if no matching records found', async () => {
-      await main(['-f', 'c5', '-s', 'metal', '-p', '0.0001']);
+      await main(['-f', 'c5', '-s', 'metal', '--pl', '0.0001']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
@@ -65,7 +65,7 @@ describe('cli', () => {
         '-i',
         'c5.large',
         'c4.xlarge',
-        '-p',
+        '--pl',
         '0.05',
         '--raz',
         'false',

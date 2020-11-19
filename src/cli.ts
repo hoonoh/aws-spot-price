@@ -91,9 +91,9 @@ export const main = (argvInput?: string[]): Promise<void> =>
             describe: 'Minimum memory (GiB)',
             type: 'number',
           },
-          priceMax: {
-            alias: 'p',
-            describe: 'Maximum price',
+          priceLimit: {
+            alias: 'pl',
+            describe: 'Maximum price limit',
             type: 'number',
           },
           productDescription: {
@@ -160,7 +160,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               wide,
               minVCPU,
               minMemoryGiB,
-              priceMax,
+              priceLimit,
               productDescription,
               json,
               accessKeyId,
@@ -279,7 +279,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               reduceAZ,
               minVCPU,
               minMemoryGiB,
-              priceMax,
+              priceLimit,
               productDescriptions: productDescriptionsSetArray,
               accessKeyId,
               secretAccessKey,

@@ -19,7 +19,7 @@ type Answer2 = {
   familyType: InstanceFamilyType[];
   size: InstanceSize[];
   productDescription: ProductDescription[];
-  priceMax: number;
+  priceLimit: number;
   minVCPU: number;
   minMemoryGiB: number;
   reduceAZ: boolean;
@@ -163,9 +163,9 @@ export const ui = async (): Promise<Answers> => {
     },
     {
       type: 'number',
-      name: 'priceMax',
-      message: `Select maximum price`,
-      initial: defaults.priceMax,
+      name: 'priceLimit',
+      message: `Set maximum price limit`,
+      initial: defaults.priceLimit,
       float: true,
       round: 4,
       increment: 0.0001,

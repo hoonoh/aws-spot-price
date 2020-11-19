@@ -252,7 +252,7 @@ Options:
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
       --minVCPU, --mc       Minimum VCPU count                          [number]
       --minMemoryGiB, --mm  Minimum memory (GiB)                        [number]
-  -p, --priceMax            Maximum price                               [number]
+      --priceLimit, --pl    Maximum price limit                         [number]
   -d, --productDescription  Product descriptions. Choose \`windows\` or \`linux\`
                             (all lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE

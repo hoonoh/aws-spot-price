@@ -158,7 +158,7 @@ export const defaults = {
   reduceAZ: true,
   minVCPU: 1,
   minMemoryGiB: 0.5,
-  priceMax: 5,
+  priceLimit: 5,
 };
 
 export type SpotPriceExtended = Required<EC2.SpotPrice> & Ec2InstanceInfo;
@@ -167,7 +167,7 @@ export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];
   familyTypes?: InstanceFamilyType[];
   sizes?: InstanceSize[];
-  priceMax?: number;
+  priceLimit?: number;
   minVCPU?: number;
   minMemoryGiB?: number;
   instanceTypes?: InstanceType[];
@@ -183,7 +183,7 @@ export const getGlobalSpotPrices = async (options?: {
   const {
     familyTypes,
     sizes,
-    priceMax,
+    priceLimit,
     minVCPU,
     minMemoryGiB,
     productDescriptions,
@@ -325,15 +325,15 @@ export const getGlobalSpotPrices = async (options?: {
     .then(results => {
       return results
         .filter(
-          // filter out info without region or price greater than priceMax
+          // filter out info without region or price greater than priceLimit
           info => {
             // 1. remove if data missing any of the required attributes
-            // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
+            // 2. remove if price.SpotPrice is unavailable or price is higher than priceLimit
             // 2. remove if minimum vcpu / memory requirements does not meet requirements
             if (!info.AvailabilityZone || !info.SpotPrice || !info.InstanceType) {
               return false;
             }
-            if (priceMax !== undefined && parseFloat(info.SpotPrice) > priceMax) {
+            if (priceLimit !== undefined && parseFloat(info.SpotPrice) > priceLimit) {
               return false;
             }
 

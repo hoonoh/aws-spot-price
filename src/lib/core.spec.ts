@@ -185,14 +185,14 @@ describe('lib', () => {
     });
 
     describe('filter max price', () => {
-      const priceMax = 0.0018;
+      const priceLimit = 0.0018;
       let results: SpotPrice[];
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints();
 
         results = await getGlobalSpotPrices({
-          priceMax,
+          priceLimit,
           reduceAZ: false,
         });
       });
@@ -201,9 +201,9 @@ describe('lib', () => {
         mockDefaultRegionEndpointsClear();
       });
 
-      it(`should return prices less than ${priceMax}`, () => {
+      it(`should return prices less than ${priceLimit}`, () => {
         results.forEach(r => {
-          expect(parseFloat(r.SpotPrice || '0')).toBeLessThanOrEqual(priceMax);
+          expect(parseFloat(r.SpotPrice || '0')).toBeLessThanOrEqual(priceLimit);
         });
       });
     });
