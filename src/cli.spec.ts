@@ -56,28 +56,30 @@ describe('cli', () => {
         'c4.xlarge',
         '-p',
         '0.05',
+        '--raz',
+        'false',
       ]);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should return expected values with wildcard product descriptions', async () => {
-      await main(['-r', 'us-east-1', '-l', '10', '-d', 'linux']);
-      await main(['-r', 'us-east-1', '-l', '10', '-d', 'windows']);
+      await main(['-r', 'us-east-1', '-l', '10', '-d', 'linux', '--raz', 'false']);
+      await main(['-r', 'us-east-1', '-l', '10', '-d', 'windows', '--raz', 'false']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should return expected values with instance family types and sizes', async () => {
-      await main(['-f', 'c5', '-s', 'large']);
+      await main(['-f', 'c5', '-s', 'large', '--raz', 'false', '-l', '20', '-d', 'linux']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should handle instance family option', async () => {
-      await main(['--family', 'compute']);
+      await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-d', 'linux']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should handle JSON output option', async () => {
-      await main(['--json', '-r', 'us-east-1', '-l', '10']);
+      await main(['--json', '-r', 'us-east-1', '-l', '10', '--raz', 'false', '-d', 'linux']);
       const results = consoleMockCallJoin();
       const resultsObject = JSON.parse(results);
       expect(results).toMatchSnapshot();
@@ -123,6 +125,8 @@ describe('cli', () => {
           undefined,
           0.5,
           10,
+          false,
+          false,
         ]);
       });
 

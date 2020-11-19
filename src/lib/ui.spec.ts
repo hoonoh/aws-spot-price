@@ -37,6 +37,8 @@ describe('cli-ui', () => {
         undefined,
         undefined,
         undefined,
+        false,
+        false,
       ]);
     });
 
@@ -73,6 +75,8 @@ describe('cli-ui', () => {
         undefined,
         undefined,
         undefined,
+        false,
+        false,
       ]);
     });
 
@@ -110,6 +114,8 @@ describe('cli-ui', () => {
         undefined,
         0.5,
         21,
+        false,
+        false,
         'accessKeyId',
         'secretAccessKey',
       ]);

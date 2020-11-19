@@ -9,10 +9,11 @@ import {
   mockDefaultRegionEndpointsClear,
 } from '../../test/mock-ec2-endpoints';
 import { consoleMockCallJoin } from '../../test/utils';
+import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
 import { ProductDescription } from '../constants/product-description';
 import { Region } from '../constants/regions';
-import { getGlobalSpotPrices } from './core';
+import { getEc2Info, getGlobalSpotPrices } from './core';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
@@ -50,6 +51,7 @@ describe('lib', () => {
           sizes,
           productDescriptions,
           limit: 20,
+          reduceAZ: false,
         });
       });
 
@@ -90,6 +92,7 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           familyTypes,
           limit: 20,
+          reduceAZ: false,
         });
       });
 
@@ -123,6 +126,7 @@ describe('lib', () => {
         results = await getGlobalSpotPrices({
           sizes,
           limit: 20,
+          reduceAZ: false,
         });
       });
 
@@ -158,6 +162,7 @@ describe('lib', () => {
           instanceTypes: ['c5.2xlarge'],
           productDescriptions: ['Linux/UNIX'],
           limit: 200,
+          reduceAZ: false,
         });
       });
 
@@ -188,6 +193,7 @@ describe('lib', () => {
 
         results = await getGlobalSpotPrices({
           priceMax,
+          reduceAZ: false,
         });
       });
 
@@ -217,9 +223,76 @@ describe('lib', () => {
         nock.cleanAll();
       });
       it('should console log error', async () => {
-        await getGlobalSpotPrices({ regions: [region] });
+        await getGlobalSpotPrices({ regions: [region], reduceAZ: false });
         expect(console.error).toHaveBeenCalled();
         expect(consoleMockCallJoin('error')).toContain('unexpected getEc2SpotPrice error');
+      });
+    });
+
+    describe('should fetch ec2 instance type info dynamically if not found from constants', () => {
+      let results: SpotPrice[];
+      let restoreConsole: RestoreConsole;
+      let t3aNanoInfo: Ec2InstanceInfo | undefined;
+
+      beforeAll(async () => {
+        t3aNanoInfo = ec2Info['t3a.nano'];
+        delete ec2Info['t3a.nano'];
+        restoreConsole = mockConsole();
+        mockDefaultRegionEndpoints();
+        results = await getGlobalSpotPrices({ limit: 20 });
+      });
+
+      afterAll(() => {
+        if (t3aNanoInfo) ec2Info['t3a.nano'] = t3aNanoInfo;
+        restoreConsole();
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(results).toMatchSnapshot();
+      });
+    });
+  });
+
+  describe('getEc2Info', () => {
+    type GetEc2InfoResults = Record<
+      string,
+      { vCpu?: number | undefined; memoryGiB?: number | undefined }
+    >;
+
+    describe('run with default options', () => {
+      let results: GetEc2InfoResults;
+
+      beforeAll(async () => {
+        mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
+        results = await getEc2Info();
+      });
+
+      afterAll(() => {
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(Object.keys(results).length).toEqual(341);
+        expect(results).toMatchSnapshot();
+      });
+    });
+
+    describe('run with targeted instance type', () => {
+      let results: GetEc2InfoResults;
+
+      beforeAll(async () => {
+        mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
+        results = await getEc2Info({ InstanceTypes: ['dummy.large'] });
+      });
+
+      afterAll(() => {
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(Object.keys(results).length).toEqual(1);
+        expect(results).toMatchSnapshot();
       });
     });
   });
