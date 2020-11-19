@@ -4,12 +4,13 @@ import { resolve } from 'path';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
+import { main } from './cli';
+import { ec2Info, Ec2InstanceInfo } from './constants/ec2-info';
 import {
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
 } from '../test/mock-ec2-endpoints';
-import { consoleMockCallJoin } from '../test/utils';
-import { main } from './cli';
 
 describe('cli', () => {
   describe('test by import', () => {
@@ -38,6 +39,16 @@ describe('cli', () => {
 
     it('should return expected values with default options', async () => {
       await main();
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
+    it('should return expected values with wide option', async () => {
+      await main(['-w']);
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
+    it('should return expected values if no matching records found', async () => {
+      await main(['-f', 'c5', '-s', 'metal', '-p', '0.0001']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
@@ -111,6 +122,24 @@ describe('cli', () => {
       }
       expect(caughtError).toBeTruthy();
       expect(consoleMockCallJoin()).toContain('`secretAccessKey` missing.');
+    });
+
+    describe('should handle no ec2 info found', () => {
+      let c1MediumInfo: Ec2InstanceInfo | undefined;
+
+      beforeAll(async () => {
+        c1MediumInfo = ec2Info['c1.medium'];
+        delete ec2Info['c1.medium'];
+      });
+
+      afterAll(() => {
+        if (c1MediumInfo) ec2Info['c1.medium'] = c1MediumInfo;
+      });
+
+      it('should return expected values', async () => {
+        await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-d', 'linux', '-w']);
+        expect(consoleMockCallJoin()).toMatchSnapshot();
+      });
     });
 
     describe('ui mode', () => {

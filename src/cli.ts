@@ -213,6 +213,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             } else {
               // defaults to linux product
               productDescriptionsSet.add('Linux/UNIX');
+              productDescriptionsSet.add('Linux/UNIX (Amazon VPC)');
             }
 
             if (accessKeyId && !secretAccessKey) {
@@ -243,6 +244,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             let onRegionFetchFail: ((error: Ec2SpotPriceError) => void) | undefined;
             let onFetchComplete: (() => void) | undefined;
 
+            /* istanbul ignore if */
             if (!json && process.env.NODE_ENV !== 'test') {
               spinner = ora({
                 text: 'Waiting for data to be retrieved...',
@@ -278,9 +280,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               minVCPU,
               minMemoryGiB,
               priceMax,
-              productDescriptions: productDescriptionsSetArray.length
-                ? productDescriptionsSetArray
-                : undefined,
+              productDescriptions: productDescriptionsSetArray,
               accessKeyId,
               secretAccessKey,
               onRegionFetch,
@@ -294,14 +294,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
               // shorten price strings
               let trailingZeroLen = Number.POSITIVE_INFINITY;
               results.forEach(r => {
-                const len = r.SpotPrice?.match(/0+$/)?.[0].length;
+                const len = r.SpotPrice.match(/0+$/)?.[0].length || 0;
                 if (len !== undefined && len < trailingZeroLen) trailingZeroLen = len;
               });
-              if (trailingZeroLen !== Number.POSITIVE_INFINITY) {
+              if (trailingZeroLen !== Number.POSITIVE_INFINITY && trailingZeroLen > 0) {
                 results.forEach(r => {
-                  if (r.SpotPrice !== undefined) {
-                    r.SpotPrice = r.SpotPrice.slice(0, -trailingZeroLen);
-                  }
+                  r.SpotPrice = r.SpotPrice.slice(0, -trailingZeroLen);
                 });
               }
 
@@ -330,8 +328,8 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 tableData = results.map(info => [
                   info.InstanceType,
                   info.SpotPrice,
-                  info.vCpu ? info.vCpu?.toString() : undefined,
-                  info.memoryGiB ? info.memoryGiB?.toString() : undefined,
+                  info.vCpu ? info.vCpu.toString() : 'unknown',
+                  info.memoryGiB ? info.memoryGiB.toString() : 'unknown',
                   info.ProductDescription,
                   info.AvailabilityZone,
                   info.AvailabilityZone

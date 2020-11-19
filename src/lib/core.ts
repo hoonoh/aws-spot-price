@@ -124,7 +124,11 @@ export const getEc2Info = async ({
   const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
     const rtn: Ec2InstanceInfos = {};
     const res = await ec2
-      .describeInstanceTypes({ NextToken, MaxResults: 100, InstanceTypes })
+      .describeInstanceTypes({
+        NextToken,
+        MaxResults: InstanceTypes ? undefined : 100,
+        InstanceTypes,
+      })
       .promise();
     res.InstanceTypes?.forEach(i => {
       if (i.InstanceType) {
@@ -157,7 +161,7 @@ export const defaults = {
   priceMax: 5,
 };
 
-export type SpotPriceExtended = EC2.SpotPrice & Ec2InstanceInfo;
+export type SpotPriceExtended = Required<EC2.SpotPrice> & Ec2InstanceInfo;
 
 export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];
@@ -225,14 +229,10 @@ export const getGlobalSpotPrices = async (options?: {
         return regionsPrices;
       } catch (error) {
         /* istanbul ignore if */
-        if (error instanceof Ec2SpotPriceError) {
-          if (onRegionFetchFail) {
-            onRegionFetchFail(error);
-          } else {
-            throw error;
-          }
+        if (onRegionFetchFail) {
+          onRegionFetchFail(error);
         } else {
-          console.error(error);
+          throw error;
         }
         return [];
       }
@@ -284,15 +284,9 @@ export const getGlobalSpotPrices = async (options?: {
                   cur.ProductDescription === info.ProductDescription
                 );
               });
-              if (duplicateIndex >= 0) {
-                const dupeSpotPrice = reduced[duplicateIndex].SpotPrice;
-                if (cur.SpotPrice && dupeSpotPrice && cur.SpotPrice < dupeSpotPrice) {
-                  reduced.splice(duplicateIndex, 1);
-                  reduced.push(cur);
-                }
-              } else {
-                reduced.push(cur);
-              }
+              // since items have already been sorted by price from getEc2SpotPrice()
+              // simply look for duplicates and add if non found
+              if (duplicateIndex < 0) reduced.push(cur as SpotPriceExtended);
               return reduced;
             }, [] as SpotPriceExtended[]);
           })
@@ -306,11 +300,15 @@ export const getGlobalSpotPrices = async (options?: {
               rExtended.memoryGiB = instanceInfo.memoryGiB;
             } else {
               // fetch intance info data from aws
-              const region = rExtended.AvailabilityZone?.match(/^.+\d/)?.[0];
+              const region = rExtended.AvailabilityZone.match(/^.+\d/)?.[0];
               if (region && rExtended.InstanceType) {
                 const desc = await getEc2Info({ region, InstanceTypes: [rExtended.InstanceType] });
 
-                if (desc[rExtended.InstanceType].vCpu && desc[rExtended.InstanceType].memoryGiB) {
+                if (
+                  desc[rExtended.InstanceType] &&
+                  desc[rExtended.InstanceType].vCpu &&
+                  desc[rExtended.InstanceType].memoryGiB
+                ) {
                   ec2Info[rExtended.InstanceType] = {
                     vCpu: desc[rExtended.InstanceType].vCpu,
                     memoryGiB: desc[rExtended.InstanceType].memoryGiB,

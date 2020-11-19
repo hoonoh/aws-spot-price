@@ -1837,3 +1837,53 @@ Array [
   },
 ]
 `;
+
+exports[`lib getGlobalSpotPrices should filter by minVCPU & minMemoryGiB should return expected values 1`] = `
+Array [
+  Object {
+    "AvailabilityZone": "us-east-2a",
+    "InstanceType": "r3.xlarge",
+    "ProductDescription": "Linux/UNIX",
+    "SpotPrice": "0.037900",
+    "Timestamp": 2019-10-15T21:09:49.000Z,
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  Object {
+    "AvailabilityZone": "us-east-2b",
+    "InstanceType": "r3.xlarge",
+    "ProductDescription": "Linux/UNIX",
+    "SpotPrice": "0.037900",
+    "Timestamp": 2019-10-15T21:09:49.000Z,
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  Object {
+    "AvailabilityZone": "us-east-2c",
+    "InstanceType": "r3.xlarge",
+    "ProductDescription": "Linux/UNIX",
+    "SpotPrice": "0.037900",
+    "Timestamp": 2019-10-15T21:09:49.000Z,
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  Object {
+    "AvailabilityZone": "us-east-2b",
+    "InstanceType": "m4.xlarge",
+    "ProductDescription": "Linux/UNIX",
+    "SpotPrice": "0.038000",
+    "Timestamp": 2019-10-15T19:11:29.000Z,
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  Object {
+    "AvailabilityZone": "us-east-2c",
+    "InstanceType": "m4.xlarge",
+    "ProductDescription": "Linux/UNIX",
+    "SpotPrice": "0.038000",
+    "Timestamp": 2019-10-15T19:11:29.000Z,
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+]
+`;

@@ -229,6 +229,40 @@ describe('lib', () => {
       });
     });
 
+    describe('should handle auth error', () => {
+      const region: Region = 'ap-east-1';
+      beforeAll(() => {
+        mockAwsCredentials();
+        nock(`https://ec2.${region}.amazonaws.com`).persist().post('/').reply(
+          401,
+          `<?xml version="1.0" encoding="UTF-8"?>
+            <Response>
+              <Errors>
+                <Error>
+                  <Code>AuthFailure</Code>
+                  <Message>AWS was not able to validate the provided access credentials</Message>
+                </Error>
+              </Errors>
+              <RequestID>e359d062-474b-4621-888c-e269b594de4a</RequestID>
+            </Response>`,
+        );
+      });
+      afterAll(() => {
+        mockAwsCredentialsClear();
+        nock.cleanAll();
+      });
+      it('should console log error', async () => {
+        try {
+          await getGlobalSpotPrices({ regions: [region], reduceAZ: false });
+          expect(true).toBeFalsy();
+        } catch (error) {
+          expect(error.name).toEqual('Ec2SpotPriceError');
+          expect(error.region).toEqual(region);
+          expect(error.code).toEqual('AuthFailure');
+        }
+      });
+    });
+
     describe('should fetch ec2 instance type info dynamically if not found from constants', () => {
       let results: SpotPrice[];
       let restoreConsole: RestoreConsole;
@@ -244,6 +278,26 @@ describe('lib', () => {
 
       afterAll(() => {
         if (t3aNanoInfo) ec2Info['t3a.nano'] = t3aNanoInfo;
+        restoreConsole();
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(results).toMatchSnapshot();
+      });
+    });
+
+    describe('should filter by minVCPU & minMemoryGiB', () => {
+      let results: SpotPrice[];
+      let restoreConsole: RestoreConsole;
+
+      beforeAll(async () => {
+        restoreConsole = mockConsole();
+        mockDefaultRegionEndpoints();
+        results = await getGlobalSpotPrices({ limit: 5, minVCPU: 4, minMemoryGiB: 16 });
+      });
+
+      afterAll(() => {
         restoreConsole();
         mockDefaultRegionEndpointsClear();
       });
