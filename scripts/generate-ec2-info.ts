@@ -11,13 +11,13 @@ import { getEc2Info } from '../src/lib/core';
     await Promise.all(defaultRegions.map(async region => getEc2Info({ region, log: true })))
   ).reduce((rtn, cur) => {
     return { ...rtn, ...cur };
-  }, {} as { vCpu?: number; memoryGb?: number });
+  }, {} as { vCpu?: number; memoryGiB?: number });
   const sorted = Object.fromEntries(Object.entries(res).sort(([a], [b]) => -(a < b)));
   console.log(`found ${Object.keys(sorted).length} instance types`);
 
   let output =
     `import { InstanceType } from 'aws-sdk/clients/ec2';\n\n` +
-    `export type Ec2InstanceInfo = { vCpu?: number; memoryGb?: number };\n\n`;
+    `export type Ec2InstanceInfo = { vCpu?: number; memoryGiB?: number };\n\n`;
   output += `export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = ${JSON.stringify(
     sorted,
   )};`;

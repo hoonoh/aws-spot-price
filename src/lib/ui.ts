@@ -20,7 +20,7 @@ type Answer2 = {
   productDescription: ProductDescription[];
   priceMax: number;
   minVCPU: number;
-  minMemoryGB: number;
+  minMemoryGiB: number;
   limit: number;
   accessKeyId: string;
   secretAccessKey: string;
@@ -151,11 +151,11 @@ export const ui = async (): Promise<Answers> => {
     },
     {
       type: 'number',
-      name: 'minMemoryGB',
+      name: 'minMemoryGiB',
       message: `Select minimum memory (GiB)`,
-      initial: 1,
-      increment: 1,
-      min: 1,
+      initial: 0.5,
+      increment: 0.5,
+      min: 0.5,
     },
     {
       type: 'number',

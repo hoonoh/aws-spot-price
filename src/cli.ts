@@ -86,9 +86,9 @@ export const main = (argvInput?: string[]): Promise<void> =>
             describe: 'Minimum VCPU count',
             type: 'number',
           },
-          minMemoryGB: {
+          minMemoryGiB: {
             alias: 'mm',
-            describe: 'Minimum memory (GB)',
+            describe: 'Minimum memory (GiB)',
             type: 'number',
           },
           priceMax: {
@@ -145,7 +145,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               size,
               limit,
               minVCPU,
-              minMemoryGB,
+              minMemoryGiB,
               priceMax,
               productDescription,
               json,
@@ -258,7 +258,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               sizes: sizeSetArray.length ? sizeSetArray : undefined,
               limit,
               minVCPU,
-              minMemoryGB,
+              minMemoryGiB,
               priceMax,
               productDescriptions: productDescriptionsSetArray.length
                 ? productDescriptionsSetArray
@@ -280,7 +280,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                       price.InstanceType,
                       price.SpotPrice,
                       price.vCpu ? `${price.vCpu?.toString()}vCPU` : undefined,
-                      price.memoryGb ? `${price.memoryGb?.toString()}GiB` : undefined,
+                      price.memoryGiB ? `${price.memoryGiB?.toString()}GiB` : undefined,
                       price.ProductDescription,
                       price.AvailabilityZone,
                       price.AvailabilityZone

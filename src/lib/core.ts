@@ -106,7 +106,7 @@ const getEc2SpotPrice = async (options: {
 };
 
 // aws-sdk-js EC2.InstanceType is not always up to date.
-type Ec2InstanceInfos = Record<InstanceType | string, { vCpu?: number; memoryGb?: number }>;
+type Ec2InstanceInfos = Record<InstanceType | string, { vCpu?: number; memoryGiB?: number }>;
 
 export const getEc2Info = async ({
   region,
@@ -130,7 +130,7 @@ export const getEc2Info = async ({
       if (i.InstanceType) {
         rtn[i.InstanceType] = {
           vCpu: i.VCpuInfo?.DefaultVCpus,
-          memoryGb: i.MemoryInfo?.SizeInMiB
+          memoryGiB: i.MemoryInfo?.SizeInMiB
             ? Math.ceil((i.MemoryInfo.SizeInMiB / 1024) * 1000) / 1000 // ceil to 3rd decimal place
             : undefined,
         };
@@ -159,7 +159,7 @@ export const getGlobalSpotPrices = async (options?: {
   sizes?: InstanceSize[];
   priceMax?: number;
   minVCPU?: number;
-  minMemoryGB?: number;
+  minMemoryGiB?: number;
   instanceTypes?: InstanceType[];
   productDescriptions?: ProductDescription[];
   limit?: number;
@@ -174,7 +174,7 @@ export const getGlobalSpotPrices = async (options?: {
     sizes,
     priceMax,
     minVCPU,
-    minMemoryGB,
+    minMemoryGiB,
     productDescriptions,
     limit,
     accessKeyId,
@@ -267,20 +267,20 @@ export const getGlobalSpotPrices = async (options?: {
             )?.[1];
             if (instanceInfo) {
               rExtended.vCpu = instanceInfo.vCpu;
-              rExtended.memoryGb = instanceInfo.memoryGb;
+              rExtended.memoryGiB = instanceInfo.memoryGiB;
             } else {
               // fetch intance info data from aws
               const region = rExtended.AvailabilityZone?.match(/^.+\d/)?.[0];
               if (region && rExtended.InstanceType) {
                 const desc = await getEc2Info({ region, InstanceTypes: [rExtended.InstanceType] });
 
-                if (desc[rExtended.InstanceType].vCpu && desc[rExtended.InstanceType].memoryGb) {
+                if (desc[rExtended.InstanceType].vCpu && desc[rExtended.InstanceType].memoryGiB) {
                   ec2Info[rExtended.InstanceType] = {
                     vCpu: desc[rExtended.InstanceType].vCpu,
-                    memoryGb: desc[rExtended.InstanceType].memoryGb,
+                    memoryGiB: desc[rExtended.InstanceType].memoryGiB,
                   };
                   rExtended.vCpu = desc[rExtended.InstanceType].vCpu;
-                  rExtended.memoryGb = desc[rExtended.InstanceType].memoryGb;
+                  rExtended.memoryGiB = desc[rExtended.InstanceType].memoryGiB;
                 }
               }
             }
@@ -307,9 +307,9 @@ export const getGlobalSpotPrices = async (options?: {
               return false;
             }
             if (
-              minMemoryGB !== undefined &&
-              info.memoryGb !== undefined &&
-              info.memoryGb < minMemoryGB
+              minMemoryGiB !== undefined &&
+              info.memoryGiB !== undefined &&
+              info.memoryGiB < minMemoryGiB
             ) {
               return false;
             }
