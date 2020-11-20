@@ -291,16 +291,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
               console.log(JSON.stringify(results, null, 2));
             } else if (results.length > 0) {
               // shorten price strings
-              let trailingZeroLen = Number.POSITIVE_INFINITY;
-              results.forEach(r => {
-                const len = r.spotPrice.match(/0+$/)?.[0].length || 0;
-                if (len !== undefined && len < trailingZeroLen) trailingZeroLen = len;
+              let spotPriceToFixedLen = Number.NEGATIVE_INFINITY;
+              const allPricesStr = results.map(r => r.spotPrice.toFixed(10));
+              allPricesStr.forEach(priceStr => {
+                const len = 10 - (priceStr.match(/0+$/)?.[0].length || 0);
+                if (len !== undefined && len > spotPriceToFixedLen) spotPriceToFixedLen = len;
               });
-              if (trailingZeroLen !== Number.POSITIVE_INFINITY && trailingZeroLen > 0) {
-                results.forEach(r => {
-                  r.spotPrice = r.spotPrice.slice(0, -trailingZeroLen);
-                });
-              }
 
               let tableHeader: (string | undefined)[][] | undefined;
               let tableData: (string | undefined)[][] | undefined;
@@ -310,7 +306,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 tableHeader = [['Type', 'Price', 'Platform', 'Availability Zone']];
                 tableData = results.map(info => [
                   info.instanceType,
-                  info.spotPrice,
+                  info.spotPrice.toFixed(spotPriceToFixedLen),
                   info.platform,
                   info.availabilityZone,
                 ]);
@@ -326,7 +322,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 ];
                 tableData = results.map(info => [
                   info.instanceType,
-                  info.spotPrice,
+                  info.spotPrice.toFixed(spotPriceToFixedLen),
                   info.vCpu ? info.vCpu.toString() : 'unknown',
                   info.memoryGiB ? info.memoryGiB.toString() : 'unknown',
                   info.platform,

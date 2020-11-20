@@ -200,7 +200,7 @@ describe('lib', () => {
 
       it(`should return prices less than ${priceLimit}`, () => {
         results.forEach(r => {
-          expect(parseFloat(r.spotPrice || '0')).toBeLessThanOrEqual(priceLimit);
+          expect(r.spotPrice).toBeLessThanOrEqual(priceLimit);
         });
       });
     });

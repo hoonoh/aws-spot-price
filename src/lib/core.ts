@@ -31,7 +31,7 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
 const sortSpotPriceExtended = (p1: SpotPriceExtended, p2: SpotPriceExtended): number => {
   let rtn = 0;
 
-  const sort = (s1?: string, s2?: string): void => {
+  const sort = <T>(s1?: T, s2?: T): void => {
     /* istanbul ignore else */
     if (rtn === 0 && s1 && s2) {
       if (s1 < s2) {
@@ -188,7 +188,7 @@ export type SpotPriceExtended = {
   availabilityZone: string;
   instanceType: string;
   platform: string;
-  spotPrice: string;
+  spotPrice: number;
   timestamp: Date;
 } & Ec2InstanceInfo;
 
@@ -197,7 +197,7 @@ const SpotPriceToExtended = (cur: EC2.SpotPrice) =>
     availabilityZone: cur.AvailabilityZone,
     instanceType: cur.InstanceType,
     platform: cur.ProductDescription,
-    spotPrice: cur.SpotPrice,
+    spotPrice: cur.SpotPrice !== undefined ? parseFloat(cur.SpotPrice) : Number.MAX_VALUE,
     timestamp: cur.Timestamp,
   } as SpotPriceExtended);
 
@@ -371,7 +371,7 @@ export const getGlobalSpotPrices = async (options?: {
             if (!info.availabilityZone || !info.spotPrice || !info.instanceType) {
               return false;
             }
-            if (priceLimit !== undefined && parseFloat(info.spotPrice) > priceLimit) {
+            if (priceLimit !== undefined && info.spotPrice > priceLimit) {
               return false;
             }
 
