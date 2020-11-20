@@ -85,16 +85,19 @@ export const main = (argvInput?: string[]): Promise<void> =>
             alias: 'mc',
             describe: 'Minimum VCPU count',
             type: 'number',
+            default: defaults.minVCPU,
           },
           minMemoryGiB: {
             alias: 'mm',
             describe: 'Minimum memory (GiB)',
             type: 'number',
+            default: defaults.minMemoryGiB,
           },
           priceLimit: {
             alias: 'pl',
             describe: 'Maximum price limit',
             type: 'number',
+            default: defaults.priceLimit,
           },
           platforms: {
             alias: 'p',
@@ -102,6 +105,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             type: 'array',
             string: true,
             choices: [...allPlatforms, ...(Object.keys(platformWildcards) as PlatformsWildcards[])],
+            default: defaults.platforms,
           },
           limit: {
             alias: 'l',
@@ -189,7 +193,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
 
             // process platforms
             const platformsSet = new Set<Platform>();
-            if (platforms) {
+            if (platforms && platforms.length) {
               (platforms as (Platform | PlatformsWildcards)[]).forEach(pd => {
                 /* istanbul ignore else */
                 if (instanceOfPlatforms(pd)) {
@@ -206,8 +210,9 @@ export const main = (argvInput?: string[]): Promise<void> =>
               });
             } else {
               // defaults to linux product
-              platformsSet.add('Linux/UNIX');
-              platformsSet.add('Linux/UNIX (Amazon VPC)');
+              defaults.platforms.forEach(p => {
+                platformsSet.add(p);
+              });
             }
 
             if (accessKeyId && !secretAccessKey) {

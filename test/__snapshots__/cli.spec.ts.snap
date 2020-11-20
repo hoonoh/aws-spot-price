@@ -250,14 +250,15 @@ Options:
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-      --minVCPU, --mc       Minimum VCPU count                          [number]
-      --minMemoryGiB, --mm  Minimum memory (GiB)                        [number]
-      --priceLimit, --pl    Maximum price limit                         [number]
+      --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
+      --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
+      --priceLimit, --pl    Maximum price limit          [number] [default: 100]
   -p, --platforms           Platforms. Choose \`windows\` or \`linux\` (all
                             lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
+                             [default: [\\"Linux/UNIX\\",\\"Linux/UNIX (Amazon VPC)\\"]]
   -l, --limit               Limit results output length   [number] [default: 30]
       --reduceAZ, --raz     Reduce results with cheapest Availability Zone
                             within Region              [boolean] [default: true]

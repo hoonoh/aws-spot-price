@@ -139,10 +139,10 @@ export const ui = async (): Promise<Answers> => {
       name: 'platforms',
       message: `Select Platform`,
       instructions: false,
-      choices: allPlatforms.map((desc, idx) => ({
+      choices: allPlatforms.map(desc => ({
         title: desc,
         value: desc,
-        selected: idx <= 1,
+        selected: defaults.platforms.includes(desc),
       })),
     },
     {

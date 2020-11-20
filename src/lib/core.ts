@@ -178,9 +178,10 @@ export const defaults = {
   limit: 30,
   wide: false,
   reduceAZ: true,
+  platforms: ['Linux/UNIX', 'Linux/UNIX (Amazon VPC)'] as Platform[],
   minVCPU: 1,
   minMemoryGiB: 0.5,
-  priceLimit: 5,
+  priceLimit: 100,
 };
 
 export type SpotPriceExtended = {
