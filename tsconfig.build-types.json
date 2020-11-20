@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "types"
+  },
+  "files": [
+    "src/cli.ts",
+    "src/module.ts",
+    "src/constants/ec2-info.ts",
+    "src/constants/ec2-types.ts",
+    "src/constants/platform.ts",
+    "src/constants/regions.ts",
+    "src/lib/core.ts",
+    "src/lib/credential.ts",
+    "src/lib/ui.ts",
+    "src/lib/utils.ts"
+  ]
+}

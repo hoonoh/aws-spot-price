@@ -99,7 +99,7 @@ const getEc2Types = async (): Promise<string> => {
     process.exit(1);
   }
   const allInstances = prices.reduce((list, cur) => {
-    if (cur.InstanceType && !list.includes(cur.InstanceType)) list.push(cur.InstanceType);
+    if (cur.instanceType && !list.includes(cur.instanceType)) list.push(cur.instanceType);
     return list;
   }, [] as string[]);
 

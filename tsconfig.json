@@ -1,29 +1,17 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
-    "lib": ["es5"],
+    "target": "ES5",
+    "lib": ["ES2020"],
     "moduleResolution": "node",
     "strict": true,
     "strictPropertyInitialization": false,
     "sourceMap": true,
     "downlevelIteration": true,
-    "rootDir": "src",
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationDir": "types",
+    "rootDir": ".",
+    "sourceRoot": "src",
+    "noEmit": true,
     "esModuleInterop": true
   },
-  "files": [
-    "src/cli.ts",
-    "src/module.ts",
-    "src/constants/ec2-types.ts",
-    "src/constants/product-description.ts",
-    "src/constants/regions.ts",
-    "src/lib/core.ts",
-    "src/lib/credential.ts",
-    "src/lib/ui.ts",
-    "src/lib/utils.ts"
-  ],
   "exclude": ["node_modules"]
 }
