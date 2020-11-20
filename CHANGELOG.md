@@ -1,5 +1,17 @@
 # aws-spot-price changelog
 
+# [1.0.0](https://github.com/hoonoh/aws-spot-price/compare/v0.5.9...v1.0.0) (2020-11-20)
+
+
+### Features
+
+* major update ([#308](https://github.com/hoonoh/aws-spot-price/issues/308)) ([9bd46a5](https://github.com/hoonoh/aws-spot-price/commit/9bd46a51d6574a55fe1a951848fb5b491f3ef88d))
+
+
+### BREAKING CHANGES
+
+* options & outputs changed
+
 ## [0.5.9](https://github.com/hoonoh/aws-spot-price/compare/v0.5.8...v0.5.9) (2020-11-08)
 
 
