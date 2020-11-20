@@ -10,3 +10,5 @@ dist
 junit.xml
 node_modules
 types
+webpack-status.json
+coverage

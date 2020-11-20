@@ -8,8 +8,9 @@ import {
   instanceFamilyTypes,
   instanceSizes,
 } from '../constants/ec2-types';
-import { ProductDescription, allProductDescriptions } from '../constants/product-description';
+import { Platform, allPlatforms } from '../constants/platform';
 import { Region, allRegions, regionNames } from '../constants/regions';
+import { defaults } from './core';
 import { generateTypeSizeSetsFromFamily } from './utils';
 
 type Answer1 = { region: Region[]; family: InstanceFamily[] };
@@ -17,9 +18,13 @@ type Answer1 = { region: Region[]; family: InstanceFamily[] };
 type Answer2 = {
   familyType: InstanceFamilyType[];
   size: InstanceSize[];
-  productDescription: ProductDescription[];
-  priceMax: number;
+  platforms: Platform[];
+  priceLimit: number;
+  minVCPU: number;
+  minMemoryGiB: number;
+  reduceAZ: boolean;
   limit: number;
+  wide: boolean;
   accessKeyId: string;
   secretAccessKey: string;
 };
@@ -131,19 +136,36 @@ export const ui = async (): Promise<Answers> => {
     },
     {
       type: 'autocompleteMultiselect',
-      name: 'productDescription',
-      message: `Select EC2 Product description (select none to include all)`,
+      name: 'platforms',
+      message: `Select Platform`,
       instructions: false,
-      choices: allProductDescriptions.map(desc => ({
+      choices: allPlatforms.map(desc => ({
         title: desc,
         value: desc,
+        selected: defaults.platforms.includes(desc),
       })),
     },
     {
       type: 'number',
-      name: 'priceMax',
-      message: `Select maximum price`,
-      initial: 5,
+      name: 'minVCPU',
+      message: `Select minimum vCPU count`,
+      initial: defaults.minVCPU,
+      increment: 1,
+      min: 1,
+    },
+    {
+      type: 'number',
+      name: 'minMemoryGiB',
+      message: `Select minimum memory (GiB)`,
+      initial: defaults.minMemoryGiB,
+      increment: 0.5,
+      min: 0.5,
+    },
+    {
+      type: 'number',
+      name: 'priceLimit',
+      message: `Set maximum price limit`,
+      initial: defaults.priceLimit,
       float: true,
       round: 4,
       increment: 0.0001,
@@ -153,8 +175,20 @@ export const ui = async (): Promise<Answers> => {
       type: 'number',
       name: 'limit',
       message: `Select result limit`,
-      initial: 20,
+      initial: defaults.limit,
       min: 1,
+    },
+    {
+      type: 'confirm',
+      name: 'reduceAZ',
+      message: `Reduce results with cheapest Availability Zone within Region`,
+      initial: defaults.reduceAZ,
+    },
+    {
+      type: 'confirm',
+      name: 'wide',
+      message: `Output results with detail (vCPU, memory, etc)`,
+      initial: defaults.wide,
     },
     {
       type: 'text',

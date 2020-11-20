@@ -1,7 +1,8 @@
 import EC2 from 'aws-sdk/clients/ec2';
+import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
-import { ProductDescription } from '../constants/product-description';
+import { Platform } from '../constants/platform';
 import { Region, defaultRegions } from '../constants/regions';
 import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
@@ -27,6 +28,28 @@ const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
   return rtn;
 };
 
+const sortSpotPriceExtended = (p1: SpotPriceExtended, p2: SpotPriceExtended): number => {
+  let rtn = 0;
+
+  const sort = <T>(s1?: T, s2?: T): void => {
+    /* istanbul ignore else */
+    if (rtn === 0 && s1 && s2) {
+      if (s1 < s2) {
+        rtn = -1;
+      } else if (s1 > s2) {
+        rtn = 1;
+      }
+    }
+  };
+
+  sort(p1.spotPrice, p2.spotPrice);
+  sort(p1.instanceType, p2.instanceType);
+  sort(p1.availabilityZone, p2.availabilityZone);
+  sort(p1.platform, p2.platform);
+
+  return rtn;
+};
+
 export class Ec2SpotPriceError extends Error {
   constructor(message: string, region: Region, code: string) {
     super(message) /* istanbul ignore next */;
@@ -44,11 +67,11 @@ export class Ec2SpotPriceError extends Error {
 const getEc2SpotPrice = async (options: {
   region: Region;
   instanceTypes?: InstanceType[];
-  productDescriptions?: ProductDescription[];
+  platforms?: Platform[];
   accessKeyId?: string;
   secretAccessKey?: string;
 }): Promise<EC2.SpotPrice[]> => {
-  const { region, instanceTypes, productDescriptions, accessKeyId, secretAccessKey } = options;
+  const { region, instanceTypes, platforms, accessKeyId, secretAccessKey } = options;
 
   let rtn: EC2.SpotPrice[] = [];
 
@@ -67,7 +90,7 @@ const getEc2SpotPrice = async (options: {
         .describeSpotPriceHistory({
           NextToken: nextToken,
           StartTime: startTime,
-          ProductDescriptions: productDescriptions,
+          ProductDescriptions: platforms,
           InstanceTypes: instanceTypes,
         })
         .promise();
@@ -96,7 +119,7 @@ const getEc2SpotPrice = async (options: {
     } else {
       console.error(
         'unexpected getEc2SpotPrice error.',
-        JSON.stringify({ region, instanceTypes, productDescriptions, error }, null, 2),
+        JSON.stringify({ region, instanceTypes, platforms, error }, null, 2),
       );
     }
   }
@@ -104,30 +127,106 @@ const getEc2SpotPrice = async (options: {
   return rtn;
 };
 
-export const defaults = {
-  limit: 20,
+// aws-sdk-js EC2.InstanceType is not always up to date.
+type Ec2InstanceInfos = Record<InstanceType | string, { vCpu?: number; memoryGiB?: number }>;
+
+export const getEc2Info = async ({
+  region,
+  InstanceTypes,
+  log,
+}: {
+  region?: string;
+  InstanceTypes?: (InstanceType | string)[];
+  log?: boolean;
+} = {}): Promise<Ec2InstanceInfos> => {
+  if (!region) region = 'us-east-1';
+
+  const ec2 = new EC2({ region });
+
+  const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
+    const rtn: Ec2InstanceInfos = {};
+    const res = await ec2
+      .describeInstanceTypes({
+        NextToken,
+        MaxResults: InstanceTypes ? undefined : 100,
+        InstanceTypes,
+      })
+      .promise();
+    res.InstanceTypes?.forEach(i => {
+      if (i.InstanceType) {
+        rtn[i.InstanceType] = {
+          vCpu: i.VCpuInfo?.DefaultVCpus,
+          memoryGiB: i.MemoryInfo?.SizeInMiB
+            ? Math.ceil((i.MemoryInfo.SizeInMiB / 1024) * 1000) / 1000 // ceil to 3rd decimal place
+            : undefined,
+        };
+      }
+    });
+    /* istanbul ignore if */
+    if (log) {
+      console.log(
+        `${region}: found ${res.InstanceTypes?.length}${res.NextToken ? ', fetching more...' : ''}`,
+      );
+    }
+    const next = res.NextToken ? await fetchInfo(res.NextToken) : undefined;
+    return { ...rtn, ...next };
+  };
+  return fetchInfo();
 };
+
+export const defaults = {
+  limit: 30,
+  wide: false,
+  reduceAZ: true,
+  platforms: ['Linux/UNIX', 'Linux/UNIX (Amazon VPC)'] as Platform[],
+  minVCPU: 1,
+  minMemoryGiB: 0.5,
+  priceLimit: 100,
+};
+
+export type SpotPriceExtended = {
+  availabilityZone: string;
+  instanceType: string;
+  platform: string;
+  spotPrice: number;
+  timestamp: Date;
+} & Ec2InstanceInfo;
+
+const SpotPriceToExtended = (cur: EC2.SpotPrice) =>
+  ({
+    availabilityZone: cur.AvailabilityZone,
+    instanceType: cur.InstanceType,
+    platform: cur.ProductDescription,
+    spotPrice: cur.SpotPrice !== undefined ? parseFloat(cur.SpotPrice) : Number.MAX_VALUE,
+    timestamp: cur.Timestamp,
+  } as SpotPriceExtended);
 
 export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];
   familyTypes?: InstanceFamilyType[];
   sizes?: InstanceSize[];
-  priceMax?: number;
+  priceLimit?: number;
+  minVCPU?: number;
+  minMemoryGiB?: number;
   instanceTypes?: InstanceType[];
-  productDescriptions?: ProductDescription[];
+  platforms?: Platform[];
   limit?: number;
+  reduceAZ?: boolean;
   accessKeyId?: string;
   secretAccessKey?: string;
   onRegionFetch?: (region: Region) => void;
   onRegionFetchFail?: (error: Ec2SpotPriceError) => void;
   onFetchComplete?: () => void;
-}): Promise<EC2.SpotPrice[]> => {
+}): Promise<SpotPriceExtended[]> => {
   const {
     familyTypes,
     sizes,
-    priceMax,
-    productDescriptions,
+    priceLimit,
+    minVCPU,
+    minMemoryGiB,
+    platforms,
     limit,
+    reduceAZ,
     accessKeyId,
     secretAccessKey,
     onRegionFetch,
@@ -139,7 +238,7 @@ export const getGlobalSpotPrices = async (options?: {
 
   let { regions, instanceTypes } = options || {};
 
-  if (regions === undefined) regions = defaultRegions;
+  if (regions === undefined || !regions.length) regions = defaultRegions;
 
   if (familyTypes || sizes) {
     const { instanceTypes: instanceTypesGenerated } = generateInstantTypesFromFamilyTypeSize({
@@ -153,13 +252,13 @@ export const getGlobalSpotPrices = async (options?: {
     }
   }
 
-  const rtn: EC2.SpotPrice[] = await Promise.all(
+  const rtn: SpotPriceExtended[] = await Promise.all(
     regions.map(async region => {
       try {
         const regionsPrices = await getEc2SpotPrice({
           region,
           instanceTypes,
-          productDescriptions,
+          platforms,
           accessKeyId,
           secretAccessKey,
         });
@@ -168,67 +267,135 @@ export const getGlobalSpotPrices = async (options?: {
         return regionsPrices;
       } catch (error) {
         /* istanbul ignore if */
-        if (error instanceof Ec2SpotPriceError) {
-          if (onRegionFetchFail) {
-            onRegionFetchFail(error);
-          } else {
-            throw error;
-          }
+        if (onRegionFetchFail) {
+          onRegionFetchFail(error);
         } else {
-          console.error(error);
+          throw error;
         }
         return [];
       }
     }),
-  ).then(results => {
-    /* istanbul ignore if */
-    if (onFetchComplete) onFetchComplete();
-    return results
-      .reduce((finalList: EC2.SpotPrice[], curList: EC2.SpotPrice[]) => {
-        const curListFiltered = curList.filter(
-          // filter price info without region or price greater than priceMax
-          price => {
-            // 1. remove if data missing any of the required attributes
-            // 2. remove if price.SpotPrice is unavailable or price is higher than priceMax
-            if (
-              !price.AvailabilityZone ||
-              !price.SpotPrice ||
-              !price.InstanceType ||
-              (priceMax !== undefined && parseFloat(price.SpotPrice) > priceMax)
-            )
-              return false;
+  )
+    .then(results => {
+      // attach ec2 instance type info
+      /* istanbul ignore if */
+      if (onFetchComplete) onFetchComplete();
+      return Promise.all(
+        results
+          .reduce((acc, r) => {
+            // look for duplicate and remove prev data if older than current
+            const reduceToLatest = r.reduce((reduced, cur) => {
+              const duplicateIndex = reduced.findIndex(
+                info =>
+                  cur.AvailabilityZone &&
+                  cur.AvailabilityZone === info.availabilityZone &&
+                  cur.InstanceType &&
+                  cur.InstanceType === info.instanceType &&
+                  cur.ProductDescription &&
+                  cur.ProductDescription === info.platform,
+              );
+              if (duplicateIndex >= 0) {
+                const dupeTimestamp = reduced[duplicateIndex].timestamp;
+                if (cur.Timestamp && dupeTimestamp && cur.Timestamp > dupeTimestamp) {
+                  reduced.splice(duplicateIndex, 1);
+                  reduced.push(SpotPriceToExtended(cur));
+                }
+              } else {
+                reduced.push(SpotPriceToExtended(cur));
+              }
+              return reduced;
+            }, [] as SpotPriceExtended[]);
 
-            return true;
-          },
-        );
-        // look for duplicate and remove prev data if older than current
-        const curListReduced = curListFiltered.reduce((list, cur) => {
-          const duplicates = list.filter(
-            prevPrice =>
-              cur.AvailabilityZone &&
-              cur.AvailabilityZone === prevPrice.AvailabilityZone &&
-              cur.InstanceType &&
-              cur.InstanceType === prevPrice.InstanceType &&
-              cur.ProductDescription &&
-              cur.ProductDescription === prevPrice.ProductDescription,
-          );
-          if (duplicates.length) {
-            while (duplicates.length) {
-              const dupe = duplicates.pop();
-              if (dupe && cur.Timestamp && dupe.Timestamp && cur.Timestamp > dupe.Timestamp) {
-                list.splice(list.indexOf(dupe));
-                list.push(cur);
+            if (!reduceAZ) {
+              acc.push(...reduceToLatest);
+              return acc;
+            }
+
+            // reduce results by region, choosing by cheapest record
+            acc.push(
+              ...reduceToLatest.reduce((reduced, cur) => {
+                const duplicateIndex = reduced.findIndex(info => {
+                  const curRegion = cur.availabilityZone?.match(/^.+\d{1,}/)?.[0];
+                  const infoRegion = cur.availabilityZone?.match(/^.+\d{1,}/)?.[0];
+                  return (
+                    curRegion &&
+                    curRegion === infoRegion &&
+                    cur.instanceType &&
+                    cur.instanceType === info.instanceType &&
+                    cur.platform &&
+                    cur.platform === info.platform
+                  );
+                });
+                // since items have already been sorted by price from getEc2SpotPrice()
+                // simply look for duplicates and add if non found
+                if (duplicateIndex < 0) reduced.push(cur);
+                return reduced;
+              }, [] as SpotPriceExtended[]),
+            );
+            return acc;
+          }, [] as SpotPriceExtended[])
+          .map(async r => {
+            const rExtended = { ...r } as SpotPriceExtended;
+            const instanceInfo = Object.entries(ec2Info).find(
+              ([instanceType]) => instanceType === r.instanceType,
+            )?.[1];
+            if (instanceInfo) {
+              rExtended.vCpu = instanceInfo.vCpu;
+              rExtended.memoryGiB = instanceInfo.memoryGiB;
+            } else {
+              // fetch intance info data from aws
+              const region = rExtended.availabilityZone.match(/^.+\d/)?.[0];
+              if (region && rExtended.instanceType) {
+                const desc = await getEc2Info({ region, InstanceTypes: [rExtended.instanceType] });
+
+                if (
+                  desc[rExtended.instanceType] &&
+                  desc[rExtended.instanceType].vCpu &&
+                  desc[rExtended.instanceType].memoryGiB
+                ) {
+                  ec2Info[rExtended.instanceType] = {
+                    vCpu: desc[rExtended.instanceType].vCpu,
+                    memoryGiB: desc[rExtended.instanceType].memoryGiB,
+                  };
+                  rExtended.vCpu = desc[rExtended.instanceType].vCpu;
+                  rExtended.memoryGiB = desc[rExtended.instanceType].memoryGiB;
+                }
               }
             }
-          } else {
-            list.push(cur);
-          }
-          return list;
-        }, [] as EC2.SpotPrice[]);
-        return finalList.concat(curListReduced);
-      }, [] as EC2.SpotPrice[])
-      .sort(sortSpotPrice);
-  });
+            return rExtended;
+          }),
+      );
+    })
+    .then(results => {
+      return results
+        .filter(
+          // filter out info without region or price greater than priceLimit
+          info => {
+            // 1. remove if data missing any of the required attributes
+            // 2. remove if price.SpotPrice is unavailable or price is higher than priceLimit
+            // 2. remove if minimum vcpu / memory requirements does not meet requirements
+            if (!info.availabilityZone || !info.spotPrice || !info.instanceType) {
+              return false;
+            }
+            if (priceLimit !== undefined && info.spotPrice > priceLimit) {
+              return false;
+            }
+
+            if (minVCPU !== undefined && info.vCpu !== undefined && info.vCpu < minVCPU) {
+              return false;
+            }
+            if (
+              minMemoryGiB !== undefined &&
+              info.memoryGiB !== undefined &&
+              info.memoryGiB < minMemoryGiB
+            ) {
+              return false;
+            }
+            return true;
+          },
+        )
+        .sort(sortSpotPriceExtended);
+    });
 
   // limit output
   if (limit && rtn.length > limit) rtn.splice(limit);

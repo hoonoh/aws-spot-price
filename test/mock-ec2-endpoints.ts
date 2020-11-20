@@ -10,7 +10,7 @@ import { Region, allRegions, defaultRegions } from '../src/constants/regions';
 import { mockAwsCredentials, mockAwsCredentialsClear } from './mock-credential-endpoints';
 
 const data = JSON.parse(
-  readFileSync(resolve(__dirname, '../test/spot-prices-mock.json')).toString(),
+  readFileSync(resolve(__dirname, '../test/data/spot-prices-mock.json')).toString(),
 );
 
 type RegionalData = { [region in Region]: SpotPrice[] };
@@ -39,62 +39,104 @@ const nockEndpoint = (options: {
     .reply((uri, body) => {
       const params = parse(body as string);
 
-      const index = params.NextToken ? parseInt(params.NextToken as string, 10) : 0;
+      if (params.Action === 'DescribeSpotPriceHistory') {
+        const index = params.NextToken ? parseInt(params.NextToken as string, 10) : 0;
 
-      const instanceTypes = Object.keys(params).reduce((prev, key) => {
-        const value = params[key];
-        if (key.startsWith('InstanceType') && typeof value === 'string') prev.push(value);
-        return prev;
-      }, [] as string[]);
+        const instanceTypes = Object.keys(params).reduce((prev, key) => {
+          const value = params[key];
+          if (key.startsWith('InstanceType') && typeof value === 'string') prev.push(value);
+          return prev;
+        }, [] as string[]);
 
-      const productDescriptions = Object.keys(params).reduce((prev, key) => {
-        const value = params[key];
-        if (key.startsWith('ProductDescription') && typeof value === 'string') prev.push(value);
-        return prev;
-      }, [] as string[]);
+        const platforms = Object.keys(params).reduce((prev, key) => {
+          const value = params[key];
+          if (key.startsWith('ProductDescription') && typeof value === 'string') prev.push(value);
+          return prev;
+        }, [] as string[]);
 
-      const instanceData: SpotPrice[] = filter(regionalData[region], (o: SpotPrice) => {
-        let rtn = true;
-        if (instanceTypes.length && (!o.InstanceType || !instanceTypes.includes(o.InstanceType))) {
-          rtn = false;
+        const instanceData: SpotPrice[] = filter(regionalData[region], (o: SpotPrice) => {
+          let rtn = true;
+          if (
+            instanceTypes.length &&
+            (!o.InstanceType || !instanceTypes.includes(o.InstanceType))
+          ) {
+            rtn = false;
+          }
+          if (
+            platforms.length &&
+            (!o.ProductDescription || !platforms.includes(o.ProductDescription))
+          ) {
+            rtn = false;
+          }
+          return rtn;
+        });
+
+        const instanceDataSlice = maxLength
+          ? instanceData.slice(index, index + maxLength)
+          : instanceData;
+        const nextIndex =
+          maxLength && instanceData.length >= index + maxLength ? index + maxLength : undefined;
+
+        return [
+          200,
+          `<DescribeSpotPriceHistoryResponse xmlns="http://ec2.amazonaws.com/doc/2016-11-15/">
+            <requestId>requestId</requestId>
+            <spotPriceHistorySet>
+              ${instanceDataSlice.map((d, idx) => {
+                const returnWithBlank =
+                  returnPartialBlankValues &&
+                  nextIndex === undefined &&
+                  idx === instanceDataSlice.length - 1;
+                return `<item>
+                <instanceType>${d.InstanceType}</instanceType>
+                <productDescription>${d.ProductDescription}</productDescription>
+                ${returnWithBlank ? '' : `<spotPrice>${d.SpotPrice}</spotPrice>`}
+                <timestamp>${d.Timestamp}</timestamp>
+                ${
+                  returnWithBlank
+                    ? ''
+                    : `<availabilityZone>${d.AvailabilityZone}</availabilityZone>`
+                }
+              </item>`;
+              })}
+            </spotPriceHistorySet>
+            <nextToken>${nextIndex || ''}</nextToken>
+          </DescribeSpotPriceHistoryResponse>`,
+        ];
+      }
+
+      //
+      // Action = DescribeInstanceTypes
+      //
+      const { NextToken } = params;
+
+      const instanceTypes: string[] = [];
+      Object.entries(params).forEach(([key, value]) => {
+        if (key.match(/^InstanceType.\d{1,}$/) && typeof value === 'string') {
+          instanceTypes.push(value.replace(new RegExp('\\.', 'g'), '-'));
         }
-        if (
-          productDescriptions.length &&
-          (!o.ProductDescription || !productDescriptions.includes(o.ProductDescription))
-        ) {
-          rtn = false;
-        }
-        return rtn;
       });
 
-      const instanceDataSlice = maxLength
-        ? instanceData.slice(index, index + maxLength)
-        : instanceData;
-      const nextIndex =
-        maxLength && instanceData.length >= index + maxLength ? index + maxLength : undefined;
+      // only support single instance type request (dummy.large, t3a.nano)
+      if (instanceTypes.length) {
+        const mockedData = readFileSync(
+          resolve(
+            __dirname,
+            '../test/data/describe-instance-types-mocks',
+            `${instanceTypes[0]}.xml`,
+          ),
+        ).toString();
+        return [200, mockedData];
+      }
 
-      return [
-        200,
-        `<DescribeSpotPriceHistoryResponse xmlns="http://ec2.amazonaws.com/doc/2016-11-15/">
-          <requestId>requestId</requestId>
-          <spotPriceHistorySet>
-            ${instanceDataSlice.map((d, idx) => {
-              const returnWithBlank =
-                returnPartialBlankValues &&
-                nextIndex === undefined &&
-                idx === instanceDataSlice.length - 1;
-              return `<item>
-              <instanceType>${d.InstanceType}</instanceType>
-              <productDescription>${d.ProductDescription}</productDescription>
-              ${returnWithBlank ? '' : `<spotPrice>${d.SpotPrice}</spotPrice>`}
-              <timestamp>${d.Timestamp}</timestamp>
-              ${returnWithBlank ? '' : `<availabilityZone>${d.AvailabilityZone}</availabilityZone>`}
-            </item>`;
-            })}
-          </spotPriceHistorySet>
-          <nextToken>${nextIndex || ''}</nextToken>
-        </DescribeSpotPriceHistoryResponse>`,
-      ];
+      const mockedData = readFileSync(
+        resolve(
+          __dirname,
+          '../test/data/describe-instance-types-mocks',
+          `${NextToken || 'page1'}.xml`,
+        ),
+      ).toString();
+      return [200, mockedData];
     });
 };
 
