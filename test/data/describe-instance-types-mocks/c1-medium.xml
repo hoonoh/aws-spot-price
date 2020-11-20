@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Errors>
+    <Error>
+      <Code>InvalidInstanceType</Code>
+      <Message>The following supplied instance types do not exist: [c1.medium]</Message>
+    </Error>
+  </Errors>
+  <RequestID>2776d8dd-afa3-48d3-9025-7cfc34cf1faf</RequestID>
+</Response>

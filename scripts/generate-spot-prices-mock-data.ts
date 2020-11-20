@@ -79,10 +79,10 @@ const { argv } = yargs()
           return val1.InstanceType === val2.InstanceType;
         });
         const uniqueFamily = uniqWith(allPrices, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-          return val1.InstanceType.split('.').shift() === val2.InstanceType.split('.').shift();
+          return val1.InstanceType?.split('.').shift() === val2.InstanceType?.split('.').shift();
         });
         const uniqueSize = uniqWith(allPrices, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-          return val1.InstanceType.split('.').pop() === val2.InstanceType.split('.').pop();
+          return val1.InstanceType?.split('.').pop() === val2.InstanceType?.split('.').pop();
         });
         console.log('uniqueType total:', uniqueType.length);
         console.log('uniqueProductDescription total:', uniqueProductDescription.length);

@@ -1,0 +1,59 @@
+name: update constants
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Generate regions
+        run: yarn build:regions
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Generate ec2-types
+        run: yarn build:ec2-types
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Generate ec2-info
+        run: yarn build:ec2-info
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Build
+        run: yarn build
+
+      - name: Check linting
+        run: yarn lint
+
+      - name: Check types
+        run: yarn types
+
+      - name: Run tests and update snapshots
+        run: yarn test -u
+
+      - name: Rollback .pnp.js
+        run: git checkout @ -- .pnp.js
+
+      - name: Log git diffs
+        run: git diff
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'fix: update ec2-types'
+          title: 'fix: update ec2-types'
+          branch: ec2-types/patch

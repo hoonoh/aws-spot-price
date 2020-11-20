@@ -1,7 +1,7 @@
 import { sep } from 'path';
 
 import ora from 'ora';
-import { table } from 'table';
+import { table, TableColumns } from 'table';
 import yargs from 'yargs/yargs';
 
 import { ui } from './lib/ui';
@@ -12,11 +12,11 @@ import {
   InstanceFamilyType,
   InstanceSize,
   InstanceType,
-  ProductDescription,
-  ProductDescriptionWildcards,
+  Platform,
+  PlatformsWildcards,
   Region,
   allInstances,
-  allProductDescriptions,
+  allPlatforms,
   allRegions,
   awsCredentialsCheck,
   defaults,
@@ -24,9 +24,9 @@ import {
   getGlobalSpotPrices,
   instanceFamily,
   instanceFamilyTypes,
-  instanceOfProductDescription,
+  instanceOfPlatforms,
   instanceSizes,
-  productDescriptionWildcards,
+  platformWildcards,
   regionNames,
 } from './module';
 
@@ -37,7 +37,7 @@ import {
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
     const y = yargs()
-      .scriptName('spot-price')
+      .scriptName('aws-spot-price')
       .command(
         '$0',
         'get current AWS spot instance prices',
@@ -81,21 +81,31 @@ export const main = (argvInput?: string[]): Promise<void> =>
             choices: instanceSizes,
             string: true,
           },
-          priceMax: {
-            alias: 'p',
-            describe: 'Maximum price',
+          minVCPU: {
+            alias: 'mc',
+            describe: 'Minimum VCPU count',
             type: 'number',
+            default: defaults.minVCPU,
           },
-          productDescription: {
-            alias: 'd',
-            describe:
-              'Product descriptions. Choose `windows` or `linux` (all lowercase) as wildcard.',
+          minMemoryGiB: {
+            alias: 'mm',
+            describe: 'Minimum memory (GiB)',
+            type: 'number',
+            default: defaults.minMemoryGiB,
+          },
+          priceLimit: {
+            alias: 'pl',
+            describe: 'Maximum price limit',
+            type: 'number',
+            default: defaults.priceLimit,
+          },
+          platforms: {
+            alias: 'p',
+            describe: 'Platforms. Choose `windows` or `linux` (all lowercase) as wildcard.',
             type: 'array',
             string: true,
-            choices: [
-              ...allProductDescriptions,
-              ...(Object.keys(productDescriptionWildcards) as ProductDescriptionWildcards[]),
-            ],
+            choices: [...allPlatforms, ...(Object.keys(platformWildcards) as PlatformsWildcards[])],
+            default: defaults.platforms,
           },
           limit: {
             alias: 'l',
@@ -108,6 +118,18 @@ export const main = (argvInput?: string[]): Promise<void> =>
               }
               return val;
             },
+          },
+          reduceAZ: {
+            alias: 'raz',
+            describe: 'Reduce results with cheapest Availability Zone within Region',
+            type: 'boolean',
+            default: defaults.reduceAZ,
+          },
+          wide: {
+            alias: 'w',
+            describe: 'Output results with detail (vCPU, memory, etc)',
+            type: 'boolean',
+            default: defaults.wide,
           },
           json: {
             alias: 'j',
@@ -134,8 +156,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
               familyType,
               size,
               limit,
-              priceMax,
-              productDescription,
+              reduceAZ,
+              wide,
+              minVCPU,
+              minMemoryGiB,
+              priceLimit,
+              platforms,
               json,
               accessKeyId,
               secretAccessKey,
@@ -165,25 +191,28 @@ export const main = (argvInput?: string[]): Promise<void> =>
               });
             }
 
-            // process product description
-            const productDescriptionsSet = new Set<ProductDescription>();
-            if (productDescription) {
-              (productDescription as (ProductDescription | ProductDescriptionWildcards)[]).forEach(
-                pd => {
-                  /* istanbul ignore else */
-                  if (instanceOfProductDescription(pd)) {
-                    productDescriptionsSet.add(pd);
-                  } else if (pd === 'linux') {
-                    productDescriptionWildcards.linux.forEach(desc => {
-                      productDescriptionsSet.add(desc);
-                    });
-                  } else if (pd === 'windows') {
-                    productDescriptionWildcards.windows.forEach(desc => {
-                      productDescriptionsSet.add(desc);
-                    });
-                  }
-                },
-              );
+            // process platforms
+            const platformsSet = new Set<Platform>();
+            if (platforms && platforms.length) {
+              (platforms as (Platform | PlatformsWildcards)[]).forEach(pd => {
+                /* istanbul ignore else */
+                if (instanceOfPlatforms(pd)) {
+                  platformsSet.add(pd);
+                } else if (pd === 'linux') {
+                  platformWildcards.linux.forEach(desc => {
+                    platformsSet.add(desc);
+                  });
+                } else if (pd === 'windows') {
+                  platformWildcards.windows.forEach(desc => {
+                    platformsSet.add(desc);
+                  });
+                }
+              });
+            } else {
+              // defaults to linux product
+              defaults.platforms.forEach(p => {
+                platformsSet.add(p);
+              });
             }
 
             if (accessKeyId && !secretAccessKey) {
@@ -204,7 +233,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               secretAccessKey,
             });
 
-            const productDescriptionsSetArray = Array.from(productDescriptionsSet);
+            const platformsSetArray = Array.from(platformsSet);
             const familyTypeSetArray = Array.from(familyTypeSet);
             const sizeSetArray = Array.from(sizeSet);
 
@@ -214,6 +243,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             let onRegionFetchFail: ((error: Ec2SpotPriceError) => void) | undefined;
             let onFetchComplete: (() => void) | undefined;
 
+            /* istanbul ignore if */
             if (!json && process.env.NODE_ENV !== 'test') {
               spinner = ora({
                 text: 'Waiting for data to be retrieved...',
@@ -245,10 +275,11 @@ export const main = (argvInput?: string[]): Promise<void> =>
               familyTypes: familyTypeSetArray.length ? familyTypeSetArray : undefined,
               sizes: sizeSetArray.length ? sizeSetArray : undefined,
               limit,
-              priceMax,
-              productDescriptions: productDescriptionsSetArray.length
-                ? productDescriptionsSetArray
-                : undefined,
+              reduceAZ,
+              minVCPU,
+              minMemoryGiB,
+              priceLimit,
+              platforms: platformsSetArray,
               accessKeyId,
               secretAccessKey,
               onRegionFetch,
@@ -259,21 +290,62 @@ export const main = (argvInput?: string[]): Promise<void> =>
             if (json) {
               console.log(JSON.stringify(results, null, 2));
             } else if (results.length > 0) {
+              // shorten price strings
+              let spotPriceToFixedLen = Number.NEGATIVE_INFINITY;
+              const allPricesStr = results.map(r => r.spotPrice.toFixed(10));
+              allPricesStr.forEach(priceStr => {
+                const len = 10 - (priceStr.match(/0+$/)?.[0].length || 0);
+                if (len !== undefined && len > spotPriceToFixedLen) spotPriceToFixedLen = len;
+              });
+
+              let tableHeader: (string | undefined)[][] | undefined;
+              let tableData: (string | undefined)[][] | undefined;
+              let tableFormat: Record<number, TableColumns> | undefined;
+
+              if (!wide) {
+                tableHeader = [['Type', 'Price', 'Platform', 'Availability Zone']];
+                tableData = results.map(info => [
+                  info.instanceType,
+                  info.spotPrice.toFixed(spotPriceToFixedLen),
+                  info.platform,
+                  info.availabilityZone,
+                ]);
+                tableFormat = {
+                  0: { alignment: 'left' },
+                  1: { alignment: 'right' },
+                  2: { alignment: 'left' },
+                  3: { alignment: 'left' },
+                };
+              } else {
+                tableHeader = [
+                  ['Type', 'Price', 'vCPU', 'RAM', 'Platform', 'Availability Zone', 'Region'],
+                ];
+                tableData = results.map(info => [
+                  info.instanceType,
+                  info.spotPrice.toFixed(spotPriceToFixedLen),
+                  info.vCpu ? info.vCpu.toString() : 'unknown',
+                  info.memoryGiB ? info.memoryGiB.toString() : 'unknown',
+                  info.platform,
+                  info.availabilityZone,
+                  info.availabilityZone
+                    ? regionNames[info.availabilityZone.slice(0, -1) as Region]
+                    : /* istanbul ignore next */ undefined,
+                ]);
+                tableFormat = {
+                  0: { alignment: 'left' },
+                  1: { alignment: 'right' },
+                  2: { alignment: 'right' },
+                  3: { alignment: 'right' },
+                  4: { alignment: 'left' },
+                  5: { alignment: 'left' },
+                  6: { alignment: 'left' },
+                };
+              }
               console.log(
-                table(
-                  results.reduce((list, price) => {
-                    list.push([
-                      price.InstanceType,
-                      price.SpotPrice,
-                      price.ProductDescription,
-                      price.AvailabilityZone,
-                      price.AvailabilityZone
-                        ? regionNames[price.AvailabilityZone.slice(0, -1) as Region]
-                        : /* istanbul ignore next */ undefined,
-                    ]);
-                    return list;
-                  }, [] as (string | undefined)[][]),
-                ),
+                table([...tableHeader, ...tableData], {
+                  drawHorizontalLine: (index, tableSize) => index <= 1 || index === tableSize,
+                  columns: tableFormat,
+                }),
               );
             } else {
               console.log('no matching records found');
@@ -290,7 +362,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 console.log('AWS credentials are not found.');
               }
             } else {
-              console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
+              console.log('unexpected getGlobalSpotPrices error:', error);
             }
             rej();
           }

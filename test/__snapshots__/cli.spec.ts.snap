@@ -3,125 +3,156 @@
 exports[`cli test by import should handle JSON output option 1`] = `
 "[
   {
-    \\"AvailabilityZone\\": \\"us-east-1a\\",
-    \\"InstanceType\\": \\"t3.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001600\\",
-    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1a\\",
+    \\"instanceType\\": \\"t3.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0016,
+    \\"timestamp\\": \\"2019-10-15T17:09:43.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1b\\",
-    \\"InstanceType\\": \\"t3.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001600\\",
-    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1b\\",
+    \\"instanceType\\": \\"t3.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0016,
+    \\"timestamp\\": \\"2019-10-15T17:09:43.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1c\\",
-    \\"InstanceType\\": \\"t3.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001600\\",
-    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1c\\",
+    \\"instanceType\\": \\"t3.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0016,
+    \\"timestamp\\": \\"2019-10-15T17:09:43.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1d\\",
-    \\"InstanceType\\": \\"t3.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001600\\",
-    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1d\\",
+    \\"instanceType\\": \\"t3.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0016,
+    \\"timestamp\\": \\"2019-10-15T17:09:43.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1f\\",
-    \\"InstanceType\\": \\"t3.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001600\\",
-    \\"Timestamp\\": \\"2019-10-15T17:09:43.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1f\\",
+    \\"instanceType\\": \\"t3.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0016,
+    \\"timestamp\\": \\"2019-10-15T17:09:43.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1a\\",
-    \\"InstanceType\\": \\"t3a.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001700\\",
-    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1a\\",
+    \\"instanceType\\": \\"t3a.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0017,
+    \\"timestamp\\": \\"2019-10-15T22:11:29.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1c\\",
-    \\"InstanceType\\": \\"t3a.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001700\\",
-    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1c\\",
+    \\"instanceType\\": \\"t3a.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0017,
+    \\"timestamp\\": \\"2019-10-15T22:11:29.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1b\\",
-    \\"InstanceType\\": \\"t3a.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001800\\",
-    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1b\\",
+    \\"instanceType\\": \\"t3a.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0018,
+    \\"timestamp\\": \\"2019-10-15T22:11:29.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1d\\",
-    \\"InstanceType\\": \\"t3a.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001800\\",
-    \\"Timestamp\\": \\"2019-10-15T20:21:10.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1d\\",
+    \\"instanceType\\": \\"t3a.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0018,
+    \\"timestamp\\": \\"2019-10-15T20:21:10.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   },
   {
-    \\"AvailabilityZone\\": \\"us-east-1f\\",
-    \\"InstanceType\\": \\"t3a.nano\\",
-    \\"ProductDescription\\": \\"Linux/UNIX (Amazon VPC)\\",
-    \\"SpotPrice\\": \\"0.001800\\",
-    \\"Timestamp\\": \\"2019-10-15T22:11:29.000Z\\"
+    \\"availabilityZone\\": \\"us-east-1f\\",
+    \\"instanceType\\": \\"t3a.nano\\",
+    \\"platform\\": \\"Linux/UNIX (Amazon VPC)\\",
+    \\"spotPrice\\": 0.0018,
+    \\"timestamp\\": \\"2019-10-15T22:11:29.000Z\\",
+    \\"vCpu\\": 2,
+    \\"memoryGiB\\": 0.5
   }
 ]"
 `;
 
 exports[`cli test by import should handle instance family option 1`] = `
-"╔═══════════╤══════════╤═════════════════════════╤═════════════════╤═════════════════════════╗
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1a      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1a      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1b      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1b      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1c      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1c      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-east-1d      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX (Amazon VPC) │ us-east-1d      │ US East (N. Virginia)   ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2a      │ US West (Oregon)        ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2b      │ US West (Oregon)        ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.013000 │ Linux/UNIX              │ us-west-2c      │ US West (Oregon)        ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1a      │ EU (Ireland)            ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1b      │ EU (Ireland)            ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ eu-west-1c      │ EU (Ireland)            ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ us-west-1b      │ US West (N. California) ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.014800 │ Linux/UNIX              │ us-west-1c      │ US West (N. California) ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.015800 │ Linux/UNIX              │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a │ Asia Pacific (Tokyo)    ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.015800 │ Linux/UNIX              │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
-╟───────────┼──────────┼─────────────────────────┼─────────────────┼─────────────────────────╢
-║ c1.medium │ 0.015800 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1c │ Asia Pacific (Tokyo)    ║
-╚═══════════╧══════════╧═════════════════════════╧═════════════════╧═════════════════════════╝
+"╔═══════════╤════════╤═════════════════════════╤═══════════════════╗
+║ Type      │  Price │ Platform                │ Availability Zone ║
+╟───────────┼────────┼─────────────────────────┼───────────────────╢
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-east-1a        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-east-1b        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX (Amazon VPC) │ us-east-1b        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-east-1c        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX (Amazon VPC) │ us-east-1c        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-east-1d        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX (Amazon VPC) │ us-east-1d        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-west-2a        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-west-2b        ║
+║ c1.medium │ 0.0130 │ Linux/UNIX              │ us-west-2c        ║
+║ c1.medium │ 0.0148 │ Linux/UNIX              │ eu-west-1a        ║
+║ c1.medium │ 0.0148 │ Linux/UNIX              │ eu-west-1b        ║
+║ c1.medium │ 0.0148 │ Linux/UNIX              │ eu-west-1c        ║
+║ c1.medium │ 0.0148 │ Linux/UNIX              │ us-west-1b        ║
+║ c1.medium │ 0.0148 │ Linux/UNIX              │ us-west-1c        ║
+║ c1.medium │ 0.0158 │ Linux/UNIX              │ ap-northeast-1a   ║
+║ c1.medium │ 0.0158 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a   ║
+║ c1.medium │ 0.0158 │ Linux/UNIX              │ ap-northeast-1c   ║
+║ c1.medium │ 0.0158 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1c   ║
+╚═══════════╧════════╧═════════════════════════╧═══════════════════╝
+"
+`;
+
+exports[`cli test by import should handle no ec2 info found should return expected values 1`] = `
+"╔═══════════╤════════╤═════════╤═════════╤═════════════════════════╤═══════════════════╤═════════════════════════╗
+║ Type      │  Price │    vCPU │     RAM │ Platform                │ Availability Zone │ Region                  ║
+╟───────────┼────────┼─────────┼─────────┼─────────────────────────┼───────────────────┼─────────────────────────╢
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-east-1a        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX (Amazon VPC) │ us-east-1a        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-east-1b        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX (Amazon VPC) │ us-east-1b        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-east-1c        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX (Amazon VPC) │ us-east-1c        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-east-1d        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX (Amazon VPC) │ us-east-1d        │ US East (N. Virginia)   ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-west-2a        │ US West (Oregon)        ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-west-2b        │ US West (Oregon)        ║
+║ c1.medium │ 0.0130 │ unknown │ unknown │ Linux/UNIX              │ us-west-2c        │ US West (Oregon)        ║
+║ c1.medium │ 0.0148 │ unknown │ unknown │ Linux/UNIX              │ eu-west-1a        │ Europe (Ireland)        ║
+║ c1.medium │ 0.0148 │ unknown │ unknown │ Linux/UNIX              │ eu-west-1b        │ Europe (Ireland)        ║
+║ c1.medium │ 0.0148 │ unknown │ unknown │ Linux/UNIX              │ eu-west-1c        │ Europe (Ireland)        ║
+║ c1.medium │ 0.0148 │ unknown │ unknown │ Linux/UNIX              │ us-west-1b        │ US West (N. California) ║
+║ c1.medium │ 0.0148 │ unknown │ unknown │ Linux/UNIX              │ us-west-1c        │ US West (N. California) ║
+║ c1.medium │ 0.0158 │ unknown │ unknown │ Linux/UNIX              │ ap-northeast-1a   │ Asia Pacific (Tokyo)    ║
+║ c1.medium │ 0.0158 │ unknown │ unknown │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a   │ Asia Pacific (Tokyo)    ║
+║ c1.medium │ 0.0158 │ unknown │ unknown │ Linux/UNIX              │ ap-northeast-1c   │ Asia Pacific (Tokyo)    ║
+║ c1.medium │ 0.0158 │ unknown │ unknown │ Linux/UNIX (Amazon VPC) │ ap-northeast-1c   │ Asia Pacific (Tokyo)    ║
+╚═══════════╧════════╧═════════╧═════════╧═════════════════════════╧═══════════════════╧═════════════════════════╝
 "
 `;
 
 exports[`cli test by import should print help 1`] = `
-"spot-price
+"aws-spot-price
 
 get current AWS spot instance prices
 
@@ -131,9 +162,9 @@ Options:
       --ui                  Start with UI mode        [boolean] [default: false]
   -r, --region              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
-          \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
-                  \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
-             \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
+    \\"af-south-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-south-1\\",
+             \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ca-central-1\\", \\"eu-central-1\\",
+              \\"eu-north-1\\", \\"eu-south-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
                                                       \\"me-south-1\\", \\"sa-east-1\\"]
   -i, --instanceType        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
@@ -219,197 +250,197 @@ Options:
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-  -p, --priceMax            Maximum price                               [number]
-  -d, --productDescription  Product descriptions. Choose \`windows\` or \`linux\`
-                            (all lowercase) as wildcard.
+      --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
+      --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
+      --priceLimit, --pl    Maximum price limit          [number] [default: 100]
+  -p, --platforms           Platforms. Choose \`windows\` or \`linux\` (all
+                            lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
-  -l, --limit               Limit results output length   [number] [default: 20]
+                             [default: [\\"Linux/UNIX\\",\\"Linux/UNIX (Amazon VPC)\\"]]
+  -l, --limit               Limit results output length   [number] [default: 30]
+      --reduceAZ, --raz     Reduce results with cheapest Availability Zone
+                            within Region              [boolean] [default: true]
+  -w, --wide                Output results with detail (vCPU, memory, etc)
+                                                      [boolean] [default: false]
   -j, --json                Outputs in JSON format    [boolean] [default: false]
       --accessKeyId         AWS Access Key ID.                          [string]
       --secretAccessKey     AWS Secret Access Key.                      [string]"
 `;
 
+exports[`cli test by import should return expected values if no matching records found 1`] = `"no matching records found"`;
+
 exports[`cli test by import should return expected values with default options 1`] = `
-"╔══════════╤══════════╤═════════════════════════╤═══════════════╤═══════════════════════╗
-║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2a    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2c    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3a.nano │ 0.001500 │ Linux/UNIX              │ us-west-2d    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1a   │ EU (Stockholm)        ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1b   │ EU (Stockholm)        ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ eu-north-1c   │ EU (Stockholm)        ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1a    │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1b    │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1c    │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1d    │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1f    │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-east-2a    │ US East (Ohio)        ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-east-2b    │ US East (Ohio)        ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-east-2c    │ US East (Ohio)        ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2a    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2b    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2c    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX              │ us-west-2d    │ US West (Oregon)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3a.nano │ 0.001600 │ Linux/UNIX              │ ca-central-1a │ Canada (Central)      ║
-╟──────────┼──────────┼─────────────────────────┼───────────────┼───────────────────────╢
-║ t3a.nano │ 0.001600 │ Linux/UNIX              │ ca-central-1b │ Canada (Central)      ║
-╚══════════╧══════════╧═════════════════════════╧═══════════════╧═══════════════════════╝
+"╔══════════╤════════╤═════════════════════════╤═══════════════════╗
+║ Type     │  Price │ Platform                │ Availability Zone ║
+╟──────────┼────────┼─────────────────────────┼───────────────────╢
+║ t3a.nano │ 0.0015 │ Linux/UNIX              │ us-west-2a        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX              │ eu-north-1a       ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX              │ us-east-2a        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX              │ us-west-2a        ║
+║ t3a.nano │ 0.0016 │ Linux/UNIX              │ ca-central-1a     ║
+║ t3a.nano │ 0.0016 │ Linux/UNIX              │ eu-central-1a     ║
+║ t3a.nano │ 0.0016 │ Linux/UNIX              │ eu-west-1b        ║
+║ t3a.nano │ 0.0016 │ Linux/UNIX              │ eu-west-2a        ║
+║ t3a.nano │ 0.0016 │ Linux/UNIX              │ eu-west-3a        ║
+║ t3a.nano │ 0.0016 │ Linux/UNIX              │ us-east-2b        ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX              │ ap-south-1a       ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX              │ ca-central-1a     ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX              │ eu-west-1a        ║
+║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+║ t3a.nano │ 0.0017 │ Linux/UNIX              │ us-west-1b        ║
+║ t3.nano  │ 0.0018 │ Linux/UNIX              │ eu-central-1a     ║
+║ t3.nano  │ 0.0018 │ Linux/UNIX              │ eu-west-2a        ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a   ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX              │ ap-northeast-2a   ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1a   ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX              │ ap-southeast-2a   ║
+║ t3.nano  │ 0.0019 │ Linux/UNIX              │ us-west-1b        ║
+║ t3a.nano │ 0.0019 │ Linux/UNIX              │ sa-east-1a        ║
+║ t1.micro │ 0.0020 │ Linux/UNIX              │ ap-southeast-1a   ║
+║ t1.micro │ 0.0020 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1a   ║
+║ t1.micro │ 0.0020 │ Linux/UNIX              │ ap-southeast-2a   ║
+║ t1.micro │ 0.0020 │ Linux/UNIX              │ eu-west-1a        ║
+║ t1.micro │ 0.0020 │ Linux/UNIX              │ us-east-1a        ║
+║ t1.micro │ 0.0020 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+╚══════════╧════════╧═════════════════════════╧═══════════════════╝
 "
 `;
 
 exports[`cli test by import should return expected values with instance family types and sizes 1`] = `
-"╔══════════╤══════════╤═════════════════════════╤═════════════════╤══════════════════════════╗
-║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2a      │ US East (Ohio)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2b      │ US East (Ohio)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2c      │ US East (Ohio)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1a     │ EU (Stockholm)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b     │ EU (Stockholm)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1c     │ EU (Stockholm)           ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.028900 │ Linux/UNIX              │ ca-central-1a   │ Canada (Central)         ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.029300 │ Linux/UNIX              │ ca-central-1b   │ Canada (Central)         ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2a │ Asia Pacific (Seoul)     ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2b │ Asia Pacific (Seoul)     ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2c │ Asia Pacific (Seoul)     ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030300 │ Linux/UNIX              │ eu-west-3c      │ EU (Paris)               ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030400 │ Linux/UNIX              │ eu-west-3b      │ EU (Paris)               ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.030800 │ Linux/UNIX              │ us-west-1b      │ US West (N. California)  ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.031300 │ Linux/UNIX              │ us-west-1c      │ US West (N. California)  ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.031400 │ Linux/UNIX              │ eu-west-2a      │ EU (London)              ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.032100 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1c │ Asia Pacific (Singapore) ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.032200 │ Linux/UNIX              │ eu-west-2b      │ EU (London)              ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.032600 │ Linux/UNIX              │ us-west-2d      │ US West (Oregon)         ║
-╟──────────┼──────────┼─────────────────────────┼─────────────────┼──────────────────────────╢
-║ c5.large │ 0.032800 │ Linux/UNIX (Amazon VPC) │ us-east-1f      │ US East (N. Virginia)    ║
-╚══════════╧══════════╧═════════════════════════╧═════════════════╧══════════════════════════╝
+"╔══════════╤══════════╤═════════════════════════╤═══════════════════╗
+║ Type     │    Price │ Platform                │ Availability Zone ║
+╟──────────┼──────────┼─────────────────────────┼───────────────────╢
+║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2a        ║
+║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2b        ║
+║ c5.large │ 0.019000 │ Linux/UNIX              │ us-east-2c        ║
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1a       ║
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1b       ║
+║ c5.large │ 0.027300 │ Linux/UNIX              │ eu-north-1c       ║
+║ c5.large │ 0.028900 │ Linux/UNIX              │ ca-central-1a     ║
+║ c5.large │ 0.029300 │ Linux/UNIX              │ ca-central-1b     ║
+║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2a   ║
+║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2b   ║
+║ c5.large │ 0.030000 │ Linux/UNIX              │ ap-northeast-2c   ║
+║ c5.large │ 0.030300 │ Linux/UNIX              │ eu-west-3c        ║
+║ c5.large │ 0.030400 │ Linux/UNIX              │ eu-west-3b        ║
+║ c5.large │ 0.030800 │ Linux/UNIX              │ us-west-1b        ║
+║ c5.large │ 0.031300 │ Linux/UNIX              │ us-west-1c        ║
+║ c5.large │ 0.031400 │ Linux/UNIX              │ eu-west-2a        ║
+║ c5.large │ 0.032100 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1c   ║
+║ c5.large │ 0.032200 │ Linux/UNIX              │ eu-west-2b        ║
+║ c5.large │ 0.032600 │ Linux/UNIX              │ us-west-2d        ║
+║ c5.large │ 0.032712 │ Linux/UNIX (Amazon VPC) │ us-east-1f        ║
+╚══════════╧══════════╧═════════════════════════╧═══════════════════╝
 "
 `;
 
 exports[`cli test by import should return expected values with user options 1`] = `
-"╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
-║ c5.large │ 0.032800 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ c5.large │ 0.037600 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ c5.large │ 0.038300 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ c5.large │ 0.038400 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ c5.large │ 0.041000 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
-╚══════════╧══════════╧═════════════════════════╧════════════╧═══════════════════════╝
+"╔══════════╤══════════╤═════════════════════════╤═══════════════════╗
+║ Type     │    Price │ Platform                │ Availability Zone ║
+╟──────────┼──────────┼─────────────────────────┼───────────────────╢
+║ c5.large │ 0.032712 │ Linux/UNIX (Amazon VPC) │ us-east-1f        ║
+║ c5.large │ 0.037600 │ Linux/UNIX (Amazon VPC) │ us-east-1c        ║
+║ c5.large │ 0.038300 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+║ c5.large │ 0.038400 │ Linux/UNIX (Amazon VPC) │ us-east-1d        ║
+║ c5.large │ 0.041000 │ Linux/UNIX (Amazon VPC) │ us-east-1b        ║
+╚══════════╧══════════╧═════════════════════════╧═══════════════════╝
 "
 `;
 
-exports[`cli test by import should return expected values with wildcard product descriptions 1`] = `
-"╔══════════╤══════════╤═════════════════════════╤════════════╤═══════════════════════╗
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3.nano  │ 0.001600 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3a.nano │ 0.001700 │ Linux/UNIX (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3a.nano │ 0.001700 │ Linux/UNIX (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
-╟──────────┼──────────┼─────────────────────────┼────────────┼───────────────────────╢
-║ t3a.nano │ 0.001800 │ Linux/UNIX (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
-╚══════════╧══════════╧═════════════════════════╧════════════╧═══════════════════════╝
+exports[`cli test by import should return expected values with wide option 1`] = `
+"╔══════════╤════════╤══════╤═══════╤═════════════════════════╤═══════════════════╤═══════════════════════════╗
+║ Type     │  Price │ vCPU │   RAM │ Platform                │ Availability Zone │ Region                    ║
+╟──────────┼────────┼──────┼───────┼─────────────────────────┼───────────────────┼───────────────────────────╢
+║ t3a.nano │ 0.0015 │    2 │   0.5 │ Linux/UNIX              │ us-west-2a        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ eu-north-1a       │ Europe (Stockholm)        ║
+║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ us-east-1a        │ US East (N. Virginia)     ║
+║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ us-east-2a        │ US East (Ohio)            ║
+║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ us-west-2a        │ US West (Oregon)          ║
+║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ ca-central-1a     │ Canada (Central)          ║
+║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ eu-central-1a     │ Europe (Frankfurt)        ║
+║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ eu-west-1b        │ Europe (Ireland)          ║
+║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ eu-west-2a        │ Europe (London)           ║
+║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ eu-west-3a        │ Europe (Paris)            ║
+║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ us-east-2b        │ US East (Ohio)            ║
+║ t3.nano  │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ ap-south-1a       │ Asia Pacific (Mumbai)     ║
+║ t3.nano  │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ ca-central-1a     │ Canada (Central)          ║
+║ t3.nano  │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ eu-west-1a        │ Europe (Ireland)          ║
+║ t3a.nano │ 0.0017 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ us-east-1a        │ US East (N. Virginia)     ║
+║ t3a.nano │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ us-west-1b        │ US West (N. California)   ║
+║ t3.nano  │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ eu-central-1a     │ Europe (Frankfurt)        ║
+║ t3.nano  │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ eu-west-2a        │ Europe (London)           ║
+║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ ap-northeast-1a   │ Asia Pacific (Tokyo)      ║
+║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ ap-northeast-2a   │ Asia Pacific (Seoul)      ║
+║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
+║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ ap-southeast-2a   │ Asia Pacific (Sydney)     ║
+║ t3.nano  │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ us-west-1b        │ US West (N. California)   ║
+║ t3a.nano │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ sa-east-1a        │ South America (Sao Paulo) ║
+║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
+║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
+║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ ap-southeast-2a   │ Asia Pacific (Sydney)     ║
+║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ eu-west-1a        │ Europe (Ireland)          ║
+║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ us-east-1a        │ US East (N. Virginia)     ║
+║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX (Amazon VPC) │ us-east-1a        │ US East (N. Virginia)     ║
+╚══════════╧════════╧══════╧═══════╧═════════════════════════╧═══════════════════╧═══════════════════════════╝
+"
+`;
 
-╔══════════╤══════════╤══════════════════════╤════════════╤═══════════════════════╗
-║ t1.micro │ 0.002000 │ Windows              │ us-east-1a │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows              │ us-east-1b │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1b │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows              │ us-east-1c │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1c │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows              │ us-east-1d │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1d │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t1.micro │ 0.002000 │ Windows (Amazon VPC) │ us-east-1f │ US East (N. Virginia) ║
-╟──────────┼──────────┼──────────────────────┼────────────┼───────────────────────╢
-║ t3a.nano │ 0.006000 │ Windows (Amazon VPC) │ us-east-1a │ US East (N. Virginia) ║
-╚══════════╧══════════╧══════════════════════╧════════════╧═══════════════════════╝
+exports[`cli test by import should return expected values with wildcard platforms 1`] = `
+"╔══════════╤════════╤═════════════════════════╤═══════════════════╗
+║ Type     │  Price │ Platform                │ Availability Zone ║
+╟──────────┼────────┼─────────────────────────┼───────────────────╢
+║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ us-east-1b        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ us-east-1c        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ us-east-1d        ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ us-east-1f        ║
+║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ us-east-1a        ║
+║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ us-east-1c        ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ us-east-1b        ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ us-east-1d        ║
+║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ us-east-1f        ║
+╚══════════╧════════╧═════════════════════════╧═══════════════════╝
+
+╔══════════╤═══════╤══════════════════════╤═══════════════════╗
+║ Type     │ Price │ Platform             │ Availability Zone ║
+╟──────────┼───────┼──────────────────────┼───────────────────╢
+║ t1.micro │ 0.002 │ Windows              │ us-east-1a        ║
+║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ us-east-1a        ║
+║ t1.micro │ 0.002 │ Windows              │ us-east-1b        ║
+║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ us-east-1b        ║
+║ t1.micro │ 0.002 │ Windows              │ us-east-1c        ║
+║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ us-east-1c        ║
+║ t1.micro │ 0.002 │ Windows              │ us-east-1d        ║
+║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ us-east-1d        ║
+║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ us-east-1f        ║
+║ t3a.nano │ 0.006 │ Windows (Amazon VPC) │ us-east-1a        ║
+╚══════════╧═══════╧══════════════════════╧═══════════════════╝
 "
 `;
 
 exports[`cli test by import ui mode should return expected result 1`] = `
-"╔══════════╤══════════╤════════════╤════════════╤═════════════════════════╗
-║ c4.large │ 0.018100 │ Linux/UNIX │ us-east-2a │ US East (Ohio)          ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ c4.large │ 0.018100 │ Linux/UNIX │ us-east-2c │ US East (Ohio)          ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ c4.large │ 0.019500 │ Linux/UNIX │ us-east-2b │ US East (Ohio)          ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ r5.large │ 0.020900 │ Linux/UNIX │ us-east-2a │ US East (Ohio)          ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ r5.large │ 0.021100 │ Linux/UNIX │ us-east-2c │ US East (Ohio)          ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ r5.large │ 0.021200 │ Linux/UNIX │ us-east-2b │ US East (Ohio)          ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ c4.large │ 0.029300 │ Linux/UNIX │ us-west-1b │ US West (N. California) ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ c4.large │ 0.029300 │ Linux/UNIX │ us-west-1c │ US West (N. California) ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ c4.large │ 0.031300 │ Linux/UNIX │ us-west-2c │ US West (Oregon)        ║
-╟──────────┼──────────┼────────────┼────────────┼─────────────────────────╢
-║ c4.large │ 0.031500 │ Linux/UNIX │ us-west-2a │ US West (Oregon)        ║
-╚══════════╧══════════╧════════════╧════════════╧═════════════════════════╝
+"╔══════════╤════════╤════════════╤═══════════════════╗
+║ Type     │  Price │ Platform   │ Availability Zone ║
+╟──────────┼────────┼────────────┼───────────────────╢
+║ c4.large │ 0.0181 │ Linux/UNIX │ us-east-2a        ║
+║ c4.large │ 0.0181 │ Linux/UNIX │ us-east-2c        ║
+║ c4.large │ 0.0195 │ Linux/UNIX │ us-east-2b        ║
+║ r5.large │ 0.0209 │ Linux/UNIX │ us-east-2a        ║
+║ r5.large │ 0.0211 │ Linux/UNIX │ us-east-2c        ║
+║ r5.large │ 0.0212 │ Linux/UNIX │ us-east-2b        ║
+║ c4.large │ 0.0293 │ Linux/UNIX │ us-west-1b        ║
+║ c4.large │ 0.0293 │ Linux/UNIX │ us-west-1c        ║
+║ c4.large │ 0.0313 │ Linux/UNIX │ us-west-2c        ║
+║ c4.large │ 0.0315 │ Linux/UNIX │ us-west-2a        ║
+╚══════════╧════════╧════════════╧═══════════════════╝
 "
 `;
 
 exports[`cli test by spawnSync should stdout help screen 1`] = `
-"spot-price
+"aws-spot-price
 
 get current AWS spot instance prices
 
@@ -419,9 +450,9 @@ Options:
       --ui                  Start with UI mode        [boolean] [default: false]
   -r, --region              AWS regions.
            [array] [choices: \\"us-east-1\\", \\"us-east-2\\", \\"us-west-1\\", \\"us-west-2\\",
-          \\"ca-central-1\\", \\"eu-central-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
-                  \\"eu-north-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\",
-             \\"ap-northeast-3\\", \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ap-south-1\\",
+    \\"af-south-1\\", \\"ap-east-1\\", \\"ap-northeast-1\\", \\"ap-northeast-2\\", \\"ap-south-1\\",
+             \\"ap-southeast-1\\", \\"ap-southeast-2\\", \\"ca-central-1\\", \\"eu-central-1\\",
+              \\"eu-north-1\\", \\"eu-south-1\\", \\"eu-west-1\\", \\"eu-west-2\\", \\"eu-west-3\\",
                                                       \\"me-south-1\\", \\"sa-east-1\\"]
   -i, --instanceType        EC2 type
            [array] [choices: \\"a1.medium\\", \\"a1.large\\", \\"a1.xlarge\\", \\"a1.2xlarge\\",
@@ -507,13 +538,20 @@ Options:
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
             \\"12xlarge\\", \\"16xlarge\\", \\"18xlarge\\", \\"24xlarge\\", \\"32xlarge\\", \\"metal\\"]
-  -p, --priceMax            Maximum price                               [number]
-  -d, --productDescription  Product descriptions. Choose \`windows\` or \`linux\`
-                            (all lowercase) as wildcard.
+      --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
+      --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
+      --priceLimit, --pl    Maximum price limit          [number] [default: 100]
+  -p, --platforms           Platforms. Choose \`windows\` or \`linux\` (all
+                            lowercase) as wildcard.
   [array] [choices: \\"Linux/UNIX\\", \\"Linux/UNIX (Amazon VPC)\\", \\"SUSE Linux\\", \\"SUSE
       Linux (Amazon VPC)\\", \\"Red Hat Enterprise Linux\\", \\"Red Hat Enterprise Linux
            (Amazon VPC)\\", \\"Windows\\", \\"Windows (Amazon VPC)\\", \\"linux\\", \\"windows\\"]
-  -l, --limit               Limit results output length   [number] [default: 20]
+                             [default: [\\"Linux/UNIX\\",\\"Linux/UNIX (Amazon VPC)\\"]]
+  -l, --limit               Limit results output length   [number] [default: 30]
+      --reduceAZ, --raz     Reduce results with cheapest Availability Zone
+                            within Region              [boolean] [default: true]
+  -w, --wide                Output results with detail (vCPU, memory, etc)
+                                                      [boolean] [default: false]
   -j, --json                Outputs in JSON format    [boolean] [default: false]
       --accessKeyId         AWS Access Key ID.                          [string]
       --secretAccessKey     AWS Secret Access Key.                      [string]

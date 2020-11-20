@@ -1,146 +1,1889 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`lib getEc2Info run with default options should return expected values 1`] = `
+Object {
+  "a1.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "a1.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "a1.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "a1.medium": Object {
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "a1.metal": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "a1.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c1.medium": Object {
+    "memoryGiB": 1.7,
+    "vCpu": 2,
+  },
+  "c1.xlarge": Object {
+    "memoryGiB": 7,
+    "vCpu": 8,
+  },
+  "c3.2xlarge": Object {
+    "memoryGiB": 15,
+    "vCpu": 8,
+  },
+  "c3.4xlarge": Object {
+    "memoryGiB": 30,
+    "vCpu": 16,
+  },
+  "c3.8xlarge": Object {
+    "memoryGiB": 60,
+    "vCpu": 32,
+  },
+  "c3.large": Object {
+    "memoryGiB": 3.75,
+    "vCpu": 2,
+  },
+  "c3.xlarge": Object {
+    "memoryGiB": 7.5,
+    "vCpu": 4,
+  },
+  "c4.2xlarge": Object {
+    "memoryGiB": 15,
+    "vCpu": 8,
+  },
+  "c4.4xlarge": Object {
+    "memoryGiB": 30,
+    "vCpu": 16,
+  },
+  "c4.8xlarge": Object {
+    "memoryGiB": 60,
+    "vCpu": 36,
+  },
+  "c4.large": Object {
+    "memoryGiB": 3.75,
+    "vCpu": 2,
+  },
+  "c4.xlarge": Object {
+    "memoryGiB": 7.5,
+    "vCpu": 4,
+  },
+  "c5.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c5.18xlarge": Object {
+    "memoryGiB": 144,
+    "vCpu": 72,
+  },
+  "c5.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c5.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c5.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c5.9xlarge": Object {
+    "memoryGiB": 72,
+    "vCpu": 36,
+  },
+  "c5.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c5.metal": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c5.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c5a.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c5a.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c5a.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c5a.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c5a.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c5a.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c5a.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c5a.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c5ad.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c5ad.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c5ad.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c5ad.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c5ad.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c5ad.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c5ad.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c5ad.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c5d.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c5d.18xlarge": Object {
+    "memoryGiB": 144,
+    "vCpu": 72,
+  },
+  "c5d.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c5d.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c5d.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c5d.9xlarge": Object {
+    "memoryGiB": 72,
+    "vCpu": 36,
+  },
+  "c5d.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c5d.metal": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c5d.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c5n.18xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 72,
+  },
+  "c5n.2xlarge": Object {
+    "memoryGiB": 21,
+    "vCpu": 8,
+  },
+  "c5n.4xlarge": Object {
+    "memoryGiB": 42,
+    "vCpu": 16,
+  },
+  "c5n.9xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 36,
+  },
+  "c5n.large": Object {
+    "memoryGiB": 5.25,
+    "vCpu": 2,
+  },
+  "c5n.metal": Object {
+    "memoryGiB": 192,
+    "vCpu": 72,
+  },
+  "c5n.xlarge": Object {
+    "memoryGiB": 10.5,
+    "vCpu": 4,
+  },
+  "c6g.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6g.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6g.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6g.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6g.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6g.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6g.medium": Object {
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c6g.metal": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6g.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c6gd.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6gd.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6gd.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6gd.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6gd.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6gd.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6gd.medium": Object {
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c6gd.metal": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6gd.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "cc2.8xlarge": Object {
+    "memoryGiB": 60.5,
+    "vCpu": 32,
+  },
+  "d2.2xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 8,
+  },
+  "d2.4xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 16,
+  },
+  "d2.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 36,
+  },
+  "d2.xlarge": Object {
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  "f1.16xlarge": Object {
+    "memoryGiB": 976,
+    "vCpu": 64,
+  },
+  "f1.2xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 8,
+  },
+  "f1.4xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 16,
+  },
+  "g2.2xlarge": Object {
+    "memoryGiB": 15,
+    "vCpu": 8,
+  },
+  "g2.8xlarge": Object {
+    "memoryGiB": 60,
+    "vCpu": 32,
+  },
+  "g3.16xlarge": Object {
+    "memoryGiB": 488,
+    "vCpu": 64,
+  },
+  "g3.4xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 16,
+  },
+  "g3.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 32,
+  },
+  "g3s.xlarge": Object {
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  "g4dn.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "g4dn.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "g4dn.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "g4dn.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "g4dn.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "g4dn.metal": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "g4dn.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "h1.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "h1.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "h1.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "h1.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "i2.2xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 8,
+  },
+  "i2.4xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 16,
+  },
+  "i2.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 32,
+  },
+  "i2.xlarge": Object {
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  "i3.16xlarge": Object {
+    "memoryGiB": 488,
+    "vCpu": 64,
+  },
+  "i3.2xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 8,
+  },
+  "i3.4xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 16,
+  },
+  "i3.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 32,
+  },
+  "i3.large": Object {
+    "memoryGiB": 15.25,
+    "vCpu": 2,
+  },
+  "i3.metal": Object {
+    "memoryGiB": 512,
+    "vCpu": 72,
+  },
+  "i3.xlarge": Object {
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  "i3en.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "i3en.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "i3en.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "i3en.3xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 12,
+  },
+  "i3en.6xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 24,
+  },
+  "i3en.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "i3en.metal": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "i3en.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "inf1.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "inf1.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "inf1.6xlarge": Object {
+    "memoryGiB": 48,
+    "vCpu": 24,
+  },
+  "inf1.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "m1.large": Object {
+    "memoryGiB": 7.5,
+    "vCpu": 2,
+  },
+  "m1.medium": Object {
+    "memoryGiB": 3.7,
+    "vCpu": 1,
+  },
+  "m1.small": Object {
+    "memoryGiB": 1.7,
+    "vCpu": 1,
+  },
+  "m1.xlarge": Object {
+    "memoryGiB": 15,
+    "vCpu": 4,
+  },
+  "m2.2xlarge": Object {
+    "memoryGiB": 34.2,
+    "vCpu": 4,
+  },
+  "m2.4xlarge": Object {
+    "memoryGiB": 68.4,
+    "vCpu": 8,
+  },
+  "m2.xlarge": Object {
+    "memoryGiB": 17.1,
+    "vCpu": 2,
+  },
+  "m3.2xlarge": Object {
+    "memoryGiB": 30,
+    "vCpu": 8,
+  },
+  "m3.large": Object {
+    "memoryGiB": 7.5,
+    "vCpu": 2,
+  },
+  "m3.medium": Object {
+    "memoryGiB": 3.75,
+    "vCpu": 1,
+  },
+  "m3.xlarge": Object {
+    "memoryGiB": 15,
+    "vCpu": 4,
+  },
+  "m4.10xlarge": Object {
+    "memoryGiB": 160,
+    "vCpu": 40,
+  },
+  "m4.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m4.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m4.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m4.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m4.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m5.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m5.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m5.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5.metal": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5a.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5a.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m5a.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5a.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5a.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m5a.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m5a.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5a.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5ad.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5ad.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m5ad.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5ad.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5ad.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m5ad.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m5ad.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5ad.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5d.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5d.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m5d.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5d.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5d.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m5d.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m5d.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5d.metal": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5d.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5dn.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5dn.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m5dn.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5dn.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5dn.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m5dn.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m5dn.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5dn.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5n.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5n.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m5n.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m5n.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5n.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m5n.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m5n.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5n.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6g.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6g.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6g.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6g.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6g.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6g.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6g.medium": Object {
+    "memoryGiB": 4,
+    "vCpu": 1,
+  },
+  "m6g.metal": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6g.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6gd.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6gd.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6gd.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6gd.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6gd.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6gd.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6gd.medium": Object {
+    "memoryGiB": 4,
+    "vCpu": 1,
+  },
+  "m6gd.metal": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6gd.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "p2.16xlarge": Object {
+    "memoryGiB": 732,
+    "vCpu": 64,
+  },
+  "p2.8xlarge": Object {
+    "memoryGiB": 488,
+    "vCpu": 32,
+  },
+  "p2.xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 4,
+  },
+  "p3.16xlarge": Object {
+    "memoryGiB": 488,
+    "vCpu": 64,
+  },
+  "p3.2xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 8,
+  },
+  "p3.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 32,
+  },
+  "p3dn.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "p4d.24xlarge": Object {
+    "memoryGiB": 1152,
+    "vCpu": 96,
+  },
+  "r3.2xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 8,
+  },
+  "r3.4xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 16,
+  },
+  "r3.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 32,
+  },
+  "r3.large": Object {
+    "memoryGiB": 15,
+    "vCpu": 2,
+  },
+  "r3.xlarge": Object {
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  "r4.16xlarge": Object {
+    "memoryGiB": 488,
+    "vCpu": 64,
+  },
+  "r4.2xlarge": Object {
+    "memoryGiB": 61,
+    "vCpu": 8,
+  },
+  "r4.4xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 16,
+  },
+  "r4.8xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 32,
+  },
+  "r4.large": Object {
+    "memoryGiB": 15.25,
+    "vCpu": 2,
+  },
+  "r4.xlarge": Object {
+    "memoryGiB": 30.5,
+    "vCpu": 4,
+  },
+  "r5.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5.metal": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r5a.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5a.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5a.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5a.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5a.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5a.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5a.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5a.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r5ad.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5ad.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5ad.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5ad.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5ad.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5ad.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5ad.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5ad.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r5d.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5d.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5d.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5d.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5d.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5d.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5d.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5d.metal": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5d.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r5dn.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5dn.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5dn.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5dn.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5dn.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5dn.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5dn.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5dn.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r5n.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5n.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5n.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5n.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5n.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5n.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5n.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5n.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6g.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6g.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6g.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6g.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6g.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6g.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6g.medium": Object {
+    "memoryGiB": 8,
+    "vCpu": 1,
+  },
+  "r6g.metal": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6g.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6gd.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6gd.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6gd.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6gd.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6gd.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6gd.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6gd.medium": Object {
+    "memoryGiB": 8,
+    "vCpu": 1,
+  },
+  "r6gd.metal": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6gd.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "t1.micro": Object {
+    "memoryGiB": 0.613,
+    "vCpu": 1,
+  },
+  "t2.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "t2.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "t2.medium": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "t2.micro": Object {
+    "memoryGiB": 1,
+    "vCpu": 1,
+  },
+  "t2.nano": Object {
+    "memoryGiB": 0.5,
+    "vCpu": 1,
+  },
+  "t2.small": Object {
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "t2.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "t3.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "t3.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "t3.medium": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "t3.micro": Object {
+    "memoryGiB": 1,
+    "vCpu": 2,
+  },
+  "t3.nano": Object {
+    "memoryGiB": 0.5,
+    "vCpu": 2,
+  },
+  "t3.small": Object {
+    "memoryGiB": 2,
+    "vCpu": 2,
+  },
+  "t3.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "t3a.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "t3a.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "t3a.medium": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "t3a.micro": Object {
+    "memoryGiB": 1,
+    "vCpu": 2,
+  },
+  "t3a.nano": Object {
+    "memoryGiB": 0.5,
+    "vCpu": 2,
+  },
+  "t3a.small": Object {
+    "memoryGiB": 2,
+    "vCpu": 2,
+  },
+  "t3a.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "t4g.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "t4g.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "t4g.medium": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "t4g.micro": Object {
+    "memoryGiB": 1,
+    "vCpu": 2,
+  },
+  "t4g.nano": Object {
+    "memoryGiB": 0.5,
+    "vCpu": 2,
+  },
+  "t4g.small": Object {
+    "memoryGiB": 2,
+    "vCpu": 2,
+  },
+  "t4g.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "x1.16xlarge": Object {
+    "memoryGiB": 976,
+    "vCpu": 64,
+  },
+  "x1.32xlarge": Object {
+    "memoryGiB": 1952,
+    "vCpu": 128,
+  },
+  "x1e.16xlarge": Object {
+    "memoryGiB": 1952,
+    "vCpu": 64,
+  },
+  "x1e.2xlarge": Object {
+    "memoryGiB": 244,
+    "vCpu": 8,
+  },
+  "x1e.32xlarge": Object {
+    "memoryGiB": 3904,
+    "vCpu": 128,
+  },
+  "x1e.4xlarge": Object {
+    "memoryGiB": 488,
+    "vCpu": 16,
+  },
+  "x1e.8xlarge": Object {
+    "memoryGiB": 976,
+    "vCpu": 32,
+  },
+  "x1e.xlarge": Object {
+    "memoryGiB": 122,
+    "vCpu": 4,
+  },
+  "z1d.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "z1d.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "z1d.3xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 12,
+  },
+  "z1d.6xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 24,
+  },
+  "z1d.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "z1d.metal": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "z1d.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+}
+`;
+
+exports[`lib getEc2Info run with targeted instance type should return expected values 1`] = `
+Object {
+  "dummy.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+}
+`;
+
 exports[`lib getGlobalSpotPrices run with default options should return expected values 1`] = `
 Array [
   Object {
-    "AvailabilityZone": "us-west-2a",
-    "InstanceType": "t3a.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001500",
-    "Timestamp": 2019-10-15T22:41:58.000Z,
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2019-10-15T22:41:58.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-west-2c",
-    "InstanceType": "t3a.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001500",
-    "Timestamp": 2019-10-15T07:13:00.000Z,
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2019-10-15T07:13:00.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-west-2d",
-    "InstanceType": "t3a.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001500",
-    "Timestamp": 2019-10-15T23:09:28.000Z,
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2019-10-15T23:09:28.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "eu-north-1a",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T12:45:20.000Z,
+    "availabilityZone": "eu-north-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:45:20.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "eu-north-1b",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T12:45:20.000Z,
+    "availabilityZone": "eu-north-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:45:20.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "eu-north-1c",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T12:45:20.000Z,
+    "availabilityZone": "eu-north-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:45:20.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-1a",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX (Amazon VPC)",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:09:43.000Z,
+    "availabilityZone": "us-east-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-1b",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX (Amazon VPC)",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:09:43.000Z,
+    "availabilityZone": "us-east-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-1c",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX (Amazon VPC)",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:09:43.000Z,
+    "availabilityZone": "us-east-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-1d",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX (Amazon VPC)",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:09:43.000Z,
+    "availabilityZone": "us-east-1d",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-1f",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX (Amazon VPC)",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:09:43.000Z,
+    "availabilityZone": "us-east-1f",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-2a",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T12:01:55.000Z,
+    "availabilityZone": "us-east-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:01:55.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-2b",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T12:01:55.000Z,
+    "availabilityZone": "us-east-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:01:55.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-east-2c",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T12:01:55.000Z,
+    "availabilityZone": "us-east-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:01:55.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-west-2a",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:08:19.000Z,
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-west-2b",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:08:19.000Z,
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-west-2c",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:08:19.000Z,
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "us-west-2d",
-    "InstanceType": "t3.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T17:08:19.000Z,
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "ca-central-1a",
-    "InstanceType": "t3a.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T15:04:27.000Z,
+    "availabilityZone": "ca-central-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T15:04:27.000Z,
+    "vCpu": 2,
   },
   Object {
-    "AvailabilityZone": "ca-central-1b",
-    "InstanceType": "t3a.nano",
-    "ProductDescription": "Linux/UNIX",
-    "SpotPrice": "0.001600",
-    "Timestamp": 2019-10-15T15:04:27.000Z,
+    "availabilityZone": "ca-central-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T15:04:27.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-central-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-16T02:51:49.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-central-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-16T02:51:49.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T18:39:03.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-1c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T08:01:03.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-2a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:05:27.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-2b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:05:27.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-2c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:05:27.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-3a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T04:02:17.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-3b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T04:02:17.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-west-3c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T04:02:17.000Z,
+    "vCpu": 2,
+  },
+]
+`;
+
+exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically if not found from constants should return expected values 1`] = `
+Array [
+  Object {
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2019-10-15T22:41:58.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2019-10-15T07:13:00.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2019-10-15T23:09:28.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "eu-north-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:45:20.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-north-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:45:20.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "eu-north-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:45:20.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-1d",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-1f",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX (Amazon VPC)",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:09:43.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:01:55.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:01:55.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-east-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T12:01:55.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T17:08:19.000Z,
+    "vCpu": 2,
+  },
+  Object {
+    "availabilityZone": "ca-central-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T15:04:27.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "ca-central-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2019-10-15T15:04:27.000Z,
+    "vCpu": 4,
+  },
+]
+`;
+
+exports[`lib getGlobalSpotPrices should filter by minVCPU & minMemoryGiB should return expected values 1`] = `
+Array [
+  Object {
+    "availabilityZone": "us-east-2a",
+    "instanceType": "r3.xlarge",
+    "memoryGiB": 30.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0379,
+    "timestamp": 2019-10-15T21:09:49.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "us-east-2b",
+    "instanceType": "r3.xlarge",
+    "memoryGiB": 30.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0379,
+    "timestamp": 2019-10-15T21:09:49.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "us-east-2c",
+    "instanceType": "r3.xlarge",
+    "memoryGiB": 30.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0379,
+    "timestamp": 2019-10-15T21:09:49.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "us-east-2b",
+    "instanceType": "m4.xlarge",
+    "memoryGiB": 16,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.038,
+    "timestamp": 2019-10-15T19:11:29.000Z,
+    "vCpu": 4,
+  },
+  Object {
+    "availabilityZone": "us-east-2c",
+    "instanceType": "m4.xlarge",
+    "memoryGiB": 16,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.038,
+    "timestamp": 2019-10-15T19:11:29.000Z,
+    "vCpu": 4,
   },
 ]
 `;

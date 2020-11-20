@@ -4,12 +4,13 @@ import { resolve } from 'path';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
+import { main } from './cli';
+import { ec2Info, Ec2InstanceInfo } from './constants/ec2-info';
 import {
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
 } from '../test/mock-ec2-endpoints';
-import { consoleMockCallJoin } from '../test/utils';
-import { main } from './cli';
 
 describe('cli', () => {
   describe('test by import', () => {
@@ -41,6 +42,16 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
+    it('should return expected values with wide option', async () => {
+      await main(['-w']);
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
+    it('should return expected values if no matching records found', async () => {
+      await main(['-f', 'c5', '-s', 'metal', '--pl', '0.0001']);
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
     it('should return expected values with user options', async () => {
       await main([
         '-r',
@@ -49,42 +60,44 @@ describe('cli', () => {
         '10',
         '-l',
         '11',
-        '-d',
+        '-p',
         'Linux/UNIX (Amazon VPC)',
         '-i',
         'c5.large',
         'c4.xlarge',
-        '-p',
+        '--pl',
         '0.05',
+        '--raz',
+        'false',
       ]);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
-    it('should return expected values with wildcard product descriptions', async () => {
-      await main(['-r', 'us-east-1', '-l', '10', '-d', 'linux']);
-      await main(['-r', 'us-east-1', '-l', '10', '-d', 'windows']);
+    it('should return expected values with wildcard platforms', async () => {
+      await main(['-r', 'us-east-1', '-l', '10', '-p', 'linux', '--raz', 'false']);
+      await main(['-r', 'us-east-1', '-l', '10', '-p', 'windows', '--raz', 'false']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should return expected values with instance family types and sizes', async () => {
-      await main(['-f', 'c5', '-s', 'large']);
+      await main(['-f', 'c5', '-s', 'large', '--raz', 'false', '-l', '20', '-p', 'linux']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should handle instance family option', async () => {
-      await main(['--family', 'compute']);
+      await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-p', 'linux']);
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
     it('should handle JSON output option', async () => {
-      await main(['--json', '-r', 'us-east-1', '-l', '10']);
+      await main(['--json', '-r', 'us-east-1', '-l', '10', '--raz', 'false', '-p', 'linux']);
       const results = consoleMockCallJoin();
       const resultsObject = JSON.parse(results);
       expect(results).toMatchSnapshot();
       expect(Object.keys(resultsObject).length).toEqual(10);
       Object.keys(resultsObject).forEach(key => {
         expect(
-          (resultsObject[key].AvailabilityZone as string).startsWith('us-east-1'),
+          (resultsObject[key].availabilityZone as string).startsWith('us-east-1'),
         ).toBeTruthy();
       });
     });
@@ -111,6 +124,24 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toContain('`secretAccessKey` missing.');
     });
 
+    describe('should handle no ec2 info found', () => {
+      let c1MediumInfo: Ec2InstanceInfo | undefined;
+
+      beforeAll(async () => {
+        c1MediumInfo = ec2Info['c1.medium'];
+        delete ec2Info['c1.medium'];
+      });
+
+      afterAll(() => {
+        if (c1MediumInfo) ec2Info['c1.medium'] = c1MediumInfo;
+      });
+
+      it('should return expected values', async () => {
+        await main(['--family', 'compute', '--raz', 'false', '-l', '20', '-p', 'linux', '-w']);
+        expect(consoleMockCallJoin()).toMatchSnapshot();
+      });
+    });
+
     describe('ui mode', () => {
       beforeAll(() => {
         process.env.UI_INJECT = JSON.stringify([
@@ -119,8 +150,12 @@ describe('cli', () => {
           ['c4', 'r5', 'f1'],
           ['nano', 'micro', 'small', 'medium', 'large'],
           ['Linux/UNIX', 'SUSE Linux'],
+          undefined,
+          undefined,
           0.5,
           10,
+          false,
+          false,
         ]);
       });
 

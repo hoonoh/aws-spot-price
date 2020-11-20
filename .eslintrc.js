@@ -20,13 +20,21 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
   ],
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'prettier', 'unused-imports'],
   rules: {
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
     'no-console': 0,
     'no-param-reassign': 0,
     'prettier/prettier': 'error',
+
+    // eslint-plugin-unused-imports
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports-ts': 'error',
+    'unused-imports/no-unused-vars-ts': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    ],
   },
   overrides: [
     {
