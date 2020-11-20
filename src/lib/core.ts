@@ -282,7 +282,7 @@ export const getGlobalSpotPrices = async (options?: {
       if (onFetchComplete) onFetchComplete();
       return Promise.all(
         results
-          .flatMap(r => {
+          .reduce((acc, r) => {
             // look for duplicate and remove prev data if older than current
             const reduceToLatest = r.reduce((reduced, cur) => {
               const duplicateIndex = reduced.findIndex(
@@ -306,28 +306,34 @@ export const getGlobalSpotPrices = async (options?: {
               return reduced;
             }, [] as SpotPriceExtended[]);
 
-            if (!reduceAZ) return reduceToLatest;
+            if (!reduceAZ) {
+              acc.push(...reduceToLatest);
+              return acc;
+            }
 
             // reduce results by region, choosing by cheapest record
-            return reduceToLatest.reduce((reduced, cur) => {
-              const duplicateIndex = reduced.findIndex(info => {
-                const curRegion = cur.availabilityZone?.match(/^.+\d{1,}/)?.[0];
-                const infoRegion = cur.availabilityZone?.match(/^.+\d{1,}/)?.[0];
-                return (
-                  curRegion &&
-                  curRegion === infoRegion &&
-                  cur.instanceType &&
-                  cur.instanceType === info.instanceType &&
-                  cur.platform &&
-                  cur.platform === info.platform
-                );
-              });
-              // since items have already been sorted by price from getEc2SpotPrice()
-              // simply look for duplicates and add if non found
-              if (duplicateIndex < 0) reduced.push(cur);
-              return reduced;
-            }, [] as SpotPriceExtended[]);
-          })
+            acc.push(
+              ...reduceToLatest.reduce((reduced, cur) => {
+                const duplicateIndex = reduced.findIndex(info => {
+                  const curRegion = cur.availabilityZone?.match(/^.+\d{1,}/)?.[0];
+                  const infoRegion = cur.availabilityZone?.match(/^.+\d{1,}/)?.[0];
+                  return (
+                    curRegion &&
+                    curRegion === infoRegion &&
+                    cur.instanceType &&
+                    cur.instanceType === info.instanceType &&
+                    cur.platform &&
+                    cur.platform === info.platform
+                  );
+                });
+                // since items have already been sorted by price from getEc2SpotPrice()
+                // simply look for duplicates and add if non found
+                if (duplicateIndex < 0) reduced.push(cur);
+                return reduced;
+              }, [] as SpotPriceExtended[]),
+            );
+            return acc;
+          }, [] as SpotPriceExtended[])
           .map(async r => {
             const rExtended = { ...r } as SpotPriceExtended;
             const instanceInfo = Object.entries(ec2Info).find(

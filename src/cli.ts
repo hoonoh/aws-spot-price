@@ -362,7 +362,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                 console.log('AWS credentials are not found.');
               }
             } else {
-              console.log('unexpected getGlobalSpotPrices error:', JSON.stringify(error, null, 2));
+              console.log('unexpected getGlobalSpotPrices error:', error);
             }
             rej();
           }
