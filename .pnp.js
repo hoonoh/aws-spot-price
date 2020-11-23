@@ -4961,14 +4961,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["core-js", [
         ["npm:2.6.11", {
-          "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.11-15178ded27/node_modules/core-js/",
+          "packageLocation": "./.yarn/cache/core-js-npm-2.6.11-15178ded27-39ad00b46d.zip/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:2.6.11"]
           ],
           "linkType": "HARD",
         }],
         ["npm:3.6.5", {
-          "packageLocation": "./.yarn/unplugged/core-js-npm-3.6.5-5941340066/node_modules/core-js/",
+          "packageLocation": "./.yarn/cache/core-js-npm-3.6.5-5941340066-9283348dd5.zip/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:3.6.5"]
           ],
@@ -7629,7 +7629,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["husky", [
         ["npm:4.3.0", {
-          "packageLocation": "./.yarn/unplugged/husky-npm-4.3.0-b6c2d49d0e/node_modules/husky/",
+          "packageLocation": "./.yarn/cache/husky-npm-4.3.0-b6c2d49d0e-c212d9732d.zip/node_modules/husky/",
           "packageDependencies": [
             ["husky", "npm:4.3.0"],
             ["chalk", "npm:4.0.0"],
