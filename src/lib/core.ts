@@ -1,4 +1,6 @@
 import EC2 from 'aws-sdk/clients/ec2';
+import { AWSError } from 'aws-sdk/lib/error';
+import { PromiseResult } from 'aws-sdk/lib/request';
 import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
@@ -82,18 +84,36 @@ const getEc2SpotPrice = async (options: {
       secretAccessKey,
     });
 
-    const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
-      const startTime = new Date();
-      startTime.setHours(startTime.getHours() - 3);
+    const startTime = new Date();
+    startTime.setHours(startTime.getHours() - 3);
 
-      const result = await ec2
-        .describeSpotPriceHistory({
-          NextToken: nextToken,
-          StartTime: startTime,
-          ProductDescriptions: platforms,
-          InstanceTypes: instanceTypes,
-        })
-        .promise();
+    const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
+      let retryMS = 0;
+
+      const describeSpotPriceHistory = async (): Promise<
+        PromiseResult<EC2.DescribeSpotPriceHistoryResult, AWSError>
+      > => {
+        try {
+          return await ec2
+            .describeSpotPriceHistory({
+              NextToken: nextToken,
+              StartTime: startTime,
+              ProductDescriptions: platforms,
+              InstanceTypes: instanceTypes,
+            })
+            .promise();
+        } catch (error) {
+          if (error.code === 'RequestLimitExceeded') {
+            retryMS = retryMS ? retryMS * 2 : 200;
+            await new Promise(res => setTimeout(res, retryMS));
+            return describeSpotPriceHistory();
+          } else {
+            throw error;
+          }
+        }
+      };
+
+      const result = await describeSpotPriceHistory();
 
       const nextList = result.NextToken ? await fetch(result.NextToken) : [];
 
@@ -144,14 +164,34 @@ export const getEc2Info = async ({
   const ec2 = new EC2({ region });
 
   const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
+    let retryMS = 0;
+
     const rtn: Ec2InstanceInfos = {};
-    const res = await ec2
-      .describeInstanceTypes({
-        NextToken,
-        MaxResults: InstanceTypes ? undefined : 100,
-        InstanceTypes,
-      })
-      .promise();
+
+    const describeInstanceTypes = async (): Promise<
+      PromiseResult<EC2.DescribeInstanceTypesResult, AWSError>
+    > => {
+      try {
+        return await ec2
+          .describeInstanceTypes({
+            NextToken,
+            MaxResults: InstanceTypes ? undefined : 100,
+            InstanceTypes,
+          })
+          .promise();
+      } catch (error) {
+        if (error.code === 'RequestLimitExceeded') {
+          retryMS = retryMS ? retryMS * 2 : 200;
+          await new Promise(res => setTimeout(res, retryMS));
+          return describeInstanceTypes();
+        } else {
+          throw error;
+        }
+      }
+    };
+
+    const res = await describeInstanceTypes();
+
     res.InstanceTypes?.forEach(i => {
       if (i.InstanceType) {
         rtn[i.InstanceType] = {
