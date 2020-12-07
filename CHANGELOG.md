@@ -1,5 +1,14 @@
 # aws-spot-price changelog
 
+## [1.0.1](https://github.com/hoonoh/aws-spot-price/compare/v1.0.0...v1.0.1) (2020-12-07)
+
+
+### Bug Fixes
+
+* fix linting errors ([92e447f](https://github.com/hoonoh/aws-spot-price/commit/92e447fe01e3f18bdcc3a19a9d073ea3e7ad8281))
+* handle RequestLimitExceeded error ([e41db88](https://github.com/hoonoh/aws-spot-price/commit/e41db8805120953be31894bcdcd04dcd700677fb))
+* set default limit if unset ([f615c23](https://github.com/hoonoh/aws-spot-price/commit/f615c233e55e54d5ef6ed4c1df6f263189e04456))
+
 # [1.0.0](https://github.com/hoonoh/aws-spot-price/compare/v0.5.9...v1.0.0) (2020-11-20)
 
 
