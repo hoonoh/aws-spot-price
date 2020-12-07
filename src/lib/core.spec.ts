@@ -1,7 +1,6 @@
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import nock from 'nock';
-import { stdout } from 'process';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import {
