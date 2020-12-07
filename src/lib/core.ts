@@ -265,18 +265,17 @@ export const getGlobalSpotPrices = async (options?: {
     minVCPU,
     minMemoryGiB,
     platforms,
-    limit,
     reduceAZ,
     accessKeyId,
     secretAccessKey,
     onRegionFetch,
     onRegionFetchFail,
     onFetchComplete,
-  } = options || {
-    limit: defaults.limit,
-  };
+  } = options || {};
 
-  let { regions, instanceTypes } = options || {};
+  let { limit, regions, instanceTypes } = options || {};
+
+  if (limit === undefined) limit = defaults.limit;
 
   if (regions === undefined || !regions.length) regions = defaultRegions;
 
