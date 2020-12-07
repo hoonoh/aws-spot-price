@@ -41,6 +41,11 @@ If no options are applied, it will fetch all recent pricing data from default re
 
 This CLI utility uses AWS-SDK and requires AWS Access & Secret keys. If environment variables pair `AWS_ACCESS_KEY_ID` & `AWS_SECRET_ACCESS_KEY` or `~/.aws/credentials` is available it will use it. Otherwise, you will need to supply credentials through CLI options [`--accessKeyId`](#accessKeyId) and [`--secretAccessKey`](#secretAccessKey).
 
+##### Permissions Required
+
+- ec2:DescribeSpotPriceHistory
+- ec2:DescribeInstanceTypes
+
 #### Options
 
 ##### --ui
