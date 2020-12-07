@@ -30,13 +30,31 @@ const nockEndpoint = (options: {
   region: Region;
   maxLength?: number;
   returnPartialBlankValues?: boolean;
+  returnRequestLimitExceededErrorCount?: number;
 }): void => {
   const { region, returnPartialBlankValues, maxLength } = options;
+  let { returnRequestLimitExceededErrorCount } = options;
 
   nock(`https://ec2.${region}.amazonaws.com`)
     .persist()
     .post('/')
     .reply((uri, body) => {
+      if (returnRequestLimitExceededErrorCount) {
+        returnRequestLimitExceededErrorCount -= 1;
+        return [
+          503,
+          `<Response>
+            <Errors>
+              <Error>
+                <Code>RequestLimitExceeded</Code>
+                <Message>Request limit exceeded.</Message>
+              </Error>
+            </Errors>
+            <RequestID>RequestLimitExceededRequestID</RequestID>
+          </Response>`,
+        ];
+      }
+
       const params = parse(body as string);
 
       if (params.Action === 'DescribeSpotPriceHistory') {
@@ -144,11 +162,19 @@ export const mockDefaultRegionEndpoints = (
   options: {
     maxLength?: number;
     returnPartialBlankValues?: boolean;
+    returnRequestLimitExceededErrorCount?: number;
   } = {},
 ): void => {
-  const { maxLength, returnPartialBlankValues } = options;
+  const { maxLength, returnPartialBlankValues, returnRequestLimitExceededErrorCount } = options;
   mockAwsCredentials();
-  defaultRegions.forEach(region => nockEndpoint({ region, maxLength, returnPartialBlankValues }));
+  defaultRegions.forEach(region =>
+    nockEndpoint({
+      region,
+      maxLength,
+      returnPartialBlankValues,
+      returnRequestLimitExceededErrorCount,
+    }),
+  );
 };
 
 export const mockDefaultRegionEndpointsClear = (): void => {

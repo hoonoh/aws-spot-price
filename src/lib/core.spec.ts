@@ -1,6 +1,7 @@
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
 import nock from 'nock';
+import { stdout } from 'process';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import {
@@ -260,6 +261,27 @@ describe('lib', () => {
       });
     });
 
+    describe('should handle RequestLimitExceeded error', () => {
+      const region = 'us-east-1';
+      let results: SpotPriceExtended[];
+      let restoreConsole: RestoreConsole;
+
+      beforeAll(async () => {
+        restoreConsole = mockConsole();
+        mockDefaultRegionEndpoints({ returnRequestLimitExceededErrorCount: 10 });
+        results = await getGlobalSpotPrices({ regions: [region] });
+      });
+
+      afterAll(() => {
+        restoreConsole();
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', async () => {
+        expect(results).toMatchSnapshot();
+      });
+    });
+
     describe('should fetch ec2 instance type info dynamically if not found from constants', () => {
       let results: SpotPriceExtended[];
       let restoreConsole: RestoreConsole;
@@ -334,6 +356,28 @@ describe('lib', () => {
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints({ maxLength: 5, returnPartialBlankValues: true });
+        results = await getEc2Info({ InstanceTypes: ['dummy.large'] });
+      });
+
+      afterAll(() => {
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(Object.keys(results).length).toEqual(1);
+        expect(results).toMatchSnapshot();
+      });
+    });
+
+    describe('should handle RequestLimitExceeded error', () => {
+      let results: GetEc2InfoResults;
+
+      beforeAll(async () => {
+        mockDefaultRegionEndpoints({
+          returnRequestLimitExceededErrorCount: 10,
+          maxLength: 5,
+          returnPartialBlankValues: true,
+        });
         results = await getEc2Info({ InstanceTypes: ['dummy.large'] });
       });
 
