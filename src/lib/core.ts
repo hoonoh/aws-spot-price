@@ -107,9 +107,8 @@ const getEc2SpotPrice = async (options: {
             retryMS = retryMS ? retryMS * 2 : 200;
             await new Promise(res => setTimeout(res, retryMS));
             return describeSpotPriceHistory();
-          } else {
-            throw error;
           }
+          throw error;
         }
       };
 
@@ -184,9 +183,8 @@ export const getEc2Info = async ({
           retryMS = retryMS ? retryMS * 2 : 200;
           await new Promise(res => setTimeout(res, retryMS));
           return describeInstanceTypes();
-        } else {
-          throw error;
         }
+        throw error;
       }
     };
 
