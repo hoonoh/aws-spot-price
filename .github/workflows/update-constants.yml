@@ -2,7 +2,13 @@ name: update constants
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
+
+  workflow_dispatch:
+    inputs:
+      checkout_ref:
+        description: branch, tag or commit sha
+        required: true
 
 jobs:
   build:
@@ -10,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.checkout_ref }}
 
       - name: Install dependencies
         run: yarn --immutable
