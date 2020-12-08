@@ -5,15 +5,15 @@ import prettier from 'prettier';
 
 import { getGlobalSpotPrices } from '../src/lib/core';
 
-const familyGeneral = ['a', 't', 'm'];
+const familyGeneral = ['a', 't', 'm', 'mac'];
 
 const familyCompute = ['c'];
 
-const familyMemory = ['r', 'x', 'z'];
+const familyMemory = ['r', 'u-', 'x', 'z'];
 
 const familyStorage = ['d', 'h', 'i'];
 
-const familyAcceleratedComputing = ['f', 'g', 'p'];
+const familyAcceleratedComputing = ['f', 'g', 'inf', 'p'];
 
 const familyOrder = [
   ...familyGeneral,
@@ -45,6 +45,17 @@ const sizeOrder = [
   'metal',
 ];
 
+// assume instance naming rule as:
+// [family(string)][generation/size(high-memory, aka`u-*`)(int)].[instanceSize(string)]
+const getFamilyPrefix = (family: string) => {
+  let rtn = '';
+  while (!'0123456789'.includes(family.substr(0, 1))) {
+    rtn += family.substr(0, 1);
+    family = family.substr(1);
+  }
+  return rtn;
+};
+
 const sortFamilies = (f1: string, f2: string): number => {
   let rtn = 0;
   if (f1[0] === f2[0]) {
@@ -52,8 +63,8 @@ const sortFamilies = (f1: string, f2: string): number => {
     if (f1 > f2) rtn = 1;
     return rtn;
   }
-  const i1 = familyOrder.indexOf(f1[0]);
-  const i2 = familyOrder.indexOf(f2[0]);
+  const i1 = familyOrder.indexOf(getFamilyPrefix(f1));
+  const i2 = familyOrder.indexOf(getFamilyPrefix(f2));
   if (i1 < 0) throw new Error(`unexpected instance family ${f1}`);
   if (i2 < 0) throw new Error(`unexpected instance family ${f2}`);
   if (i1 < i2) rtn = -1;
@@ -82,8 +93,8 @@ const sortInstances = (i1: string, i2: string): number => {
     if (f1 < f2) sc1 -= 100;
     if (f1 > f2) sc1 += 100;
   } else {
-    sc1 += familyOrder.indexOf(f1[0]) * 100;
-    sc2 += familyOrder.indexOf(f2[0]) * 100;
+    sc1 += familyOrder.indexOf(getFamilyPrefix(f1)) * 100;
+    sc2 += familyOrder.indexOf(getFamilyPrefix(f2)) * 100;
   }
   if (sc1 < sc2) rtn = -1;
   if (sc1 > sc2) rtn = 1;
@@ -112,17 +123,30 @@ const getEc2Types = async (): Promise<string> => {
   const instanceSizes = new Set<string>();
 
   allInstances.forEach(instanceType => {
-    const [family, size] = instanceType.split('.');
+    let [family] = instanceType.split('.');
+    const [, size] = instanceType.split('.');
     if (!family || !size || instanceType.split('.').length !== 2) {
-      console.log('found some exceptions:', instanceType);
+      throw new Error(`unexpected instanceType: ${instanceType}`);
     }
+    if (!sizeOrder.includes(size)) throw new Error(`unexpected instance size ${size}`);
+
     // instanceFamilies.push(family);
-    if (familyGeneral.includes(family[0])) instanceFamilyGeneral.add(family);
-    if (familyCompute.includes(family[0])) instanceFamilyCompute.add(family);
-    if (familyMemory.includes(family[0])) instanceFamilyMemory.add(family);
-    if (familyStorage.includes(family[0])) instanceFamilyStorage.add(family);
-    if (familyAcceleratedComputing.includes(family[0]))
-      instanceFamilyAcceleratedComputing.add(family);
+    const groupByFamily = (refArray: string[], targSet: Set<string>, familyName: string) => {
+      if (!familyName) return '';
+      if (refArray.includes(getFamilyPrefix(familyName))) {
+        targSet.add(familyName);
+        return '';
+      }
+      return familyName;
+    };
+    family = groupByFamily(familyGeneral, instanceFamilyGeneral, family);
+    family = groupByFamily(familyCompute, instanceFamilyCompute, family);
+    family = groupByFamily(familyMemory, instanceFamilyMemory, family);
+    family = groupByFamily(familyStorage, instanceFamilyStorage, family);
+    family = groupByFamily(familyAcceleratedComputing, instanceFamilyAcceleratedComputing, family);
+
+    if (family) throw new Error(`unexpected instance family type ${family}`);
+
     instanceSizes.add(size);
   });
 
