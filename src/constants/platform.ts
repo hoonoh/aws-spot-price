@@ -20,6 +20,5 @@ export const platformWildcards = {
 
 export type PlatformsWildcards = keyof typeof platformWildcards;
 
-export const instanceOfPlatforms = (pd: string): pd is Platform => {
-  return allPlatforms.includes(pd as Platform);
-};
+export const instanceOfPlatforms = (pd: string): pd is Platform =>
+  allPlatforms.includes(pd as Platform);

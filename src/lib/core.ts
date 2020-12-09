@@ -403,8 +403,8 @@ export const getGlobalSpotPrices = async (options?: {
           }),
       );
     })
-    .then(results => {
-      return results
+    .then(results =>
+      results
         .filter(
           // filter out info without region or price greater than priceLimit
           info => {
@@ -431,8 +431,8 @@ export const getGlobalSpotPrices = async (options?: {
             return true;
           },
         )
-        .sort(sortSpotPriceExtended);
-    });
+        .sort(sortSpotPriceExtended),
+    );
 
   // limit output
   if (limit && rtn.length > limit) rtn.splice(limit);
