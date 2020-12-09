@@ -16,9 +16,10 @@ const data = JSON.parse(
 type RegionalData = { [region in Region]: SpotPrice[] };
 
 const regionalData: RegionalData = allRegions.reduce((list, region) => {
-  list[region] = filter(data, (o: SpotPrice) => {
-    return o.AvailabilityZone && o.AvailabilityZone.startsWith(region);
-  });
+  list[region] = filter(
+    data,
+    (o: SpotPrice) => o.AvailabilityZone && o.AvailabilityZone.startsWith(region),
+  );
   return list;
 }, {} as RegionalData);
 
