@@ -9,9 +9,7 @@ import { getEc2Info } from '../src/lib/core';
 (async () => {
   const res = (
     await Promise.all(defaultRegions.map(async region => getEc2Info({ region, log: true })))
-  ).reduce((rtn, cur) => {
-    return { ...rtn, ...cur };
-  }, {} as { vCpu?: number; memoryGiB?: number });
+  ).reduce((rtn, cur) => ({ ...rtn, ...cur }), {} as { vCpu?: number; memoryGiB?: number });
   const sorted = Object.fromEntries(Object.entries(res).sort(([a], [b]) => -(a < b)));
   console.log(`found ${Object.keys(sorted).length} instance types`);
 

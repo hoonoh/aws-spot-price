@@ -59,31 +59,35 @@ const { argv } = yargs()
       console.log('fetched total:', allPrices.length);
 
       // check for any duplicates
-      const unique = uniqWith(allPrices, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-        return (
+      const unique = uniqWith(
+        allPrices,
+        (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
           val1.AvailabilityZone === val2.AvailabilityZone &&
           val1.InstanceType === val2.InstanceType &&
-          val1.ProductDescription === val2.ProductDescription
-        );
-      });
+          val1.ProductDescription === val2.ProductDescription,
+      );
       console.log('unique total:', unique.length);
 
       if (args.processDetail) {
         const uniqueProductDescription = uniqWith(
           allPrices,
-          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-            return val1.ProductDescription === val2.ProductDescription;
-          },
+          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+            val1.ProductDescription === val2.ProductDescription,
         );
-        const uniqueType = uniqWith(allPrices, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-          return val1.InstanceType === val2.InstanceType;
-        });
-        const uniqueFamily = uniqWith(allPrices, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-          return val1.InstanceType?.split('.').shift() === val2.InstanceType?.split('.').shift();
-        });
-        const uniqueSize = uniqWith(allPrices, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-          return val1.InstanceType?.split('.').pop() === val2.InstanceType?.split('.').pop();
-        });
+        const uniqueType = uniqWith(
+          allPrices,
+          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => val1.InstanceType === val2.InstanceType,
+        );
+        const uniqueFamily = uniqWith(
+          allPrices,
+          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+            val1.InstanceType?.split('.').shift() === val2.InstanceType?.split('.').shift(),
+        );
+        const uniqueSize = uniqWith(
+          allPrices,
+          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+            val1.InstanceType?.split('.').pop() === val2.InstanceType?.split('.').pop(),
+        );
         console.log('uniqueType total:', uniqueType.length);
         console.log('uniqueProductDescription total:', uniqueProductDescription.length);
         console.log('uniqueFamily total:', uniqueFamily.length);
@@ -92,13 +96,14 @@ const { argv } = yargs()
         // compare with previous
         const prevList = JSON.parse(readFileSync(jsonPath).toString('utf8'));
 
-        const xor = xorWith(unique, prevList, (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => {
-          return (
+        const xor = xorWith(
+          unique,
+          prevList,
+          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
             val1.AvailabilityZone === val2.AvailabilityZone &&
             val1.InstanceType === val2.InstanceType &&
-            val1.ProductDescription === val2.ProductDescription
-          );
-        });
+            val1.ProductDescription === val2.ProductDescription,
+        );
         console.log('xor total:', xor.length);
         const xorPrev: EC2.SpotPrice[] = [];
         const xorCur: EC2.SpotPrice[] = [];
