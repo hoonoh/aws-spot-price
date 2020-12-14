@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.5](https://github.com/hoonoh/aws-spot-price/compare/v1.0.4...v1.0.5) (2020-12-14)
+
+
+### Bug Fixes
+
+* update ec2-types ([#316](https://github.com/hoonoh/aws-spot-price/issues/316)) ([d55bd4c](https://github.com/hoonoh/aws-spot-price/commit/d55bd4c35b7f1369767802a1341bacfd4024c5c3))
+
 ## [1.0.4](https://github.com/hoonoh/aws-spot-price/compare/v1.0.3...v1.0.4) (2020-12-10)
 
 
