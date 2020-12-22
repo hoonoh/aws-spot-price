@@ -31,6 +31,7 @@ export const instanceFamilyCompute = [
   'c5n',
   'c6g',
   'c6gd',
+  'c6gn',
 ] as const;
 
 export const instanceFamilyMemory = [
@@ -308,6 +309,14 @@ export const allInstances = [
   'c6gd.12xlarge',
   'c6gd.16xlarge',
   'c6gd.metal',
+  'c6gn.medium',
+  'c6gn.large',
+  'c6gn.xlarge',
+  'c6gn.2xlarge',
+  'c6gn.4xlarge',
+  'c6gn.8xlarge',
+  'c6gn.12xlarge',
+  'c6gn.16xlarge',
   'r3.large',
   'r3.xlarge',
   'r3.2xlarge',
