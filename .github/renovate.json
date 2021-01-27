@@ -7,7 +7,5 @@
     "group:allNonMajor",
     ":pinOnlyDevDependencies"
   ],
-  "suppressNotifications": ["prIgnoreNotification"],
-  "packageRules": [
-  ]
+  "suppressNotifications": ["prIgnoreNotification"]
 }
