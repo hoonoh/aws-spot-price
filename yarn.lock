@@ -2002,12 +2002,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:15.0.13":
-  version: 15.0.13
-  resolution: "@types/yargs@npm:15.0.13"
+"@types/yargs@npm:16.0.0":
+  version: 16.0.0
+  resolution: "@types/yargs@npm:16.0.0"
   dependencies:
     "@types/yargs-parser": "*"
-  checksum: fa1a5b0a07dbbff1657a27d1191d586632412d170321000f6f417f279547a8c191d7058dbf4d4187c188a5a1aeb2473ddb25fe316b206fccdfe1de6fad976619
+  checksum: a17fa2814a4c19b7d327c0d6e6ecb9ca6a68fbfded0c1966d0ef6557540c055f7b9c1c1eadde48acb584f75708d4ec96ba59e58e77b8edbb602c23ed3bee76b9
   languageName: node
   linkType: hard
 
@@ -3103,7 +3103,7 @@ __metadata:
     "@types/prettier": 2.1.6
     "@types/prompts": 2.0.9
     "@types/table": 6.0.0
-    "@types/yargs": 15.0.13
+    "@types/yargs": 16.0.0
     "@typescript-eslint/eslint-plugin": 4.14.1
     "@typescript-eslint/parser": 4.14.1
     aws-sdk: 2.834.0
