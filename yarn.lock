@@ -3018,7 +3018,7 @@ __metadata:
     lodash: 4.17.21
     nock: 13.0.7
     ora: 5.3.0
-    pinst: ^2.1.4
+    pinst: 2.1.4
     prettier: 2.2.1
     prettier-plugin-import-sort: 0.0.6
     prompts: 2.4.0
@@ -11240,7 +11240,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"pinst@npm:^2.1.4":
+"pinst@npm:2.1.4":
   version: 2.1.4
   resolution: "pinst@npm:2.1.4"
   dependencies:
