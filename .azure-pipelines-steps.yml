@@ -13,7 +13,7 @@ steps:
         yarn
     displayName: Cache Yarn packages
 
-  - script: yarn --immutable
+  - script: yarn install --immutable --check-cache --inline-builds
     displayName: 'Install dependencies'
     condition: ne(variables['node_version'], '8.x')
 
