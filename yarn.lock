@@ -1239,7 +1239,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:26.0.20, @types/jest@npm:26.x":
+"@types/jest@npm:26.0.20":
   version: 26.0.20
   resolution: "@types/jest@npm:26.0.20"
   dependencies:
@@ -2145,9 +2145,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.855.0":
-  version: 2.855.0
-  resolution: "aws-sdk@npm:2.855.0"
+"aws-sdk@npm:2.858.0":
+  version: 2.858.0
+  resolution: "aws-sdk@npm:2.858.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -2158,7 +2158,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: 93b89918bdcdc1ba542eb210183b9cb6901699fff65a99e6d4b5e89dda0d8c591a0634aef646ae39088a39ebcd1b9ae247afcd77f5aa749b0700cafc45126860
+  checksum: 55d71c1e07459d393a10148fbaff1c27c0bc908ee34efd34c3eec9278ff9c190c735df983084c7be5029505ade83191b6a0332f92199b093ac93c07d1e77a7d2
   languageName: node
   linkType: hard
 
@@ -2189,7 +2189,7 @@ __metadata:
     "@types/yargs": 16.0.0
     "@typescript-eslint/eslint-plugin": 4.16.1
     "@typescript-eslint/parser": 4.16.1
-    aws-sdk: 2.855.0
+    aws-sdk: 2.858.0
     commitizen: 4.2.3
     conventional-changelog-cli: 2.1.1
     cz-conventional-changelog: 3.3.0
@@ -2198,7 +2198,7 @@ __metadata:
     eslint-config-prettier: 8.1.0
     eslint-import-resolver-typescript: 2.4.0
     eslint-plugin-import: 2.22.1
-    eslint-plugin-jest: 24.1.5
+    eslint-plugin-jest: 24.1.8
     eslint-plugin-prettier: 3.3.1
     eslint-plugin-unused-imports: 1.1.0
     husky: 5.1.3
@@ -2207,19 +2207,19 @@ __metadata:
     jest-junit: 12.0.0
     jest-mock-console: 1.0.1
     lodash: 4.17.21
-    nock: 13.0.10
+    nock: 13.0.11
     ora: 5.3.0
     pinst: 2.1.6
     prettier: 2.2.1
     prettier-plugin-import-sort: 0.0.6
     prompts: 2.4.0
-    semantic-release: 17.4.0
+    semantic-release: 17.4.1
     table: 6.0.7
-    ts-jest: 26.5.2
+    ts-jest: 26.5.3
     ts-loader: 8.0.17
     ts-node: 9.1.1
-    typescript: 4.2.2
-    webpack: 5.24.2
+    typescript: 4.2.3
+    webpack: 5.24.3
     webpack-cli: 4.5.0
     yargs: 16.2.0
   bin:
@@ -4351,14 +4351,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:24.1.5":
-  version: 24.1.5
-  resolution: "eslint-plugin-jest@npm:24.1.5"
+"eslint-plugin-jest@npm:24.1.8":
+  version: 24.1.8
+  resolution: "eslint-plugin-jest@npm:24.1.8"
   dependencies:
     "@typescript-eslint/experimental-utils": ^4.0.1
   peerDependencies:
     eslint: ">=5"
-  checksum: 9e956c0ec9567f91df15d2c0c92b3cf87eab62de10df1cf4daa21ba01857c8827d276474a68d70ae2db64a7ae104c8555124401e17dc4de1590b058cd7c8759e
+  checksum: d59d7cf49fb13633c7b66603985874224e2e5d43a0815454c3825fc2d43c9397d28e3db5c60c26fe89c3a5294ea0a15cc0989c1962ccdaae4972030ddecf0530
   languageName: node
   linkType: hard
 
@@ -8006,7 +8006,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"marked-terminal@npm:^4.0.0":
+"marked-terminal@npm:^4.1.1":
   version: 4.1.1
   resolution: "marked-terminal@npm:4.1.1"
   dependencies:
@@ -8408,15 +8408,15 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"nock@npm:13.0.10":
-  version: 13.0.10
-  resolution: "nock@npm:13.0.10"
+"nock@npm:13.0.11":
+  version: 13.0.11
+  resolution: "nock@npm:13.0.11"
   dependencies:
     debug: ^4.1.0
     json-stringify-safe: ^5.0.1
     lodash.set: ^4.3.2
     propagate: ^2.0.0
-  checksum: 9dffa2c45de0caba5842dce1fa145d0581e8c1217bf531eee29f04d7e9823c3a53c298de18143e11363db5fcc0afb39650ae71aecfd966682a5bfc4bc3d31ae6
+  checksum: 75aca1f14036e9ba6aaa03813b83d1685cd3f2268b154b30ab9f5f00719958140a9d0b1e5f4f420da4e1e6d9fa14f193fc4df68b007d49d7a749dc6fd1646071
   languageName: node
   linkType: hard
 
@@ -10548,9 +10548,9 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:17.4.0":
-  version: 17.4.0
-  resolution: "semantic-release@npm:17.4.0"
+"semantic-release@npm:17.4.1":
+  version: 17.4.1
+  resolution: "semantic-release@npm:17.4.1"
   dependencies:
     "@semantic-release/commit-analyzer": ^8.0.0
     "@semantic-release/error": ^2.2.0
@@ -10570,7 +10570,7 @@ fsevents@^2.1.2:
     hosted-git-info: ^3.0.0
     lodash: ^4.17.15
     marked: ^2.0.0
-    marked-terminal: ^4.0.0
+    marked-terminal: ^4.1.1
     micromatch: ^4.0.2
     p-each-series: ^2.1.0
     p-reduce: ^2.0.0
@@ -10582,7 +10582,7 @@ fsevents@^2.1.2:
     yargs: ^16.2.0
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 5f2ae60022c88301667c06a117355fa861581079bd1ad99a74ea410327795f26489df48fcf96096b4833507112c099b1ab7509962ab0df04784ab2e73e2a66c1
+  checksum: 60d6de3f6d2d3b9adec750e776e462ccbc48baebf20ce24236d22e72ffd12967d8d0355727ec607da60fba3933802ad6ea3dbd6a2e63803060d8da1b1499fbde
   languageName: node
   linkType: hard
 
@@ -11697,11 +11697,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:26.5.2":
-  version: 26.5.2
-  resolution: "ts-jest@npm:26.5.2"
+"ts-jest@npm:26.5.3":
+  version: 26.5.3
+  resolution: "ts-jest@npm:26.5.3"
   dependencies:
-    "@types/jest": 26.x
     bs-logger: 0.x
     buffer-from: 1.x
     fast-json-stable-stringify: 2.x
@@ -11717,7 +11716,7 @@ fsevents@^2.1.2:
     typescript: ">=3.8 <5.0"
   bin:
     ts-jest: cli.js
-  checksum: f9466241291bde18c6f6c5d61875d861983fa2a1b9b1a2164141418c129b874df2bc15bbc4fbde7fc2cb1fa9cae972d5fb292c79b4777afbe19f7ccf035e5d70
+  checksum: 6f429720812687c60b58464e40452687f8dfd958c7cbaf80c36b5af67d5c90b7a313bad05aa385a7f703b0607163f2e879ed719ea12334868d849175414111e7
   languageName: node
   linkType: hard
 
@@ -11880,13 +11879,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-typescript@4.2.2:
-  version: 4.2.2
-  resolution: "typescript@npm:4.2.2"
+typescript@4.2.3:
+  version: 4.2.3
+  resolution: "typescript@npm:4.2.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: b2e3d5551a12c51b6b7a14f0e78d2664c136fab4dfb3eecaaf7a6e8e7e608f2cf43c6ebe81387d194db2588793b769720d2df523d445a1664b7585c5b9a85984
+  checksum: 06e8470f317db6f5e2fce809b20eb84a67a7d8179057abff36e5427bd1b891bd08e54581ff81f0fa36aef9b6d1eb0f54eaf6e2643c6dbd4e37a0adcc41eed256
   languageName: node
   linkType: hard
 
@@ -11900,13 +11899,13 @@ typescript@^3.2.4:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.2.2#builtin<compat/typescript>":
-  version: 4.2.2
-  resolution: "typescript@patch:typescript@npm%3A4.2.2#builtin<compat/typescript>::version=4.2.2&hash=a45b0e"
+"typescript@patch:typescript@4.2.3#builtin<compat/typescript>":
+  version: 4.2.3
+  resolution: "typescript@patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ea1f1b6be22c9e3348f61692719d3169dd4abaad34b2132edff44a8d5a748bde8f3116fa2fae41d61c92b3a7cf1c35d0c7276058b2f35196ff3cde3b7d57c84b
+  checksum: a8956044aabf730699bcc3c2475efdd3f35e509329325cf60b4989761d4c2188e2c474183e2cf92b8c201fcf976814a5a16f144508b2a832643c4f972d0ab803
   languageName: node
   linkType: hard
 
@@ -12330,9 +12329,9 @@ typescript@^3.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.24.2":
-  version: 5.24.2
-  resolution: "webpack@npm:5.24.2"
+"webpack@npm:5.24.3":
+  version: 5.24.3
+  resolution: "webpack@npm:5.24.3"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.46
@@ -12362,7 +12361,7 @@ typescript@^3.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 18408ddd3e5d5849179d6f5ebb44bad28783315da22a19a7f5ad9901e0ef96157a1747db52745fbdb25081f1f73162313088e4895b42f725e2b1221bdcec8a6f
+  checksum: 025181b6a4ba57caabd81047ab5751835a1b00e04cd15d3dca36e33f2034a194f73135b468da402001e5f9042bdad41d38587aec2a747b9fd7846044092655bb
   languageName: node
   linkType: hard
 
