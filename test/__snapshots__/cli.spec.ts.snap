@@ -228,7 +228,9 @@ Options:
     \\"r6gd.large\\", \\"r6gd.xlarge\\", \\"r6gd.2xlarge\\", \\"r6gd.4xlarge\\", \\"r6gd.8xlarge\\",
    \\"r6gd.12xlarge\\", \\"r6gd.16xlarge\\", \\"r6gd.metal\\", \\"x1.16xlarge\\", \\"x1.32xlarge\\",
       \\"x1e.xlarge\\", \\"x1e.2xlarge\\", \\"x1e.4xlarge\\", \\"x1e.8xlarge\\", \\"x1e.16xlarge\\",
-        \\"x1e.32xlarge\\", \\"z1d.large\\", \\"z1d.xlarge\\", \\"z1d.2xlarge\\", \\"z1d.3xlarge\\",
+     \\"x1e.32xlarge\\", \\"x2gd.medium\\", \\"x2gd.large\\", \\"x2gd.xlarge\\", \\"x2gd.2xlarge\\",
+               \\"x2gd.4xlarge\\", \\"x2gd.8xlarge\\", \\"x2gd.12xlarge\\", \\"x2gd.16xlarge\\",
+          \\"x2gd.metal\\", \\"z1d.large\\", \\"z1d.xlarge\\", \\"z1d.2xlarge\\", \\"z1d.3xlarge\\",
           \\"z1d.6xlarge\\", \\"z1d.12xlarge\\", \\"z1d.metal\\", \\"d2.xlarge\\", \\"d2.2xlarge\\",
             \\"d2.4xlarge\\", \\"d2.8xlarge\\", \\"d3.xlarge\\", \\"d3.2xlarge\\", \\"d3.4xlarge\\",
     \\"d3.8xlarge\\", \\"d3en.xlarge\\", \\"d3en.2xlarge\\", \\"d3en.4xlarge\\", \\"d3en.6xlarge\\",
@@ -252,8 +254,8 @@ Options:
    \\"m4\\", \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"m5zn\\", \\"m6g\\", \\"m6gd\\", \\"c1\\",
      \\"c3\\", \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\", \\"c6gn\\", \\"r3\\",
     \\"r4\\", \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5b\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"x1\\",
-   \\"x1e\\", \\"z1d\\", \\"d2\\", \\"d3\\", \\"d3en\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"f1\\", \\"g2\\", \\"g3\\",
-                       \\"g3s\\", \\"g4ad\\", \\"g4dn\\", \\"inf1\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"p4d\\"]
+       \\"x1e\\", \\"x2gd\\", \\"z1d\\", \\"d2\\", \\"d3\\", \\"d3en\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"f1\\",
+           \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4ad\\", \\"g4dn\\", \\"inf1\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"p4d\\"]
   -s, --size                EC2 instance sizes.
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
@@ -524,7 +526,9 @@ Options:
     \\"r6gd.large\\", \\"r6gd.xlarge\\", \\"r6gd.2xlarge\\", \\"r6gd.4xlarge\\", \\"r6gd.8xlarge\\",
    \\"r6gd.12xlarge\\", \\"r6gd.16xlarge\\", \\"r6gd.metal\\", \\"x1.16xlarge\\", \\"x1.32xlarge\\",
       \\"x1e.xlarge\\", \\"x1e.2xlarge\\", \\"x1e.4xlarge\\", \\"x1e.8xlarge\\", \\"x1e.16xlarge\\",
-        \\"x1e.32xlarge\\", \\"z1d.large\\", \\"z1d.xlarge\\", \\"z1d.2xlarge\\", \\"z1d.3xlarge\\",
+     \\"x1e.32xlarge\\", \\"x2gd.medium\\", \\"x2gd.large\\", \\"x2gd.xlarge\\", \\"x2gd.2xlarge\\",
+               \\"x2gd.4xlarge\\", \\"x2gd.8xlarge\\", \\"x2gd.12xlarge\\", \\"x2gd.16xlarge\\",
+          \\"x2gd.metal\\", \\"z1d.large\\", \\"z1d.xlarge\\", \\"z1d.2xlarge\\", \\"z1d.3xlarge\\",
           \\"z1d.6xlarge\\", \\"z1d.12xlarge\\", \\"z1d.metal\\", \\"d2.xlarge\\", \\"d2.2xlarge\\",
             \\"d2.4xlarge\\", \\"d2.8xlarge\\", \\"d3.xlarge\\", \\"d3.2xlarge\\", \\"d3.4xlarge\\",
     \\"d3.8xlarge\\", \\"d3en.xlarge\\", \\"d3en.2xlarge\\", \\"d3en.4xlarge\\", \\"d3en.6xlarge\\",
@@ -548,8 +552,8 @@ Options:
    \\"m4\\", \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"m5zn\\", \\"m6g\\", \\"m6gd\\", \\"c1\\",
      \\"c3\\", \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\", \\"c6gn\\", \\"r3\\",
     \\"r4\\", \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5b\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"x1\\",
-   \\"x1e\\", \\"z1d\\", \\"d2\\", \\"d3\\", \\"d3en\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"f1\\", \\"g2\\", \\"g3\\",
-                       \\"g3s\\", \\"g4ad\\", \\"g4dn\\", \\"inf1\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"p4d\\"]
+       \\"x1e\\", \\"x2gd\\", \\"z1d\\", \\"d2\\", \\"d3\\", \\"d3en\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"f1\\",
+           \\"g2\\", \\"g3\\", \\"g3s\\", \\"g4ad\\", \\"g4dn\\", \\"inf1\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"p4d\\"]
   -s, --size                EC2 instance sizes.
         [array] [choices: \\"nano\\", \\"micro\\", \\"small\\", \\"medium\\", \\"large\\", \\"xlarge\\",
    \\"2xlarge\\", \\"3xlarge\\", \\"4xlarge\\", \\"6xlarge\\", \\"8xlarge\\", \\"9xlarge\\", \\"10xlarge\\",
