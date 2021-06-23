@@ -46,7 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:9.0.2"],
             ["@types/jest", "npm:26.0.22"],
             ["@types/lodash", "npm:4.14.168"],
-            ["@types/node", "npm:13.13.48"],
+            ["@types/node", "npm:14.17.4"],
             ["@types/prettier", "npm:2.2.3"],
             ["@types/prompts", "npm:2.0.10"],
             ["@types/table", "npm:6.0.0"],
@@ -2052,17 +2052,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
-        ["npm:13.13.48", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-13.13.48-3ba970af5e-9ccf1d1e21.zip/node_modules/@types/node/",
-          "packageDependencies": [
-            ["@types/node", "npm:13.13.48"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:14.14.31", {
           "packageLocation": "./.yarn/cache/@types-node-npm-14.14.31-4f1a9dff64-635dc8a089.zip/node_modules/@types/node/",
           "packageDependencies": [
             ["@types/node", "npm:14.14.31"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:14.17.4", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.4-52a7500a10-947ada8b39.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:14.17.4"]
           ],
           "linkType": "HARD",
         }]
@@ -3315,7 +3315,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:9.0.2"],
             ["@types/jest", "npm:26.0.22"],
             ["@types/lodash", "npm:4.14.168"],
-            ["@types/node", "npm:13.13.48"],
+            ["@types/node", "npm:14.17.4"],
             ["@types/prettier", "npm:2.2.3"],
             ["@types/prompts", "npm:2.0.10"],
             ["@types/table", "npm:6.0.0"],
