@@ -10,7 +10,7 @@ jobs:
   - job: Release
     condition: eq(variables['Build.SourceBranch'], 'refs/tags/latest')
     pool:
-      vmImage: ubuntu-16.04
+      vmImage: ubuntu-latest
     strategy:
       matrix:
         node_12_x:
@@ -29,7 +29,7 @@ jobs:
   - job: Linux
     condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
-      vmImage: ubuntu-16.04
+      vmImage: ubuntu-latest
     strategy:
       matrix:
         node_12_x:
@@ -67,7 +67,7 @@ jobs:
   - job: Windows
     condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
-      vmImage: vs2017-win2016
+      vmImage: windows-latest
     strategy:
       matrix:
         node_12_x:
@@ -86,7 +86,7 @@ jobs:
   - job: macOS
     condition: or(startsWith(variables['Build.SourceBranch'], 'refs/heads/'), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool:
-      vmImage: macOS-10.15
+      vmImage: macOS-latest
     strategy:
       matrix:
         node_12_x:
