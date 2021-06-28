@@ -93,8 +93,8 @@ jobs:
           node_version: 12.x
         node_14_x:
           node_version: 14.x
-        node_16_x:
-          node_version: 16.x
+        # node_16_x:
+        #   node_version: 16.x
     steps:
       - template: .azure-pipelines-steps.yml
 
