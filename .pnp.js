@@ -49,7 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prettier", "npm:2.2.3"],
             ["@types/prompts", "npm:2.0.10"],
             ["@types/table", "npm:6.0.0"],
-            ["@types/yargs", "npm:16.0.1"],
+            ["@types/yargs", "npm:17.0.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.21.0"],
             ["@typescript-eslint/parser", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.21.0"],
             ["aws-sdk", "npm:2.884.0"],
@@ -84,7 +84,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["webpack", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:5.31.2"],
             ["webpack-cli", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.6.0"],
-            ["yargs", "npm:16.2.0"]
+            ["yargs", "npm:17.0.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -2620,18 +2620,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/yargs", [
-        ["npm:16.0.1", {
-          "packageLocation": "./.yarn/cache/@types-yargs-npm-16.0.1-f0f48d836f-7b141b6a9e.zip/node_modules/@types/yargs/",
-          "packageDependencies": [
-            ["@types/yargs", "npm:16.0.1"],
-            ["@types/yargs-parser", "npm:20.2.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:16.0.3", {
           "packageLocation": "./.yarn/cache/@types-yargs-npm-16.0.3-b6f52df1c2-84b8f61774.zip/node_modules/@types/yargs/",
           "packageDependencies": [
             ["@types/yargs", "npm:16.0.3"],
+            ["@types/yargs-parser", "npm:20.2.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:17.0.0", {
+          "packageLocation": "./.yarn/cache/@types-yargs-npm-17.0.0-ed47fa4077-92ea97fa20.zip/node_modules/@types/yargs/",
+          "packageDependencies": [
+            ["@types/yargs", "npm:17.0.0"],
             ["@types/yargs-parser", "npm:20.2.0"]
           ],
           "linkType": "HARD",
@@ -3802,7 +3802,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prettier", "npm:2.2.3"],
             ["@types/prompts", "npm:2.0.10"],
             ["@types/table", "npm:6.0.0"],
-            ["@types/yargs", "npm:16.0.1"],
+            ["@types/yargs", "npm:17.0.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.21.0"],
             ["@typescript-eslint/parser", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.21.0"],
             ["aws-sdk", "npm:2.884.0"],
@@ -3837,7 +3837,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["webpack", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:5.31.2"],
             ["webpack-cli", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:4.6.0"],
-            ["yargs", "npm:16.2.0"]
+            ["yargs", "npm:17.0.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -16347,6 +16347,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yargs-npm-16.2.0-547873d425-a79ce1f043.zip/node_modules/yargs/",
           "packageDependencies": [
             ["yargs", "npm:16.2.0"],
+            ["cliui", "npm:7.0.4"],
+            ["escalade", "npm:3.1.1"],
+            ["get-caller-file", "npm:2.0.5"],
+            ["require-directory", "npm:2.1.1"],
+            ["string-width", "npm:4.2.2"],
+            ["y18n", "npm:5.0.5"],
+            ["yargs-parser", "npm:20.2.6"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:17.0.1", {
+          "packageLocation": "./.yarn/cache/yargs-npm-17.0.1-1d996d62b1-a7969b48d2.zip/node_modules/yargs/",
+          "packageDependencies": [
+            ["yargs", "npm:17.0.1"],
             ["cliui", "npm:7.0.4"],
             ["escalade", "npm:3.1.1"],
             ["get-caller-file", "npm:2.0.5"],
