@@ -1597,10 +1597,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:13.13.48":
-  version: 13.13.48
-  resolution: "@types/node@npm:13.13.48"
-  checksum: 9ccf1d1e21b6b5c33bf003e211fe6af8d4255fede5e81c717a5768ce49eba84addcf68d299573179d58274630cd552ff5e124e0db2c55c0a358120e07b0e54ec
+"@types/node@npm:14.17.4":
+  version: 14.17.4
+  resolution: "@types/node@npm:14.17.4"
+  checksum: 947ada8b39710c8fedf60f342b4ac1a08de8ebfbd4f09471b4e0006c2b0c7b832513e4dc2cdd455af5236910e2e725899bd9ce0aaecd097b2867d3e2ab62d8c6
   languageName: node
   linkType: hard
 
@@ -2594,7 +2594,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 9.0.2
     "@types/jest": 26.0.22
     "@types/lodash": 4.14.168
-    "@types/node": 13.13.48
+    "@types/node": 14.17.4
     "@types/prettier": 2.2.3
     "@types/prompts": 2.0.10
     "@types/table": 6.0.0
