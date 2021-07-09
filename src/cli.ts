@@ -1,7 +1,7 @@
 import { sep } from 'path';
 
 import ora from 'ora';
-import { table, TableColumns } from 'table';
+import { ColumnUserConfig, Indexable, table } from 'table';
 import yargs from 'yargs/yargs';
 
 import { ui } from './lib/ui';
@@ -300,7 +300,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
 
               let tableHeader: (string | undefined)[][] | undefined;
               let tableData: (string | undefined)[][] | undefined;
-              let tableFormat: Record<number, TableColumns> | undefined;
+              let tableFormat: Indexable<ColumnUserConfig> | undefined;
 
               if (!wide) {
                 tableHeader = [['Type', 'Price', 'Platform', 'Availability Zone']];
