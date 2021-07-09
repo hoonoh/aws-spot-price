@@ -34,9 +34,12 @@ export const mockAwsCredentials = (
   }
 
   if (fail) {
-    nock('https://sts.amazonaws.com').persist().post('/').reply(
-      403,
-      `<ErrorResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+    nock('https://sts.amazonaws.com')
+      .persist()
+      .post('/')
+      .reply(
+        403,
+        `<ErrorResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
           <Error>
             <Type>Sender</Type>
             <Code>MissingAuthenticationToken</Code>
@@ -44,11 +47,14 @@ export const mockAwsCredentials = (
           </Error>
           <RequestId>4fc0d3ee-efef-11e9-9282-3b7bffe54a9b</RequestId>
         </ErrorResponse>`,
-    );
+      );
   } else {
-    nock(`https://sts.amazonaws.com`).persist().post('/').reply(
-      200,
-      `<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+    nock(`https://sts.amazonaws.com`)
+      .persist()
+      .post('/')
+      .reply(
+        200,
+        `<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
           <GetCallerIdentityResult>
           <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
             <UserId>EXAMPLE</UserId>
@@ -58,7 +64,7 @@ export const mockAwsCredentials = (
             <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
           </ResponseMetadata>
         </GetCallerIdentityResponse>`,
-    );
+      );
   }
 };
 

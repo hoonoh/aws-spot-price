@@ -230,9 +230,12 @@ describe('lib', () => {
       const region: Region = 'ap-east-1';
       beforeAll(() => {
         mockAwsCredentials();
-        nock(`https://ec2.${region}.amazonaws.com`).persist().post('/').reply(
-          401,
-          `<?xml version="1.0" encoding="UTF-8"?>
+        nock(`https://ec2.${region}.amazonaws.com`)
+          .persist()
+          .post('/')
+          .reply(
+            401,
+            `<?xml version="1.0" encoding="UTF-8"?>
             <Response>
               <Errors>
                 <Error>
@@ -242,7 +245,7 @@ describe('lib', () => {
               </Errors>
               <RequestID>e359d062-474b-4621-888c-e269b594de4a</RequestID>
             </Response>`,
-        );
+          );
       });
       afterAll(() => {
         mockAwsCredentialsClear();
