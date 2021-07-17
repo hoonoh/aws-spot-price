@@ -21,15 +21,19 @@ Supports CLI and module usage.
 
 #### npm
 
-`npm -g i aws-spot-price`
+`npm i aws-spot-price`
 
 #### yarn
 
-`yarn global add aws-spot-price`
+`yarn add aws-spot-price`
 
 #### run with npx
 
 `npx aws-spot-price`
+
+#### run with yarn dlx
+
+`yarn dlx aws-spot-price`
 
 ### Usage
 
