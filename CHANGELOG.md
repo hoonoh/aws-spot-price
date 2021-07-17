@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.12](https://github.com/hoonoh/aws-spot-price/compare/v1.0.11...v1.0.12) (2021-07-17)
+
+
+### Bug Fixes
+
+* npx, yarn dlx ([#359](https://github.com/hoonoh/aws-spot-price/issues/359)) ([7819003](https://github.com/hoonoh/aws-spot-price/commit/7819003bedd8f7029a85c8db25c740c5af6b9e99))
+
 ## [1.0.11](https://github.com/hoonoh/aws-spot-price/compare/v1.0.10...v1.0.11) (2021-06-28)
 
 
