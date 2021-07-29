@@ -241,11 +241,12 @@ Options:
                \\"i3en.3xlarge\\", \\"i3en.6xlarge\\", \\"i3en.12xlarge\\", \\"i3en.24xlarge\\",
           \\"i3en.metal\\", \\"f1.2xlarge\\", \\"f1.4xlarge\\", \\"f1.16xlarge\\", \\"g2.2xlarge\\",
           \\"g2.8xlarge\\", \\"g3.4xlarge\\", \\"g3.8xlarge\\", \\"g3.16xlarge\\", \\"g3s.xlarge\\",
-                 \\"g4ad.4xlarge\\", \\"g4ad.8xlarge\\", \\"g4ad.16xlarge\\", \\"g4dn.xlarge\\",
-                \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\", \\"g4dn.12xlarge\\",
-   \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"inf1.xlarge\\", \\"inf1.2xlarge\\", \\"inf1.6xlarge\\",
-        \\"inf1.24xlarge\\", \\"p2.xlarge\\", \\"p2.8xlarge\\", \\"p2.16xlarge\\", \\"p3.2xlarge\\",
-                   \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\", \\"p4d.24xlarge\\"]
+                  \\"g4ad.xlarge\\", \\"g4ad.2xlarge\\", \\"g4ad.4xlarge\\", \\"g4ad.8xlarge\\",
+                 \\"g4ad.16xlarge\\", \\"g4dn.xlarge\\", \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\",
+  \\"g4dn.8xlarge\\", \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"inf1.xlarge\\",
+     \\"inf1.2xlarge\\", \\"inf1.6xlarge\\", \\"inf1.24xlarge\\", \\"p2.xlarge\\", \\"p2.8xlarge\\",
+      \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\",
+                                                                 \\"p4d.24xlarge\\"]
       --family              EC2 instance family.
                     [array] [choices: \\"general\\", \\"compute\\", \\"memory\\", \\"storage\\",
                                                          \\"acceleratedComputing\\"]
@@ -539,11 +540,12 @@ Options:
                \\"i3en.3xlarge\\", \\"i3en.6xlarge\\", \\"i3en.12xlarge\\", \\"i3en.24xlarge\\",
           \\"i3en.metal\\", \\"f1.2xlarge\\", \\"f1.4xlarge\\", \\"f1.16xlarge\\", \\"g2.2xlarge\\",
           \\"g2.8xlarge\\", \\"g3.4xlarge\\", \\"g3.8xlarge\\", \\"g3.16xlarge\\", \\"g3s.xlarge\\",
-                 \\"g4ad.4xlarge\\", \\"g4ad.8xlarge\\", \\"g4ad.16xlarge\\", \\"g4dn.xlarge\\",
-                \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\", \\"g4dn.8xlarge\\", \\"g4dn.12xlarge\\",
-   \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"inf1.xlarge\\", \\"inf1.2xlarge\\", \\"inf1.6xlarge\\",
-        \\"inf1.24xlarge\\", \\"p2.xlarge\\", \\"p2.8xlarge\\", \\"p2.16xlarge\\", \\"p3.2xlarge\\",
-                   \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\", \\"p4d.24xlarge\\"]
+                  \\"g4ad.xlarge\\", \\"g4ad.2xlarge\\", \\"g4ad.4xlarge\\", \\"g4ad.8xlarge\\",
+                 \\"g4ad.16xlarge\\", \\"g4dn.xlarge\\", \\"g4dn.2xlarge\\", \\"g4dn.4xlarge\\",
+  \\"g4dn.8xlarge\\", \\"g4dn.12xlarge\\", \\"g4dn.16xlarge\\", \\"g4dn.metal\\", \\"inf1.xlarge\\",
+     \\"inf1.2xlarge\\", \\"inf1.6xlarge\\", \\"inf1.24xlarge\\", \\"p2.xlarge\\", \\"p2.8xlarge\\",
+      \\"p2.16xlarge\\", \\"p3.2xlarge\\", \\"p3.8xlarge\\", \\"p3.16xlarge\\", \\"p3dn.24xlarge\\",
+                                                                 \\"p4d.24xlarge\\"]
       --family              EC2 instance family.
                     [array] [choices: \\"general\\", \\"compute\\", \\"memory\\", \\"storage\\",
                                                          \\"acceleratedComputing\\"]
