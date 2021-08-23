@@ -58,6 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["conventional-changelog-cli", "npm:2.1.1"],
             ["cz-conventional-changelog", "npm:3.3.0"],
             ["eslint", "npm:7.32.0"],
+            ["eslint-config-airbnb-base", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:14.2.1"],
             ["eslint-config-airbnb-typescript", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:13.0.0"],
             ["eslint-config-prettier", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:8.3.0"],
             ["eslint-import-resolver-typescript", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:2.4.0"],
@@ -3822,7 +3823,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["aws-sdk", [
         ["npm:2.973.0", {
-          "packageLocation": "./.yarn/cache/aws-sdk-npm-2.973.0-275b80e536-a418219916.zip/node_modules/aws-sdk/",
+          "packageLocation": "./.yarn/unplugged/aws-sdk-npm-2.973.0-275b80e536/node_modules/aws-sdk/",
           "packageDependencies": [
             ["aws-sdk", "npm:2.973.0"],
             ["buffer", "npm:4.9.2"],
@@ -3873,6 +3874,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["conventional-changelog-cli", "npm:2.1.1"],
             ["cz-conventional-changelog", "npm:3.3.0"],
             ["eslint", "npm:7.32.0"],
+            ["eslint-config-airbnb-base", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:14.2.1"],
             ["eslint-config-airbnb-typescript", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:13.0.0"],
             ["eslint-config-prettier", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:8.3.0"],
             ["eslint-import-resolver-typescript", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:2.4.0"],
@@ -5129,6 +5131,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["unique-string", "npm:1.0.0"],
             ["write-file-atomic", "npm:2.4.3"],
             ["xdg-basedir", "npm:3.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["confusing-browser-globals", [
+        ["npm:1.0.10", {
+          "packageLocation": "./.yarn/cache/confusing-browser-globals-npm-1.0.10-ecb768852b-47e9365de6.zip/node_modules/confusing-browser-globals/",
+          "packageDependencies": [
+            ["confusing-browser-globals", "npm:1.0.10"]
           ],
           "linkType": "HARD",
         }]
@@ -6396,6 +6407,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["table", "npm:6.7.1"],
             ["text-table", "npm:0.2.0"],
             ["v8-compile-cache", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["eslint-config-airbnb-base", [
+        ["npm:14.2.1", {
+          "packageLocation": "./.yarn/cache/eslint-config-airbnb-base-npm-14.2.1-50131c00fb-ef1057740e.zip/node_modules/eslint-config-airbnb-base/",
+          "packageDependencies": [
+            ["eslint-config-airbnb-base", "npm:14.2.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:14.2.1", {
+          "packageLocation": "./.yarn/$$virtual/eslint-config-airbnb-base-virtual-d58f0c0feb/0/cache/eslint-config-airbnb-base-npm-14.2.1-50131c00fb-ef1057740e.zip/node_modules/eslint-config-airbnb-base/",
+          "packageDependencies": [
+            ["eslint-config-airbnb-base", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:14.2.1"],
+            ["@types/eslint", null],
+            ["@types/eslint-plugin-import", null],
+            ["confusing-browser-globals", "npm:1.0.10"],
+            ["eslint", "npm:7.32.0"],
+            ["eslint-plugin-import", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:2.24.1"],
+            ["object.assign", "npm:4.1.2"],
+            ["object.entries", "npm:1.1.4"]
+          ],
+          "packagePeers": [
+            "@types/eslint-plugin-import",
+            "@types/eslint",
+            "eslint-plugin-import",
+            "eslint"
           ],
           "linkType": "HARD",
         }]
@@ -12259,6 +12299,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["define-properties", "npm:1.1.3"],
             ["has-symbols", "npm:1.0.2"],
             ["object-keys", "npm:1.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["object.entries", [
+        ["npm:1.1.4", {
+          "packageLocation": "./.yarn/cache/object.entries-npm-1.1.4-d381ab8800-d9da930f56.zip/node_modules/object.entries/",
+          "packageDependencies": [
+            ["object.entries", "npm:1.1.4"],
+            ["call-bind", "npm:1.0.2"],
+            ["define-properties", "npm:1.1.3"],
+            ["es-abstract", "npm:1.18.3"]
           ],
           "linkType": "HARD",
         }]
