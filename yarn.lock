@@ -2914,7 +2914,7 @@ __metadata:
     cz-conventional-changelog: 3.3.0
     eslint: 7.32.0
     eslint-config-airbnb-base: 14.2.1
-    eslint-config-airbnb-typescript: 13.0.0
+    eslint-config-airbnb-typescript: 14.0.0
     eslint-config-prettier: 8.3.0
     eslint-import-resolver-typescript: 2.4.0
     eslint-plugin-import: 2.24.1
@@ -5132,13 +5132,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-typescript@npm:13.0.0":
-  version: 13.0.0
-  resolution: "eslint-config-airbnb-typescript@npm:13.0.0"
+"eslint-config-airbnb-typescript@npm:14.0.0":
+  version: 14.0.0
+  resolution: "eslint-config-airbnb-typescript@npm:14.0.0"
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^4.4.1
-    "@typescript-eslint/parser": ^4.4.1
-  checksum: 9cad1048942fdd3d9f5ef59b4194ee0e08a1451e612da0d7920e77e2b2a0068bf5811ceabfee83a82b0e05a21f85c98de8f0d6d25f9b27dae470559d7b39b7d9
+    "@typescript-eslint/eslint-plugin": ^4.29.3
+    "@typescript-eslint/parser": ^4.29.3
+  checksum: 841f2cf27c1fdc5b1bdf4aa68d657044d288d9ebfebfbf08ece0a8009e0a02ba1559fee9d292bb15a56bcf637828c72e0c91c9b36028da6235b845939e38c7e6
   languageName: node
   linkType: hard
 
