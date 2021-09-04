@@ -1,10 +1,10 @@
-const path = require('path');
+const { resolve } = require('path');
 
 module.exports = {
   mode: 'production',
   entry: {
-    cli: path.resolve(__dirname, 'src/cli.ts'),
-    module: path.resolve(__dirname, 'src/module.ts'),
+    cli: resolve(__dirname, 'src/cli.ts'),
+    module: resolve(__dirname, 'src/module.ts'),
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.cjs', '.mjs'],
@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     libraryTarget: 'commonjs',
-    path: path.join(__dirname, 'dist'),
+    path: resolve(__dirname, 'dist'),
   },
   ignoreWarnings: [
     {
@@ -36,4 +36,21 @@ module.exports = {
     ],
   },
   externals: [/\.\/module$/],
+  plugins: [
+    {
+      apply: compiler => {
+        // for node.js versions < 16
+        compiler.hooks.emit.tap('NodePrefixedModulesReplacer', compilation => {
+          const assets = compilation.getAssets();
+          assets.forEach(asset => {
+            asset.source._children?.forEach(child => {
+              if (child._value.includes('node:')) {
+                child._value = child._value.replace(new RegExp('node:', 'g'), '');
+              }
+            });
+          });
+        });
+      },
+    },
+  ],
 };
