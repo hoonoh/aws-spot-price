@@ -1,6 +1,6 @@
 import { sep } from 'path';
 
-import ora from 'ora';
+import ora, { Ora } from 'ora';
 import { ColumnUserConfig, Indexable, table } from 'table';
 import yargs from 'yargs/yargs';
 
@@ -238,7 +238,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             const sizeSetArray = Array.from(sizeSet);
 
             let spinnerText: string | undefined;
-            let spinner: ora.Ora | undefined;
+            let spinner: Ora | undefined;
             let onRegionFetch: ((reg: Region) => void) | undefined;
             let onRegionFetchFail: ((error: Ec2SpotPriceError) => void) | undefined;
             let onFetchComplete: (() => void) | undefined;
