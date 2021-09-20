@@ -61,10 +61,20 @@ export class Ec2SpotPriceError extends Error {
     Object.setPrototypeOf(this, Ec2SpotPriceError.prototype);
   }
 
+  readonly ec2SpotPriceError = true;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  static isEc2SpotPriceError(error: any): error is Ec2SpotPriceError {
+    return !!error.ec2SpotPriceError;
+  }
+
   readonly region: Region;
 
   readonly code: string;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+export const isAWSError = (error: any): error is AWSError => !!error.code;
 
 const getEc2SpotPrice = async (options: {
   region: Region;
@@ -103,7 +113,7 @@ const getEc2SpotPrice = async (options: {
             })
             .promise();
         } catch (error) {
-          if (error.code === 'RequestLimitExceeded') {
+          if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
             retryMS = retryMS ? retryMS * 2 : 200;
             await new Promise(res => setTimeout(res, retryMS));
             return describeSpotPriceHistory();
@@ -129,6 +139,7 @@ const getEc2SpotPrice = async (options: {
   } catch (error) {
     if (
       error &&
+      isAWSError(error) &&
       error.code &&
       (error.code === 'AuthFailure' ||
         error.code === 'OptInRequired' ||
@@ -179,7 +190,7 @@ export const getEc2Info = async ({
           })
           .promise();
       } catch (error) {
-        if (error.code === 'RequestLimitExceeded') {
+        if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
           retryMS = retryMS ? retryMS * 2 : 200;
           await new Promise(res => setTimeout(res, retryMS));
           return describeInstanceTypes();
@@ -304,7 +315,7 @@ export const getGlobalSpotPrices = async (options?: {
         return regionsPrices;
       } catch (error) {
         /* istanbul ignore if */
-        if (onRegionFetchFail) {
+        if (onRegionFetchFail && Ec2SpotPriceError.isEc2SpotPriceError(error)) {
           onRegionFetchFail(error);
         } else {
           throw error;

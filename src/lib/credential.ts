@@ -33,6 +33,6 @@ export const awsCredentialsCheck = async (options?: {
   try {
     await sts.getCallerIdentity().promise();
   } catch (error) {
-    throw new AuthError(error.message, 'UnAuthorized');
+    throw new AuthError((error as Error).message, 'UnAuthorized');
   }
 };
