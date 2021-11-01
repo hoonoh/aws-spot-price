@@ -1987,12 +1987,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:17.0.4":
-  version: 17.0.4
-  resolution: "@types/yargs@npm:17.0.4"
+"@types/yargs@npm:17.0.5":
+  version: 17.0.5
+  resolution: "@types/yargs@npm:17.0.5"
   dependencies:
     "@types/yargs-parser": "*"
-  checksum: 570f5227bf7ae0ba7c5e64f825fb6168bf5fa2b9cba0cabf88c7f2094717287f6d95919ea8756596cc8c4bb3151313976163f911ca21f9cf6435b4e3cab1cb7e
+  checksum: 2be02640c84471c66aec58cfd415432fab0973283909765aa3becbdb76b5874d4770fe7f376e77b98833d5cc9d9bc258a905adce68a0baec13d430c866fce3b5
   languageName: node
   linkType: hard
 
@@ -2830,9 +2830,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.1013.0":
-  version: 2.1013.0
-  resolution: "aws-sdk@npm:2.1013.0"
+"aws-sdk@npm:2.1018.0":
+  version: 2.1018.0
+  resolution: "aws-sdk@npm:2.1018.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -2843,7 +2843,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: b4728bad6cffe0fe0691155d344c1235c1f0e7d62a2798f2ae0c094c4f7bbbbcb1173bea4170929fdc3899092feeaef5fea31582454de987c69c19ea1138ce17
+  checksum: b2deb6dff61ba705fbb306e47900c31b89d2e80e1d3cb84ac736d14ffb444d977de2bc834c4b6493b19103f0b6e23b5f53b1baf52039837ef8596672aa06c16f
   languageName: node
   linkType: hard
 
@@ -2871,10 +2871,10 @@ __metadata:
     "@types/prettier": 2.4.1
     "@types/prompts": 2.0.14
     "@types/table": 6.0.0
-    "@types/yargs": 17.0.4
+    "@types/yargs": 17.0.5
     "@typescript-eslint/eslint-plugin": 4.33.0
     "@typescript-eslint/parser": 4.33.0
-    aws-sdk: 2.1013.0
+    aws-sdk: 2.1018.0
     commitizen: 4.2.4
     conventional-changelog-cli: 2.1.1
     cz-conventional-changelog: 3.3.0
@@ -2905,7 +2905,7 @@ __metadata:
     ts-loader: 9.2.6
     ts-node: 10.4.0
     typescript: 4.4.4
-    webpack: 5.59.1
+    webpack: 5.61.0
     webpack-cli: 4.9.1
     yargs: 17.2.1
   bin:
@@ -12185,9 +12185,9 @@ typescript@^3.2.4:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.59.1":
-  version: 5.59.1
-  resolution: "webpack@npm:5.59.1"
+"webpack@npm:5.61.0":
+  version: 5.61.0
+  resolution: "webpack@npm:5.61.0"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.50
@@ -12218,7 +12218,7 @@ typescript@^3.2.4:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 6a24f71b640f864e5aa99d4f10ee8d708e4f33524d7ec67ab188ebca27f7002c2cfdd5f051464bf05031047a3accae832ccd1046c88cd1a519f688c7335e7ec3
+  checksum: 442958ec48645c9e612a2628a815c411cbc18289b5cc7b3d1b5d0f8e5b41606ed225decf4f3684edc365e6390867bded244d20387c70fbb630c0ac08443c34c8
   languageName: node
   linkType: hard
 
