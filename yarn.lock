@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 4
+  version: 5
   cacheKey: 8
 
 "@babel/code-frame@npm:7.12.11":
@@ -46,7 +46,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.13.8, @babel/core@npm:^7.2.2":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
+  version: 7.14.6
+  resolution: "@babel/core@npm:7.14.6"
+  dependencies:
+    "@babel/code-frame": ^7.14.5
+    "@babel/generator": ^7.14.5
+    "@babel/helper-compilation-targets": ^7.14.5
+    "@babel/helper-module-transforms": ^7.14.5
+    "@babel/helpers": ^7.14.6
+    "@babel/parser": ^7.14.6
+    "@babel/template": ^7.14.5
+    "@babel/traverse": ^7.14.5
+    "@babel/types": ^7.14.5
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.1.2
+    semver: ^6.3.0
+    source-map: ^0.5.0
+  checksum: 6ede604d8de7a103c087b96a58548a3d27efb9e53de6ecc84f4b4ca947cd91f02b0289fc04557b04eb6e31243dbeabdcdb8fd520a1780f284333f56eb1b58913
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.2.2":
   version: 7.13.8
   resolution: "@babel/core@npm:7.13.8"
   dependencies:
@@ -67,29 +90,6 @@ __metadata:
     semver: ^6.3.0
     source-map: ^0.5.0
   checksum: 9074006b422f6181ae119780ea29cf331bf5d97b05b506c7a828be99d22036c353ec6cf7232f8cc1f0f2a70ddeb4dcc4586fa4cfc2653347bf1e54a9c5116ccc
-  languageName: node
-  linkType: hard
-
-"@babel/core@npm:7.14.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
-  version: 7.14.6
-  resolution: "@babel/core@npm:7.14.6"
-  dependencies:
-    "@babel/code-frame": ^7.14.5
-    "@babel/generator": ^7.14.5
-    "@babel/helper-compilation-targets": ^7.14.5
-    "@babel/helper-module-transforms": ^7.14.5
-    "@babel/helpers": ^7.14.6
-    "@babel/parser": ^7.14.6
-    "@babel/template": ^7.14.5
-    "@babel/traverse": ^7.14.5
-    "@babel/types": ^7.14.5
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.1.2
-    semver: ^6.3.0
-    source-map: ^0.5.0
-  checksum: 6ede604d8de7a103c087b96a58548a3d27efb9e53de6ecc84f4b4ca947cd91f02b0289fc04557b04eb6e31243dbeabdcdb8fd520a1780f284333f56eb1b58913
   languageName: node
   linkType: hard
 
@@ -1576,9 +1576,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:8.0.1":
-  version: 8.0.1
-  resolution: "@semantic-release/github@npm:8.0.1"
+"@semantic-release/github@npm:8.0.2":
+  version: 8.0.2
+  resolution: "@semantic-release/github@npm:8.0.2"
   dependencies:
     "@octokit/rest": ^18.0.0
     "@semantic-release/error": ^2.2.0
@@ -1592,13 +1592,13 @@ __metadata:
     https-proxy-agent: ^5.0.0
     issue-parser: ^6.0.0
     lodash: ^4.17.4
-    mime: ^2.4.3
+    mime: ^3.0.0
     p-filter: ^2.0.0
     p-retry: ^4.0.0
     url-join: ^4.0.0
   peerDependencies:
     semantic-release: ">=18.0.0-beta.1"
-  checksum: a3db06afa9712dc219116deba9f2f23287f1d2dd14dc09218db060e96761c4fff10548dd351ccd1ac6bd2bad1cae3812c90da4658d65582aeabda06e1cbe52b5
+  checksum: 260ecf3fc0aaf2dad87ba85aadf779083015b8c413f8526c28cf10a9cc0c0faa72ddc742ea1170c848985f33d5f3adfe67c2a171e658c13d3819253e701a9231
   languageName: node
   linkType: hard
 
@@ -1628,9 +1628,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:8.0.2":
-  version: 8.0.2
-  resolution: "@semantic-release/npm@npm:8.0.2"
+"@semantic-release/npm@npm:8.0.3":
+  version: 8.0.3
+  resolution: "@semantic-release/npm@npm:8.0.3"
   dependencies:
     "@semantic-release/error": ^3.0.0
     aggregate-error: ^3.0.0
@@ -1647,7 +1647,7 @@ __metadata:
     tempy: ^1.0.0
   peerDependencies:
     semantic-release: ">=18.0.0"
-  checksum: ade2226a85830df101248805b9254ced284fe3d024de100b1669ecda3499f9f9170ac701f88f22742dee9440f57a768215031a0e19e5d8899b27061d43e415b3
+  checksum: 6c1e178f0fdc1b6ab24d14f02fb012302c7220e64e192293be7d11346d309b00338bd5a42e076c7849af68a91745359e750c5a1d7c85c8f11e9941e4516bb413
   languageName: node
   linkType: hard
 
@@ -2776,9 +2776,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.1018.0":
-  version: 2.1018.0
-  resolution: "aws-sdk@npm:2.1018.0"
+"aws-sdk@npm:2.1022.0":
+  version: 2.1022.0
+  resolution: "aws-sdk@npm:2.1022.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -2789,7 +2789,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: b2deb6dff61ba705fbb306e47900c31b89d2e80e1d3cb84ac736d14ffb444d977de2bc834c4b6493b19103f0b6e23b5f53b1baf52039837ef8596672aa06c16f
+  checksum: 48a5a6fb89eafb5790af0ec897d79dbc60395f844ec89e3f371db244c2596ea8e689430c65f4008bf198f1090b5d24fcdcbeaf236a56847be688a98d65f4d724
   languageName: node
   linkType: hard
 
@@ -2808,8 +2808,8 @@ __metadata:
     "@semantic-release/changelog": 5.0.1
     "@semantic-release/commit-analyzer": 9.0.1
     "@semantic-release/git": 9.0.1
-    "@semantic-release/github": 8.0.1
-    "@semantic-release/npm": 8.0.2
+    "@semantic-release/github": 8.0.2
+    "@semantic-release/npm": 8.0.3
     "@semantic-release/release-notes-generator": 10.0.2
     "@types/jest": 27.0.2
     "@types/lodash": 4.14.176
@@ -2820,7 +2820,7 @@ __metadata:
     "@types/yargs": 17.0.5
     "@typescript-eslint/eslint-plugin": 5.3.0
     "@typescript-eslint/parser": 5.3.0
-    aws-sdk: 2.1018.0
+    aws-sdk: 2.1022.0
     commitizen: 4.2.4
     conventional-changelog-cli: 2.1.1
     cz-conventional-changelog: 3.3.0
@@ -2830,7 +2830,7 @@ __metadata:
     eslint-config-prettier: 8.3.0
     eslint-import-resolver-typescript: 2.5.0
     eslint-plugin-import: 2.25.2
-    eslint-plugin-jest: 25.2.2
+    eslint-plugin-jest: 25.2.3
     eslint-plugin-prettier: 4.0.0
     eslint-plugin-unused-imports: 1.1.5
     husky: 7.0.4
@@ -2846,7 +2846,7 @@ __metadata:
     prettier-plugin-import-sort: 0.0.7
     prompts: 2.4.2
     semantic-release: 18.0.0
-    table: 6.7.2
+    table: 6.7.3
     ts-jest: 27.0.7
     ts-loader: 9.2.6
     ts-node: 10.4.0
@@ -4830,9 +4830,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:25.2.2":
-  version: 25.2.2
-  resolution: "eslint-plugin-jest@npm:25.2.2"
+"eslint-plugin-jest@npm:25.2.3":
+  version: 25.2.3
+  resolution: "eslint-plugin-jest@npm:25.2.3"
   dependencies:
     "@typescript-eslint/experimental-utils": ^5.0.0
   peerDependencies:
@@ -4841,7 +4841,9 @@ __metadata:
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: ba78bf20625f017b47f2dc0fe12226f461e7b289fd7e3314421f51a993b142dd51017404524950a95978b3b86850a64931f0615f274cdfeeafea078abf594d73
+    jest:
+      optional: true
+  checksum: eb6ed233348c735bfb3933947d75f982a0884825b2269518048a236bee49a913b67b7788986b8d4679687658cc4f7cd3d2ef32b128cb3d65b422ddec92c770ab
   languageName: node
   linkType: hard
 
@@ -5559,6 +5561,7 @@ fsevents@^2.3.2:
   dependencies:
     node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -5567,7 +5570,7 @@ fsevents@^2.3.2:
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
     node-gyp: latest
-  checksum: edbd0fd80be379c14409605f77e52fdc78a119e17f875e8b90a220c3e5b29e54a1477c21d91fd30b957ea4866406dc3ff87b61432d2840ff8866b309e5866140
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -7402,7 +7405,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"jest-resolve@npm:27.3.1, jest-resolve@npm:^27.3.1":
+"jest-resolve@npm:^27.3.1":
   version: 27.3.1
   resolution: "jest-resolve@npm:27.3.1"
   dependencies:
@@ -8459,6 +8462,15 @@ fsevents@^2.3.2:
   bin:
     mime: cli.js
   checksum: dd3c93d433d41a09f6a1cfa969b653b769899f3bd573e7bfcea33bdc8b0cc4eba57daa2f95937369c2bd2b6d39d62389b11a4309fe40d1d3a1b736afdedad0ff
+  languageName: node
+  linkType: hard
+
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
   languageName: node
   linkType: hard
 
@@ -10292,11 +10304,11 @@ fsevents@^2.3.2:
 
 "resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.8.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.9.0#~builtin<compat/resolve>":
   version: 1.20.0
-  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=b382c1"
+  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"
   dependencies:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
-  checksum: d060c878a7286fcfca5277b90fb12d01e7e075831e0710eef93a8ab7e25311303ab3783cd86d636127d2c7d61daee04aa8a1bc51afd8028110e082a6a2d49ee3
+  checksum: a0dd7d16a8e47af23afa9386df2dff10e3e0debb2c7299a42e581d9d9b04d7ad5d2c53f24f1e043f7b3c250cbdc71150063e53d0b6559683d37f790b7c8c3cd5
   languageName: node
   linkType: hard
 
@@ -11202,17 +11214,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"table@npm:6.7.2":
-  version: 6.7.2
-  resolution: "table@npm:6.7.2"
+"table@npm:6.7.3":
+  version: 6.7.3
+  resolution: "table@npm:6.7.3"
   dependencies:
     ajv: ^8.0.1
-    lodash.clonedeep: ^4.5.0
     lodash.truncate: ^4.4.2
     slice-ansi: ^4.0.0
     string-width: ^4.2.3
     strip-ansi: ^6.0.1
-  checksum: d61f91d64b9be56ac66edd2a8c0f10fcc59995313f37198cb87de73a6b441a05ad36f4a567bd8736da35bc4a2f8f4049b0e4ff1d4356c0a7c2b91af48b8bf8b2
+  checksum: 61d732f51108222d158eca2a91bfaae41c14e0cba6eb04c702ec5a1b136219d4925940d5c4d9aff5720bc4e2385dcbe2ed52dcf37bbbd8b2be48c01c1cf2ed1d
   languageName: node
   linkType: hard
 
