@@ -114,8 +114,8 @@
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/commit-analyzer": "9.0.1",
     "@semantic-release/git": "9.0.1",
-    "@semantic-release/github": "8.0.1",
-    "@semantic-release/npm": "8.0.2",
+    "@semantic-release/github": "8.0.2",
+    "@semantic-release/npm": "8.0.3",
     "@semantic-release/release-notes-generator": "10.0.2",
     "@types/jest": "27.0.2",
     "@types/lodash": "4.14.176",
@@ -126,7 +126,7 @@
     "@types/yargs": "17.0.5",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
-    "aws-sdk": "2.1018.0",
+    "aws-sdk": "2.1022.0",
     "commitizen": "4.2.4",
     "conventional-changelog-cli": "2.1.1",
     "cz-conventional-changelog": "3.3.0",
@@ -136,7 +136,7 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-typescript": "2.5.0",
     "eslint-plugin-import": "2.25.2",
-    "eslint-plugin-jest": "25.2.2",
+    "eslint-plugin-jest": "25.2.3",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-unused-imports": "1.1.5",
     "husky": "7.0.4",
@@ -152,7 +152,7 @@
     "prettier-plugin-import-sort": "0.0.7",
     "prompts": "2.4.2",
     "semantic-release": "18.0.0",
-    "table": "6.7.2",
+    "table": "6.7.3",
     "ts-jest": "27.0.7",
     "ts-loader": "9.2.6",
     "ts-node": "10.4.0",
@@ -161,5 +161,5 @@
     "webpack-cli": "4.9.1",
     "yargs": "17.2.1"
   },
-  "packageManager": "yarn@3.1.0-rc.5"
+  "packageManager": "yarn@3.1.0"
 }
