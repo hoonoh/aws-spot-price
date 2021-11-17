@@ -52,8 +52,8 @@ jobs:
       - name: Run tests and update snapshots
         run: yarn test -u
 
-      - name: Rollback .pnp.js
-        run: git checkout @ -- .pnp.js
+      - name: Rollback .pnp.cjs
+        run: git checkout @ -- .pnp.cjs
 
       - name: Log git diffs
         run: git diff

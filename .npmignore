@@ -2,7 +2,7 @@
 .codeclimate.yml
 .eslint*
 .git*
-.pnp.js
+.pnp.cjs
 .prettier*
 .scannerwork/
 .vscode/

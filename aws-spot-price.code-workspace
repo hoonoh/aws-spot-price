@@ -44,7 +44,7 @@
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
       "**/.hg/store/**": true,
-      ".pnp.js": true
+      ".pnp.cjs": true
     },
 
     "search.exclude": {
@@ -52,7 +52,7 @@
       "**/bower_components": true,
       "**/*.code-search": true,
       ".yarn": true,
-      ".pnp.js": true,
+      ".pnp.cjs": true,
       "yarn.lock": true
     }
   },
