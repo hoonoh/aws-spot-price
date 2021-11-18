@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:7.0.4"],
             ["import-sort-style-module", "npm:6.0.0"],
             ["jest", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:27.3.1"],
-            ["jest-junit", "npm:12.3.0"],
+            ["jest-junit", "npm:13.0.0"],
             ["jest-mock-console", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:1.2.3"],
             ["lodash", "npm:4.17.21"],
             ["nock", "npm:13.2.1"],
@@ -3875,7 +3875,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:7.0.4"],
             ["import-sort-style-module", "npm:6.0.0"],
             ["jest", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:27.3.1"],
-            ["jest-junit", "npm:12.3.0"],
+            ["jest-junit", "npm:13.0.0"],
             ["jest-mock-console", "virtual:4bc879ee8766b5c64a944ba0314247e9ed208a36cde6f3dfba54d4d0d0819032f13bd0f310835cb3c506c634c8bd0ab2b4fed2c45686f55fb51dc017ab534de4#npm:1.2.3"],
             ["lodash", "npm:4.17.21"],
             ["nock", "npm:13.2.1"],
@@ -8998,12 +8998,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jest-junit", [
-        ["npm:12.3.0", {
-          "packageLocation": "./.yarn/cache/jest-junit-npm-12.3.0-867adfca6b-b1527eecba.zip/node_modules/jest-junit/",
+        ["npm:13.0.0", {
+          "packageLocation": "./.yarn/cache/jest-junit-npm-13.0.0-ea74336006-d3a1bf6e98.zip/node_modules/jest-junit/",
           "packageDependencies": [
-            ["jest-junit", "npm:12.3.0"],
+            ["jest-junit", "npm:13.0.0"],
             ["mkdirp", "npm:1.0.4"],
-            ["strip-ansi", "npm:5.2.0"],
+            ["strip-ansi", "npm:6.0.1"],
             ["uuid", "npm:8.3.2"],
             ["xml", "npm:1.0.1"]
           ],
