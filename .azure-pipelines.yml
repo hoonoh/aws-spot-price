@@ -13,8 +13,8 @@ jobs:
       vmImage: ubuntu-latest
     strategy:
       matrix:
-        node_12_x:
-          node_version: 12.x
+        node_16_x:
+          node_version: 16.x
     steps:
       - template: .azure-pipelines-steps.yml
       - bash: |
@@ -40,7 +40,7 @@ jobs:
           node_version: 16.x
     steps:
       - template: .azure-pipelines-steps.yml
-      # sonar-scanner run only on node 12.x
+      # sonar-scanner run only on node 16.x
       - bash: |
           echo "##vso[task.setvariable variable=PACKAGE_VERSION]$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')"
       - task: SonarCloudPrepare@1
@@ -49,17 +49,17 @@ jobs:
           organization: 'hoonoh'
           scannerMode: 'CLI'
           configMode: 'file'
-        condition: eq(variables['node_version'], '12.x')
+        condition: eq(variables['node_version'], '16.x')
       - task: SonarCloudAnalyze@1
-        condition: eq(variables['node_version'], '12.x')
+        condition: eq(variables['node_version'], '16.x')
       - task: SonarCloudPublish@1
         inputs:
           pollingTimeoutSec: '300'
-        condition: eq(variables['node_version'], '12.x')
-      # semantic-release run only on node 12.x & master branch (releases to next dist-tag)
+        condition: eq(variables['node_version'], '16.x')
+      # semantic-release run only on node 16.x & master branch (releases to next dist-tag)
       - script: sed -i -e /\"postinstall\"\:/d ./package.json && yarn semantic-release || true
         displayName: Release
-        condition: and(succeeded(), eq(variables['node_version'], '12.x'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        condition: and(succeeded(), eq(variables['node_version'], '16.x'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         env:
           NPM_TOKEN: $(NPM_TOKEN)
           GH_TOKEN: $(GH_TOKEN)
