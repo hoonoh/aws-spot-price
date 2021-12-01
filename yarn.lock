@@ -1155,19 +1155,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "@jest/types@npm:27.0.6"
-  dependencies:
-    "@types/istanbul-lib-coverage": ^2.0.0
-    "@types/istanbul-reports": ^3.0.0
-    "@types/node": "*"
-    "@types/yargs": ^16.0.0
-    chalk: ^4.0.0
-  checksum: abe367b073d5b7396d7397620f57a24409551bb940761d78e6775f10aee68fb96eb80d7177824090ac811c7e7ba5d9cfce4cbdded86f3adef2abc291da28de77
-  languageName: node
-  linkType: hard
-
 "@jest/types@npm:^27.2.5":
   version: 27.2.5
   resolution: "@jest/types@npm:27.2.5"
@@ -1178,6 +1165,19 @@ __metadata:
     "@types/yargs": ^16.0.0
     chalk: ^4.0.0
   checksum: 322603c24354a5333b5b7a670464422a46e0244a5a96a35552a7018eb4ac2e84c3b7657336b0ea6aa114963f9b6d0da8b8f6f963cb044fea9e7bc04d464b0ab1
+  languageName: node
+  linkType: hard
+
+"@jest/types@npm:^27.4.2":
+  version: 27.4.2
+  resolution: "@jest/types@npm:27.4.2"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^16.0.0
+    chalk: ^4.0.0
+  checksum: 1191022023e32763063cc1c8b1143fa316fb05db2f9698280a7bdbafcabd989e5fd64f8eb875b8a2e54c53f25dba45ed2eea8ced394d9e484da0fda674cd17a5
   languageName: node
   linkType: hard
 
@@ -1988,13 +1988,6 @@ __metadata:
   version: 2.0.0
   resolution: "@types/stack-utils@npm:2.0.0"
   checksum: b3fbae25b073116977ecb5c67d22f14567b51a7792403b0bf46e5de8f29bde3bd4ec1626afb22065495ca7f1c699c8bd66720050c94b8f8f9bcefbee79d161fd
-  languageName: node
-  linkType: hard
-
-"@types/table@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@types/table@npm:6.0.0"
-  checksum: eddfb0a9aaf407c7664adafdcd3edca96ceaec7d4b43fbfb9977a6dd2822ff127d7cd27294c28db8541319de42afc7d6efdc2f00aa0cc7e5c8c2c819abc5e9a7
   languageName: node
   linkType: hard
 
@@ -2913,7 +2906,6 @@ __metadata:
     "@types/node": 16.11.10
     "@types/prettier": 2.4.2
     "@types/prompts": 2.0.14
-    "@types/table": 6.0.0
     "@types/yargs": 17.0.7
     "@typescript-eslint/eslint-plugin": 5.4.0
     "@typescript-eslint/parser": 5.4.0
@@ -2938,7 +2930,6 @@ __metadata:
     lodash: 4.17.21
     nock: 13.2.1
     ora: 5.4.1
-    pinst: 2.1.6
     prettier: 2.5.0
     prettier-plugin-import-sort: 0.0.7
     prompts: 2.4.2
@@ -4508,6 +4499,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"diff-sequences@npm:^27.4.0":
+  version: 27.4.0
+  resolution: "diff-sequences@npm:27.4.0"
+  checksum: 66d04033e8632eeacdd029b4ecaf87d233d475e4b0cd1cee035eda99e70e1a7f803507d72f2677990ef526f28a2f6e5709af8d94dcdc0682b8884a3a646190a1
+  languageName: node
+  linkType: hard
+
 "diff@npm:^4.0.1":
   version: 4.0.2
   resolution: "diff@npm:4.0.2"
@@ -5579,13 +5577,6 @@ __metadata:
     inherits: ^2.0.1
     readable-stream: ^2.0.0
   checksum: 6080eba0793dce32f475141fb3d54cc15f84ee52e420ee22ac3ab0ad639dc95a1875bc6eb9c0e1140e94972a36a89dc5542491b85f1ab8df0c126241e0f1a61b
-  languageName: node
-  linkType: hard
-
-"fromentries@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "fromentries@npm:1.3.2"
-  checksum: 33729c529ce19f5494f846f0dd4945078f4e37f4e8955f4ae8cc7385c218f600e9d93a7d225d17636c20d1889106fd87061f911550861b7072f53bf891e6b341
   languageName: node
   linkType: hard
 
@@ -7234,14 +7225,14 @@ fsevents@^2.3.2:
   linkType: hard
 
 "jest-diff@npm:^27.0.0":
-  version: 27.0.6
-  resolution: "jest-diff@npm:27.0.6"
+  version: 27.4.2
+  resolution: "jest-diff@npm:27.4.2"
   dependencies:
     chalk: ^4.0.0
-    diff-sequences: ^27.0.6
-    jest-get-type: ^27.0.6
-    pretty-format: ^27.0.6
-  checksum: 387e3cdeb2c069dae7d6344b645d3b35153642a2455eb52a454d4432bc4c132c769616a764cbb4866e6ae036dc5a879717b47c7de4eb0f8ce68081731eb3e8ab
+    diff-sequences: ^27.4.0
+    jest-get-type: ^27.4.0
+    pretty-format: ^27.4.2
+  checksum: e5bcdb4f27747795b74a56d56a9545d7fc8f1671a1251d580aea1a7a52df5db044f62ec24f2abc68305f0226d918a443f3b88d9a82f8d0dc4aaa079b621ab091
   languageName: node
   linkType: hard
 
@@ -7308,17 +7299,17 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"jest-get-type@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "jest-get-type@npm:27.0.6"
-  checksum: 2d4c1381bb5ddb212d80ad00497c7cbb3312358e10b62ac19f1fe5a28ae4af709202bfc235b77ec508970b83fd89945937652d636bcaf88614fa00028a6f3138
-  languageName: node
-  linkType: hard
-
 "jest-get-type@npm:^27.3.1":
   version: 27.3.1
   resolution: "jest-get-type@npm:27.3.1"
   checksum: b0b8db1d770c6332b4189bbf4073184489acbb1095410cf53add033daf911577ee6bd1c4f8d747dd2f3d63de42f7eb15c5527fc7288a2855a046f4a8957cd902
+  languageName: node
+  linkType: hard
+
+"jest-get-type@npm:^27.4.0":
+  version: 27.4.0
+  resolution: "jest-get-type@npm:27.4.0"
+  checksum: bb9b70e420009fdaed3026d5bccd01569f92c7500f9f544d862796d4f4efa93ced5484864b2f272c7748bfb5bfd3268d48868b169c51ab45fe5b45b9519b6e46
   languageName: node
   linkType: hard
 
@@ -9696,17 +9687,6 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"pinst@npm:2.1.6":
-  version: 2.1.6
-  resolution: "pinst@npm:2.1.6"
-  dependencies:
-    fromentries: ^1.3.2
-  bin:
-    pinst: bin.js
-  checksum: 3644c352a7a956a0a299012609783456e055b2c4dab274bcbe8ea86d3347355a0552da31a7f3fb6ce91d6102f27b6dde64edd69c2cdaaeb811b87bf205655e36
-  languageName: node
-  linkType: hard
-
 "pirates@npm:^4.0.1":
   version: 4.0.1
   resolution: "pirates@npm:4.0.1"
@@ -9797,15 +9777,15 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.0, pretty-format@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "pretty-format@npm:27.0.6"
+"pretty-format@npm:^27.0.0, pretty-format@npm:^27.4.2":
+  version: 27.4.2
+  resolution: "pretty-format@npm:27.4.2"
   dependencies:
-    "@jest/types": ^27.0.6
-    ansi-regex: ^5.0.0
+    "@jest/types": ^27.4.2
+    ansi-regex: ^5.0.1
     ansi-styles: ^5.0.0
     react-is: ^17.0.1
-  checksum: 1584f7fe29da829e3cf5c9090b0a18300c4b7b81510047e1d4ba080f87e19b6ce07f191ecf2354d64c1cec4c331009bde255a272db2c8292657b6acc059e4864
+  checksum: 0daaf00c4dcb35493e57d30147e8045d0c45cb47fc4c94e3ab1892401abe939627c39975c77cc81eb2581aaa5b12bf23ef669fa550bec68b396fb79dd8c10afa
   languageName: node
   linkType: hard
 

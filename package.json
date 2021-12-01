@@ -21,12 +21,14 @@
   "author": {
     "name": "hoonoh"
   },
+  "packageManager": "yarn@3.1.1",
   "bin": "bin/aws-spot-price",
   "main": "dist/module.js",
   "types": "types/module.d.ts",
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "yarn clean && yarn build && yarn types",
+    "prepare": "husky install",
     "clean": "rm -rf dist && rm -rf types && rm -rf coverage",
     "build:ec2-info": "ts-node -T scripts/generate-ec2-info.ts",
     "build:ec2-types": "ts-node -T scripts/generate-ec2-types.ts",
@@ -40,71 +42,7 @@
     "test:ci": "yarn test:coverage --reporters=default jest-junit --coverageReporters lcov --coverageReporters cobertura",
     "lint": "eslint \"**/*.ts\"",
     "types": "tsc",
-    "semantic-release": "semantic-release",
-    "postpublish": "pinst --enable"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prettier": "prettier --check \"(src|test)/**/*.ts\""
-    }
-  },
-  "eslintIgnore": [
-    "dist",
-    "types"
-  ],
-  "prettier": {
-    "printWidth": 100,
-    "trailingComma": "all",
-    "singleQuote": true,
-    "arrowParens": "avoid"
-  },
-  "importSort": {
-    ".js, .ts": {
-      "style": "module",
-      "parser": "typescript"
-    }
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ],
-    "snapshotResolver": "./test/snapshot-resolver.js",
-    "setupFilesAfterEnv": [
-      "./test/jest.setup.js"
-    ]
-  },
-  "release": {
-    "branch": "master",
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/changelog",
-        {
-          "changelogTitle": "# aws-spot-price changelog"
-        }
-      ],
-      "@semantic-release/npm",
-      "@semantic-release/github",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json",
-            "CHANGELOG.md"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ]
-    ]
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
@@ -119,7 +57,6 @@
     "@types/node": "16.11.10",
     "@types/prettier": "2.4.2",
     "@types/prompts": "2.0.14",
-    "@types/table": "6.0.0",
     "@types/yargs": "17.0.7",
     "@typescript-eslint/eslint-plugin": "5.4.0",
     "@typescript-eslint/parser": "5.4.0",
@@ -144,7 +81,6 @@
     "lodash": "4.17.21",
     "nock": "13.2.1",
     "ora": "5.4.1",
-    "pinst": "2.1.6",
     "prettier": "2.5.0",
     "prettier-plugin-import-sort": "0.0.7",
     "prompts": "2.4.2",
@@ -157,6 +93,5 @@
     "webpack": "5.64.4",
     "webpack-cli": "4.9.1",
     "yargs": "17.2.1"
-  },
-  "packageManager": "yarn@3.1.1"
+  }
 }

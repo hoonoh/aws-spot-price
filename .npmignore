@@ -1,8 +1,10 @@
 .codeclimate.yml
+.czrc
 .eslint*
 .git*
 .pnp.cjs
 .prettier*
+.releaserc.js
 .scannerwork/
 .vscode/
 .yarn/
@@ -13,6 +15,7 @@
 *.spec.*
 coverage
 docs/
+jest.config.js
 junit.xml
 node_modules/
 patches/
