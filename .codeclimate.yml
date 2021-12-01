@@ -1,28 +1,26 @@
-version: "2"
+version: '2'
 
 exclude_patterns:
-  - .azure-pipelines-steps.yml
-  - .azure-pipelines.yml
-  - ".circleci/"
-  - ".codeclimate.yml"
-  - ".eslintrc.js"
-  - ".gitignore"
-  - ".npmignore"
-  - ".prettierignore"
-  - "aws-spot-price.code-workspace"
-  - "bin/"
-  - "CHANGELOG.md"
-  - "commitlint.config.js"
-  - "docs/"
-  - "package.json"
-  - "patches/"
-  - "README.md"
-  - "scripts/"
-  - "src/**/*.spec.ts"
-  - "test/"
-  - "tsconfig.json"
-  - ".yarn/"
-  - "yarn.lock"
+  - '.circleci/'
+  - '.codeclimate.yml'
+  - '.eslintrc.js'
+  - '.gitignore'
+  - '.npmignore'
+  - '.prettierignore'
+  - 'aws-spot-price.code-workspace'
+  - 'bin/'
+  - 'CHANGELOG.md'
+  - 'commitlint.config.js'
+  - 'docs/'
+  - 'package.json'
+  - 'patches/'
+  - 'README.md'
+  - 'scripts/'
+  - 'src/**/*.spec.ts'
+  - 'test/'
+  - 'tsconfig.json'
+  - '.yarn/'
+  - 'yarn.lock'
   - sonar-project.properties
   - sonar-project.properties
   - webpack.config.js

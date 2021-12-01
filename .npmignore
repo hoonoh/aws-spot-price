@@ -1,4 +1,3 @@
-.azure*.yml
 .codeclimate.yml
 .eslint*
 .git*

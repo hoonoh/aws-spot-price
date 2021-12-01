@@ -1,9 +1,8 @@
 # aws-spot-price
 
 [![npm:latest](https://img.shields.io/npm/v/aws-spot-price/latest)](https://www.npmjs.com/package/aws-spot-price)
-[![npm:next](https://img.shields.io/npm/v/aws-spot-price/next)](https://www.npmjs.com/package/aws-spot-price/v/next)
 
-[![Build Status](https://dev.azure.com/aws-spot-price/aws-spot-price/_apis/build/status/hoonoh.aws-spot-price?branchName=master)](https://dev.azure.com/aws-spot-price/aws-spot-price/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://github.com/hoonoh/aws-spot-price/actions/workflows/pull-request.yml/badge.svg)](https://github.com/hoonoh/aws-spot-price/actions/workflows/pull-request.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hoonoh_aws-spot-price&metric=alert_status)](https://sonarcloud.io/dashboard?id=hoonoh_aws-spot-price)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hoonoh_aws-spot-price&metric=coverage)](https://sonarcloud.io/component_measures?id=hoonoh_aws-spot-price&metric=coverage&view=list)
 
