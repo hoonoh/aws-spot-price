@@ -1,16 +1,15 @@
 import { spawnSync } from 'child_process';
+import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { resolve } from 'path';
 
-import mockConsole, { RestoreConsole } from 'jest-mock-console';
-
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
-import { consoleMockCallJoin } from '../test/utils';
-import { main } from './cli';
-import { ec2Info, Ec2InstanceInfo } from './constants/ec2-info';
 import {
   mockDefaultRegionEndpoints,
   mockDefaultRegionEndpointsClear,
 } from '../test/mock-ec2-endpoints';
+import { consoleMockCallJoin } from '../test/utils';
+import { main } from './cli';
+import { ec2Info, Ec2InstanceInfo } from './constants/ec2-info';
 
 describe('cli', () => {
   describe('test by import', () => {

@@ -1,11 +1,10 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { resolve } from 'path';
-
 import EC2 from 'aws-sdk/clients/ec2';
+import { readFileSync, writeFileSync } from 'fs';
 import { find, uniqWith, xorWith } from 'lodash';
+import { resolve } from 'path';
 import yargs from 'yargs/yargs';
 
-import { Region, defaultRegions } from '../src/constants/regions';
+import { defaultRegions, Region } from '../src/constants/regions';
 
 let allPrices: EC2.SpotPrice[] = [];
 
