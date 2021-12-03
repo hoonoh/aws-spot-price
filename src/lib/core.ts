@@ -1,6 +1,12 @@
-import EC2 from 'aws-sdk/clients/ec2';
-import { AWSError } from 'aws-sdk/lib/error';
-import { PromiseResult } from 'aws-sdk/lib/request';
+import {
+  DescribeInstanceTypesCommand,
+  DescribeInstanceTypesCommandOutput,
+  DescribeSpotPriceHistoryCommand,
+  DescribeSpotPriceHistoryCommandOutput,
+  EC2Client,
+  SpotPrice,
+} from '@aws-sdk/client-ec2';
+import { SdkError } from '@aws-sdk/types';
 
 import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
@@ -8,7 +14,7 @@ import { Platform } from '../constants/platform';
 import { defaultRegions, Region } from '../constants/regions';
 import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
-const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
+const sortSpotPrice = (p1: SpotPrice, p2: SpotPrice): number => {
   let rtn = 0;
 
   const sort = (s1?: string, s2?: string): void => {
@@ -63,7 +69,6 @@ export class Ec2SpotPriceError extends Error {
 
   readonly ec2SpotPriceError = true;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
   static isEc2SpotPriceError(error: any): error is Ec2SpotPriceError {
     return !!error.ec2SpotPriceError;
   }
@@ -73,47 +78,87 @@ export class Ec2SpotPriceError extends Error {
   readonly code: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
-export const isAWSError = (error: any): error is AWSError => !!error.code;
+export const isAWSError = (error: any): error is SdkError => !!error.$metadata;
 
-const getEc2SpotPrice = async (options: {
+const getEc2SpotPrice = async ({
+  region,
+  instanceTypes,
+  platforms,
+  accessKeyId,
+  secretAccessKey,
+}: {
   region: Region;
   instanceTypes?: InstanceType[];
   platforms?: Platform[];
   accessKeyId?: string;
   secretAccessKey?: string;
-}): Promise<EC2.SpotPrice[]> => {
-  const { region, instanceTypes, platforms, accessKeyId, secretAccessKey } = options;
-
-  let rtn: EC2.SpotPrice[] = [];
+}): Promise<SpotPrice[]> => {
+  let rtn: SpotPrice[] = [];
 
   try {
-    const ec2 = new EC2({
+    const log = (type: string, ...args: object[]) => {
+      console.log(
+        `>>>${type}: ${args
+          .map(a => {
+            if (typeof a === 'object') {
+              if ((a as any).commandName === 'DescribeSpotPriceHistoryCommand') {
+                const d = a as any;
+                d.output.SpotPriceHistoryLen = d.output.SpotPriceHistory.length;
+                d.output.SpotPriceHistory = d.output.SpotPriceHistory.splice(0, 1);
+                return JSON.stringify(d, null, 2);
+              }
+              return JSON.stringify(a, null, 2);
+            }
+            if (
+              typeof a !== 'bigint' ||
+              typeof a !== 'boolean' ||
+              typeof a !== 'number' ||
+              typeof a !== 'string' ||
+              typeof a !== 'undefined'
+            ) {
+              return JSON.stringify(a);
+            }
+            return a;
+          })
+          .join(' ')}`,
+      );
+    };
+
+    const ec2Client = new EC2Client({
+      // logger: {
+      //   debug: args => log('debug', args),
+      //   error: args => log('error', args),
+      //   info: args => log('info', args),
+      //   warn: args => log('warn', args),
+      // },
       region,
-      accessKeyId,
-      secretAccessKey,
+      credentials:
+        accessKeyId && secretAccessKey
+          ? {
+              accessKeyId,
+              secretAccessKey,
+            }
+          : undefined,
     });
 
     const startTime = new Date();
     startTime.setHours(startTime.getHours() - 3);
 
-    const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
+    const fetch = async (nextToken?: string): Promise<SpotPrice[]> => {
       let retryMS = 0;
 
-      const describeSpotPriceHistory = async (): Promise<
-        PromiseResult<EC2.DescribeSpotPriceHistoryResult, AWSError>
-      > => {
+      const describeSpotPriceHistory = async (): Promise<DescribeSpotPriceHistoryCommandOutput> => {
         try {
-          return await ec2
-            .describeSpotPriceHistory({
+          return await ec2Client.send(
+            new DescribeSpotPriceHistoryCommand({
               NextToken: nextToken,
               StartTime: startTime,
               ProductDescriptions: platforms,
               InstanceTypes: instanceTypes,
-            })
-            .promise();
+            }),
+          );
         } catch (error) {
-          if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
+          if (isAWSError(error) && error.name === 'RequestLimitExceeded') {
             retryMS = retryMS ? retryMS * 2 : 200;
             await new Promise(res => setTimeout(res, retryMS));
             return describeSpotPriceHistory();
@@ -140,12 +185,12 @@ const getEc2SpotPrice = async (options: {
     if (
       error &&
       isAWSError(error) &&
-      error.code &&
-      (error.code === 'AuthFailure' ||
-        error.code === 'OptInRequired' ||
-        error.code === 'CredentialsError')
+      error.name &&
+      (error.name === 'AuthFailure' ||
+        error.name === 'OptInRequired' ||
+        error.name === 'CredentialsError')
     ) {
-      throw new Ec2SpotPriceError(error.message, region, error.code);
+      throw new Ec2SpotPriceError(error.message, region, error.name);
     } else {
       console.error(
         'unexpected getEc2SpotPrice error.',
@@ -169,28 +214,24 @@ export const getEc2Info = async ({
   InstanceTypes?: (InstanceType | string)[];
   log?: boolean;
 } = {}): Promise<Ec2InstanceInfos> => {
-  if (!region) region = 'us-east-1';
-
-  const ec2 = new EC2({ region });
+  const ec2Client = new EC2Client({ region });
 
   const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
     let retryMS = 0;
 
     const rtn: Ec2InstanceInfos = {};
 
-    const describeInstanceTypes = async (): Promise<
-      PromiseResult<EC2.DescribeInstanceTypesResult, AWSError>
-    > => {
+    const describeInstanceTypes = async (): Promise<DescribeInstanceTypesCommandOutput> => {
       try {
-        return await ec2
-          .describeInstanceTypes({
+        return await ec2Client.send(
+          new DescribeInstanceTypesCommand({
             NextToken,
             MaxResults: InstanceTypes ? undefined : 100,
             InstanceTypes,
-          })
-          .promise();
+          }),
+        );
       } catch (error) {
-        if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
+        if (isAWSError(error) && error.name === 'RequestLimitExceeded') {
           retryMS = retryMS ? retryMS * 2 : 200;
           await new Promise(res => setTimeout(res, retryMS));
           return describeInstanceTypes();
@@ -241,7 +282,7 @@ export type SpotPriceExtended = {
   timestamp: Date;
 } & Ec2InstanceInfo;
 
-const SpotPriceToExtended = (cur: EC2.SpotPrice) =>
+const SpotPriceToExtended = (cur: SpotPrice) =>
   ({
     availabilityZone: cur.AvailabilityZone,
     instanceType: cur.InstanceType,
@@ -250,7 +291,23 @@ const SpotPriceToExtended = (cur: EC2.SpotPrice) =>
     timestamp: cur.Timestamp,
   } as SpotPriceExtended);
 
-export const getGlobalSpotPrices = async (options?: {
+export const getGlobalSpotPrices = async ({
+  regions,
+  familyTypes,
+  sizes,
+  priceLimit,
+  minVCPU,
+  minMemoryGiB,
+  instanceTypes,
+  platforms,
+  limit,
+  reduceAZ,
+  accessKeyId,
+  secretAccessKey,
+  onRegionFetch,
+  onRegionFetchFail,
+  onFetchComplete,
+}: {
   regions?: Region[];
   familyTypes?: InstanceFamilyType[];
   sizes?: InstanceSize[];
@@ -266,24 +323,7 @@ export const getGlobalSpotPrices = async (options?: {
   onRegionFetch?: (region: Region) => void;
   onRegionFetchFail?: (error: Ec2SpotPriceError) => void;
   onFetchComplete?: () => void;
-}): Promise<SpotPriceExtended[]> => {
-  const {
-    familyTypes,
-    sizes,
-    priceLimit,
-    minVCPU,
-    minMemoryGiB,
-    platforms,
-    reduceAZ,
-    accessKeyId,
-    secretAccessKey,
-    onRegionFetch,
-    onRegionFetchFail,
-    onFetchComplete,
-  } = options || {};
-
-  let { limit, regions, instanceTypes } = options || {};
-
+} = {}): Promise<SpotPriceExtended[]> => {
   if (limit === undefined) limit = defaults.limit;
 
   if (regions === undefined || !regions.length) regions = defaultRegions;
@@ -394,7 +434,10 @@ export const getGlobalSpotPrices = async (options?: {
               // fetch intance info data from aws
               const region = rExtended.availabilityZone.match(/^.+\d/)?.[0];
               if (region && rExtended.instanceType) {
-                const desc = await getEc2Info({ region, InstanceTypes: [rExtended.instanceType] });
+                const desc = await getEc2Info({
+                  region: region,
+                  InstanceTypes: [rExtended.instanceType],
+                });
 
                 if (
                   desc[rExtended.instanceType] &&

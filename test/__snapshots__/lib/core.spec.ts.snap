@@ -1387,7 +1387,7 @@ Object {
 }
 `;
 
-exports[`lib getGlobalSpotPrices run with default options should return expected values 1`] = `
+exports[`lib getGlobalSpotPrices run with default options n1 should return expected values 1`] = `
 Array [
   Object {
     "availabilityZone": "us-west-2a",
