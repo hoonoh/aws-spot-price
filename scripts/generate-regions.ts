@@ -1,4 +1,4 @@
-import EC2 from 'aws-sdk/clients/ec2';
+import { DescribeRegionsCommand, EC2Client } from '@aws-sdk/client-ec2';
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 import prettier from 'prettier';
@@ -57,9 +57,9 @@ const knownRegionNames: Record<string, string> = {
 
 if (require.main && require.main.filename === module.filename) {
   (async (): Promise<void> => {
-    const ec2 = new EC2({ region: 'us-east-1' });
+    const ec2 = new EC2Client({ region: 'us-east-1' });
     const regions =
-      (await ec2.describeRegions({ AllRegions: true }).promise()).Regions?.sort(
+      (await ec2.send(new DescribeRegionsCommand({ AllRegions: true }))).Regions?.sort(
         // order @ https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
         (a, b) => {
           if (a.RegionName?.startsWith('us-') && !b.RegionName?.startsWith('us-')) return -1;

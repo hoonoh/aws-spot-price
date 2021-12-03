@@ -3,7 +3,6 @@ import { Credentials } from '@aws-sdk/types';
 
 type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isAuthError = (error: any): error is AuthError => {
   return error.authError === 'authError';
 };
