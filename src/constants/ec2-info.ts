@@ -1,8 +1,8 @@
-import { InstanceType } from 'aws-sdk/clients/ec2';
+import { _InstanceType } from '@aws-sdk/client-ec2';
 
 export type Ec2InstanceInfo = { vCpu?: number; memoryGiB?: number };
 
-export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
+export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'a1.2xlarge': { vCpu: 8, memoryGiB: 16 },
   'a1.4xlarge': { vCpu: 16, memoryGiB: 32 },
   'a1.large': { vCpu: 2, memoryGiB: 4 },

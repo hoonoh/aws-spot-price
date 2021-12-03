@@ -2,6 +2,7 @@
 .czrc
 .eslint*
 .git*
+.husky
 .pnp.cjs
 .prettier*
 .releaserc.js

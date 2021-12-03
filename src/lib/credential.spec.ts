@@ -1,11 +1,10 @@
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import nock from 'nock';
 
-import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
+import { mockSTSClient, mockSTSClientRestore } from '../../test/mock-credential-endpoints';
 import { consoleMockCallJoin } from '../../test/utils';
 import { main } from '../cli';
-import { isAWSError } from './core';
-import { awsCredentialsCheck } from './credential';
+import { awsCredentialsCheck, isAuthError } from './credential';
 
 describe('credential', () => {
   describe('awsCredentialsCheck', () => {
@@ -13,13 +12,13 @@ describe('credential', () => {
       nock.cleanAll();
     });
 
-    describe('should throw error', () => {
+    describe('invalid credentials', () => {
       beforeEach(() => {
-        mockAwsCredentials({ fail: true });
+        mockSTSClient({ fail: true });
       });
 
       afterEach(() => {
-        mockAwsCredentialsClear();
+        mockSTSClientRestore();
       });
 
       it('should throw error', async () => {
@@ -33,12 +32,12 @@ describe('credential', () => {
       });
     });
 
-    describe('should not throw error', () => {
+    describe('valid credentials', () => {
       beforeEach(() => {
-        mockAwsCredentials();
+        mockSTSClient();
       });
       afterEach(() => {
-        mockAwsCredentialsClear();
+        mockSTSClientRestore();
       });
       it('should not throw error', async () => {
         let threwError = false;
@@ -53,20 +52,20 @@ describe('credential', () => {
 
     describe('should handle credentials unavailable', () => {
       beforeEach(() => {
-        mockAwsCredentials({ disableEnv: true });
+        mockSTSClient({ loadCredentialsFrom: 'none' });
       });
 
       afterEach(() => {
-        mockAwsCredentialsClear();
+        mockSTSClientRestore();
       });
 
-      it('should handle credentials unavailable', async () => {
+      it('should throw error', async () => {
         let threwError = false;
         try {
           await awsCredentialsCheck();
         } catch (error) {
           threwError = true;
-          if (!isAWSError(error)) throw new Error('expected AWSError');
+          if (!isAuthError(error)) throw new Error('expected AuthError');
           expect(error.message).toEqual('AWS credentials unavailable.');
           expect(error.code).toEqual('CredentialsNotFound');
         }
@@ -80,12 +79,12 @@ describe('credential', () => {
 
     describe('handle no credential found', () => {
       beforeEach(() => {
-        mockAwsCredentials({ disableEnv: true });
+        mockSTSClient({ loadCredentialsFrom: 'none' });
         restoreConsole = mockConsole();
       });
 
       afterEach(() => {
-        mockAwsCredentialsClear();
+        mockSTSClientRestore();
         restoreConsole();
       });
 
@@ -103,12 +102,12 @@ describe('credential', () => {
 
     describe('handle invalid credentials', () => {
       beforeEach(() => {
-        mockAwsCredentials({ disableEnv: true, fail: true });
+        mockSTSClient({ loadCredentialsFrom: 'none', fail: true });
         restoreConsole = mockConsole();
       });
 
       afterEach(() => {
-        mockAwsCredentialsClear();
+        mockSTSClientRestore();
         restoreConsole();
       });
 
