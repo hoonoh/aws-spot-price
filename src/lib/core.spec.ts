@@ -9,11 +9,11 @@ import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
 import { Platform } from '../constants/platform';
 import { Region } from '../constants/regions';
-import { getEc2Info, getGlobalSpotPrices, isAWSError, SpotPriceExtended } from './core';
+import { Ec2SpotPriceError, getEc2Info, getGlobalSpotPrices, SpotPriceExtended } from './core';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
-    describe('run with default options n1', () => {
+    describe('run with default options', () => {
       let results: SpotPriceExtended[];
       let restoreConsole: RestoreConsole;
 
@@ -253,10 +253,12 @@ describe('lib', () => {
           await getGlobalSpotPrices({ regions: [region], reduceAZ: false });
           expect(true).toBeFalsy();
         } catch (error) {
-          if (!isAWSError(error)) throw new Error('expected AWSError');
+          if (!Ec2SpotPriceError.isEc2SpotPriceError(error)) {
+            throw new Error('expected Ec2SpotPriceError');
+          }
           expect(error.name).toEqual('Ec2SpotPriceError');
-          // expect(error.region).toEqual(region);
-          expect(error.name).toEqual('AuthFailure');
+          expect(error.region).toEqual(region);
+          expect(error.code).toEqual('AuthFailure');
         }
       });
     });
@@ -346,7 +348,7 @@ describe('lib', () => {
       });
 
       it('should return expected values', () => {
-        expect(Object.keys(results).length).toEqual(341);
+        expect(Object.keys(results).length).toEqual(468);
         expect(results).toMatchSnapshot();
       });
     });

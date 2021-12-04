@@ -2,11 +2,8 @@ import { spawnSync } from 'child_process';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { resolve } from 'path';
 
-import { mockAwsCredentials, mockAwsCredentialsClear } from '../test/mock-credential-endpoints';
-import {
-  mockDefaultRegionEndpoints,
-  mockDefaultRegionEndpointsClear,
-} from '../test/mock-ec2-endpoints';
+import { mockSTSClient, mockSTSClientRestore } from '../test/mock-credential-endpoints';
+import { spotPriceMock, spotPriceMockRestore } from '../test/mock-ec2-endpoints';
 import { consoleMockCallJoin } from '../test/utils';
 import { main } from './cli';
 import { ec2Info, Ec2InstanceInfo } from './constants/ec2-info';
@@ -16,11 +13,11 @@ describe('cli', () => {
     let restoreConsole: RestoreConsole;
 
     beforeAll(() => {
-      mockDefaultRegionEndpoints();
+      spotPriceMock();
     });
 
     afterAll(() => {
-      mockDefaultRegionEndpointsClear();
+      spotPriceMockRestore();
     });
 
     beforeEach(() => {
@@ -173,12 +170,12 @@ describe('cli', () => {
     let restoreConsole: RestoreConsole;
 
     beforeAll(() => {
-      mockAwsCredentials({ fail: true });
+      mockSTSClient({ fail: true });
       restoreConsole = mockConsole();
     });
 
     afterAll(() => {
-      mockAwsCredentialsClear();
+      mockSTSClientRestore();
       restoreConsole();
     });
 

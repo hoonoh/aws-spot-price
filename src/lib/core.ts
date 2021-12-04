@@ -96,41 +96,7 @@ const getEc2SpotPrice = async ({
   let rtn: SpotPrice[] = [];
 
   try {
-    const log = (type: string, ...args: object[]) => {
-      console.log(
-        `>>>${type}: ${args
-          .map(a => {
-            if (typeof a === 'object') {
-              if ((a as any).commandName === 'DescribeSpotPriceHistoryCommand') {
-                const d = a as any;
-                d.output.SpotPriceHistoryLen = d.output.SpotPriceHistory.length;
-                d.output.SpotPriceHistory = d.output.SpotPriceHistory.splice(0, 1);
-                return JSON.stringify(d, null, 2);
-              }
-              return JSON.stringify(a, null, 2);
-            }
-            if (
-              typeof a !== 'bigint' ||
-              typeof a !== 'boolean' ||
-              typeof a !== 'number' ||
-              typeof a !== 'string' ||
-              typeof a !== 'undefined'
-            ) {
-              return JSON.stringify(a);
-            }
-            return a;
-          })
-          .join(' ')}`,
-      );
-    };
-
     const ec2Client = new EC2Client({
-      // logger: {
-      //   debug: args => log('debug', args),
-      //   error: args => log('error', args),
-      //   info: args => log('info', args),
-      //   warn: args => log('warn', args),
-      // },
       region,
       credentials:
         accessKeyId && secretAccessKey
@@ -158,10 +124,23 @@ const getEc2SpotPrice = async ({
             }),
           );
         } catch (error) {
-          if (isAWSError(error) && error.name === 'RequestLimitExceeded') {
-            retryMS = retryMS ? retryMS * 2 : 200;
-            await new Promise(res => setTimeout(res, retryMS));
-            return describeSpotPriceHistory();
+          if (isAWSError(error)) {
+            if (error.name === 'RequestLimitExceeded') {
+              retryMS = retryMS ? retryMS * 2 : 200;
+              await new Promise(res => setTimeout(res, retryMS));
+              return describeSpotPriceHistory();
+            }
+            if (error.name === 'InvalidInstanceType' && instanceTypes?.length) {
+              const invalidTypes = error.message
+                .match(/\[(.+)\]/)?.[1]
+                ?.split(',')
+                .map(i => i.trim());
+              const filteredTypes = instanceTypes.filter(i => !invalidTypes?.includes(i));
+              if (filteredTypes.length) {
+                instanceTypes = filteredTypes;
+                return describeSpotPriceHistory();
+              }
+            }
           }
           throw error;
         }
@@ -214,6 +193,7 @@ export const getEc2Info = async ({
   InstanceTypes?: (InstanceType | string)[];
   log?: boolean;
 } = {}): Promise<Ec2InstanceInfos> => {
+  region ??= defaultRegions[0];
   const ec2Client = new EC2Client({ region });
 
   const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {

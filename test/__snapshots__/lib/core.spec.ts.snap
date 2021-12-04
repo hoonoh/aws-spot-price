@@ -310,6 +310,78 @@ Object {
     "memoryGiB": 8,
     "vCpu": 4,
   },
+  "c6gn.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6gn.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6gn.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6gn.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6gn.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6gn.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6gn.medium": Object {
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c6gn.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c6i.12xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6i.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6i.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c6i.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6i.32xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6i.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6i.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6i.large": Object {
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6i.metal": Object {
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6i.xlarge": Object {
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
   "cc2.8xlarge": Object {
     "memoryGiB": 60.5,
     "vCpu": 32,
@@ -329,6 +401,50 @@ Object {
   "d2.xlarge": Object {
     "memoryGiB": 30.5,
     "vCpu": 4,
+  },
+  "d3.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "d3.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "d3.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "d3.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "d3en.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "d3en.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "d3en.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "d3en.6xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 24,
+  },
+  "d3en.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "d3en.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "dl1.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
   },
   "f1.16xlarge": Object {
     "memoryGiB": 976,
@@ -366,6 +482,26 @@ Object {
     "memoryGiB": 30.5,
     "vCpu": 4,
   },
+  "g4ad.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "g4ad.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "g4ad.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "g4ad.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "g4ad.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
   "g4dn.12xlarge": Object {
     "memoryGiB": 192,
     "vCpu": 48,
@@ -392,6 +528,62 @@ Object {
   },
   "g4dn.xlarge": Object {
     "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "g5.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "g5.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "g5.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "g5.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "g5.48xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "g5.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "g5.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "g5.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "g5g.16xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "g5g.2xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "g5g.4xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "g5g.8xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "g5g.metal": Object {
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "g5g.xlarge": Object {
+    "memoryGiB": 8,
     "vCpu": 4,
   },
   "h1.16xlarge": Object {
@@ -486,6 +678,30 @@ Object {
     "memoryGiB": 32,
     "vCpu": 4,
   },
+  "im4gn.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "im4gn.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "im4gn.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "im4gn.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "im4gn.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "im4gn.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
   "inf1.24xlarge": Object {
     "memoryGiB": 192,
     "vCpu": 96,
@@ -500,6 +716,30 @@ Object {
   },
   "inf1.xlarge": Object {
     "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "is4gen.2xlarge": Object {
+    "memoryGiB": 48,
+    "vCpu": 8,
+  },
+  "is4gen.4xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 16,
+  },
+  "is4gen.8xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 32,
+  },
+  "is4gen.large": Object {
+    "memoryGiB": 12,
+    "vCpu": 2,
+  },
+  "is4gen.medium": Object {
+    "memoryGiB": 6,
+    "vCpu": 1,
+  },
+  "is4gen.xlarge": Object {
+    "memoryGiB": 24,
     "vCpu": 4,
   },
   "m1.large": Object {
@@ -734,6 +974,10 @@ Object {
     "memoryGiB": 8,
     "vCpu": 2,
   },
+  "m5dn.metal": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
   "m5dn.xlarge": Object {
     "memoryGiB": 16,
     "vCpu": 4,
@@ -766,7 +1010,79 @@ Object {
     "memoryGiB": 8,
     "vCpu": 2,
   },
+  "m5n.metal": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
   "m5n.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5zn.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5zn.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5zn.3xlarge": Object {
+    "memoryGiB": 48,
+    "vCpu": 12,
+  },
+  "m5zn.6xlarge": Object {
+    "memoryGiB": 96,
+    "vCpu": 24,
+  },
+  "m5zn.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5zn.metal": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5zn.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6a.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6a.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6a.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6a.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6a.32xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6a.48xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m6a.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6a.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6a.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6a.xlarge": Object {
     "memoryGiB": 16,
     "vCpu": 4,
   },
@@ -841,6 +1157,50 @@ Object {
   "m6gd.xlarge": Object {
     "memoryGiB": 16,
     "vCpu": 4,
+  },
+  "m6i.12xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6i.16xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6i.24xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6i.2xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6i.32xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6i.4xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6i.8xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6i.large": Object {
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6i.metal": Object {
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6i.xlarge": Object {
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "mac1.metal": Object {
+    "memoryGiB": 32,
+    "vCpu": 12,
   },
   "p2.16xlarge": Object {
     "memoryGiB": 732,
@@ -1018,6 +1378,42 @@ Object {
     "memoryGiB": 32,
     "vCpu": 4,
   },
+  "r5b.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5b.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5b.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5b.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5b.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5b.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5b.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5b.metal": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5b.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
   "r5d.12xlarge": Object {
     "memoryGiB": 384,
     "vCpu": 48,
@@ -1082,6 +1478,10 @@ Object {
     "memoryGiB": 16,
     "vCpu": 2,
   },
+  "r5dn.metal": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
   "r5dn.xlarge": Object {
     "memoryGiB": 32,
     "vCpu": 4,
@@ -1113,6 +1513,10 @@ Object {
   "r5n.large": Object {
     "memoryGiB": 16,
     "vCpu": 2,
+  },
+  "r5n.metal": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
   },
   "r5n.xlarge": Object {
     "memoryGiB": 32,
@@ -1187,6 +1591,46 @@ Object {
     "vCpu": 64,
   },
   "r6gd.xlarge": Object {
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6i.12xlarge": Object {
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6i.16xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6i.24xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r6i.2xlarge": Object {
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6i.32xlarge": Object {
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6i.4xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6i.8xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6i.large": Object {
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6i.metal": Object {
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6i.xlarge": Object {
     "memoryGiB": 32,
     "vCpu": 4,
   },
@@ -1306,6 +1750,34 @@ Object {
     "memoryGiB": 16,
     "vCpu": 4,
   },
+  "u-12tb1.112xlarge": Object {
+    "memoryGiB": 12288,
+    "vCpu": 448,
+  },
+  "u-6tb1.112xlarge": Object {
+    "memoryGiB": 6144,
+    "vCpu": 448,
+  },
+  "u-6tb1.56xlarge": Object {
+    "memoryGiB": 6144,
+    "vCpu": 224,
+  },
+  "u-9tb1.112xlarge": Object {
+    "memoryGiB": 9216,
+    "vCpu": 448,
+  },
+  "vt1.24xlarge": Object {
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "vt1.3xlarge": Object {
+    "memoryGiB": 24,
+    "vCpu": 12,
+  },
+  "vt1.6xlarge": Object {
+    "memoryGiB": 48,
+    "vCpu": 24,
+  },
   "x1.16xlarge": Object {
     "memoryGiB": 976,
     "vCpu": 64,
@@ -1336,6 +1808,42 @@ Object {
   },
   "x1e.xlarge": Object {
     "memoryGiB": 122,
+    "vCpu": 4,
+  },
+  "x2gd.12xlarge": Object {
+    "memoryGiB": 768,
+    "vCpu": 48,
+  },
+  "x2gd.16xlarge": Object {
+    "memoryGiB": 1024,
+    "vCpu": 64,
+  },
+  "x2gd.2xlarge": Object {
+    "memoryGiB": 128,
+    "vCpu": 8,
+  },
+  "x2gd.4xlarge": Object {
+    "memoryGiB": 256,
+    "vCpu": 16,
+  },
+  "x2gd.8xlarge": Object {
+    "memoryGiB": 512,
+    "vCpu": 32,
+  },
+  "x2gd.large": Object {
+    "memoryGiB": 32,
+    "vCpu": 2,
+  },
+  "x2gd.medium": Object {
+    "memoryGiB": 16,
+    "vCpu": 1,
+  },
+  "x2gd.metal": Object {
+    "memoryGiB": 1024,
+    "vCpu": 64,
+  },
+  "x2gd.xlarge": Object {
+    "memoryGiB": 64,
     "vCpu": 4,
   },
   "z1d.12xlarge": Object {
@@ -1387,7 +1895,7 @@ Object {
 }
 `;
 
-exports[`lib getGlobalSpotPrices run with default options n1 should return expected values 1`] = `
+exports[`lib getGlobalSpotPrices run with default options should return expected values 1`] = `
 Array [
   Object {
     "availabilityZone": "us-west-2a",
