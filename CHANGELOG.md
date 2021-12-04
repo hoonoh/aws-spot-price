@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.22-prerelease.1](https://github.com/hoonoh/aws-spot-price/compare/v1.0.21...v1.0.22-prerelease.1) (2021-12-04)
+
+
+### Bug Fixes
+
+* [wip] aws-sdk-js-v3 update scripts, fix ec2-types ([ea64865](https://github.com/hoonoh/aws-spot-price/commit/ea64865517982a746efd0f46a7117d378710becf))
+
 ## [1.0.21](https://github.com/hoonoh/aws-spot-price/compare/v1.0.20...v1.0.21) (2021-12-01)
 
 
