@@ -1,14 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    // "rootDir": ".",
-    // "sourceRoot": "src",
     "rootDir": "src",
-    "outDir": "dist",
+    "outDir": "dist-cjs",
     "noEmit": false,
-    "declaration": true
+    "declaration": false
   },
-  // "exclude": ["*.spec.ts", "scripts", "test"]
   "files": [
     "src/cli.ts",
     "src/module.ts",

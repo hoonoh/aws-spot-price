@@ -6,9 +6,17 @@ runs:
       shell: bash
       run: yarn --immutable --check-cache --inline-builds
 
-    - name: Build
+    - name: Build CJS
       shell: bash
       run: yarn build
+
+    - name: Build ES
+      shell: bash
+      run: yarn build:es
+
+    - name: Build types
+      shell: bash
+      run: yarn build:types
 
     - name: Check linting
       shell: bash
