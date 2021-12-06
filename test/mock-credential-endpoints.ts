@@ -13,7 +13,6 @@ export const mockAwsCredentials = (
   config.credentials = null;
 
   const mock = (): void => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     readFileSyncMock = jest.spyOn(fs, 'readFileSync').mockImplementation((...args: any) => {
       const path = args[0] as string;
       if (!path.includes(`${sep}.aws${sep}`)) {

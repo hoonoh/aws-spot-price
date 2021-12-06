@@ -63,7 +63,6 @@ export class Ec2SpotPriceError extends Error {
 
   readonly ec2SpotPriceError = true;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
   static isEc2SpotPriceError(error: any): error is Ec2SpotPriceError {
     return !!error.ec2SpotPriceError;
   }
@@ -73,7 +72,6 @@ export class Ec2SpotPriceError extends Error {
   readonly code: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const isAWSError = (error: any): error is AWSError => !!error.code;
 
 const getEc2SpotPrice = async (options: {

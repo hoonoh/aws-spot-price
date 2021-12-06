@@ -30,7 +30,6 @@ import {
 } from './module';
 
 // https://github.com/yargs/yargs/issues/1519
-// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-explicit-any
 (process.stdout as any)._handle.setBlocking(true);
 
 export const main = (argvInput?: string[]): Promise<void> =>
