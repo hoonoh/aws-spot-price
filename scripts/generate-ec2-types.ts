@@ -4,15 +4,46 @@ import prettier from 'prettier';
 
 import { getGlobalSpotPrices } from '../src/lib/core';
 
-const familyGeneral = ['a', 't', 'm', 'mac'];
+const familyGeneral = [
+  //
+  'a', // a1 ...
+  't', // t1, t2, t3a...
+  'm', // m1, m2, m6g ...
+  'mac', // mac, mac2 ...
+];
 
-const familyCompute = ['c'];
+const familyCompute = [
+  //
+  'c', // c1, c2, c5n, c5gn ...
+];
 
-const familyMemory = ['r', 'u-', 'x', 'z'];
+const familyMemory = [
+  //
+  'r', // r3, r4, r5a ...
+  'u-', // u-6tb1, u-9tb1 ...
+  'x', // x1, x1e, x1edn ...
+  'z', // z1d ...
+];
 
-const familyStorage = ['d', 'h', 'i'];
+const familyStorage = [
+  //
+  'd', // d2, d3, d3en ...
+  'h', // h1 ...
+  'i', // i3, i3en, i4i ...
+  'im', // im4gn ...
+  'is', // is4gen ...
+];
 
-const familyAcceleratedComputing = ['f', 'g', 'inf', 'p'];
+const familyAcceleratedComputing = [
+  //
+  'dl', // dl1 ...
+  'f', // f1 ...
+  'g', // g5, g4dn, g5g ...
+  'inf', // inf1 ...
+  'p', // p2, p3, p4 ...
+  'trn', // trn1 ...
+  'vt', // vt1 ...
+];
 
 const familyOrder = [
   ...familyGeneral,
@@ -22,37 +53,10 @@ const familyOrder = [
   ...familyAcceleratedComputing,
 ];
 
-const sizeOrder = [
-  'nano',
-  'micro',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  '2xlarge',
-  '3xlarge',
-  '4xlarge',
-  '6xlarge',
-  '8xlarge',
-  '9xlarge',
-  '10xlarge',
-  '12xlarge',
-  '16xlarge',
-  '18xlarge',
-  '24xlarge',
-  '32xlarge',
-  'metal',
-];
-
 // assume instance naming rule as:
-// [family(string)][generation/size(high-memory, aka`u-*`)(int)].[instanceSize(string)]
+// [family(string with no numbers)][generation or type(string starting with number)].[instanceSize(string)]
 const getFamilyPrefix = (family: string) => {
-  let rtn = '';
-  while (!'0123456789'.includes(family.substr(0, 1))) {
-    rtn += family.substr(0, 1);
-    family = family.substr(1);
-  }
-  return rtn;
+  return family.match(/^(\D+)\d/)?.[1] || '';
 };
 
 const sortFamilies = (f1: string, f2: string): number => {
@@ -71,10 +75,28 @@ const sortFamilies = (f1: string, f2: string): number => {
   return rtn;
 };
 
+const getSizeOrderIndex = (size: string) => {
+  const smallSizeOrder = [
+    //
+    'nano',
+    'micro',
+    'small',
+    'medium',
+    'large',
+  ];
+  if (size === 'metal') {
+    return 100;
+  }
+  if (size.endsWith('xlarge')) {
+    return smallSizeOrder.length - 1 + parseInt(size.match(/(\d{1,})?xlarge/)?.[1] || '0');
+  }
+  return smallSizeOrder.indexOf(size);
+};
+
 const sortSizes = (s1: string, s2: string): number => {
   let rtn = 0;
-  const i1 = sizeOrder.indexOf(s1);
-  const i2 = sizeOrder.indexOf(s2);
+  const i1 = getSizeOrderIndex(s1);
+  const i2 = getSizeOrderIndex(s2);
   if (i1 < 0) throw new Error(`unexpected instance size ${s1}`);
   if (i2 < 0) throw new Error(`unexpected instance size ${s2}`);
   if (i1 < i2) rtn = -1;
@@ -86,14 +108,14 @@ const sortInstances = (i1: string, i2: string): number => {
   let rtn = 0;
   const [f1, s1] = i1.split('.');
   const [f2, s2] = i2.split('.');
-  let sc1 = sizeOrder.indexOf(s1);
-  let sc2 = sizeOrder.indexOf(s2);
+  let sc1 = getSizeOrderIndex(s1);
+  let sc2 = getSizeOrderIndex(s2);
   if (f1[0] === f2[0]) {
     if (f1 < f2) sc1 -= 100;
     if (f1 > f2) sc1 += 100;
   } else {
-    sc1 += familyOrder.indexOf(getFamilyPrefix(f1)) * 100;
-    sc2 += familyOrder.indexOf(getFamilyPrefix(f2)) * 100;
+    sc1 += familyOrder.indexOf(getFamilyPrefix(f1)) * 1000;
+    sc2 += familyOrder.indexOf(getFamilyPrefix(f2)) * 1000;
   }
   if (sc1 < sc2) rtn = -1;
   if (sc1 > sc2) rtn = 1;
@@ -127,7 +149,9 @@ const getEc2Types = async (): Promise<string> => {
     if (!family || !size || instanceType.split('.').length !== 2) {
       throw new Error(`unexpected instanceType: ${instanceType}`);
     }
-    if (!sizeOrder.includes(size)) throw new Error(`unexpected instance size ${size}`);
+    if (getSizeOrderIndex(size) < 0) {
+      throw new Error(`unexpected instance size ${size}`);
+    }
 
     // instanceFamilies.push(family);
     const groupByFamily = (refArray: string[], targSet: Set<string>, familyName: string) => {
@@ -202,9 +226,7 @@ const getEc2Types = async (): Promise<string> => {
   return output;
 };
 
-if (require.main && require.main.filename === module.filename) {
-  (async (): Promise<void> => {
-    const targetPath = resolve(__dirname, '../src/constants/ec2-types.ts');
-    writeFileSync(targetPath, await getEc2Types());
-  })();
-}
+(async (): Promise<void> => {
+  const targetPath = resolve(__dirname, '../src/constants/ec2-types.ts');
+  writeFileSync(targetPath, await getEc2Types());
+})();
