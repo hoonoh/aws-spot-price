@@ -2,7 +2,6 @@
 .czrc
 .eslint*
 .git*
-.pnp.cjs
 .prettier*
 .releaserc.js
 .scannerwork/

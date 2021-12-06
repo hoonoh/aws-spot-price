@@ -5,7 +5,6 @@
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-.pnp.*coverage
 dist
 junit.xml
 node_modules
