@@ -1,11 +1,11 @@
 import EC2 from 'aws-sdk/clients/ec2';
 import { AWSError } from 'aws-sdk/lib/error';
 import { PromiseResult } from 'aws-sdk/lib/request';
-import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 
+import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { Platform } from '../constants/platform';
-import { Region, defaultRegions } from '../constants/regions';
+import { defaultRegions, Region } from '../constants/regions';
 import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
 const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {

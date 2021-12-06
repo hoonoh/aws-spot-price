@@ -1,10 +1,10 @@
 import {
-  InstanceSize,
   allInstances,
   instanceFamily,
   instanceFamilyCompute,
   instanceFamilyGeneral,
   instanceFamilyMemory,
+  InstanceSize,
 } from '../constants/ec2-types';
 import { ui } from './ui';
 

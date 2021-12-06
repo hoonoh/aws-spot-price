@@ -1,9 +1,7 @@
+import EC2 from 'aws-sdk/clients/ec2';
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
-
 import prettier from 'prettier';
-
-import EC2 from 'aws-sdk/clients/ec2';
 
 // https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
 // https://a0.awsstatic.com/plc/js/1.0.104/plc/plc-setup.js // find convertRegion -> regionMap

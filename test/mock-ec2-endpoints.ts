@@ -1,12 +1,11 @@
+import { SpotPrice } from 'aws-sdk/clients/ec2';
 import { readFileSync } from 'fs';
+import { filter } from 'lodash';
+import nock from 'nock';
 import { resolve } from 'path';
 import { parse } from 'querystring';
 
-import { SpotPrice } from 'aws-sdk/clients/ec2';
-import { filter } from 'lodash';
-import nock from 'nock';
-
-import { Region, allRegions, defaultRegions } from '../src/constants/regions';
+import { allRegions, defaultRegions, Region } from '../src/constants/regions';
 import { mockAwsCredentials, mockAwsCredentialsClear } from './mock-credential-endpoints';
 
 const data = JSON.parse(
