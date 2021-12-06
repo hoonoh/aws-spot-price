@@ -2,14 +2,14 @@ import { Choice, prompt } from 'prompts';
 
 import {
   InstanceFamily,
-  InstanceFamilyType,
-  InstanceSize,
   instanceFamily,
+  InstanceFamilyType,
   instanceFamilyTypes,
+  InstanceSize,
   instanceSizes,
 } from '../constants/ec2-types';
-import { Platform, allPlatforms } from '../constants/platform';
-import { Region, allRegions, regionNames } from '../constants/regions';
+import { allPlatforms, Platform } from '../constants/platform';
+import { allRegions, Region, regionNames } from '../constants/regions';
 import { defaults } from './core';
 import { generateTypeSizeSetsFromFamily } from './utils';
 

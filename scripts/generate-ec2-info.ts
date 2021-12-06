@@ -1,9 +1,8 @@
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
-
 import prettier from 'prettier';
-import { defaultRegions } from '../src/constants/regions';
 
+import { defaultRegions } from '../src/constants/regions';
 import { getEc2Info } from '../src/lib/core';
 
 (async () => {

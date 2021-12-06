@@ -1,5 +1,3 @@
-ignorePatterns: ['husky/*']
-
 env:
   es6: true
   node: true
@@ -26,6 +24,7 @@ plugins:
   - unused-imports
   - '@typescript-eslint'
   - prettier
+  - simple-import-sort
 
 rules:
   import/extensions: 0
@@ -34,6 +33,8 @@ rules:
   no-console: 0
   no-param-reassign: 0
   prettier/prettier: error
+  simple-import-sort/imports: 2
+  simple-import-sort/exports: 2
 
   # eslint-plugin-unused-imports
   '@typescript-eslint/no-unused-vars': off
