@@ -11,7 +11,8 @@
     "rootDir": ".",
     "sourceRoot": "src",
     "noEmit": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "exclude": ["node_modules"]
 }
