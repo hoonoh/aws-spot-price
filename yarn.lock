@@ -3188,7 +3188,6 @@ __metadata:
   dependencies:
     "@aws-sdk/client-ec2": 3.43.0
     "@aws-sdk/client-sts": 3.43.0
-    "@aws-sdk/node-config-provider": 3.40.0
     "@aws-sdk/types": 3.40.0
     "@commitlint/cli": 15.0.0
     "@semantic-release/changelog": 6.0.1

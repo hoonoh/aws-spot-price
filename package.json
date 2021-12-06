@@ -24,8 +24,15 @@
   "packageManager": "yarn@3.1.1",
   "bin": "bin/aws-spot-price",
   "main": "dist-cjs/module.js",
-  "module": "dist-es/module.js",
+  "module": "dist-esm/module.js",
   "types": "dist-types/module.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist-cjs/module.js",
+      "import": "./dist-esm/module.js",
+      "types": "./dist-types/module.d.ts"
+    }
+  },
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "yarn clean && yarn build",
@@ -36,7 +43,7 @@
     "build:ec2-types": "ts-node -T scripts/generate-ec2-types.ts",
     "build:regions": "ts-node -T scripts/generate-regions.ts",
     "build": "rm -rf dist-cjs && tsc -p tsconfig.build.json",
-    "build:es": "rm -rf dist-es && tsc -p tsconfig.build-es.json",
+    "build:esm": "rm -rf dist-esm && tsc -p tsconfig.build-esm.json",
     "build:types": "rm -rf dist-types && tsc -p tsconfig.build-types.json",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "test": "jest --runInBand --verbose",
@@ -55,7 +62,6 @@
     "yargs": "17.2.1"
   },
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "3.40.0",
     "@aws-sdk/types": "3.40.0",
     "@commitlint/cli": "15.0.0",
     "@semantic-release/changelog": "6.0.1",

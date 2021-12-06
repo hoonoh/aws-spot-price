@@ -6,9 +6,7 @@
 !.yarn/sdks
 !.yarn/versions
 .pnp.*coverage
-dist-cjs
-dist-es
-dist-types
+dist-*
 junit.xml
 node_modules
 webpack-status.json

@@ -6,13 +6,13 @@ runs:
       shell: bash
       run: yarn --immutable --check-cache --inline-builds
 
-    - name: Build CJS
+    - name: Build CJS Module
       shell: bash
       run: yarn build
 
-    - name: Build ES
+    - name: Build ES Module
       shell: bash
-      run: yarn build:es
+      run: yarn build:esm
 
     - name: Build types
       shell: bash
