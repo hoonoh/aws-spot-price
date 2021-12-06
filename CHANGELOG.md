@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+# [1.1.0-prerelease.1](https://github.com/hoonoh/aws-spot-price/compare/v1.0.22-prerelease.1...v1.1.0-prerelease.1) (2021-12-06)
+
+
+### Features
+
+* es module build ([4129990](https://github.com/hoonoh/aws-spot-price/commit/412999075282e1cde7490f40a3c1e0698a1d4fb2))
+
 ## [1.0.22-prerelease.1](https://github.com/hoonoh/aws-spot-price/compare/v1.0.21...v1.0.22-prerelease.1) (2021-12-04)
 
 
