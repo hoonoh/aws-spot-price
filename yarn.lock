@@ -2708,6 +2708,7 @@ __metadata:
     commitizen: 4.2.4
     conventional-changelog-cli: 2.1.1
     cz-conventional-changelog: 3.3.0
+    dts-bundle-generator: 6.2.0
     eslint: 8.3.0
     eslint-config-airbnb-base: 15.0.0
     eslint-config-airbnb-typescript: 16.0.0
@@ -2716,7 +2717,7 @@ __metadata:
     eslint-plugin-import: 2.25.3
     eslint-plugin-jest: 25.3.0
     eslint-plugin-prettier: 4.0.0
-    eslint-plugin-simple-import-sort: ^7.0.0
+    eslint-plugin-simple-import-sort: 7.0.0
     eslint-plugin-unused-imports: 2.0.0
     husky: 7.0.4
     jest: 27.3.1
@@ -4308,6 +4309,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dts-bundle-generator@npm:6.2.0":
+  version: 6.2.0
+  resolution: "dts-bundle-generator@npm:6.2.0"
+  dependencies:
+    typescript: ">=3.0.1"
+    yargs: ^17.2.1
+  bin:
+    dts-bundle-generator: dist/bin/dts-bundle-generator.js
+  checksum: fc380c1e57a19eac2702e576aca8a8332330ebc92ef5b3bfa44ecd244e742bcf669709349b829f3fcd494e67bebae87e79ba87bca5afe84b18095d8133d32e82
+  languageName: node
+  linkType: hard
+
 "duplexer2@npm:~0.1.0":
   version: 0.1.4
   resolution: "duplexer2@npm:0.1.4"
@@ -4677,7 +4690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-simple-import-sort@npm:^7.0.0":
+"eslint-plugin-simple-import-sort@npm:7.0.0":
   version: 7.0.0
   resolution: "eslint-plugin-simple-import-sort@npm:7.0.0"
   peerDependencies:
@@ -11438,7 +11451,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.5.2":
+"typescript@npm:4.5.2, typescript@npm:>=3.0.1":
   version: 4.5.2
   resolution: "typescript@npm:4.5.2"
   bin:
@@ -11448,7 +11461,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.5.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.5.2#~builtin<compat/typescript>, typescript@patch:typescript@>=3.0.1#~builtin<compat/typescript>":
   version: 4.5.2
   resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=493e53"
   bin:
@@ -12052,6 +12065,13 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
+"yargs-parser@npm:^21.0.0":
+  version: 21.0.0
+  resolution: "yargs-parser@npm:21.0.0"
+  checksum: 1e205fca1cb7a36a1585e2b94a64e641c12741b53627d338e12747f4dca3c3610cdd9bb235040621120548dd74c3ef03a8168d52a1eabfedccbe4a62462b6731
+  languageName: node
+  linkType: hard
+
 "yargs@npm:17.2.1":
   version: 17.2.1
   resolution: "yargs@npm:17.2.1"
@@ -12094,6 +12114,21 @@ typescript@^4.4.3:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: 4ffffa5a82647e5d07840b64bed88c365b901d3d4a4c51745dddb10d177902d85014026d7224aae18c42df9ca3f75a41c5aff556e5342e2f8ffc5177d149cd17
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.2.1":
+  version: 17.3.0
+  resolution: "yargs@npm:17.3.0"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.3
+    y18n: ^5.0.5
+    yargs-parser: ^21.0.0
+  checksum: 2b687338684bf9645e9389ffdbe813fc5a2ddfede299d46fbe5ac80eb9a391e558b97861ba44d2256936ebe9d7f8135f6a38af1c76a5685eac4061008b2df57a
   languageName: node
   linkType: hard
 

@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: {
-    module: path.resolve(__dirname, 'src/module.ts'),
+    cli: path.resolve(__dirname, 'src/cli.ts'),
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.cjs', '.mjs'],
@@ -12,6 +12,11 @@ module.exports = {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, 'dist'),
   },
+  ignoreWarnings: [
+    {
+      module: /node_modules\/yargs/,
+    },
+  ],
   target: 'node',
   module: {
     rules: [
@@ -28,18 +33,16 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    chunkIds: 'named',
-    splitChunks: {
-      chunks: 'all',
-      minSize: 0,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          reuseExistingChunk: true,
-          filename: 'module.vendor.js',
-        },
-      },
-    },
+  externalsPresets: {
+    node: true,
   },
+  externals: [
+    {
+      './module': 'commonjs ./module',
+      'aws-sdk': 'commonjs ./module.vendor',
+      'aws-sdk/clients/ec2': 'commonjs ./module.vendor',
+      'aws-sdk/lib/error': 'commonjs ./module.vendor',
+      'aws-sdk/lib/request': 'commonjs ./module.vendor',
+    },
+  ],
 };
