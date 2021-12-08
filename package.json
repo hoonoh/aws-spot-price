@@ -47,7 +47,7 @@
     "aws-sdk": "2.1037.0",
     "ora": "5.4.1",
     "prompts": "2.4.2",
-    "table": "6.7.3",
+    "table": "6.7.5",
     "yargs": "17.2.1"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "27.0.3",
     "@types/lodash": "4.14.177",
-    "@types/node": "16.11.10",
+    "@types/node": "16.11.12",
     "@types/prettier": "2.4.2",
     "@types/prompts": "2.0.14",
     "@types/yargs": "17.0.7",
@@ -86,7 +86,7 @@
     "jest-mock-console": "1.2.3",
     "lodash": "4.17.21",
     "nock": "13.2.1",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "semantic-release": "18.0.1",
     "ts-jest": "27.0.7",
     "ts-loader": "9.2.6",

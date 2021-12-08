@@ -1728,10 +1728,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.10":
-  version: 16.11.10
-  resolution: "@types/node@npm:16.11.10"
-  checksum: 9c79419c5c3d92d5825bffa30f3668533f598d8b63a73ea7fc24e47f162bdbed92b0f8e4f4261cc3314b39cee050e303366d2aa154abc95c63a572a110b8c160
+"@types/node@npm:16.11.12":
+  version: 16.11.12
+  resolution: "@types/node@npm:16.11.12"
+  checksum: a3feb346d61a56f5a137c29bb8c63cfa3cc02e184b9dffdc18ef1528dcce55596e570575215a2e39e6ce69343eeb2a5ba71c271938f1dc8db4cc393902855412
   languageName: node
   linkType: hard
 
@@ -2698,7 +2698,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 27.0.3
     "@types/lodash": 4.14.177
-    "@types/node": 16.11.10
+    "@types/node": 16.11.12
     "@types/prettier": 2.4.2
     "@types/prompts": 2.0.14
     "@types/yargs": 17.0.7
@@ -2726,10 +2726,10 @@ __metadata:
     lodash: 4.17.21
     nock: 13.2.1
     ora: 5.4.1
-    prettier: 2.5.0
+    prettier: 2.5.1
     prompts: 2.4.2
     semantic-release: 18.0.1
-    table: 6.7.3
+    table: 6.7.5
     ts-jest: 27.0.7
     ts-loader: 9.2.6
     ts-node: 10.4.0
@@ -9418,12 +9418,12 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.5.0":
-  version: 2.5.0
-  resolution: "prettier@npm:2.5.0"
+"prettier@npm:2.5.1":
+  version: 2.5.1
+  resolution: "prettier@npm:2.5.1"
   bin:
     prettier: bin-prettier.js
-  checksum: aad1b35b73e7c14596d389d90977a83dad0db689ba5802a0ef319c357b7867f55b885db197972aa6a56c30f53088c9f8e0d7f7930ae074c275a4e9cbe091d21d
+  checksum: 21b9408476ea1c544b0e45d51ceb94a84789ff92095abb710942d780c862d0daebdb29972d47f6b4d0f7ebbfb0ffbf56cc2cfa3e3e9d1cca54864af185b15b66
   languageName: node
   linkType: hard
 
@@ -10894,16 +10894,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"table@npm:6.7.3":
-  version: 6.7.3
-  resolution: "table@npm:6.7.3"
+"table@npm:6.7.5":
+  version: 6.7.5
+  resolution: "table@npm:6.7.5"
   dependencies:
     ajv: ^8.0.1
     lodash.truncate: ^4.4.2
     slice-ansi: ^4.0.0
     string-width: ^4.2.3
     strip-ansi: ^6.0.1
-  checksum: 61d732f51108222d158eca2a91bfaae41c14e0cba6eb04c702ec5a1b136219d4925940d5c4d9aff5720bc4e2385dcbe2ed52dcf37bbbd8b2be48c01c1cf2ed1d
+  checksum: 76d01e33d6ef881f21bfe2e343101cb05ef4cedf506523d187af4f3a33f0f69cf25bca3e05c0c5c0eb348b405aaac29d9bb308ba9bf2c5ca7a82d032382a1649
   languageName: node
   linkType: hard
 
