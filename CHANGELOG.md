@@ -1,5 +1,13 @@
 # aws-spot-price changelog
 
+## [1.0.23-prerelease.1](https://github.com/hoonoh/aws-spot-price/compare/v1.0.22...v1.0.23-prerelease.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* better webpack bundling & types ([985a258](https://github.com/hoonoh/aws-spot-price/commit/985a25820dca2a88670d725af30a7073b61542e4))
+* fix ec2-types gen script & values ([0fe628e](https://github.com/hoonoh/aws-spot-price/commit/0fe628eecc01a54ca7c5ff9e134e1f4f240d0b2b))
+
 ## [1.0.21](https://github.com/hoonoh/aws-spot-price/compare/v1.0.20...v1.0.21) (2021-12-01)
 
 
