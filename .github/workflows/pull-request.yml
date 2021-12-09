@@ -30,11 +30,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: Run status checks
+        uses: ./.github/workflows/status-checks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Run status checks
-        uses: ./.github/workflows/status-checks

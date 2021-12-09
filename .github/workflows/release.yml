@@ -32,6 +32,9 @@ jobs:
 
       - name: Run status checks
         uses: ./.github/workflows/status-checks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Release
         run: yarn semantic-release
