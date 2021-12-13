@@ -44,7 +44,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "aws-sdk": "2.1045.0",
+    "aws-sdk": "2.1046.0",
     "ora": "5.4.1",
     "prompts": "2.4.2",
     "table": "6.7.5",
@@ -81,7 +81,7 @@
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-unused-imports": "2.0.0",
     "husky": "7.0.4",
-    "jest": "27.4.3",
+    "jest": "27.4.4",
     "jest-junit": "13.0.0",
     "jest-mock-console": "1.2.3",
     "lodash": "4.17.21",
@@ -91,7 +91,7 @@
     "ts-jest": "27.1.1",
     "ts-loader": "9.2.6",
     "ts-node": "10.4.0",
-    "typescript": "4.5.2",
+    "typescript": "4.5.3",
     "webpack": "5.65.0",
     "webpack-cli": "4.9.1"
   }
