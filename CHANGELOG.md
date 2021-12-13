@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.25](https://github.com/hoonoh/aws-spot-price/compare/v1.0.24...v1.0.25) (2021-12-13)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([75a93a3](https://github.com/hoonoh/aws-spot-price/commit/75a93a3b0060bcc53b7f9f39398a2c845e55270c))
+
 ## [1.0.24](https://github.com/hoonoh/aws-spot-price/compare/v1.0.23...v1.0.24) (2021-12-11)
 
 
