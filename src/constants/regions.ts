@@ -59,11 +59,11 @@ export const regionNames: Record<Region, string> = {
   'ap-east-1': 'Asia Pacific (Hong Kong)',
   'ap-northeast-1': 'Asia Pacific (Tokyo)',
   'ap-northeast-2': 'Asia Pacific (Seoul)',
-  'ap-northeast-3': 'Asia Pacific (Osaka-Local)',
+  'ap-northeast-3': 'Asia Pacific (Osaka)',
   'ap-south-1': 'Asia Pacific (Mumbai)',
   'ap-southeast-1': 'Asia Pacific (Singapore)',
   'ap-southeast-2': 'Asia Pacific (Sydney)',
-  'ap-southeast-3': 'UNKNOWN', // ! TODO: UPDATE UNKNOWN REGION NAME
+  'ap-southeast-3': 'Asia Pacific (Jakarta)',
   'ca-central-1': 'Canada (Central)',
   'eu-central-1': 'Europe (Frankfurt)',
   'eu-north-1': 'Europe (Stockholm)',
