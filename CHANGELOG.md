@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.27](https://github.com/hoonoh/aws-spot-price/compare/v1.0.26...v1.0.27) (2021-12-14)
+
+
+### Bug Fixes
+
+* region constants, update region build script ([02e37d2](https://github.com/hoonoh/aws-spot-price/commit/02e37d20b7673b885fd9fb07f429838291df53fe))
+
 ## [1.0.26](https://github.com/hoonoh/aws-spot-price/compare/v1.0.25...v1.0.26) (2021-12-14)
 
 
