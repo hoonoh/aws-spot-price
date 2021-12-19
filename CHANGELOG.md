@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.29](https://github.com/hoonoh/aws-spot-price/compare/v1.0.28...v1.0.29) (2021-12-19)
+
+
+### Bug Fixes
+
+* ec2-types allInstances sort ([60aafe9](https://github.com/hoonoh/aws-spot-price/commit/60aafe9d471cd22cfb5dda1bde9b88530bf31f69))
+
 ## [1.0.28](https://github.com/hoonoh/aws-spot-price/compare/v1.0.27...v1.0.28) (2021-12-19)
 
 
