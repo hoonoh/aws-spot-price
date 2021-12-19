@@ -1,8 +1,9 @@
+import assert from 'assert';
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 import prettier from 'prettier';
 
-import { getGlobalSpotPrices } from '../src/lib/core';
+import { getGlobalSpotPrices, SpotPriceExtended } from '../src/lib/core';
 
 const familyGeneral = [
   //
@@ -53,10 +54,17 @@ const familyOrder = [
   ...familyAcceleratedComputing,
 ];
 
+// assert no duplicate family names
+familyOrder.forEach(name => {
+  assert(familyOrder.filter(f => f === name).length === 1);
+});
+
 // assume instance naming rule as:
 // [family(string with no numbers)][generation or type(string starting with number)].[instanceSize(string)]
 const getFamilyPrefix = (family: string) => {
-  return family.match(/^(\D+)\d/)?.[1] || '';
+  // filter all family names with matching prefixes and returns longer family prefix
+  const candidates = familyOrder.filter(name => family.startsWith(name));
+  return candidates.sort((a, b) => b.length - a.length)[0];
 };
 
 const sortFamilies = (f1: string, f2: string): number => {
@@ -105,25 +113,15 @@ const sortSizes = (s1: string, s2: string): number => {
 };
 
 const sortInstances = (i1: string, i2: string): number => {
-  let rtn = 0;
   const [f1, s1] = i1.split('.');
   const [f2, s2] = i2.split('.');
-  let sc1 = getSizeOrderIndex(s1);
-  let sc2 = getSizeOrderIndex(s2);
-  if (f1[0] === f2[0]) {
-    if (f1 < f2) sc1 -= 100;
-    if (f1 > f2) sc1 += 100;
-  } else {
-    sc1 += familyOrder.indexOf(getFamilyPrefix(f1)) * 1000;
-    sc2 += familyOrder.indexOf(getFamilyPrefix(f2)) * 1000;
-  }
-  if (sc1 < sc2) rtn = -1;
-  if (sc1 > sc2) rtn = 1;
-  return rtn;
+  const sc1 = familyOrder.indexOf(getFamilyPrefix(f1)) * 100000 + getSizeOrderIndex(s1);
+  const sc2 = familyOrder.indexOf(getFamilyPrefix(f2)) * 100000 + getSizeOrderIndex(s2);
+  return sc1 - sc2 - sortFamilies(f2, f1) * 1000;
 };
 
 const getEc2Types = async (): Promise<string> => {
-  let prices;
+  let prices: SpotPriceExtended[] = [];
   try {
     prices = await getGlobalSpotPrices({ limit: Number.POSITIVE_INFINITY });
   } catch (error) {
