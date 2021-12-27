@@ -44,11 +44,11 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "aws-sdk": "2.1046.0",
+    "aws-sdk": "2.1048.0",
     "ora": "5.4.1",
     "prompts": "2.4.2",
     "table": "6.7.5",
-    "yargs": "17.3.0"
+    "yargs": "17.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
@@ -60,14 +60,14 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "27.0.3",
     "@types/lodash": "4.14.178",
-    "@types/node": "16.11.14",
+    "@types/node": "16.11.17",
     "@types/prettier": "2.4.2",
     "@types/prompts": "2.0.14",
-    "@types/yargs": "17.0.7",
-    "@typescript-eslint/eslint-plugin": "5.7.0",
-    "@typescript-eslint/parser": "5.7.0",
+    "@types/yargs": "17.0.8",
+    "@typescript-eslint/eslint-plugin": "5.8.0",
+    "@typescript-eslint/parser": "5.8.0",
     "commitizen": "4.2.4",
-    "conventional-changelog-cli": "2.1.1",
+    "conventional-changelog-cli": "2.2.2",
     "cz-conventional-changelog": "3.3.0",
     "dts-bundle-generator": "6.2.0",
     "eslint": "8.5.0",
