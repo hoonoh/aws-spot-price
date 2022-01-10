@@ -3,10 +3,10 @@
     "config:base",
     ":automergeMinor",
     ":automergeLinters",
-    "schedule:weekly",
     "group:allNonMajor",
     ":pinOnlyDevDependencies"
   ],
+  "schedule": ["after 5pm on Friday", "every weekend"],
   "suppressNotifications": ["prIgnoreNotification"],
   "packageRules": [
     {
