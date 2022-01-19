@@ -172,7 +172,6 @@ export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
   'i3en.6xlarge': { vCpu: 24, memoryGiB: 192 },
   'i3en.large': { vCpu: 2, memoryGiB: 16 },
   'i3en.metal': { vCpu: 96, memoryGiB: 768 },
-  'i3en.metal-2tb': { vCpu: 96, memoryGiB: 768 },
   'i3en.xlarge': { vCpu: 4, memoryGiB: 32 },
   'im4gn.16xlarge': { vCpu: 64, memoryGiB: 256 },
   'im4gn.2xlarge': { vCpu: 8, memoryGiB: 32 },
