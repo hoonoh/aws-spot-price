@@ -53,6 +53,7 @@ export const instanceFamilyMemory = [
   'x1',
   'x1e',
   'x2gd',
+  'x2iezn',
   'z1d',
 ] as const;
 
@@ -486,6 +487,12 @@ export const allInstances = [
   'x2gd.12xlarge',
   'x2gd.16xlarge',
   'x2gd.metal',
+  'x2iezn.2xlarge',
+  'x2iezn.4xlarge',
+  'x2iezn.6xlarge',
+  'x2iezn.8xlarge',
+  'x2iezn.12xlarge',
+  'x2iezn.metal',
   'z1d.large',
   'z1d.xlarge',
   'z1d.2xlarge',
