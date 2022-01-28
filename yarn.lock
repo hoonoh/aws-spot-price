@@ -2840,9 +2840,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.1065.0":
-  version: 2.1065.0
-  resolution: "aws-sdk@npm:2.1065.0"
+"aws-sdk@npm:2.1066.0":
+  version: 2.1066.0
+  resolution: "aws-sdk@npm:2.1066.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -2853,7 +2853,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: b65ddb86fff7dbba8e304d6c2b44b5abd75f88ea3994a18891f88d6c0dbdc15dc0ea659a3cc95eb3fe8b4ebb8301313c7b99c7ee4adcd487be003c4f16901714
+  checksum: 5ed48ddd14fa01478222d989be06d75a9a3d7521a5bb9324547f745fbde8ee760836c80c6ee9678449b591c67e1d447671ed16ab36583a3a6266c4fc6ba6eb7c
   languageName: node
   linkType: hard
 
@@ -2876,12 +2876,12 @@ __metadata:
     "@types/yargs": 17.0.8
     "@typescript-eslint/eslint-plugin": 5.10.1
     "@typescript-eslint/parser": 5.10.1
-    aws-sdk: 2.1065.0
+    aws-sdk: 2.1066.0
     commitizen: 4.2.4
     conventional-changelog-cli: 2.2.2
     cz-conventional-changelog: 3.3.0
     dts-bundle-generator: 6.4.0
-    eslint: 8.7.0
+    eslint: 8.8.0
     eslint-config-airbnb-base: 15.0.0
     eslint-config-airbnb-typescript: 16.1.0
     eslint-config-prettier: 8.3.0
@@ -4974,9 +4974,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.7.0":
-  version: 8.7.0
-  resolution: "eslint@npm:8.7.0"
+"eslint@npm:8.8.0":
+  version: 8.8.0
+  resolution: "eslint@npm:8.8.0"
   dependencies:
     "@eslint/eslintrc": ^1.0.5
     "@humanwhocodes/config-array": ^0.9.2
@@ -5015,7 +5015,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 1c80375a48b0fe3ccae3c6354323e4f0e92e970f23abc5b9705b90b7aef514b69ebd0a63e74962d30789986c91fa41c0e25cd2f98f19e9e2a2d36aafdfc9ccc9
+  checksum: 41a7e85bf84cf9f2d758ef3e8d08020a39a2836703728b59535684681349bd021c2c6e24174462b844a914870d707d2151e0371198899d957b444de91adaa435
   languageName: node
   linkType: hard
 
