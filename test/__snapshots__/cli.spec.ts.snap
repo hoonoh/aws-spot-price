@@ -207,7 +207,9 @@ Options:
          \\"c5d.large\\", \\"c5d.xlarge\\", \\"c5d.2xlarge\\", \\"c5d.4xlarge\\", \\"c5d.9xlarge\\",
        \\"c5d.12xlarge\\", \\"c5d.18xlarge\\", \\"c5d.24xlarge\\", \\"c5d.metal\\", \\"c5n.large\\",
       \\"c5n.xlarge\\", \\"c5n.2xlarge\\", \\"c5n.4xlarge\\", \\"c5n.9xlarge\\", \\"c5n.18xlarge\\",
-            \\"c5n.metal\\", \\"c6g.medium\\", \\"c6g.large\\", \\"c6g.xlarge\\", \\"c6g.2xlarge\\",
+           \\"c5n.metal\\", \\"c6a.large\\", \\"c6a.xlarge\\", \\"c6a.2xlarge\\", \\"c6a.4xlarge\\",
+  \\"c6a.8xlarge\\", \\"c6a.12xlarge\\", \\"c6a.16xlarge\\", \\"c6a.24xlarge\\", \\"c6a.32xlarge\\",
+         \\"c6a.48xlarge\\", \\"c6g.medium\\", \\"c6g.large\\", \\"c6g.xlarge\\", \\"c6g.2xlarge\\",
       \\"c6g.4xlarge\\", \\"c6g.8xlarge\\", \\"c6g.12xlarge\\", \\"c6g.16xlarge\\", \\"c6g.metal\\",
      \\"c6gd.medium\\", \\"c6gd.large\\", \\"c6gd.xlarge\\", \\"c6gd.2xlarge\\", \\"c6gd.4xlarge\\",
   \\"c6gd.8xlarge\\", \\"c6gd.12xlarge\\", \\"c6gd.16xlarge\\", \\"c6gd.metal\\", \\"c6gn.medium\\",
@@ -269,9 +271,9 @@ Options:
   -f, --familyType          EC2 instance family types.
        [array] [choices: \\"a1\\", \\"t1\\", \\"t2\\", \\"t3\\", \\"t3a\\", \\"t4g\\", \\"m1\\", \\"m2\\", \\"m3\\",
   \\"m4\\", \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"m5zn\\", \\"m6a\\", \\"m6g\\", \\"m6gd\\",
-      \\"m6i\\", \\"c1\\", \\"c3\\", \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\",
-    \\"c6gn\\", \\"c6i\\", \\"r3\\", \\"r4\\", \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5b\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\",
-         \\"r6g\\", \\"r6gd\\", \\"r6i\\", \\"x1\\", \\"x1e\\", \\"x2gd\\", \\"x2iezn\\", \\"z1d\\", \\"d2\\", \\"d3\\",
+       \\"m6i\\", \\"c1\\", \\"c3\\", \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6a\\", \\"c6g\\",
+   \\"c6gd\\", \\"c6gn\\", \\"c6i\\", \\"r3\\", \\"r4\\", \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5b\\", \\"r5d\\", \\"r5dn\\",
+  \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"r6i\\", \\"x1\\", \\"x1e\\", \\"x2gd\\", \\"x2iezn\\", \\"z1d\\", \\"d2\\", \\"d3\\",
    \\"d3en\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"im4gn\\", \\"is4gen\\", \\"dl1\\", \\"f1\\", \\"g2\\", \\"g3\\",
    \\"g3s\\", \\"g4ad\\", \\"g4dn\\", \\"g5\\", \\"g5g\\", \\"inf1\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"p4d\\", \\"vt1\\"]
   -s, --size                EC2 instance sizes.
@@ -524,7 +526,9 @@ Options:
          \\"c5d.large\\", \\"c5d.xlarge\\", \\"c5d.2xlarge\\", \\"c5d.4xlarge\\", \\"c5d.9xlarge\\",
        \\"c5d.12xlarge\\", \\"c5d.18xlarge\\", \\"c5d.24xlarge\\", \\"c5d.metal\\", \\"c5n.large\\",
       \\"c5n.xlarge\\", \\"c5n.2xlarge\\", \\"c5n.4xlarge\\", \\"c5n.9xlarge\\", \\"c5n.18xlarge\\",
-            \\"c5n.metal\\", \\"c6g.medium\\", \\"c6g.large\\", \\"c6g.xlarge\\", \\"c6g.2xlarge\\",
+           \\"c5n.metal\\", \\"c6a.large\\", \\"c6a.xlarge\\", \\"c6a.2xlarge\\", \\"c6a.4xlarge\\",
+  \\"c6a.8xlarge\\", \\"c6a.12xlarge\\", \\"c6a.16xlarge\\", \\"c6a.24xlarge\\", \\"c6a.32xlarge\\",
+         \\"c6a.48xlarge\\", \\"c6g.medium\\", \\"c6g.large\\", \\"c6g.xlarge\\", \\"c6g.2xlarge\\",
       \\"c6g.4xlarge\\", \\"c6g.8xlarge\\", \\"c6g.12xlarge\\", \\"c6g.16xlarge\\", \\"c6g.metal\\",
      \\"c6gd.medium\\", \\"c6gd.large\\", \\"c6gd.xlarge\\", \\"c6gd.2xlarge\\", \\"c6gd.4xlarge\\",
   \\"c6gd.8xlarge\\", \\"c6gd.12xlarge\\", \\"c6gd.16xlarge\\", \\"c6gd.metal\\", \\"c6gn.medium\\",
@@ -586,9 +590,9 @@ Options:
   -f, --familyType          EC2 instance family types.
        [array] [choices: \\"a1\\", \\"t1\\", \\"t2\\", \\"t3\\", \\"t3a\\", \\"t4g\\", \\"m1\\", \\"m2\\", \\"m3\\",
   \\"m4\\", \\"m5\\", \\"m5a\\", \\"m5ad\\", \\"m5d\\", \\"m5dn\\", \\"m5n\\", \\"m5zn\\", \\"m6a\\", \\"m6g\\", \\"m6gd\\",
-      \\"m6i\\", \\"c1\\", \\"c3\\", \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6g\\", \\"c6gd\\",
-    \\"c6gn\\", \\"c6i\\", \\"r3\\", \\"r4\\", \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5b\\", \\"r5d\\", \\"r5dn\\", \\"r5n\\",
-         \\"r6g\\", \\"r6gd\\", \\"r6i\\", \\"x1\\", \\"x1e\\", \\"x2gd\\", \\"x2iezn\\", \\"z1d\\", \\"d2\\", \\"d3\\",
+       \\"m6i\\", \\"c1\\", \\"c3\\", \\"c4\\", \\"c5\\", \\"c5a\\", \\"c5ad\\", \\"c5d\\", \\"c5n\\", \\"c6a\\", \\"c6g\\",
+   \\"c6gd\\", \\"c6gn\\", \\"c6i\\", \\"r3\\", \\"r4\\", \\"r5\\", \\"r5a\\", \\"r5ad\\", \\"r5b\\", \\"r5d\\", \\"r5dn\\",
+  \\"r5n\\", \\"r6g\\", \\"r6gd\\", \\"r6i\\", \\"x1\\", \\"x1e\\", \\"x2gd\\", \\"x2iezn\\", \\"z1d\\", \\"d2\\", \\"d3\\",
    \\"d3en\\", \\"h1\\", \\"i2\\", \\"i3\\", \\"i3en\\", \\"im4gn\\", \\"is4gen\\", \\"dl1\\", \\"f1\\", \\"g2\\", \\"g3\\",
    \\"g3s\\", \\"g4ad\\", \\"g4dn\\", \\"g5\\", \\"g5g\\", \\"inf1\\", \\"p2\\", \\"p3\\", \\"p3dn\\", \\"p4d\\", \\"vt1\\"]
   -s, --size                EC2 instance sizes.
