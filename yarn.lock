@@ -2913,9 +2913,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.1076.0":
-  version: 2.1076.0
-  resolution: "aws-sdk@npm:2.1076.0"
+"aws-sdk@npm:2.1077.0":
+  version: 2.1077.0
+  resolution: "aws-sdk@npm:2.1077.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -2926,7 +2926,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: b618ff816886c4a43e9a684c05526fc3cfcf4da850b813d7defd1424705520f46b9427aac8eab8e6005f102fc26eed60445133e675e4503f11a2d55f8ed5f138
+  checksum: 728e8f2dfb1751d050ba5fdb032c78a8748ea3d8d13c898efdb0c68db3cd4a5369fab782d0d827a0cb8830372fabf2621e2824a8838d152eec2b8726f30f1a42
   languageName: node
   linkType: hard
 
@@ -2949,7 +2949,7 @@ __metadata:
     "@types/yargs": 17.0.8
     "@typescript-eslint/eslint-plugin": 5.12.0
     "@typescript-eslint/parser": 5.12.0
-    aws-sdk: 2.1076.0
+    aws-sdk: 2.1077.0
     commitizen: 4.2.4
     conventional-changelog-cli: 2.2.2
     cz-conventional-changelog: 3.3.0
