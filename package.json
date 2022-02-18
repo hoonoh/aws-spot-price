@@ -96,6 +96,6 @@
     "webpack-cli": "4.9.2"
   },
   "resolutions": {
-    "npm/chalk": "^4.1.2"
+    "npm/chalk": "^5.0.0"
   }
 }
