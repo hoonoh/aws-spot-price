@@ -1,5 +1,17 @@
 # aws-spot-price changelog
 
+## [1.0.34](https://github.com/hoonoh/aws-spot-price/compare/v1.0.33...v1.0.34) (2022-02-18)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([a8c2ee6](https://github.com/hoonoh/aws-spot-price/commit/a8c2ee6827f4bcbebcb6f024544de9c649dfdd10))
+* **deps:** update dependency aws-sdk to v2.1069.0 ([dd6c332](https://github.com/hoonoh/aws-spot-price/commit/dd6c3327a1c15ec3ca90f6942bb012a9517eec40))
+* resolve chalk to cjs version ([e7e6941](https://github.com/hoonoh/aws-spot-price/commit/e7e6941cc069791f7f604cb1114242e9f77f8cdc))
+* update constants ([#430](https://github.com/hoonoh/aws-spot-price/issues/430)) ([7122dd0](https://github.com/hoonoh/aws-spot-price/commit/7122dd04c1b99056b6ce2bf2f9c9448c38f32ad3))
+* update constants ([#438](https://github.com/hoonoh/aws-spot-price/issues/438)) ([47d223a](https://github.com/hoonoh/aws-spot-price/commit/47d223ab1beb6eda3a4fb8a7f7a232693217834c))
+* update constants ([#442](https://github.com/hoonoh/aws-spot-price/issues/442)) ([a31268c](https://github.com/hoonoh/aws-spot-price/commit/a31268ccdc039c6e46c7ce1c2b9641b45d339dac))
+
 ## [1.0.33](https://github.com/hoonoh/aws-spot-price/compare/v1.0.32...v1.0.33) (2022-01-19)
 
 
