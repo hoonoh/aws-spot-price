@@ -12,6 +12,10 @@
     {
       "matchPackageNames": ["ora"],
       "allowedVersions": "<6"
+    },
+    {
+      "matchPackageNames": ["chalk"],
+      "allowedVersions": "<5"
     }
   ]
 }
