@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.36](https://github.com/hoonoh/aws-spot-price/compare/v1.0.35...v1.0.36) (2022-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency aws-sdk to v2.1087.0 ([b724ff9](https://github.com/hoonoh/aws-spot-price/commit/b724ff9bd8450fbcda5b1ec371a98fb7bf210af4))
+
 ## [1.0.35](https://github.com/hoonoh/aws-spot-price/compare/v1.0.34...v1.0.35) (2022-02-18)
 
 
