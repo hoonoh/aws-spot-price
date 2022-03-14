@@ -101,8 +101,11 @@ const getEc2SpotPrice = async (options: {
       const describeSpotPriceHistory = async (): Promise<
         PromiseResult<EC2.DescribeSpotPriceHistoryResult, AWSError>
       > => {
+        let spotPriceHistory:
+          | PromiseResult<EC2.DescribeSpotPriceHistoryResult, AWSError>
+          | undefined;
         try {
-          return await ec2
+          spotPriceHistory = await ec2
             .describeSpotPriceHistory({
               NextToken: nextToken,
               StartTime: startTime,
@@ -118,6 +121,7 @@ const getEc2SpotPrice = async (options: {
           }
           throw error;
         }
+        return spotPriceHistory;
       };
 
       const result = await describeSpotPriceHistory();
@@ -179,8 +183,9 @@ export const getEc2Info = async ({
     const describeInstanceTypes = async (): Promise<
       PromiseResult<EC2.DescribeInstanceTypesResult, AWSError>
     > => {
+      let instanceTypes: PromiseResult<EC2.DescribeInstanceTypesResult, AWSError> | undefined;
       try {
-        return await ec2
+        instanceTypes = await ec2
           .describeInstanceTypes({
             NextToken,
             MaxResults: InstanceTypes ? undefined : 100,
@@ -195,6 +200,7 @@ export const getEc2Info = async ({
         }
         throw error;
       }
+      return instanceTypes;
     };
 
     const res = await describeInstanceTypes();
