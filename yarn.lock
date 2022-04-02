@@ -2976,7 +2976,7 @@ __metadata:
     commitizen: 4.2.4
     conventional-changelog-cli: 2.2.2
     cz-conventional-changelog: 3.3.0
-    dts-bundle-generator: 6.5.0
+    dts-bundle-generator: 6.6.0
     eslint: 8.12.0
     eslint-config-airbnb-base: 15.0.0
     eslint-config-airbnb-typescript: 16.2.0
@@ -2994,7 +2994,7 @@ __metadata:
     lodash: 4.17.21
     nock: 13.2.4
     ora: 5.4.1
-    prettier: 2.6.1
+    prettier: 2.6.2
     prompts: 2.4.2
     semantic-release: 19.0.2
     table: 6.8.0
@@ -4634,15 +4634,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dts-bundle-generator@npm:6.5.0":
-  version: 6.5.0
-  resolution: "dts-bundle-generator@npm:6.5.0"
+"dts-bundle-generator@npm:6.6.0":
+  version: 6.6.0
+  resolution: "dts-bundle-generator@npm:6.6.0"
   dependencies:
     typescript: ">=3.0.1"
     yargs: ^17.2.1
   bin:
     dts-bundle-generator: dist/bin/dts-bundle-generator.js
-  checksum: d3599a6de0d61a52a406ca3314c809535a2b9cb106c982a4750dcd889b2d8dc006f079ec8d5a3e83297845c65019f10c9e03b5ba8c0df9ef79aff4530889e54f
+  checksum: 2dde52bfbb7c306e52ae505e6b6625bc819dab9562a573b3d149932386ea4d9fff5412deb1c15f82e1763477837afac1502651c5e30c5a2baff3f1b76fb9528e
   languageName: node
   linkType: hard
 
@@ -9728,12 +9728,12 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.6.1":
-  version: 2.6.1
-  resolution: "prettier@npm:2.6.1"
+"prettier@npm:2.6.2":
+  version: 2.6.2
+  resolution: "prettier@npm:2.6.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 78be1f8a3ddfad7c3d8a854b6c8941a3bb1ddfca4225c38d778e0fe1029a55368f71b3bbefff82c689015fbb4d391ec44add957f01308ad2725e01a7c1f37cb6
+  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
   languageName: node
   linkType: hard
 
