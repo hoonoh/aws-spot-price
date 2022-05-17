@@ -190,6 +190,7 @@ export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
   'i4i.4xlarge': { vCpu: 16, memoryGiB: 128 },
   'i4i.8xlarge': { vCpu: 32, memoryGiB: 256 },
   'i4i.large': { vCpu: 2, memoryGiB: 16 },
+  'i4i.metal': { vCpu: 128, memoryGiB: 1024 },
   'i4i.xlarge': { vCpu: 4, memoryGiB: 32 },
   'im4gn.16xlarge': { vCpu: 64, memoryGiB: 256 },
   'im4gn.2xlarge': { vCpu: 8, memoryGiB: 32 },

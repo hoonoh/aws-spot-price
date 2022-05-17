@@ -572,6 +572,7 @@ export const allInstances = [
   'i4i.8xlarge',
   'i4i.16xlarge',
   'i4i.32xlarge',
+  'i4i.metal',
   'im4gn.large',
   'im4gn.xlarge',
   'im4gn.2xlarge',
