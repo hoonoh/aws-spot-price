@@ -44,11 +44,11 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "aws-sdk": "2.1135.0",
+    "aws-sdk": "2.1140.0",
     "ora": "5.4.1",
     "prompts": "2.4.2",
     "table": "6.8.0",
-    "yargs": "17.5.0"
+    "yargs": "17.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "16.3.0",
@@ -60,17 +60,17 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "27.5.1",
     "@types/lodash": "4.14.182",
-    "@types/node": "16.11.35",
+    "@types/node": "16.11.36",
     "@types/prettier": "2.6.1",
     "@types/prompts": "2.0.14",
     "@types/yargs": "17.0.10",
-    "@typescript-eslint/eslint-plugin": "5.23.0",
-    "@typescript-eslint/parser": "5.23.0",
+    "@typescript-eslint/eslint-plugin": "5.25.0",
+    "@typescript-eslint/parser": "5.25.0",
     "commitizen": "4.2.4",
     "conventional-changelog-cli": "2.2.2",
     "cz-conventional-changelog": "3.3.0",
     "dts-bundle-generator": "6.9.0",
-    "eslint": "8.15.0",
+    "eslint": "8.16.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-airbnb-typescript": "17.0.0",
     "eslint-config-prettier": "8.5.0",
