@@ -3070,7 +3070,7 @@ __metadata:
     husky: 8.0.1
     jest: 28.1.1
     jest-junit: 13.2.0
-    jest-mock-console: 1.3.0
+    jest-mock-console: 2.0.0
     lodash: 4.17.21
     nock: 13.2.6
     ora: 5.4.1
@@ -7290,12 +7290,12 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"jest-mock-console@npm:1.3.0":
-  version: 1.3.0
-  resolution: "jest-mock-console@npm:1.3.0"
+"jest-mock-console@npm:2.0.0":
+  version: 2.0.0
+  resolution: "jest-mock-console@npm:2.0.0"
   peerDependencies:
     jest: ">= 22.4.2"
-  checksum: d1b682e484abd97c068419eea4aa6c21dc5cd5e889db327e70734894ee332a864644722fef24b73a355638db08f6b26ce64f34c91b6e0d1424bf6f94b5512c0a
+  checksum: 6d60407147ae803a039939495a5bad54fb367d26bb7dbf53af8538a57ea9dc5667484252a744bca5e1c99757937f2fb7486d235bf2bf458e06f38c49daa1c72b
   languageName: node
   linkType: hard
 
