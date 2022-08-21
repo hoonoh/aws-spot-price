@@ -2277,10 +2277,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.51":
-  version: 16.11.51
-  resolution: "@types/node@npm:16.11.51"
-  checksum: b4193d3f9d4240d866db0ca50de4a8c3b68fd81754d0a572712b559497d0f34931e4246ce0b2692afc8f8def9fcc69fd176bd7176af896d07eefa6d78d886425
+"@types/node@npm:16.11.52":
+  version: 16.11.52
+  resolution: "@types/node@npm:16.11.52"
+  checksum: eb688bff28015f1399264b7aa347d5f40e165d438306bd5884d78993671c5e43b7849b8ddc74b91bf7c7b73e15ba54fc56ea1db2118b0e3f59f9fabd2adc7fe7
   languageName: node
   linkType: hard
 
@@ -3240,7 +3240,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.7
     "@types/lodash": 4.14.184
-    "@types/node": 16.11.51
+    "@types/node": 16.11.52
     "@types/prettier": 2.7.0
     "@types/prompts": 2.0.14
     "@types/yargs": 17.0.11
@@ -3257,7 +3257,7 @@ __metadata:
     eslint-config-prettier: 8.5.0
     eslint-import-resolver-typescript: 3.4.2
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jest: 26.8.5
+    eslint-plugin-jest: 26.8.7
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-simple-import-sort: 7.0.0
     eslint-plugin-unused-imports: 2.0.0
@@ -5231,9 +5231,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:26.8.5":
-  version: 26.8.5
-  resolution: "eslint-plugin-jest@npm:26.8.5"
+"eslint-plugin-jest@npm:26.8.7":
+  version: 26.8.7
+  resolution: "eslint-plugin-jest@npm:26.8.7"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -5244,7 +5244,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 2909c97fed29d0a08e1b8ca4351d324ea55cd8b453fbebde3939dfd5a03a567c73c9f4cfabd26ee2f83848a96de9560fa86793d8f528ef46b431e76795d7ffa6
+  checksum: 4e5e0c781ef48ae7d757123bce3ed28c384f02f3d4cf88d616932c075b625c10f298e905bee988876f62f6688e8e11d0b8ce235fd4b3f6c7006a8725375eac58
   languageName: node
   linkType: hard
 
