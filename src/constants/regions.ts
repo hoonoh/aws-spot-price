@@ -19,6 +19,7 @@ export const allRegions = [
   'eu-west-1',
   'eu-west-2',
   'eu-west-3',
+  'me-central-1',
   'me-south-1',
   'sa-east-1',
 ] as const;
@@ -46,6 +47,7 @@ export const defaultRegions: Region[] = [
   'eu-west-1',
   'eu-west-2',
   'eu-west-3',
+  // 'me-central-1', // requires opt-in
   // 'me-south-1', // requires opt-in
   'sa-east-1',
 ];
@@ -71,6 +73,7 @@ export const regionNames: Record<Region, string> = {
   'eu-west-1': 'Europe (Ireland)',
   'eu-west-2': 'Europe (London)',
   'eu-west-3': 'Europe (Paris)',
+  'me-central-1': 'Middle East (UAE)',
   'me-south-1': 'Middle East (Bahrain)',
   'sa-east-1': 'South America (Sao Paulo)',
 };
