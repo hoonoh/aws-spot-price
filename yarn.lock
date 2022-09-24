@@ -2319,10 +2319,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:2.7.0":
-  version: 2.7.0
-  resolution: "@types/prettier@npm:2.7.0"
-  checksum: bf5d0c7c1270909b39399539ac106d20ddaa85fe92eb1d59922dc99159604b4f8d5e41b0045fb29c8011585cf5bca2350b7441ef3d9816c08bd0e10ebd4b31d4
+"@types/prettier@npm:2.7.1":
+  version: 2.7.1
+  resolution: "@types/prettier@npm:2.7.1"
+  checksum: 5e3f58e229d6c73b5f5cae2e8f96c1c4a5b5805f83459e17a045ba8e96152b1d38e86b63e3172fb159dac923388699660862b75b2d37e54220805f0e691e26f1
   languageName: node
   linkType: hard
 
@@ -3255,7 +3255,7 @@ __metadata:
     "@types/jest": 29.0.3
     "@types/lodash": 4.14.185
     "@types/node": 16.11.60
-    "@types/prettier": 2.7.0
+    "@types/prettier": 2.7.1
     "@types/prompts": 2.0.14
     "@types/yargs": 17.0.13
     "@typescript-eslint/eslint-plugin": 5.38.0
@@ -3286,7 +3286,7 @@ __metadata:
     prompts: 2.4.2
     semantic-release: 19.0.5
     table: 6.8.0
-    ts-jest: 29.0.1
+    ts-jest: 29.0.2
     ts-loader: 9.4.1
     ts-node: 10.9.1
     typescript: 4.8.3
@@ -11949,9 +11949,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:29.0.1":
-  version: 29.0.1
-  resolution: "ts-jest@npm:29.0.1"
+"ts-jest@npm:29.0.2":
+  version: 29.0.2
+  resolution: "ts-jest@npm:29.0.2"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -11978,7 +11978,7 @@ fsevents@^2.3.2:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: f126675beb0d103d440b0297dc331ce37ba0f1e1a8002f4e97bfeb9043cf21b4de03deebf11ac1f08b7e4978d87f6a1c71e398b1c2f8535df3b684338786408e
+  checksum: 66ece9c36e0b3b00ed617c1aad254578c77bca60409cf0d316c353ae94c9f05bc5be541366be94df6b1bc33c974701f0cd5304aa9f86c1b94917709575a13ba9
   languageName: node
   linkType: hard
 
