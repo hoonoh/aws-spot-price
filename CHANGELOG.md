@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.51](https://github.com/hoonoh/aws-spot-price/compare/v1.0.50...v1.0.51) (2022-10-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency yargs to v17.6.0 ([ccf07d6](https://github.com/hoonoh/aws-spot-price/commit/ccf07d6e216f0ad122555afde2fa2da2a0317dfb))
+
 ## [1.0.50](https://github.com/hoonoh/aws-spot-price/compare/v1.0.49...v1.0.50) (2022-08-31)
 
 
