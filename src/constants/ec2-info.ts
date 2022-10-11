@@ -511,6 +511,8 @@ export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
   't4g.nano': { vCpu: 2, memoryGiB: 0.5 },
   't4g.small': { vCpu: 2, memoryGiB: 2 },
   't4g.xlarge': { vCpu: 4, memoryGiB: 16 },
+  'trn1.2xlarge': { vCpu: 8, memoryGiB: 32 },
+  'trn1.32xlarge': { vCpu: 128, memoryGiB: 512 },
   'u-12tb1.112xlarge': { vCpu: 448, memoryGiB: 12288 },
   'u-3tb1.56xlarge': { vCpu: 224, memoryGiB: 3072 },
   'u-6tb1.112xlarge': { vCpu: 448, memoryGiB: 6144 },
