@@ -514,6 +514,8 @@ export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
   'trn1.2xlarge': { vCpu: 8, memoryGiB: 32 },
   'trn1.32xlarge': { vCpu: 128, memoryGiB: 512 },
   'u-12tb1.112xlarge': { vCpu: 448, memoryGiB: 12288 },
+  'u-18tb1.112xlarge': { vCpu: 448, memoryGiB: 18432 },
+  'u-24tb1.112xlarge': { vCpu: 448, memoryGiB: 24576 },
   'u-3tb1.56xlarge': { vCpu: 224, memoryGiB: 3072 },
   'u-6tb1.112xlarge': { vCpu: 448, memoryGiB: 6144 },
   'u-6tb1.56xlarge': { vCpu: 224, memoryGiB: 6144 },
