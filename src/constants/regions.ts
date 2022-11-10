@@ -14,6 +14,7 @@ export const allRegions = [
   'ap-southeast-3',
   'ca-central-1',
   'eu-central-1',
+  'eu-central-2',
   'eu-north-1',
   'eu-south-1',
   'eu-west-1',
@@ -42,6 +43,7 @@ export const defaultRegions: Region[] = [
   // 'ap-southeast-3', // requires opt-in
   'ca-central-1',
   'eu-central-1',
+  // 'eu-central-2', // requires opt-in
   'eu-north-1',
   // 'eu-south-1', // requires opt-in
   'eu-west-1',
@@ -68,6 +70,7 @@ export const regionNames: Record<Region, string> = {
   'ap-southeast-3': 'Asia Pacific (Jakarta)',
   'ca-central-1': 'Canada (Central)',
   'eu-central-1': 'Europe (Frankfurt)',
+  'eu-central-2': 'Europe (Zurich)',
   'eu-north-1': 'Europe (Stockholm)',
   'eu-south-1': 'Europe (Milan)',
   'eu-west-1': 'Europe (Ireland)',
