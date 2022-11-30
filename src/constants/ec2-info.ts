@@ -192,6 +192,7 @@ export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
   'h1.4xlarge': { vCpu: 16, memoryGiB: 64 },
   'h1.8xlarge': { vCpu: 32, memoryGiB: 128 },
   'hpc6a.48xlarge': { vCpu: 96, memoryGiB: 384 },
+  'hpc6id.32xlarge': { vCpu: 64, memoryGiB: 1024 },
   'i2.2xlarge': { vCpu: 8, memoryGiB: 61 },
   'i2.4xlarge': { vCpu: 16, memoryGiB: 122 },
   'i2.8xlarge': { vCpu: 32, memoryGiB: 244 },
