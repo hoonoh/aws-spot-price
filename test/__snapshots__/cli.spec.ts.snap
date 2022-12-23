@@ -437,7 +437,7 @@ exports[`cli test by import should return expected values with wide option 1`] =
 ║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
 ║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ ap-southeast-2a   │ Asia Pacific (Sydney)     ║
 ║ t3.nano  │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ us-west-1b        │ US West (N. California)   ║
-║ t3a.nano │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ sa-east-1a        │ South America (Sao Paulo) ║
+║ t3a.nano │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ sa-east-1a        │ South America (São Paulo) ║
 ║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
 ║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX (Amazon VPC) │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
 ║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ ap-southeast-2a   │ Asia Pacific (Sydney)     ║
