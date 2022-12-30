@@ -84,5 +84,5 @@ export const regionNames: Record<Region, string> = {
   'eu-west-3': 'Europe (Paris)',
   'me-central-1': 'Middle East (UAE)',
   'me-south-1': 'Middle East (Bahrain)',
-  'sa-east-1': 'South America (São Paulo)',
+  'sa-east-1': 'South America (Sao Paulo)',
 };
