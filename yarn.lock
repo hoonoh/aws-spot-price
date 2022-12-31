@@ -2302,13 +2302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:29.2.4":
-  version: 29.2.4
-  resolution: "@types/jest@npm:29.2.4"
+"@types/jest@npm:29.2.5":
+  version: 29.2.5
+  resolution: "@types/jest@npm:29.2.5"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: 9deb4756fe1b438d41ff1aae7d6c216c9e49e5fe60f539f8edb6698ffeb530ff7b25d37e223439b03602ca3a7397c9c2e53e1a39c7bd616353472fce0cc04107
+  checksum: d668470f00ec4cb8b8457f1fd90f7358fad8f22d74b85006dad6be522d6b9bf10f49f597e88d1d1a518d211c1b65be32a1f27f0e49ce0658d110a9206b8ea310
   languageName: node
   linkType: hard
 
@@ -3318,9 +3318,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.1285.0":
-  version: 2.1285.0
-  resolution: "aws-sdk@npm:2.1285.0"
+"aws-sdk@npm:2.1286.0":
+  version: 2.1286.0
+  resolution: "aws-sdk@npm:2.1286.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -3332,7 +3332,7 @@ __metadata:
     util: ^0.12.4
     uuid: 8.0.0
     xml2js: 0.4.19
-  checksum: 2b3c84c64254451de8ce7fe6386d14f118f9054325c99bccfff7ab444b1e982ca0d8afc1dda31853a499cea5339bc92e2083cffcd81494ca34b2a453f64c9976
+  checksum: 589494899ee008c2acb5dde44c036501dcfe51bfc537eddb4dcbf6c8a937fb5bd29fb4f2433d75ef080bef79c4ead486d230ba558ab89f54e2cc92b88a500de7
   languageName: node
   linkType: hard
 
@@ -3347,7 +3347,7 @@ __metadata:
     "@semantic-release/github": 8.0.7
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 29.2.4
+    "@types/jest": 29.2.5
     "@types/lodash": 4.14.191
     "@types/node": 18.11.18
     "@types/prettier": 2.7.2
@@ -3355,7 +3355,7 @@ __metadata:
     "@types/yargs": 17.0.18
     "@typescript-eslint/eslint-plugin": 5.47.1
     "@typescript-eslint/parser": 5.47.1
-    aws-sdk: 2.1285.0
+    aws-sdk: 2.1286.0
     commitizen: 4.2.6
     conventional-changelog-cli: 2.2.2
     cz-conventional-changelog: 3.3.0
