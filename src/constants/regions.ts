@@ -27,7 +27,7 @@ export const allRegions = [
   'sa-east-1',
 ] as const;
 
-export type Region = typeof allRegions[number];
+export type Region = (typeof allRegions)[number];
 
 export const defaultRegions: Region[] = [
   'us-east-1',

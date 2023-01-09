@@ -11,7 +11,7 @@ const windowsPlatforms = ['Windows', 'Windows (Amazon VPC)'] as const;
 
 export const allPlatforms = [...linuxPlatforms, ...windowsPlatforms];
 
-export type Platform = typeof allPlatforms[number];
+export type Platform = (typeof allPlatforms)[number];
 
 export const platformWildcards = {
   linux: linuxPlatforms,
