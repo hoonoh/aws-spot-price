@@ -120,7 +120,7 @@ export const instanceFamilyTypes = [
   ...instanceFamilyAcceleratedComputing,
 ];
 
-export type InstanceFamilyType = typeof instanceFamilyTypes[number];
+export type InstanceFamilyType = (typeof instanceFamilyTypes)[number];
 
 export const instanceSizes = [
   'nano',
@@ -145,7 +145,7 @@ export const instanceSizes = [
   'metal',
 ] as const;
 
-export type InstanceSize = typeof instanceSizes[number];
+export type InstanceSize = (typeof instanceSizes)[number];
 
 export const allInstances = [
   'a1.medium',
@@ -745,4 +745,4 @@ export const allInstances = [
   'vt1.24xlarge',
 ] as const;
 
-export type InstanceType = typeof allInstances[number];
+export type InstanceType = (typeof allInstances)[number];
