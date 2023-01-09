@@ -19,6 +19,10 @@ jobs:
         with:
           ref: ${{ github.event.inputs.checkout_ref }}
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Install dependencies
         run: yarn --immutable
 
