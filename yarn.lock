@@ -3417,7 +3417,7 @@ __metadata:
     commitizen: 4.3.0
     conventional-changelog-cli: 2.2.2
     cz-conventional-changelog: 3.3.0
-    dts-bundle-generator: 7.1.0
+    dts-bundle-generator: 7.2.0
     eslint: 8.32.0
     eslint-config-airbnb-base: 15.0.0
     eslint-config-airbnb-typescript: 17.0.0
@@ -5034,15 +5034,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dts-bundle-generator@npm:7.1.0":
-  version: 7.1.0
-  resolution: "dts-bundle-generator@npm:7.1.0"
+"dts-bundle-generator@npm:7.2.0":
+  version: 7.2.0
+  resolution: "dts-bundle-generator@npm:7.2.0"
   dependencies:
     typescript: ">=4.5.2"
     yargs: ^17.6.0
   bin:
     dts-bundle-generator: dist/bin/dts-bundle-generator.js
-  checksum: 120c6b0724da0d91076714f45a27ff62776e1b64319e0dfd7a88fb28e6bf0b47bced738ecb25380dfb0afdf5232ce48ac6a2aaeef90da867810c00012321d9ba
+  checksum: 0f00792b604873f2c9fe59b5bb279b9592404c8c5a598a7b188269e98ad472b383b5e571c5b1dce2558821fb003ab39b32d12f89f1b48502fc9473d01d61a1e0
   languageName: node
   linkType: hard
 
