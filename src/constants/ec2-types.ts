@@ -452,6 +452,7 @@ export const allInstances = [
   'c7g.8xlarge',
   'c7g.12xlarge',
   'c7g.16xlarge',
+  'c7g.metal',
   'r3.large',
   'r3.xlarge',
   'r3.2xlarge',
