@@ -137,7 +137,6 @@ export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = {
   'c7g.medium': { vCpu: 1, memoryGiB: 2 },
   'c7g.metal': { vCpu: 64, memoryGiB: 128 },
   'c7g.xlarge': { vCpu: 4, memoryGiB: 8 },
-  'cc2.8xlarge': { vCpu: 32, memoryGiB: 60.5 },
   'd2.2xlarge': { vCpu: 8, memoryGiB: 61 },
   'd2.4xlarge': { vCpu: 16, memoryGiB: 122 },
   'd2.8xlarge': { vCpu: 36, memoryGiB: 244 },
