@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.69](https://github.com/hoonoh/aws-spot-price/compare/v1.0.68...v1.0.69) (2023-04-14)
+
+
+### Bug Fixes
+
+* update constants ([#639](https://github.com/hoonoh/aws-spot-price/issues/639)) ([3e3e382](https://github.com/hoonoh/aws-spot-price/commit/3e3e3829876fa666943399efee452dc8c38c804d))
+
 ## [1.0.68](https://github.com/hoonoh/aws-spot-price/compare/v1.0.67...v1.0.68) (2023-03-22)
 
 
