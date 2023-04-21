@@ -44,7 +44,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "aws-sdk": "2.1359.0",
+    "aws-sdk": "2.1363.0",
     "ora": "5.4.1",
     "prompts": "2.4.2",
     "table": "6.8.1",
@@ -58,19 +58,19 @@
     "@semantic-release/github": "8.0.7",
     "@semantic-release/npm": "10.0.3",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@types/jest": "29.5.0",
+    "@types/jest": "29.5.1",
     "@types/lodash": "4.14.194",
-    "@types/node": "18.15.11",
+    "@types/node": "18.15.13",
     "@types/prettier": "2.7.2",
     "@types/prompts": "2.4.4",
     "@types/yargs": "17.0.24",
-    "@typescript-eslint/eslint-plugin": "5.58.0",
-    "@typescript-eslint/parser": "5.58.0",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
     "commitizen": "4.3.0",
     "conventional-changelog-cli": "2.2.2",
     "cz-conventional-changelog": "3.3.0",
     "dts-bundle-generator": "8.0.1",
-    "eslint": "8.38.0",
+    "eslint": "8.39.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-airbnb-typescript": "17.0.0",
     "eslint-config-prettier": "8.8.0",
@@ -92,8 +92,8 @@
     "ts-loader": "9.4.2",
     "ts-node": "10.9.1",
     "typescript": "5.0.4",
-    "webpack": "5.79.0",
-    "webpack-cli": "5.0.1"
+    "webpack": "5.80.0",
+    "webpack-cli": "5.0.2"
   },
   "resolutions": {
     "npm/chalk": "^4.1.2"
