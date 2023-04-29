@@ -2232,23 +2232,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/release-notes-generator@npm:^10.0.0":
-  version: 10.0.2
-  resolution: "@semantic-release/release-notes-generator@npm:10.0.2"
+"@semantic-release/release-notes-generator@npm:^11.0.0":
+  version: 11.0.1
+  resolution: "@semantic-release/release-notes-generator@npm:11.0.1"
   dependencies:
     conventional-changelog-angular: ^5.0.0
     conventional-changelog-writer: ^5.0.0
     conventional-commits-filter: ^2.0.0
-    conventional-commits-parser: ^3.0.0
+    conventional-commits-parser: ^3.2.3
     debug: ^4.0.0
     get-stream: ^6.0.0
     import-from: ^4.0.0
-    into-stream: ^6.0.0
-    lodash: ^4.17.4
-    read-pkg-up: ^7.0.0
+    into-stream: ^7.0.0
+    lodash-es: ^4.17.21
+    read-pkg-up: ^9.0.0
   peerDependencies:
-    semantic-release: ">=18.0.0-beta.1"
-  checksum: 6e71e8be33383fa71f68f5ca99f3143078678d7ba482fc277fcb4dc64f84f9ebaffbc798d8738a9e650f73d32ba1d0a3cf0413c25d428719a0a39238224223ce
+    semantic-release: ">=20.1.0"
+  checksum: 19bb468c96be0e642646d192d16cdcbf1aee5e60203c53c7e0148da09f47d581939cc20e7aaccd26f0198d93932254b7ab496ef3d73d59d129d38ea9e3f25c04
   languageName: node
   linkType: hard
 
@@ -2510,10 +2510,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.16.0":
-  version: 18.16.0
-  resolution: "@types/node@npm:18.16.0"
-  checksum: 63e0042136663b9e85ce503a4c65406cc6621fdba63ea66c74b4b1364a9aa9bdb57cadcb76696abab177f38a819b0fa6ace9e7f1647dcb990aedb1b4bd01012f
+"@types/node@npm:18.16.2":
+  version: 18.16.2
+  resolution: "@types/node@npm:18.16.2"
+  checksum: 7ad66d23b3b93885a9f879bff98e0196790ad35589b47a3d81b52db969ad17ee298082020296df5166c2d72d3cd6a4b9ab34d254483637d967944a4b3e6febdb
   languageName: node
   linkType: hard
 
@@ -3500,9 +3500,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:2.1364.0":
-  version: 2.1364.0
-  resolution: "aws-sdk@npm:2.1364.0"
+"aws-sdk@npm:2.1368.0":
+  version: 2.1368.0
+  resolution: "aws-sdk@npm:2.1368.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -3514,7 +3514,7 @@ __metadata:
     util: ^0.12.4
     uuid: 8.0.0
     xml2js: 0.5.0
-  checksum: 7fdd26b538a36ea4fead45182ff8ee0fa5592e38e76e56d546b45e67da612ad7259ffa787c6d665a4065ae2e9b7729b7ea6477886791fa4d693a3810cbe381c1
+  checksum: d20659466e43977c5d668199103d5b1aec9859aa070a996ae7456c3e3142d7f646518275ac94cf7c97cea5f56488d274f4a547b9e1609f704d0c9cb9db8f5001
   languageName: node
   linkType: hard
 
@@ -3531,13 +3531,13 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.5.1
     "@types/lodash": 4.14.194
-    "@types/node": 18.16.0
+    "@types/node": 18.16.2
     "@types/prettier": 2.7.2
     "@types/prompts": 2.4.4
     "@types/yargs": 17.0.24
     "@typescript-eslint/eslint-plugin": 5.59.1
     "@typescript-eslint/parser": 5.59.1
-    aws-sdk: 2.1364.0
+    aws-sdk: 2.1368.0
     commitizen: 4.3.0
     conventional-changelog-cli: 2.2.2
     cz-conventional-changelog: 3.3.0
@@ -3557,19 +3557,19 @@ __metadata:
     jest-junit: 16.0.0
     jest-mock-console: 2.0.0
     lodash: 4.17.21
-    nock: 13.3.0
+    nock: 13.3.1
     ora: 5.4.1
     prettier: 2.8.8
     prompts: 2.4.2
-    semantic-release: 21.0.1
+    semantic-release: 21.0.2
     table: 6.8.1
     ts-jest: 29.1.0
     ts-loader: 9.4.2
     ts-node: 10.9.1
     typescript: 5.0.4
-    webpack: 5.80.0
+    webpack: 5.81.0
     webpack-cli: 5.0.2
-    yargs: 17.7.1
+    yargs: 17.7.2
   bin:
     aws-spot-price: bin/aws-spot-price
   languageName: unknown
@@ -4687,7 +4687,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-commits-parser@npm:^3.0.0, conventional-commits-parser@npm:^3.2.0":
+"conventional-commits-parser@npm:^3.2.0":
   version: 3.2.1
   resolution: "conventional-commits-parser@npm:3.2.1"
   dependencies:
@@ -7413,6 +7413,16 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
+"into-stream@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "into-stream@npm:7.0.0"
+  dependencies:
+    from2: ^2.3.0
+    p-is-promise: ^3.0.0
+  checksum: 10c259101237622b2f90a3a30388f2e997f7c4cb16d7236da0380f2e5691b8f9ce32ea2614ae5d1d3b5ad4eba89e2adac0e3d3d24f8494bff69de145432c2d94
+  languageName: node
+  linkType: hard
+
 "ip-regex@npm:^4.1.0":
   version: 4.3.0
   resolution: "ip-regex@npm:4.3.0"
@@ -9888,15 +9898,15 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"nock@npm:13.3.0":
-  version: 13.3.0
-  resolution: "nock@npm:13.3.0"
+"nock@npm:13.3.1":
+  version: 13.3.1
+  resolution: "nock@npm:13.3.1"
   dependencies:
     debug: ^4.1.0
     json-stringify-safe: ^5.0.1
     lodash: ^4.17.21
     propagate: ^2.0.0
-  checksum: 118d04e95a17f493898a82b5dfecc03762776e1980d9c3b2077479747e60b77109c5f7c0df969d1a8f6039260abe5961733553a5841f0f627bb35238576a0009
+  checksum: 0f2a73e8432f6b5650656c53eef99f9e5bbde3df538dc2f07057edc4438cfc61a394c9d06dd82e60f6e86d42433f20f3c04364a1f088beee7bf03a24e3f0fdd0
   languageName: node
   linkType: hard
 
@@ -11279,7 +11289,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"read-pkg-up@npm:^9.1.0":
+"read-pkg-up@npm:^9.0.0, read-pkg-up@npm:^9.1.0":
   version: 9.1.0
   resolution: "read-pkg-up@npm:9.1.0"
   dependencies:
@@ -11774,15 +11784,15 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:21.0.1":
-  version: 21.0.1
-  resolution: "semantic-release@npm:21.0.1"
+"semantic-release@npm:21.0.2":
+  version: 21.0.2
+  resolution: "semantic-release@npm:21.0.2"
   dependencies:
     "@semantic-release/commit-analyzer": ^9.0.2
     "@semantic-release/error": ^3.0.0
     "@semantic-release/github": ^8.0.0
     "@semantic-release/npm": ^10.0.2
-    "@semantic-release/release-notes-generator": ^10.0.0
+    "@semantic-release/release-notes-generator": ^11.0.0
     aggregate-error: ^4.0.1
     cosmiconfig: ^8.0.0
     debug: ^4.0.0
@@ -11808,7 +11818,7 @@ fsevents@^2.3.2:
     yargs: ^17.5.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: a83cede26ac79a3fa3a55586531ea8077ea18b04a0c3bbeb6d415cf31148c6c510189cb2e9863796db8b842fc1afc5d02921325f8880db83d34be40806c0d93d
+  checksum: 362f8b2b396a7b98414e9fa49c3ab0d8030c2b400718e50b1b46edd9707e8187dfcbc87b15acd0a25359fb38e5f0832337795132ea1280835c23e2403a98838d
   languageName: node
   linkType: hard
 
@@ -13573,9 +13583,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.80.0":
-  version: 5.80.0
-  resolution: "webpack@npm:5.80.0"
+"webpack@npm:5.81.0":
+  version: 5.81.0
+  resolution: "webpack@npm:5.81.0"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^1.0.0
@@ -13606,7 +13616,7 @@ fsevents@^2.3.2:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 7b9229d64439ceb20372e0b1452025e2a37cf136f7867102e095b99c3f2bbaf8b0e7e8ff093278238e45b0b1efaae4ed5f0709be48c20e8dab94e94f11c8e5c7
+  checksum: 1a6eecaffac3226d80f4e8f330b32e0ff117d9dafd8700166d230afbc171d68ea1ff55a9939fa789307f7b9d11881889ccb8e6cd79d4ccbaeef916788ce73fdb
   languageName: node
   linkType: hard
 
@@ -13851,9 +13861,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"yargs@npm:17.7.1":
-  version: 17.7.1
-  resolution: "yargs@npm:17.7.1"
+"yargs@npm:17.7.2":
+  version: 17.7.2
+  resolution: "yargs@npm:17.7.2"
   dependencies:
     cliui: ^8.0.1
     escalade: ^3.1.1
@@ -13862,7 +13872,7 @@ fsevents@^2.3.2:
     string-width: ^4.2.3
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
-  checksum: 3d8a43c336a4942bc68080768664aca85c7bd406f018bad362fd255c41c8f4e650277f42fd65d543fce99e084124ddafee7bbfc1a5c6a8fda4cec78609dcf8d4
+  checksum: 73b572e863aa4a8cbef323dd911d79d193b772defd5a51aab0aca2d446655216f5002c42c5306033968193bdbf892a7a4c110b0d77954a7fdf563e653967b56a
   languageName: node
   linkType: hard
 
