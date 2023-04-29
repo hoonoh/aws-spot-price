@@ -44,11 +44,11 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "aws-sdk": "2.1364.0",
+    "aws-sdk": "2.1368.0",
     "ora": "5.4.1",
     "prompts": "2.4.2",
     "table": "6.8.1",
-    "yargs": "17.7.1"
+    "yargs": "17.7.2"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.1",
@@ -60,7 +60,7 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "29.5.1",
     "@types/lodash": "4.14.194",
-    "@types/node": "18.16.0",
+    "@types/node": "18.16.2",
     "@types/prettier": "2.7.2",
     "@types/prompts": "2.4.4",
     "@types/yargs": "17.0.24",
@@ -85,14 +85,14 @@
     "jest-junit": "16.0.0",
     "jest-mock-console": "2.0.0",
     "lodash": "4.17.21",
-    "nock": "13.3.0",
+    "nock": "13.3.1",
     "prettier": "2.8.8",
-    "semantic-release": "21.0.1",
+    "semantic-release": "21.0.2",
     "ts-jest": "29.1.0",
     "ts-loader": "9.4.2",
     "ts-node": "10.9.1",
     "typescript": "5.0.4",
-    "webpack": "5.80.0",
+    "webpack": "5.81.0",
     "webpack-cli": "5.0.2"
   },
   "resolutions": {
