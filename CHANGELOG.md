@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.71](https://github.com/hoonoh/aws-spot-price/compare/v1.0.70...v1.0.71) (2023-05-17)
+
+
+### Bug Fixes
+
+* dependabot alerts ([#652](https://github.com/hoonoh/aws-spot-price/issues/652)) ([438bf93](https://github.com/hoonoh/aws-spot-price/commit/438bf93f1e29a857e3a4165aa9f95986cbdc0aee))
+
 ## [1.0.70](https://github.com/hoonoh/aws-spot-price/compare/v1.0.69...v1.0.70) (2023-05-10)
 
 
