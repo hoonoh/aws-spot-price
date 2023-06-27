@@ -1,6 +1,10 @@
-import EC2 from 'aws-sdk/clients/ec2';
+import {
+  DescribeInstanceTypesResult,
+  DescribeSpotPriceHistoryCommandOutput,
+  EC2,
+  SpotPrice,
+} from '@aws-sdk/client-ec2';
 import { AWSError } from 'aws-sdk/lib/error';
-import { PromiseResult } from 'aws-sdk/lib/request';
 
 import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
@@ -8,7 +12,7 @@ import { Platform } from '../constants/platform';
 import { defaultRegions, Region } from '../constants/regions';
 import { generateInstantTypesFromFamilyTypeSize } from './utils';
 
-const sortSpotPrice = (p1: EC2.SpotPrice, p2: EC2.SpotPrice): number => {
+const sortSpotPrice = (p1: SpotPrice, p2: SpotPrice): number => {
   let rtn = 0;
 
   const sort = (s1?: string, s2?: string): void => {
@@ -80,39 +84,38 @@ const getEc2SpotPrice = async (options: {
   platforms?: Platform[];
   accessKeyId?: string;
   secretAccessKey?: string;
-}): Promise<EC2.SpotPrice[]> => {
+}): Promise<SpotPrice[]> => {
   const { region, instanceTypes, platforms, accessKeyId, secretAccessKey } = options;
 
-  let rtn: EC2.SpotPrice[] = [];
+  let rtn: SpotPrice[] = [];
 
   try {
     const ec2 = new EC2({
       region,
-      accessKeyId,
-      secretAccessKey,
+      credentials:
+        accessKeyId && secretAccessKey
+          ? {
+              accessKeyId,
+              secretAccessKey,
+            }
+          : undefined,
     });
 
     const startTime = new Date();
     startTime.setHours(startTime.getHours() - 3);
 
-    const fetch = async (nextToken?: string): Promise<EC2.SpotPrice[]> => {
+    const fetch = async (nextToken?: string): Promise<SpotPrice[]> => {
       let retryMS = 0;
 
-      const describeSpotPriceHistory = async (): Promise<
-        PromiseResult<EC2.DescribeSpotPriceHistoryResult, AWSError>
-      > => {
-        let spotPriceHistory:
-          | PromiseResult<EC2.DescribeSpotPriceHistoryResult, AWSError>
-          | undefined;
+      const describeSpotPriceHistory = async (): Promise<DescribeSpotPriceHistoryCommandOutput> => {
+        let spotPriceHistory: DescribeSpotPriceHistoryCommandOutput | undefined;
         try {
-          spotPriceHistory = await ec2
-            .describeSpotPriceHistory({
-              NextToken: nextToken,
-              StartTime: startTime,
-              ProductDescriptions: platforms,
-              InstanceTypes: instanceTypes,
-            })
-            .promise();
+          spotPriceHistory = await ec2.describeSpotPriceHistory({
+            NextToken: nextToken,
+            StartTime: startTime,
+            ProductDescriptions: platforms,
+            InstanceTypes: instanceTypes,
+          });
         } catch (error) {
           if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
             retryMS = retryMS ? retryMS * 2 : 200;
@@ -180,18 +183,14 @@ export const getEc2Info = async ({
 
     const rtn: Ec2InstanceInfos = {};
 
-    const describeInstanceTypes = async (): Promise<
-      PromiseResult<EC2.DescribeInstanceTypesResult, AWSError>
-    > => {
-      let instanceTypes: PromiseResult<EC2.DescribeInstanceTypesResult, AWSError> | undefined;
+    const describeInstanceTypes = async (): Promise<DescribeInstanceTypesResult> => {
+      let instanceTypes: DescribeInstanceTypesResult | undefined;
       try {
-        instanceTypes = await ec2
-          .describeInstanceTypes({
-            NextToken,
-            MaxResults: InstanceTypes ? undefined : 100,
-            InstanceTypes,
-          })
-          .promise();
+        instanceTypes = await ec2.describeInstanceTypes({
+          NextToken,
+          MaxResults: InstanceTypes ? undefined : 100,
+          InstanceTypes,
+        });
       } catch (error) {
         if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
           retryMS = retryMS ? retryMS * 2 : 200;
@@ -245,7 +244,7 @@ export type SpotPriceExtended = {
   timestamp: Date;
 } & Ec2InstanceInfo;
 
-const SpotPriceToExtended = (cur: EC2.SpotPrice) =>
+const SpotPriceToExtended = (cur: SpotPrice) =>
   ({
     availabilityZone: cur.AvailabilityZone,
     instanceType: cur.InstanceType,

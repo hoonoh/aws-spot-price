@@ -1,5 +1,5 @@
-import EC2 from 'aws-sdk/clients/ec2';
-import SSM from 'aws-sdk/clients/ssm';
+import { EC2 } from '@aws-sdk/client-ec2';
+import { SSM } from '@aws-sdk/client-ssm';
 import { readFileSync, writeFileSync } from 'fs';
 import { diff } from 'jest-diff';
 import { resolve } from 'path';
@@ -13,7 +13,7 @@ if (require.main && require.main.filename === module.filename) {
   (async (): Promise<void> => {
     const ec2 = new EC2({ region: 'us-east-1' });
     const regions =
-      (await ec2.describeRegions({ AllRegions: true }).promise()).Regions?.sort(
+      (await ec2.describeRegions({ AllRegions: true })).Regions?.sort(
         // order @ https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
         (a, b) => {
           if (a.RegionName?.startsWith('us-') && !b.RegionName?.startsWith('us-')) return -1;
@@ -45,11 +45,9 @@ if (require.main && require.main.filename === module.filename) {
           return {
             region: r.RegionName,
             longName: (
-              await ssm
-                .getParameter({
-                  Name: `/aws/service/global-infrastructure/regions/${r.RegionName}/longName`,
-                })
-                .promise()
+              await ssm.getParameter({
+                Name: `/aws/service/global-infrastructure/regions/${r.RegionName}/longName`,
+              })
             ).Parameter?.Value,
           };
         }),

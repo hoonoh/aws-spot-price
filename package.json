@@ -51,6 +51,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
+    "@aws-sdk/client-ec2": "^3.360.0",
+    "@aws-sdk/client-ssm": "^3.360.0",
+    "@aws-sdk/client-sts": "^3.360.0",
     "@commitlint/cli": "17.6.6",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "10.0.1",

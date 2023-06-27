@@ -1,4 +1,4 @@
-import { SpotPrice } from 'aws-sdk/clients/ec2';
+import { SpotPrice } from '@aws-sdk/client-ec2';
 import { readFileSync } from 'fs';
 import { filter } from 'lodash';
 import nock from 'nock';
