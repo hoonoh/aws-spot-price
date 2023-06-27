@@ -12,7 +12,7 @@ import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
 import { Platform } from '../constants/platform';
 import { Region } from '../constants/regions';
-import { getEc2Info, getGlobalSpotPrices, isAWSError, SpotPriceExtended } from './core';
+import { Ec2SpotPriceError, getEc2Info, getGlobalSpotPrices, SpotPriceExtended } from './core';
 
 describe('lib', () => {
   describe('getGlobalSpotPrices', () => {
@@ -256,7 +256,7 @@ describe('lib', () => {
           await getGlobalSpotPrices({ regions: [region], reduceAZ: false });
           expect(true).toBeFalsy();
         } catch (error) {
-          if (!isAWSError(error)) throw new Error('expected AWSError');
+          if (!Ec2SpotPriceError.isEc2SpotPriceError(error)) throw new Error('expected AWSError');
           expect(error.name).toEqual('Ec2SpotPriceError');
           expect(error.region).toEqual(region);
           expect(error.code).toEqual('AuthFailure');

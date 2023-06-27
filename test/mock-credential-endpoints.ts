@@ -1,4 +1,3 @@
-import { config } from 'aws-sdk';
 import fs from 'fs';
 import nock from 'nock';
 import { sep } from 'path';
@@ -9,8 +8,6 @@ export const mockAwsCredentials = (
   options: { fail?: boolean; disableEnv?: boolean } = {},
 ): void => {
   const { fail, disableEnv } = options;
-
-  config.credentials = null;
 
   const mock = (): void => {
     readFileSyncMock = jest.spyOn(fs, 'readFileSync').mockImplementation((...args: any) => {

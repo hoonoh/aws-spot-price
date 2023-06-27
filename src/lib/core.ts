@@ -2,9 +2,10 @@ import {
   DescribeInstanceTypesResult,
   DescribeSpotPriceHistoryCommandOutput,
   EC2,
+  EC2ServiceException,
   SpotPrice,
 } from '@aws-sdk/client-ec2';
-import { AWSError } from 'aws-sdk/lib/error';
+import { ServiceException } from '@aws-sdk/smithy-client';
 
 import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
@@ -76,7 +77,10 @@ export class Ec2SpotPriceError extends Error {
   readonly code: string;
 }
 
-export const isAWSError = (error: any): error is AWSError => !!error.code;
+export const isAWSError = <ExceptionType extends ServiceException>(
+  error: any,
+): error is ExceptionType =>
+  !!error.name && (error.$fault === 'client' || error.$fault === 'server') && !!error.$metadata;
 
 const getEc2SpotPrice = async (options: {
   region: Region;
@@ -117,7 +121,7 @@ const getEc2SpotPrice = async (options: {
             InstanceTypes: instanceTypes,
           });
         } catch (error) {
-          if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
+          if (isAWSError<EC2ServiceException>(error) && error.name === 'RequestLimitExceeded') {
             retryMS = retryMS ? retryMS * 2 : 200;
             await new Promise(res => setTimeout(res, retryMS));
             return describeSpotPriceHistory();
@@ -143,14 +147,10 @@ const getEc2SpotPrice = async (options: {
     }
   } catch (error) {
     if (
-      error &&
-      isAWSError(error) &&
-      error.code &&
-      (error.code === 'AuthFailure' ||
-        error.code === 'OptInRequired' ||
-        error.code === 'CredentialsError')
+      isAWSError<EC2ServiceException>(error) &&
+      ['AuthFailure', 'OptInRequired', 'CredentialsError'].includes(error.name)
     ) {
-      throw new Ec2SpotPriceError(error.message, region, error.code);
+      throw new Ec2SpotPriceError(error.message, region, error.name);
     } else {
       console.error(
         'unexpected getEc2SpotPrice error.',
@@ -192,7 +192,7 @@ export const getEc2Info = async ({
           InstanceTypes,
         });
       } catch (error) {
-        if (isAWSError(error) && error.code === 'RequestLimitExceeded') {
+        if (isAWSError<EC2ServiceException>(error) && error.name === 'RequestLimitExceeded') {
           retryMS = retryMS ? retryMS * 2 : 200;
           await new Promise(res => setTimeout(res, retryMS));
           return describeInstanceTypes();

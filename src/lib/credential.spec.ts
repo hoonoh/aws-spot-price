@@ -68,7 +68,7 @@ describe('credential', () => {
           threwError = true;
           if (!isAWSError(error)) throw new Error('expected AWSError');
           expect(error.message).toEqual('AWS credentials unavailable.');
-          expect(error.code).toEqual('CredentialsNotFound');
+          expect(error.name).toEqual('CredentialsNotFound');
         }
         expect(threwError).toBeTruthy();
       });
