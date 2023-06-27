@@ -14,7 +14,7 @@ Supports CLI and module usage.
 
 ### Example
 
-![Example](https://raw.githubusercontent.com/hoonoh/aws-spot-price/master/docs/preview.svg?sanitize=true)
+![Example](https://raw.githubusercontent.com/hoonoh/aws-spot-price/master/docs/preview.gif?sanitize=true)
 
 ### Installation
 
