@@ -23,7 +23,6 @@ exclude_patterns:
   - 'yarn.lock'
   - sonar-project.properties
   - sonar-project.properties
-  - webpack.config.js
 
 checks:
   file-lines:
