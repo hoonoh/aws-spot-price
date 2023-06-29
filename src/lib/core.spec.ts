@@ -1,6 +1,7 @@
+import { EC2Client, EC2ServiceException } from '@aws-sdk/client-ec2';
+import { mockClient } from 'aws-sdk-client-mock';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
 import { filter } from 'lodash';
-import nock from 'nock';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import {
@@ -208,16 +209,18 @@ describe('lib', () => {
     describe('should handle error', () => {
       const region: Region = 'ap-east-1';
       let restoreConsole: RestoreConsole;
+      let ec2Mock: ReturnType<typeof mockClient> | undefined;
 
       beforeAll(() => {
         restoreConsole = mockConsole();
         mockAwsCredentials();
-        nock(`https://ec2.${region}.amazonaws.com`).persist().post('/').reply(400, '');
+        ec2Mock = mockClient(EC2Client);
+        ec2Mock.rejectsOnce();
       });
       afterAll(() => {
         restoreConsole();
         mockAwsCredentialsClear();
-        nock.cleanAll();
+        ec2Mock?.restore();
       });
       it('should console log error', async () => {
         await getGlobalSpotPrices({ regions: [region], reduceAZ: false });
@@ -228,28 +231,25 @@ describe('lib', () => {
 
     describe('should handle auth error', () => {
       const region: Region = 'ap-east-1';
+      let ec2Mock: ReturnType<typeof mockClient> | undefined;
+
       beforeAll(() => {
         mockAwsCredentials();
-        nock(`https://ec2.${region}.amazonaws.com`)
-          .persist()
-          .post('/')
-          .reply(
-            401,
-            `<?xml version="1.0" encoding="UTF-8"?>
-            <Response>
-              <Errors>
-                <Error>
-                  <Code>AuthFailure</Code>
-                  <Message>AWS was not able to validate the provided access credentials</Message>
-                </Error>
-              </Errors>
-              <RequestID>e359d062-474b-4621-888c-e269b594de4a</RequestID>
-            </Response>`,
-          );
+        ec2Mock = mockClient(EC2Client);
+        ec2Mock.rejectsOnce(
+          new EC2ServiceException({
+            $fault: 'server',
+            $metadata: {
+              requestId: 'e359d062-474b-4621-888c-e269b594de4a',
+            },
+            name: 'AuthFailure',
+            message: 'AWS was not able to validate the provided access credentials',
+          }),
+        );
       });
       afterAll(() => {
         mockAwsCredentialsClear();
-        nock.cleanAll();
+        ec2Mock?.restore();
       });
       it('should console log error', async () => {
         try {
@@ -271,7 +271,7 @@ describe('lib', () => {
 
       beforeAll(async () => {
         restoreConsole = mockConsole();
-        mockDefaultRegionEndpoints({ returnRequestLimitExceededErrorCount: 10 });
+        mockDefaultRegionEndpoints({ returnRequestLimitExceededErrorCount: 5 });
         results = await getGlobalSpotPrices({ regions: [region] });
       });
 
@@ -377,7 +377,7 @@ describe('lib', () => {
 
       beforeAll(async () => {
         mockDefaultRegionEndpoints({
-          returnRequestLimitExceededErrorCount: 10,
+          returnRequestLimitExceededErrorCount: 5,
           maxLength: 5,
           returnPartialBlankValues: true,
         });

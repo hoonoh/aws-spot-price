@@ -52,10 +52,10 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "^3.360.0",
-    "@aws-sdk/client-ssm": "^3.360.0",
-    "@aws-sdk/client-sts": "^3.360.0",
-    "@aws-sdk/smithy-client": "^3.360.0",
+    "@aws-sdk/client-ec2": "3.360.0",
+    "@aws-sdk/client-ssm": "3.360.0",
+    "@aws-sdk/client-sts": "3.360.0",
+    "@aws-sdk/smithy-client": "3.360.0",
     "@commitlint/cli": "17.6.6",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "10.0.1",
@@ -65,17 +65,19 @@
     "@semantic-release/release-notes-generator": "11.0.3",
     "@types/jest": "29.5.2",
     "@types/lodash": "4.14.195",
+    "@types/mock-fs": "4.13.1",
     "@types/node": "18.16.18",
     "@types/prettier": "2.7.3",
     "@types/prompts": "2.4.4",
     "@types/yargs": "17.0.24",
     "@typescript-eslint/eslint-plugin": "5.60.0",
     "@typescript-eslint/parser": "5.60.0",
+    "aws-sdk-client-mock": "2.2.0",
     "commitizen": "4.3.0",
     "conventional-changelog-cli": "3.0.0",
     "cz-conventional-changelog": "3.3.0",
     "dts-bundle-generator": "8.0.1",
-    "esbuild": "^0.18.10",
+    "esbuild": "0.18.10",
     "eslint": "8.43.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-airbnb-typescript": "17.0.0",
@@ -91,7 +93,7 @@
     "jest-junit": "16.0.0",
     "jest-mock-console": "2.0.0",
     "lodash": "4.17.21",
-    "nock": "13.3.1",
+    "mock-fs": "5.2.0",
     "prettier": "2.8.8",
     "semantic-release": "21.0.5",
     "ts-jest": "29.1.0",
@@ -102,6 +104,6 @@
   "resolutions": {
     "@babel/core": "7.22.5",
     "minimist": "1.2.8",
-    "npm/chalk": "^4.1.2"
+    "npm/chalk": "4.1.2"
   }
 }

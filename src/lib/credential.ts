@@ -1,4 +1,4 @@
-import { STS } from '@aws-sdk/client-sts';
+import { GetCallerIdentityCommand, STSClient } from '@aws-sdk/client-sts';
 
 type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
 
@@ -17,7 +17,7 @@ export const awsCredentialsCheck = async (options?: {
   secretAccessKey?: string;
 }): Promise<void> => {
   const { accessKeyId, secretAccessKey } = options || {};
-  const sts = new STS({
+  const sts = new STSClient({
     credentials:
       accessKeyId && secretAccessKey
         ? {
@@ -26,17 +26,29 @@ export const awsCredentialsCheck = async (options?: {
           }
         : undefined,
   });
+
+  // check credential providers
+  let cpAccessKeyId: string | undefined;
+  let cpSecretAccessKey: string | undefined;
+  try {
+    ({ accessKeyId: cpAccessKeyId, secretAccessKey: cpSecretAccessKey } =
+      await sts.config.credentials());
+  } catch (error) {
+    //
+  }
+
   if (
     !accessKeyId &&
     !secretAccessKey &&
-    !sts.config.credentials &&
+    !cpAccessKeyId &&
+    !cpSecretAccessKey &&
     !(process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY)
   ) {
     throw new AuthError('AWS credentials unavailable.', 'CredentialsNotFound');
   }
 
   try {
-    await sts.getCallerIdentity({});
+    await sts.send(new GetCallerIdentityCommand({}));
   } catch (error) {
     throw new AuthError((error as Error).message, 'UnAuthorized');
   }

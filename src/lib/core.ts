@@ -1,7 +1,9 @@
 import {
+  DescribeInstanceTypesCommand,
   DescribeInstanceTypesResult,
+  DescribeSpotPriceHistoryCommand,
   DescribeSpotPriceHistoryCommandOutput,
-  EC2,
+  EC2Client,
   EC2ServiceException,
   SpotPrice,
 } from '@aws-sdk/client-ec2';
@@ -82,6 +84,20 @@ export const isAWSError = <ExceptionType extends ServiceException>(
 ): error is ExceptionType =>
   !!error.name && (error.$fault === 'client' || error.$fault === 'server') && !!error.$metadata;
 
+const getEc2Client = (region: string, accessKeyId?: string, secretAccessKey?: string) => {
+  const ec2Client = new EC2Client({
+    region,
+    credentials:
+      accessKeyId && secretAccessKey
+        ? {
+            accessKeyId,
+            secretAccessKey,
+          }
+        : undefined,
+  });
+  return ec2Client;
+};
+
 const getEc2SpotPrice = async (options: {
   region: Region;
   instanceTypes?: InstanceType[];
@@ -94,16 +110,7 @@ const getEc2SpotPrice = async (options: {
   let rtn: SpotPrice[] = [];
 
   try {
-    const ec2 = new EC2({
-      region,
-      credentials:
-        accessKeyId && secretAccessKey
-          ? {
-              accessKeyId,
-              secretAccessKey,
-            }
-          : undefined,
-    });
+    const ec2 = getEc2Client(region, accessKeyId, secretAccessKey);
 
     const startTime = new Date();
     startTime.setHours(startTime.getHours() - 3);
@@ -114,12 +121,14 @@ const getEc2SpotPrice = async (options: {
       const describeSpotPriceHistory = async (): Promise<DescribeSpotPriceHistoryCommandOutput> => {
         let spotPriceHistory: DescribeSpotPriceHistoryCommandOutput | undefined;
         try {
-          spotPriceHistory = await ec2.describeSpotPriceHistory({
-            NextToken: nextToken,
-            StartTime: startTime,
-            ProductDescriptions: platforms,
-            InstanceTypes: instanceTypes,
-          });
+          spotPriceHistory = await ec2.send(
+            new DescribeSpotPriceHistoryCommand({
+              NextToken: nextToken,
+              StartTime: startTime,
+              ProductDescriptions: platforms,
+              InstanceTypes: instanceTypes,
+            }),
+          );
         } catch (error) {
           if (isAWSError<EC2ServiceException>(error) && error.name === 'RequestLimitExceeded') {
             retryMS = retryMS ? retryMS * 2 : 200;
@@ -169,33 +178,44 @@ export const getEc2Info = async ({
   region,
   InstanceTypes,
   log,
+  accessKeyId,
+  secretAccessKey,
 }: {
   region?: string;
   InstanceTypes?: (InstanceType | string)[];
   log?: boolean;
+  accessKeyId?: string;
+  secretAccessKey?: string;
 } = {}): Promise<Ec2InstanceInfos> => {
   if (!region) region = 'us-east-1';
 
-  const ec2 = new EC2({ region });
+  const ec2 = getEc2Client(region, accessKeyId, secretAccessKey);
 
   const fetchInfo = async (NextToken?: string): Promise<Ec2InstanceInfos> => {
     let retryMS = 0;
 
     const rtn: Ec2InstanceInfos = {};
 
-    const describeInstanceTypes = async (): Promise<DescribeInstanceTypesResult> => {
+    const describeInstanceTypes = async (): Promise<DescribeInstanceTypesResult | undefined> => {
       let instanceTypes: DescribeInstanceTypesResult | undefined;
       try {
-        instanceTypes = await ec2.describeInstanceTypes({
-          NextToken,
-          MaxResults: InstanceTypes ? undefined : 100,
-          InstanceTypes,
-        });
+        instanceTypes = await ec2.send(
+          new DescribeInstanceTypesCommand({
+            NextToken,
+            MaxResults: InstanceTypes ? undefined : 100,
+            InstanceTypes,
+          }),
+        );
       } catch (error) {
-        if (isAWSError<EC2ServiceException>(error) && error.name === 'RequestLimitExceeded') {
-          retryMS = retryMS ? retryMS * 2 : 200;
-          await new Promise(res => setTimeout(res, retryMS));
-          return describeInstanceTypes();
+        if (isAWSError<EC2ServiceException>(error)) {
+          if (error.name === 'RequestLimitExceeded') {
+            retryMS = retryMS ? retryMS * 2 : 200;
+            await new Promise(res => setTimeout(res, retryMS));
+            return describeInstanceTypes();
+          } else if (error.name === 'InvalidInstanceType') {
+            //
+            return;
+          }
         }
         throw error;
       }
@@ -204,7 +224,7 @@ export const getEc2Info = async ({
 
     const res = await describeInstanceTypes();
 
-    res.InstanceTypes?.forEach(i => {
+    res?.InstanceTypes?.forEach(i => {
       if (i.InstanceType) {
         rtn[i.InstanceType] = {
           vCpu: i.VCpuInfo?.DefaultVCpus,
@@ -216,11 +236,17 @@ export const getEc2Info = async ({
     });
     /* istanbul ignore if */
     if (log) {
-      console.log(
-        `${region}: found ${res.InstanceTypes?.length}${res.NextToken ? ', fetching more...' : ''}`,
-      );
+      if (res) {
+        console.log(
+          `${region}: found ${res.InstanceTypes?.length}${
+            res.NextToken ? ', fetching more...' : ''
+          }`,
+        );
+      } else {
+        console.log(`${region}: invalid instance type(s): ${InstanceTypes}`);
+      }
     }
-    const next = res.NextToken ? await fetchInfo(res.NextToken) : undefined;
+    const next = res?.NextToken ? await fetchInfo(res.NextToken) : undefined;
     return { ...rtn, ...next };
   };
   return fetchInfo();
@@ -397,7 +423,12 @@ export const getGlobalSpotPrices = async (options?: {
               // fetch intance info data from aws
               const region = rExtended.availabilityZone.match(/^.+\d/)?.[0];
               if (region && rExtended.instanceType) {
-                const desc = await getEc2Info({ region, InstanceTypes: [rExtended.instanceType] });
+                const desc = await getEc2Info({
+                  region,
+                  InstanceTypes: [rExtended.instanceType],
+                  accessKeyId,
+                  secretAccessKey,
+                });
 
                 if (
                   desc[rExtended.instanceType] &&
