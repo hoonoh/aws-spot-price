@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.73](https://github.com/hoonoh/aws-spot-price/compare/v1.0.72...v1.0.73) (2023-06-30)
+
+
+### Bug Fixes
+
+* aws-sdk-js-v3, esbuild, misc ([#669](https://github.com/hoonoh/aws-spot-price/issues/669)) ([0aa24e2](https://github.com/hoonoh/aws-spot-price/commit/0aa24e27feafbe97e79d75aa089f7d7b1493cde3))
+
 ## [1.0.72](https://github.com/hoonoh/aws-spot-price/compare/v1.0.71...v1.0.72) (2023-06-21)
 
 
