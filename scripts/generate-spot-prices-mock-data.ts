@@ -1,4 +1,4 @@
-import EC2 from 'aws-sdk/clients/ec2';
+import { EC2, SpotPrice } from '@aws-sdk/client-ec2';
 import { readFileSync, writeFileSync } from 'fs';
 import { find, uniqWith, xorWith } from 'lodash';
 import { resolve } from 'path';
@@ -6,16 +6,14 @@ import yargs from 'yargs/yargs';
 
 import { defaultRegions, Region } from '../src/constants/regions';
 
-let allPrices: EC2.SpotPrice[] = [];
+let allPrices: SpotPrice[] = [];
 
 const fetchData = async (region: Region, token?: string): Promise<void> => {
   process.stdout.write('.');
   const ec2 = new EC2({ region });
   const startTime = new Date();
   startTime.setHours(startTime.getHours() - 3);
-  const results = await ec2
-    .describeSpotPriceHistory({ NextToken: token, StartTime: startTime })
-    .promise();
+  const results = await ec2.describeSpotPriceHistory({ NextToken: token, StartTime: startTime });
   if (results.SpotPriceHistory) allPrices = [...allPrices, ...results.SpotPriceHistory];
   if (results.NextToken) await fetchData(region, results.NextToken);
 };
@@ -60,7 +58,7 @@ const { argv } = yargs()
       // check for any duplicates
       const unique = uniqWith(
         allPrices,
-        (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+        (val1: SpotPrice, val2: SpotPrice) =>
           val1.AvailabilityZone === val2.AvailabilityZone &&
           val1.InstanceType === val2.InstanceType &&
           val1.ProductDescription === val2.ProductDescription,
@@ -70,21 +68,20 @@ const { argv } = yargs()
       if (args.processDetail) {
         const uniqueProductDescription = uniqWith(
           allPrices,
-          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
-            val1.ProductDescription === val2.ProductDescription,
+          (val1: SpotPrice, val2: SpotPrice) => val1.ProductDescription === val2.ProductDescription,
         );
         const uniqueType = uniqWith(
           allPrices,
-          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) => val1.InstanceType === val2.InstanceType,
+          (val1: SpotPrice, val2: SpotPrice) => val1.InstanceType === val2.InstanceType,
         );
         const uniqueFamily = uniqWith(
           allPrices,
-          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+          (val1: SpotPrice, val2: SpotPrice) =>
             val1.InstanceType?.split('.').shift() === val2.InstanceType?.split('.').shift(),
         );
         const uniqueSize = uniqWith(
           allPrices,
-          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+          (val1: SpotPrice, val2: SpotPrice) =>
             val1.InstanceType?.split('.').pop() === val2.InstanceType?.split('.').pop(),
         );
         console.log('uniqueType total:', uniqueType.length);
@@ -98,14 +95,14 @@ const { argv } = yargs()
         const xor = xorWith(
           unique,
           prevList,
-          (val1: EC2.SpotPrice, val2: EC2.SpotPrice) =>
+          (val1: SpotPrice, val2: SpotPrice) =>
             val1.AvailabilityZone === val2.AvailabilityZone &&
             val1.InstanceType === val2.InstanceType &&
             val1.ProductDescription === val2.ProductDescription,
         );
         console.log('xor total:', xor.length);
-        const xorPrev: EC2.SpotPrice[] = [];
-        const xorCur: EC2.SpotPrice[] = [];
+        const xorPrev: SpotPrice[] = [];
+        const xorCur: SpotPrice[] = [];
         xor.forEach(p => {
           const isCur = find(unique, p);
           if (isCur !== undefined) xorCur.push(p);

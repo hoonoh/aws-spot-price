@@ -1,0 +1,96 @@
+[
+  {
+    "AutoRecoverySupported": true,
+    "BareMetal": false,
+    "BurstablePerformanceSupported": true,
+    "CurrentGeneration": true,
+    "DedicatedHostsSupported": false,
+    "EbsInfo": {
+      "EbsOptimizedInfo": {
+        "BaselineBandwidthInMbps": 45,
+        "BaselineIops": 250,
+        "BaselineThroughputInMBps": 5.625,
+        "MaximumBandwidthInMbps": 2085,
+        "MaximumIops": 11800,
+        "MaximumThroughputInMBps": 260.625
+      },
+      "EbsOptimizedSupport": "default",
+      "EncryptionSupport": "supported",
+      "NvmeSupport": "unsupported"
+    },
+    "FreeTierEligible": false,
+    "HibernationSupported": true,
+    "Hypervisor": "nitro",
+    "InstanceStorageSupported": false,
+    "InstanceType": "t3a.nano",
+    "MemoryInfo": {
+      "SizeInMiBComment": "fake value 512 -> 1024",
+      "SizeInMiB": 1024
+    },
+    "NetworkInfo": {
+      "DefaultNetworkCardIndex": 0,
+      "EfaSupported": false,
+      "EnaSupport": "required",
+      "Ipv4AddressesPerInterface": 2,
+      "Ipv6AddressesPerInterface": 2,
+      "Ipv6Supported": true,
+      "MaximumNetworkCards": 1,
+      "MaximumNetworkInterfaces": 2,
+      "NetworkCards": {
+        "Item": {
+          "MaximumNetworkInterfaces": 2,
+          "NetworkCardIndex": 0,
+          "NetworkPerformance": "Up to 5 Gigabit"
+        }
+      },
+      "NetworkPerformance": "Up to 5 Gigabit"
+    },
+    "PlacementGroupInfo": {
+      "SupportedStrategies": {
+        "Item": [
+          "partition",
+          "spread"
+        ]
+      }
+    },
+    "ProcessorInfo": {
+      "SupportedArchitectures": {
+        "Item": "x86_64"
+      },
+      "SustainedClockSpeedInGhz": 2.2
+    },
+    "SupportedBootModes": {
+      "Item": [
+        "legacy-bios",
+        "uefi"
+      ]
+    },
+    "SupportedRootDeviceTypes": {
+      "Item": "ebs"
+    },
+    "SupportedUsageClasses": {
+      "Item": [
+        "on-demand",
+        "spot"
+      ]
+    },
+    "SupportedVirtualizationTypes": {
+      "Item": "hvm"
+    },
+    "VCpuInfo": {
+      "DefaultCores": 1,
+      "DefaultThreadsPerCore": 2,
+      "DefaultVCpusComment": "fake value 2 -> 4",
+      "DefaultVCpus": 4,
+      "ValidCores": {
+        "Item": 1
+      },
+      "ValidThreadsPerCore": {
+        "Item": [
+          1,
+          2
+        ]
+      }
+    }
+  }
+]

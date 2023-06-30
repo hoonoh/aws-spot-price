@@ -1,18 +1,13 @@
+import assert from 'assert';
 import mockConsole, { RestoreConsole } from 'jest-mock-console';
-import nock from 'nock';
 
 import { mockAwsCredentials, mockAwsCredentialsClear } from '../../test/mock-credential-endpoints';
 import { consoleMockCallJoin } from '../../test/utils';
 import { main } from '../cli';
-import { isAWSError } from './core';
-import { awsCredentialsCheck } from './credential';
+import { AuthError, awsCredentialsCheck } from './credential';
 
 describe('credential', () => {
   describe('awsCredentialsCheck', () => {
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
     describe('should throw error', () => {
       beforeEach(() => {
         mockAwsCredentials({ fail: true });
@@ -66,7 +61,8 @@ describe('credential', () => {
           await awsCredentialsCheck();
         } catch (error) {
           threwError = true;
-          if (!isAWSError(error)) throw new Error('expected AWSError');
+          expect(error instanceof AuthError).toBeTruthy();
+          assert(error instanceof AuthError);
           expect(error.message).toEqual('AWS credentials unavailable.');
           expect(error.code).toEqual('CredentialsNotFound');
         }

@@ -13,9 +13,9 @@ import { getEc2Info } from '../src/lib/core';
   console.log(`found ${Object.keys(sorted).length} instance types`);
 
   let output =
-    `import { InstanceType } from 'aws-sdk/clients/ec2';\n\n` +
+    `import { _InstanceType } from '@aws-sdk/client-ec2';\n\n` +
     `export type Ec2InstanceInfo = { vCpu?: number; memoryGiB?: number };\n\n`;
-  output += `export const ec2Info: Record<InstanceType | string, Ec2InstanceInfo> = ${JSON.stringify(
+  output += `export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = ${JSON.stringify(
     sorted,
   )};`;
   output = prettier.format(output, {
