@@ -215,7 +215,7 @@ const getEc2Types = async (): Promise<string> => {
 
   output += `export type InstanceType = typeof allInstances[number];`;
 
-  output = prettier.format(output, {
+  output = await prettier.format(output, {
     printWidth: 100,
     trailingComma: 'all',
     singleQuote: true,

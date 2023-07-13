@@ -66,7 +66,7 @@ if (require.main && require.main.filename === module.filename) {
         .join('')}
       };\n\n`;
 
-    output = prettier.format(output, {
+    output = await prettier.format(output, {
       printWidth: 100,
       trailingComma: 'all',
       singleQuote: true,
