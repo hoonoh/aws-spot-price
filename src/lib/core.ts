@@ -277,7 +277,7 @@ const SpotPriceToExtended = (cur: SpotPrice) =>
     platform: cur.ProductDescription,
     spotPrice: cur.SpotPrice !== undefined ? parseFloat(cur.SpotPrice) : Number.MAX_VALUE,
     timestamp: cur.Timestamp,
-  } as SpotPriceExtended);
+  }) as SpotPriceExtended;
 
 export const getGlobalSpotPrices = async (options?: {
   regions?: Region[];

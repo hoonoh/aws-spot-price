@@ -110,14 +110,17 @@ export const ui = async (): Promise<Answers> => {
       message: 'Select EC2 Family Type',
       hint: generateFamilyHint('types'),
       instructions: false,
-      choices: instanceFamilyTypes.reduce((list, familyType) => {
-        list.push({
-          title: familyType,
-          value: familyType,
-          selected: familyTypePreSelected.includes(familyType),
-        });
-        return list;
-      }, [] as (Choice | { selected: boolean })[]),
+      choices: instanceFamilyTypes.reduce(
+        (list, familyType) => {
+          list.push({
+            title: familyType,
+            value: familyType,
+            selected: familyTypePreSelected.includes(familyType),
+          });
+          return list;
+        },
+        [] as (Choice | { selected: boolean })[],
+      ),
     },
     {
       type: 'autocompleteMultiselect',
@@ -125,14 +128,17 @@ export const ui = async (): Promise<Answers> => {
       message: 'Select EC2 Family Size',
       hint: generateFamilyHint('sizes'),
       instructions: false,
-      choices: instanceSizes.reduce((list, size) => {
-        list.push({
-          title: size,
-          value: size,
-          selected: sizePreSelected.includes(size),
-        });
-        return list;
-      }, [] as (Choice | { selected: boolean })[]),
+      choices: instanceSizes.reduce(
+        (list, size) => {
+          list.push({
+            title: size,
+            value: size,
+            selected: sizePreSelected.includes(size),
+          });
+          return list;
+        },
+        [] as (Choice | { selected: boolean })[],
+      ),
     },
     {
       type: 'autocompleteMultiselect',
