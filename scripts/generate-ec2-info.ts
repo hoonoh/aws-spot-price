@@ -18,7 +18,7 @@ import { getEc2Info } from '../src/lib/core';
   output += `export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = ${JSON.stringify(
     sorted,
   )};`;
-  output = prettier.format(output, {
+  output = await prettier.format(output, {
     printWidth: 100,
     trailingComma: 'all',
     singleQuote: true,
