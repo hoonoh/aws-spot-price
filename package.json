@@ -52,10 +52,10 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.360.0",
-    "@aws-sdk/client-ssm": "3.360.0",
-    "@aws-sdk/client-sts": "3.360.0",
-    "@aws-sdk/smithy-client": "3.360.0",
+    "@aws-sdk/client-ec2": "3.370.0",
+    "@aws-sdk/client-ssm": "3.370.0",
+    "@aws-sdk/client-sts": "3.370.0",
+    "@aws-sdk/smithy-client": "3.370.0",
     "@commitlint/cli": "17.6.6",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "10.0.1",
@@ -103,6 +103,7 @@
   },
   "resolutions": {
     "@babel/core": "7.22.9",
+    "@smithy/smithy-client": "1.0.3",
     "minimist": "1.2.8",
     "npm/chalk": "4.1.2"
   }
