@@ -16,6 +16,10 @@
     {
       "matchPackageNames": ["chalk"],
       "allowedVersions": "<5"
+    },
+    {
+      "matchPackageNames": ["@smithy/smithy-client"],
+      "allowedVersions": "!1.0.4"
     }
   ]
 }
