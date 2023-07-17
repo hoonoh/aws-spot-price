@@ -3180,7 +3180,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/middleware-stack@npm:^1.0.1, @smithy/middleware-stack@npm:^1.0.2":
+"@smithy/middleware-stack@npm:^1.0.1":
   version: 1.0.2
   resolution: "@smithy/middleware-stack@npm:1.0.2"
   dependencies:
@@ -3288,15 +3288,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/smithy-client@npm:1.0.4":
-  version: 1.0.4
-  resolution: "@smithy/smithy-client@npm:1.0.4"
+"@smithy/smithy-client@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@smithy/smithy-client@npm:1.0.3"
   dependencies:
-    "@smithy/middleware-stack": ^1.0.2
-    "@smithy/types": ^1.1.1
-    "@smithy/util-stream": ^1.0.2
+    "@smithy/middleware-stack": ^1.0.1
+    "@smithy/types": ^1.1.0
+    "@smithy/util-stream": ^1.0.1
     tslib: ^2.5.0
-  checksum: 468aa2f28b6addb82861a543a2c1639dcfd40e49d3344237bd56c2d061af5e2bc88972297a2b86de7bf31d7ee49589a4e5a577518ef747e2c7458ae20f7c3322
+  checksum: 5b6092cfcece07c4732cf8b4f54f381bcbc3850a8a0409d287ae84e3cc13e9b527ad4a2c3a481c80ff52204b4e90bde7c26a722cf7e77f74ac8e651d40f50801
   languageName: node
   linkType: hard
 
@@ -3430,7 +3430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/util-stream@npm:^1.0.2":
+"@smithy/util-stream@npm:^1.0.1":
   version: 1.0.2
   resolution: "@smithy/util-stream@npm:1.0.2"
   dependencies:
