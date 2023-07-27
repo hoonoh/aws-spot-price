@@ -300,8 +300,8 @@ Options:
                  "inf1.6xlarge", "inf1.24xlarge", "inf2.xlarge", "inf2.8xlarge",
      "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge", "p2.16xlarge",
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
-               "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge", "vt1.3xlarge",
-                                                  "vt1.6xlarge", "vt1.24xlarge"]
+               "p5.48xlarge", "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge",
+                                   "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                                          "acceleratedComputing"]
@@ -314,7 +314,7 @@ Options:
       "r6g", "r6gd", "r6i", "r6id", "r6idn", "r6in", "r7g", "x1", "x1e", "x2gd",
        "x2idn", "x2iedn", "x2iezn", "z1d", "d2", "d3", "d3en", "h1", "i2", "i3",
         "i3en", "i4g", "i4i", "im4gn", "is4gen", "dl1", "f1", "g2", "g3", "g3s",
-         "g4ad", "g4dn", "g5", "g5g", "inf1", "inf2", "p2", "p3", "p3dn", "p4d",
+   "g4ad", "g4dn", "g5", "g5g", "inf1", "inf2", "p2", "p3", "p3dn", "p4d", "p5",
                                                          "trn1", "trn1n", "vt1"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
@@ -659,8 +659,8 @@ Options:
                  "inf1.6xlarge", "inf1.24xlarge", "inf2.xlarge", "inf2.8xlarge",
      "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge", "p2.16xlarge",
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
-               "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge", "vt1.3xlarge",
-                                                  "vt1.6xlarge", "vt1.24xlarge"]
+               "p5.48xlarge", "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge",
+                                   "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                                          "acceleratedComputing"]
@@ -673,7 +673,7 @@ Options:
       "r6g", "r6gd", "r6i", "r6id", "r6idn", "r6in", "r7g", "x1", "x1e", "x2gd",
        "x2idn", "x2iedn", "x2iezn", "z1d", "d2", "d3", "d3en", "h1", "i2", "i3",
         "i3en", "i4g", "i4i", "im4gn", "is4gen", "dl1", "f1", "g2", "g3", "g3s",
-         "g4ad", "g4dn", "g5", "g5g", "inf1", "inf2", "p2", "p3", "p3dn", "p4d",
+   "g4ad", "g4dn", "g5", "g5g", "inf1", "inf2", "p2", "p3", "p3dn", "p4d", "p5",
                                                          "trn1", "trn1n", "vt1"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",

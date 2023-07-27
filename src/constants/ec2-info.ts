@@ -422,6 +422,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'p3.8xlarge': { vCpu: 32, memoryGiB: 244 },
   'p3dn.24xlarge': { vCpu: 96, memoryGiB: 768 },
   'p4d.24xlarge': { vCpu: 96, memoryGiB: 1152 },
+  'p5.48xlarge': { vCpu: 192, memoryGiB: 2048 },
   'r3.2xlarge': { vCpu: 8, memoryGiB: 61 },
   'r3.4xlarge': { vCpu: 16, memoryGiB: 122 },
   'r3.8xlarge': { vCpu: 32, memoryGiB: 244 },
