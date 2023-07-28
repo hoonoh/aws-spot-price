@@ -19,7 +19,7 @@
     },
     {
       "matchPackageNames": ["@smithy/smithy-client"],
-      "allowedVersions": "!1.0.4"
+      "allowedVersions": "!/1.0.4$/"
     }
   ]
 }
