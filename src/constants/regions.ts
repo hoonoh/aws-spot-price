@@ -7,13 +7,13 @@ export const allRegions = [
   'ap-northeast-2',
   'ap-northeast-3',
   'ap-southeast-1',
-  'ap-southeast-4',
+  'ap-southeast-3',
   'us-west-1',
   'us-west-2',
   'ap-south-1',
   'ap-south-2',
   'ap-southeast-2',
-  'ap-southeast-3',
+  'ap-southeast-4',
   'ca-central-1',
   'eu-central-1',
   'eu-central-2',
@@ -23,6 +23,7 @@ export const allRegions = [
   'eu-west-1',
   'eu-west-2',
   'eu-west-3',
+  'il-central-1',
   'me-central-1',
   'me-south-1',
   'sa-east-1',
@@ -39,13 +40,13 @@ export const defaultRegions: Region[] = [
   'ap-northeast-2',
   'ap-northeast-3',
   'ap-southeast-1',
-  // 'ap-southeast-4', // requires opt-in
+  // 'ap-southeast-3', // requires opt-in
   'us-west-1',
   'us-west-2',
   'ap-south-1',
   // 'ap-south-2', // requires opt-in
   'ap-southeast-2',
-  // 'ap-southeast-3', // requires opt-in
+  // 'ap-southeast-4', // requires opt-in
   'ca-central-1',
   'eu-central-1',
   // 'eu-central-2', // requires opt-in
@@ -55,6 +56,7 @@ export const defaultRegions: Region[] = [
   'eu-west-1',
   'eu-west-2',
   'eu-west-3',
+  // 'il-central-1', // requires opt-in
   // 'me-central-1', // requires opt-in
   // 'me-south-1', // requires opt-in
   'sa-east-1',
@@ -69,13 +71,13 @@ export const regionNames: Record<Region, string> = {
   'ap-northeast-2': 'Asia Pacific (Seoul)',
   'ap-northeast-3': 'Asia Pacific (Osaka)',
   'ap-southeast-1': 'Asia Pacific (Singapore)',
-  'ap-southeast-4': 'Asia Pacific (Melbourne)',
+  'ap-southeast-3': 'Asia Pacific (Jakarta)',
   'us-west-1': 'US West (N. California)',
   'us-west-2': 'US West (Oregon)',
   'ap-south-1': 'Asia Pacific (Mumbai)',
   'ap-south-2': 'Asia Pacific (Hyderabad)',
   'ap-southeast-2': 'Asia Pacific (Sydney)',
-  'ap-southeast-3': 'Asia Pacific (Jakarta)',
+  'ap-southeast-4': 'Asia Pacific (Melbourne)',
   'ca-central-1': 'Canada (Central)',
   'eu-central-1': 'Europe (Frankfurt)',
   'eu-central-2': 'Europe (Zurich)',
@@ -85,6 +87,7 @@ export const regionNames: Record<Region, string> = {
   'eu-west-1': 'Europe (Ireland)',
   'eu-west-2': 'Europe (London)',
   'eu-west-3': 'Europe (Paris)',
+  'il-central-1': 'Israel (Tel Aviv)',
   'me-central-1': 'Middle East (UAE)',
   'me-south-1': 'Middle East (Bahrain)',
   'sa-east-1': 'South America (Sao Paulo)',
