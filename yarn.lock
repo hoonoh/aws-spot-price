@@ -99,9 +99,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ec2@npm:3.388.0":
-  version: 3.388.0
-  resolution: "@aws-sdk/client-ec2@npm:3.388.0"
+"@aws-sdk/client-ec2@npm:3.390.0":
+  version: 3.390.0
+  resolution: "@aws-sdk/client-ec2@npm:3.390.0"
   dependencies:
     "@aws-crypto/sha256-browser": 3.0.0
     "@aws-crypto/sha256-js": 3.0.0
@@ -143,7 +143,7 @@ __metadata:
     fast-xml-parser: 4.2.5
     tslib: ^2.5.0
     uuid: ^8.3.2
-  checksum: e9b1b3459aaf49e1f656236363dbff2a61c65e7a08c6611ee9d556527ea91ba3005ea2c1557366ced93e3f0bac4284a4e9172ea17f6ab14c8a54e2a2d526aead
+  checksum: 1b8c825534948634d0f74dd593e3827ca726abdaaaad621719c6f9c77077cf889a8071dfdf01134a0ee7c8dc9ccfe6f8849ad0703906e5a970ab2ac3f89d55c9
   languageName: node
   linkType: hard
 
@@ -3740,10 +3740,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.17.4":
-  version: 18.17.4
-  resolution: "@types/node@npm:18.17.4"
-  checksum: d4c458202d82c999f38d85ca9ae8a2d3e521645c7f1b908cd6a0303d0e13c7d5eb3f888c41f584ba029ecf802d0a0005b7816c149400371a3c035abc4bd9a4c5
+"@types/node@npm:18.17.5":
+  version: 18.17.5
+  resolution: "@types/node@npm:18.17.5"
+  checksum: b8c658a99234b99425243c324b641ed7b9ceb6bee6b06421fdc9bb7c58f9a5552e353225cc549e6982462ac384abe1985022ed76e2e4728797f59b21f659ca2b
   languageName: node
   linkType: hard
 
@@ -4503,7 +4503,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aws-spot-price@workspace:."
   dependencies:
-    "@aws-sdk/client-ec2": 3.388.0
+    "@aws-sdk/client-ec2": 3.390.0
     "@aws-sdk/client-ssm": 3.388.0
     "@aws-sdk/client-sts": 3.388.0
     "@aws-sdk/smithy-client": 3.370.0
@@ -4517,7 +4517,7 @@ __metadata:
     "@types/jest": 29.5.3
     "@types/lodash": 4.14.197
     "@types/mock-fs": 4.13.1
-    "@types/node": 18.17.4
+    "@types/node": 18.17.5
     "@types/prettier": 2.7.3
     "@types/prompts": 2.4.4
     "@types/yargs": 17.0.24
