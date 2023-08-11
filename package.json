@@ -52,7 +52,7 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.388.0",
+    "@aws-sdk/client-ec2": "3.390.0",
     "@aws-sdk/client-ssm": "3.388.0",
     "@aws-sdk/client-sts": "3.388.0",
     "@aws-sdk/smithy-client": "3.370.0",
@@ -66,7 +66,7 @@
     "@types/jest": "29.5.3",
     "@types/lodash": "4.14.197",
     "@types/mock-fs": "4.13.1",
-    "@types/node": "18.17.4",
+    "@types/node": "18.17.5",
     "@types/prettier": "2.7.3",
     "@types/prompts": "2.4.4",
     "@types/yargs": "17.0.24",
