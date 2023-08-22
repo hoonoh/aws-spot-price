@@ -7,7 +7,6 @@ import {
   EC2ServiceException,
   SpotPrice,
 } from '@aws-sdk/client-ec2';
-import { ServiceException } from '@aws-sdk/smithy-client';
 
 import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
@@ -79,9 +78,8 @@ export class Ec2SpotPriceError extends Error {
   readonly code: string;
 }
 
-export const isAWSError = <ExceptionType extends ServiceException>(
-  error: any,
-): error is ExceptionType =>
+/** `ExceptionType` should be extended from '@aws-sdk/smithy-client', but removed due to ts types packaging reasons */
+export const isAWSError = <ExceptionType>(error: any): error is ExceptionType =>
   !!error.name && (error.$fault === 'client' || error.$fault === 'server') && !!error.$metadata;
 
 const getEc2Client = (region: string, accessKeyId?: string, secretAccessKey?: string) => {
