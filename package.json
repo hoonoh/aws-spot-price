@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.405.0",
-    "@aws-sdk/client-ssm": "3.405.0",
-    "@aws-sdk/client-sts": "3.405.0",
+    "@aws-sdk/client-ec2": "3.409.0",
+    "@aws-sdk/client-ssm": "3.409.0",
+    "@aws-sdk/client-sts": "3.409.0",
     "@commitlint/cli": "17.7.1",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "10.0.4",
@@ -63,14 +63,14 @@
     "@semantic-release/npm": "10.0.5",
     "@semantic-release/release-notes-generator": "11.0.7",
     "@types/jest": "29.5.4",
-    "@types/lodash": "4.14.197",
+    "@types/lodash": "4.14.198",
     "@types/mock-fs": "4.13.1",
     "@types/node": "18.17.14",
     "@types/prettier": "2.7.3",
     "@types/prompts": "2.4.4",
     "@types/yargs": "17.0.24",
-    "@typescript-eslint/eslint-plugin": "6.5.0",
-    "@typescript-eslint/parser": "6.5.0",
+    "@typescript-eslint/eslint-plugin": "6.6.0",
+    "@typescript-eslint/parser": "6.6.0",
     "aws-sdk-client-mock": "3.0.0",
     "commitizen": "4.3.0",
     "conventional-changelog-cli": "4.0.0",
@@ -101,9 +101,9 @@
     "typescript": "5.2.2"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.398.0",
-    "@babel/core": "7.22.11",
-    "@smithy/types": "2.2.2",
+    "@aws-sdk/types": "3.408.0",
+    "@babel/core": "7.22.17",
+    "@smithy/types": "2.3.0",
     "minimist": "1.2.8",
     "npm/chalk": "4.1.2"
   }
