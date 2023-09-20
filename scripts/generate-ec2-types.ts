@@ -92,8 +92,10 @@ const getSizeOrderIndex = (size: string) => {
     'medium',
     'large',
   ];
-  if (size === 'metal') {
-    return 100;
+  if (size.startsWith('metal')) {
+    // e.g. m7i.metal-24xl, m7i.metal-48xl
+    const metalUnits = parseInt(size.split('-').pop() || '0');
+    return 100 + (!isNaN(metalUnits) ? metalUnits : 0);
   }
   if (size.endsWith('xlarge')) {
     return smallSizeOrder.length - 1 + parseInt(size.match(/(\d{1,})?xlarge/)?.[1] || '0');
