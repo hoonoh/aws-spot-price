@@ -3288,12 +3288,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/types@npm:2.3.4":
-  version: 2.3.4
-  resolution: "@smithy/types@npm:2.3.4"
+"@smithy/types@npm:2.3.5":
+  version: 2.3.5
+  resolution: "@smithy/types@npm:2.3.5"
   dependencies:
     tslib: ^2.5.0
-  checksum: 12a500a02a52bace78532f1cb87c03dcba3132b3593b0a7dd7a5f0db7deb06710717f0d1d5a1d6455a0cfb20fa1dc8934e0c8c117d4dd20bfff8f52bc45a7075
+  checksum: b758ba1e21132cccc8b612fe56e9c0eb27fe6b00dcc002965a13dae40c172ae3bff2d994dae61e9c8bdadb844fd370a4c4cb031af6d954e4e1fb897ce5d6b54e
   languageName: node
   linkType: hard
 
@@ -3674,10 +3674,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.18.3":
-  version: 18.18.3
-  resolution: "@types/node@npm:18.18.3"
-  checksum: ed97a832179e0cfbb93738021fe16d0bc5c0f34bea35269c23c9dd5f0ecc8be93dbe5efd51630189a099b31786a47c1bde115508831a7245613a55c3ad1a7d6b
+"@types/node@npm:18.18.4":
+  version: 18.18.4
+  resolution: "@types/node@npm:18.18.4"
+  checksum: 4901e91c4cc479bb58acbcd79236a97a0ad6db4a53cb1f4ba4cf32af15324c61b16faa6e31c1b09bf538a20feb5f5274239157ce5237f5741db0b9ab71e69c52
   languageName: node
   linkType: hard
 
@@ -3763,12 +3763,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:17.0.26":
-  version: 17.0.26
-  resolution: "@types/yargs@npm:17.0.26"
+"@types/yargs@npm:17.0.28":
+  version: 17.0.28
+  resolution: "@types/yargs@npm:17.0.28"
   dependencies:
     "@types/yargs-parser": "*"
-  checksum: 26611969674f4972080c3b22239d4579eaadc5287f95f7802f893c4a9bb292c141467bd70f1e66eb834486c63a23c4f10032618b3d2e7b1ddc05051d08db4078
+  checksum: f78c5e5c29903933c0557b4ffcd1d0b8564d66859c8ca4aa51da3714e49109ed7c2644334a1918d033df19028f4cecc91fd2e502651bb8e8451f246c371da847
   languageName: node
   linkType: hard
 
@@ -4473,10 +4473,10 @@ __metadata:
     "@types/jest": 29.5.5
     "@types/lodash": 4.14.199
     "@types/mock-fs": 4.13.2
-    "@types/node": 18.18.3
+    "@types/node": 18.18.4
     "@types/prettier": 2.7.3
     "@types/prompts": 2.4.5
-    "@types/yargs": 17.0.26
+    "@types/yargs": 17.0.28
     "@typescript-eslint/eslint-plugin": 6.7.4
     "@typescript-eslint/parser": 6.7.4
     aws-sdk-client-mock: 3.0.0
