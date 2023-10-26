@@ -478,6 +478,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'm7i.large': { vCpu: 2, memoryGiB: 8 },
   'm7i.xlarge': { vCpu: 4, memoryGiB: 16 },
   'mac1.metal': { vCpu: 12, memoryGiB: 32 },
+  'mac2-m2.metal': { vCpu: 8, memoryGiB: 24 },
   'mac2-m2pro.metal': { vCpu: 12, memoryGiB: 32 },
   'mac2.metal': { vCpu: 8, memoryGiB: 16 },
   'p2.16xlarge': { vCpu: 64, memoryGiB: 732 },
