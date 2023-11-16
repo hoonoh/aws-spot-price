@@ -192,6 +192,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'd3en.8xlarge': { vCpu: 32, memoryGiB: 128 },
   'd3en.xlarge': { vCpu: 4, memoryGiB: 16 },
   'dl1.24xlarge': { vCpu: 96, memoryGiB: 768 },
+  'dl2q.24xlarge': { vCpu: 96, memoryGiB: 768 },
   'f1.16xlarge': { vCpu: 64, memoryGiB: 976 },
   'f1.2xlarge': { vCpu: 8, memoryGiB: 122 },
   'f1.4xlarge': { vCpu: 16, memoryGiB: 244 },
