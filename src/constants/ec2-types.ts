@@ -100,6 +100,7 @@ export const instanceFamilyStorage = [
 
 export const instanceFamilyAcceleratedComputing = [
   'dl1',
+  'dl2q',
   'f1',
   'g2',
   'g3',
@@ -861,6 +862,7 @@ export const allInstances = [
   'is4gen.4xlarge',
   'is4gen.8xlarge',
   'dl1.24xlarge',
+  'dl2q.24xlarge',
   'f1.2xlarge',
   'f1.4xlarge',
   'f1.16xlarge',
