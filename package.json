@@ -55,7 +55,7 @@
     "@aws-sdk/client-ec2": "3.428.0",
     "@aws-sdk/client-ssm": "3.428.0",
     "@aws-sdk/client-sts": "3.428.0",
-    "@commitlint/cli": "17.8.0",
+    "@commitlint/cli": "18.4.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "11.0.0",
     "@semantic-release/git": "10.0.1",
