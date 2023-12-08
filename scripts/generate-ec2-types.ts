@@ -1,3 +1,4 @@
+import { _InstanceType } from '@aws-sdk/client-ec2';
 import assert from 'assert';
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
@@ -134,6 +135,12 @@ const getEc2Types = async (): Promise<string> => {
     if (cur.instanceType && !list.includes(cur.instanceType)) list.push(cur.instanceType);
     return list;
   }, [] as string[]);
+
+  // add instance type from aws-sdk if not found in fetched list // in order to fill in instance
+  // types which are unavailable as spot instance.
+  Object.values(_InstanceType).forEach(t => {
+    if (!allInstances.includes(t)) allInstances.push(t);
+  });
 
   // const instanceFamilies: string[] = [];
   const instanceFamilyGeneral = new Set<string>();
