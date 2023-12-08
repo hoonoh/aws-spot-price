@@ -21,7 +21,7 @@
   "author": {
     "name": "hoonoh"
   },
-  "packageManager": "yarn@3.6.4",
+  "packageManager": "yarn@4.0.2",
   "bin": "bin/aws-spot-price",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
