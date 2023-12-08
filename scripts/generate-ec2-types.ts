@@ -25,6 +25,7 @@ const familyMemory = [
   'u-', // u-6tb1, u-9tb1 ...
   'x', // x1, x1e, x1edn ...
   'z', // z1d ...
+  'cr1', // cr1.8xlarge ...
 ];
 
 const familyStorage = [
@@ -45,6 +46,12 @@ const familyAcceleratedComputing = [
   'p', // p2, p3, p4 ...
   'trn', // trn1 ...
   'vt', // vt1 ...
+  'cg1', // cg1.4xlarge ...
+];
+
+const familyHpcOptimized = [
+  //
+  'hpc', // hpc7g ...
 ];
 
 const familyOrder = [
@@ -53,6 +60,7 @@ const familyOrder = [
   ...familyMemory,
   ...familyStorage,
   ...familyAcceleratedComputing,
+  ...familyHpcOptimized,
 ];
 
 // assert no duplicate family names
@@ -96,7 +104,7 @@ const getSizeOrderIndex = (size: string) => {
   if (size.startsWith('metal')) {
     // e.g. m7i.metal-24xl, m7i.metal-48xl
     const metalUnits = parseInt(size.split('-').pop() || '0');
-    return 100 + (!isNaN(metalUnits) ? metalUnits : 0);
+    return 10_000 + (!isNaN(metalUnits) ? metalUnits : 0);
   }
   if (size.endsWith('xlarge')) {
     return smallSizeOrder.length - 1 + parseInt(size.match(/(\d{1,})?xlarge/)?.[1] || '0');
@@ -118,9 +126,9 @@ const sortSizes = (s1: string, s2: string): number => {
 const sortInstances = (i1: string, i2: string): number => {
   const [f1, s1] = i1.split('.');
   const [f2, s2] = i2.split('.');
-  const sc1 = familyOrder.indexOf(getFamilyPrefix(f1)) * 100000 + getSizeOrderIndex(s1);
-  const sc2 = familyOrder.indexOf(getFamilyPrefix(f2)) * 100000 + getSizeOrderIndex(s2);
-  return sc1 - sc2 - sortFamilies(f2, f1) * 1000;
+  const sc1 = familyOrder.indexOf(getFamilyPrefix(f1)) * 1_000_000 + getSizeOrderIndex(s1);
+  const sc2 = familyOrder.indexOf(getFamilyPrefix(f2)) * 1_000_000 + getSizeOrderIndex(s2);
+  return sc1 - sc2 - sortFamilies(f2, f1) * 100_000;
 };
 
 const getEc2Types = async (): Promise<string> => {
@@ -148,6 +156,7 @@ const getEc2Types = async (): Promise<string> => {
   const instanceFamilyMemory = new Set<string>();
   const instanceFamilyStorage = new Set<string>();
   const instanceFamilyAcceleratedComputing = new Set<string>();
+  const instanceFamilyHpcOptimized = new Set<string>();
   const instanceSizes = new Set<string>();
 
   allInstances.forEach(instanceType => {
@@ -174,6 +183,7 @@ const getEc2Types = async (): Promise<string> => {
     family = groupByFamily(familyMemory, instanceFamilyMemory, family);
     family = groupByFamily(familyStorage, instanceFamilyStorage, family);
     family = groupByFamily(familyAcceleratedComputing, instanceFamilyAcceleratedComputing, family);
+    family = groupByFamily(familyHpcOptimized, instanceFamilyHpcOptimized, family);
 
     if (family) throw new Error(`unexpected instance family type ${family}`);
 
@@ -204,11 +214,15 @@ const getEc2Types = async (): Promise<string> => {
     .sort(sortFamilies)
     .join("', '")}' ] as const;\n\n`;
 
-  output += `export const instanceFamily = { general: instanceFamilyGeneral, compute: instanceFamilyCompute, memory: instanceFamilyMemory, storage: instanceFamilyStorage, acceleratedComputing: instanceFamilyAcceleratedComputing };\n\n`;
+  output += `export const instanceFamilyHpcOptimized = [ '${Array.from(instanceFamilyHpcOptimized)
+    .sort(sortFamilies)
+    .join("', '")}' ] as const;\n\n`;
+
+  output += `export const instanceFamily = { general: instanceFamilyGeneral, compute: instanceFamilyCompute, memory: instanceFamilyMemory, storage: instanceFamilyStorage, acceleratedComputing: instanceFamilyAcceleratedComputing, hpcOptimized: instanceFamilyHpcOptimized };\n\n`;
 
   output += `export type InstanceFamily = keyof typeof instanceFamily;\n\n`;
 
-  output += `export const instanceFamilyTypes = [ ...instanceFamilyGeneral, ...instanceFamilyCompute, ...instanceFamilyMemory, ...instanceFamilyStorage, ...instanceFamilyAcceleratedComputing ];\n\n`;
+  output += `export const instanceFamilyTypes = [ ...instanceFamilyGeneral, ...instanceFamilyCompute, ...instanceFamilyMemory, ...instanceFamilyStorage, ...instanceFamilyAcceleratedComputing, ...instanceFamilyHpcOptimized ];\n\n`;
 
   output += `export type InstanceFamilyType = typeof instanceFamilyTypes[number];\n\n`;
 
