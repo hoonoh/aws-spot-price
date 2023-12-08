@@ -1,4 +1,5 @@
 import {
+  _InstanceType,
   DescribeInstanceTypesCommand,
   DescribeInstanceTypesResult,
   DescribeSpotPriceHistoryCommand,
@@ -124,7 +125,7 @@ const getEc2SpotPrice = async (options: {
               NextToken: nextToken,
               StartTime: startTime,
               ProductDescriptions: platforms,
-              InstanceTypes: instanceTypes,
+              InstanceTypes: instanceTypes as _InstanceType[],
             }),
           );
         } catch (error) {
@@ -201,7 +202,7 @@ export const getEc2Info = async ({
           new DescribeInstanceTypesCommand({
             NextToken,
             MaxResults: InstanceTypes ? undefined : 100,
-            InstanceTypes,
+            InstanceTypes: InstanceTypes as _InstanceType[],
           }),
         );
       } catch (error) {
