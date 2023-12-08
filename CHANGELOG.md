@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.88](https://github.com/hoonoh/aws-spot-price/compare/v1.0.87...v1.0.88) (2023-12-08)
+
+
+### Bug Fixes
+
+* Instance types, sorting & family types ([#748](https://github.com/hoonoh/aws-spot-price/issues/748)) ([d8b8d6e](https://github.com/hoonoh/aws-spot-price/commit/d8b8d6e09d6d765be98b83997fc4fc0f93859c64))
+
 ## [1.0.87](https://github.com/hoonoh/aws-spot-price/compare/v1.0.86...v1.0.87) (2023-11-30)
 
 
