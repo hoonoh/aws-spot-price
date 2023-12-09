@@ -28,6 +28,10 @@ export const instanceFamilyGeneral = [
   'm7gd',
   'm7i',
   'm7i-flex',
+  'mac1',
+  'mac2',
+  'mac2-m2',
+  'mac2-m2pro',
 ] as const;
 
 export const instanceFamilyCompute = [
@@ -51,6 +55,8 @@ export const instanceFamilyCompute = [
   'c7gd',
   'c7gn',
   'c7i',
+  'cc1',
+  'cc2',
 ] as const;
 
 export const instanceFamilyMemory = [
@@ -75,6 +81,12 @@ export const instanceFamilyMemory = [
   'r7gd',
   'r7i',
   'r7iz',
+  'u-12tb1',
+  'u-18tb1',
+  'u-24tb1',
+  'u-3tb1',
+  'u-6tb1',
+  'u-9tb1',
   'x1',
   'x1e',
   'x2gd',
@@ -82,6 +94,7 @@ export const instanceFamilyMemory = [
   'x2iedn',
   'x2iezn',
   'z1d',
+  'cr1',
 ] as const;
 
 export const instanceFamilyStorage = [
@@ -89,6 +102,8 @@ export const instanceFamilyStorage = [
   'd3',
   'd3en',
   'h1',
+  'hi1',
+  'hs1',
   'i2',
   'i3',
   'i3en',
@@ -115,11 +130,15 @@ export const instanceFamilyAcceleratedComputing = [
   'p3',
   'p3dn',
   'p4d',
+  'p4de',
   'p5',
   'trn1',
   'trn1n',
   'vt1',
+  'cg1',
 ] as const;
+
+export const instanceFamilyHpcOptimized = ['hpc6a', 'hpc6id', 'hpc7a', 'hpc7g'] as const;
 
 export const instanceFamily = {
   general: instanceFamilyGeneral,
@@ -127,6 +146,7 @@ export const instanceFamily = {
   memory: instanceFamilyMemory,
   storage: instanceFamilyStorage,
   acceleratedComputing: instanceFamilyAcceleratedComputing,
+  hpcOptimized: instanceFamilyHpcOptimized,
 };
 
 export type InstanceFamily = keyof typeof instanceFamily;
@@ -137,6 +157,7 @@ export const instanceFamilyTypes = [
   ...instanceFamilyMemory,
   ...instanceFamilyStorage,
   ...instanceFamilyAcceleratedComputing,
+  ...instanceFamilyHpcOptimized,
 ];
 
 export type InstanceFamilyType = (typeof instanceFamilyTypes)[number];
@@ -161,6 +182,9 @@ export const instanceSizes = [
   '24xlarge',
   '32xlarge',
   '48xlarge',
+  '56xlarge',
+  '96xlarge',
+  '112xlarge',
   'metal',
   'metal-16xl',
   'metal-24xl',
@@ -178,6 +202,7 @@ export const allInstances = [
   'a1.4xlarge',
   'a1.metal',
   't1.micro',
+  't2.nano',
   't2.micro',
   't2.small',
   't2.medium',
@@ -395,6 +420,10 @@ export const allInstances = [
   'm7i-flex.2xlarge',
   'm7i-flex.4xlarge',
   'm7i-flex.8xlarge',
+  'mac1.metal',
+  'mac2.metal',
+  'mac2-m2.metal',
+  'mac2-m2pro.metal',
   'c1.medium',
   'c1.xlarge',
   'c3.large',
@@ -563,6 +592,8 @@ export const allInstances = [
   'c7i.48xlarge',
   'c7i.metal-24xl',
   'c7i.metal-48xl',
+  'cc1.4xlarge',
+  'cc2.8xlarge',
   'r3.large',
   'r3.xlarge',
   'r3.2xlarge',
@@ -754,6 +785,18 @@ export const allInstances = [
   'r7iz.32xlarge',
   'r7iz.metal-16xl',
   'r7iz.metal-32xl',
+  'u-12tb1.112xlarge',
+  'u-12tb1.metal',
+  'u-18tb1.112xlarge',
+  'u-18tb1.metal',
+  'u-24tb1.112xlarge',
+  'u-24tb1.metal',
+  'u-3tb1.56xlarge',
+  'u-6tb1.56xlarge',
+  'u-6tb1.112xlarge',
+  'u-6tb1.metal',
+  'u-9tb1.112xlarge',
+  'u-9tb1.metal',
   'x1.16xlarge',
   'x1.32xlarge',
   'x1e.xlarge',
@@ -796,6 +839,7 @@ export const allInstances = [
   'z1d.6xlarge',
   'z1d.12xlarge',
   'z1d.metal',
+  'cr1.8xlarge',
   'd2.xlarge',
   'd2.2xlarge',
   'd2.4xlarge',
@@ -814,6 +858,8 @@ export const allInstances = [
   'h1.4xlarge',
   'h1.8xlarge',
   'h1.16xlarge',
+  'hi1.4xlarge',
+  'hs1.8xlarge',
   'i2.xlarge',
   'i2.2xlarge',
   'i2.4xlarge',
@@ -914,6 +960,7 @@ export const allInstances = [
   'p3.16xlarge',
   'p3dn.24xlarge',
   'p4d.24xlarge',
+  'p4de.24xlarge',
   'p5.48xlarge',
   'trn1.2xlarge',
   'trn1.32xlarge',
@@ -921,6 +968,16 @@ export const allInstances = [
   'vt1.3xlarge',
   'vt1.6xlarge',
   'vt1.24xlarge',
+  'cg1.4xlarge',
+  'hpc6a.48xlarge',
+  'hpc6id.32xlarge',
+  'hpc7a.12xlarge',
+  'hpc7a.24xlarge',
+  'hpc7a.48xlarge',
+  'hpc7a.96xlarge',
+  'hpc7g.4xlarge',
+  'hpc7g.8xlarge',
+  'hpc7g.16xlarge',
 ] as const;
 
 export type InstanceType = (typeof allInstances)[number];
