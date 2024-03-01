@@ -404,6 +404,7 @@ export const allInstances = [
   'm7gd.8xlarge',
   'm7gd.12xlarge',
   'm7gd.16xlarge',
+  'm7gd.metal',
   'm7i.large',
   'm7i.xlarge',
   'm7i.2xlarge',
