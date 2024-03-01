@@ -467,6 +467,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'm7gd.8xlarge': { vCpu: 32, memoryGiB: 128 },
   'm7gd.large': { vCpu: 2, memoryGiB: 8 },
   'm7gd.medium': { vCpu: 1, memoryGiB: 4 },
+  'm7gd.metal': { vCpu: 64, memoryGiB: 256 },
   'm7gd.xlarge': { vCpu: 4, memoryGiB: 16 },
   'm7i-flex.2xlarge': { vCpu: 8, memoryGiB: 32 },
   'm7i-flex.4xlarge': { vCpu: 16, memoryGiB: 64 },
