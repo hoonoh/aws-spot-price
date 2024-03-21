@@ -4584,14 +4584,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk-client-mock@npm:3.1.0":
-  version: 3.1.0
-  resolution: "aws-sdk-client-mock@npm:3.1.0"
+"aws-sdk-client-mock@npm:4.0.0":
+  version: 4.0.0
+  resolution: "aws-sdk-client-mock@npm:4.0.0"
   dependencies:
     "@types/sinon": "npm:^10.0.10"
     sinon: "npm:^16.1.3"
     tslib: "npm:^2.1.0"
-  checksum: 10c0/e4c9cfc999afd4d23b086dcb00c2d94599bedd80572d7a66985cf730a8d0afc534e930d5513fbc13d1130a63fb1cf7b467ef0a57f0874dd22eb3651a48742f4a
+  checksum: 10c0/4ba843b10564f5698e22fecf1a64c4e58b19b01f1444798db8cd6c19293409e63984cbf559ee96f731c49653806562e1e6217f259522c6408983bc1a66c66958
   languageName: node
   linkType: hard
 
@@ -4618,7 +4618,7 @@ __metadata:
     "@types/yargs": "npm:17.0.32"
     "@typescript-eslint/eslint-plugin": "npm:7.2.0"
     "@typescript-eslint/parser": "npm:7.2.0"
-    aws-sdk-client-mock: "npm:3.1.0"
+    aws-sdk-client-mock: "npm:4.0.0"
     commitizen: "npm:4.3.0"
     conventional-changelog-cli: "npm:4.1.0"
     cz-conventional-changelog: "npm:3.3.0"
