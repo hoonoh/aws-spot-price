@@ -48,11 +48,11 @@
   "dependencies": {
     "ora": "5.4.1",
     "prompts": "2.4.2",
-    "table": "6.8.1",
+    "table": "6.8.2",
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.540.0",
+    "@aws-sdk/client-ec2": "3.544.0",
     "@aws-sdk/client-ssm": "3.540.0",
     "@aws-sdk/client-sts": "3.540.0",
     "@commitlint/cli": "19.2.1",
@@ -69,8 +69,8 @@
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.32",
-    "@typescript-eslint/eslint-plugin": "7.3.1",
-    "@typescript-eslint/parser": "7.3.1",
+    "@typescript-eslint/eslint-plugin": "7.4.0",
+    "@typescript-eslint/parser": "7.4.0",
     "aws-sdk-client-mock": "4.0.0",
     "commitizen": "4.3.0",
     "conventional-changelog-cli": "4.1.0",
