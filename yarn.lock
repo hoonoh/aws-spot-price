@@ -3682,12 +3682,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.30":
-  version: 20.11.30
-  resolution: "@types/node@npm:20.11.30"
+"@types/node@npm:20.12.1":
+  version: 20.12.1
+  resolution: "@types/node@npm:20.12.1"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/867cfaf969c6d8850d8d7304e7ab739898a50ecb1395b61ff2335644f5f48d7a46fbc4a14cee967aed65ec134b61a746edae70d1f32f11321ccf29165e3bc4e6
+  checksum: 10c0/570ff7140c80dfa5e3663c0278515a435cfeec6d395997bebb8fae5ac9e5cc3e6bfb7be16c201e778770d0139f1695b0d6cc732b23afd385b83c4207faf540fb
   languageName: node
   linkType: hard
 
@@ -4470,7 +4470,7 @@ __metadata:
     "@types/jest": "npm:29.5.12"
     "@types/lodash": "npm:4.17.0"
     "@types/mock-fs": "npm:4.13.4"
-    "@types/node": "npm:20.11.30"
+    "@types/node": "npm:20.12.1"
     "@types/prettier": "npm:3.0.0"
     "@types/prompts": "npm:2.4.9"
     "@types/yargs": "npm:17.0.32"
