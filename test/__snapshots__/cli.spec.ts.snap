@@ -327,7 +327,9 @@ Options:
     "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge",
          "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge",
        "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge",
-      "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "inf1.xlarge", "inf1.2xlarge",
+          "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "g6.xlarge", "g6.2xlarge",
+        "g6.4xlarge", "g6.8xlarge", "g6.12xlarge", "g6.16xlarge", "g6.24xlarge",
+     "g6.48xlarge", "gr6.4xlarge", "gr6.8xlarge", "inf1.xlarge", "inf1.2xlarge",
                  "inf1.6xlarge", "inf1.24xlarge", "inf2.xlarge", "inf2.8xlarge",
      "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge", "p2.16xlarge",
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
@@ -351,9 +353,9 @@ Options:
           "u-24tb1", "u-3tb1", "u-6tb1", "u-9tb1", "x1", "x1e", "x2gd", "x2idn",
        "x2iedn", "x2iezn", "z1d", "cr1", "d2", "d3", "d3en", "h1", "hi1", "hs1",
        "i2", "i3", "i3en", "i4g", "i4i", "im4gn", "is4gen", "dl1", "dl2q", "f1",
-     "g2", "g3", "g3s", "g4ad", "g4dn", "g5", "g5g", "inf1", "inf2", "p2", "p3",
-  "p3dn", "p4d", "p4de", "p5", "trn1", "trn1n", "vt1", "cg1", "hpc6a", "hpc6id",
-                                                               "hpc7a", "hpc7g"]
+    "g2", "g3", "g3s", "g4ad", "g4dn", "g5", "g5g", "g6", "gr6", "inf1", "inf2",
+         "p2", "p3", "p3dn", "p4d", "p4de", "p5", "trn1", "trn1n", "vt1", "cg1",
+                                            "hpc6a", "hpc6id", "hpc7a", "hpc7g"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
@@ -725,7 +727,9 @@ Options:
     "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge",
          "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge",
        "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge",
-      "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "inf1.xlarge", "inf1.2xlarge",
+          "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "g6.xlarge", "g6.2xlarge",
+        "g6.4xlarge", "g6.8xlarge", "g6.12xlarge", "g6.16xlarge", "g6.24xlarge",
+     "g6.48xlarge", "gr6.4xlarge", "gr6.8xlarge", "inf1.xlarge", "inf1.2xlarge",
                  "inf1.6xlarge", "inf1.24xlarge", "inf2.xlarge", "inf2.8xlarge",
      "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge", "p2.16xlarge",
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
@@ -749,9 +753,9 @@ Options:
           "u-24tb1", "u-3tb1", "u-6tb1", "u-9tb1", "x1", "x1e", "x2gd", "x2idn",
        "x2iedn", "x2iezn", "z1d", "cr1", "d2", "d3", "d3en", "h1", "hi1", "hs1",
        "i2", "i3", "i3en", "i4g", "i4i", "im4gn", "is4gen", "dl1", "dl2q", "f1",
-     "g2", "g3", "g3s", "g4ad", "g4dn", "g5", "g5g", "inf1", "inf2", "p2", "p3",
-  "p3dn", "p4d", "p4de", "p5", "trn1", "trn1n", "vt1", "cg1", "hpc6a", "hpc6id",
-                                                               "hpc7a", "hpc7g"]
+    "g2", "g3", "g3s", "g4ad", "g4dn", "g5", "g5g", "g6", "gr6", "inf1", "inf2",
+         "p2", "p3", "p3dn", "p4d", "p4de", "p5", "trn1", "trn1n", "vt1", "cg1",
+                                            "hpc6a", "hpc6id", "hpc7a", "hpc7g"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
