@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.97](https://github.com/hoonoh/aws-spot-price/compare/v1.0.96...v1.0.97) (2024-04-29)
+
+
+### Bug Fixes
+
+* use legacy config ([6830769](https://github.com/hoonoh/aws-spot-price/commit/6830769faaffc3d2811e948904c762ba49b4a44e))
+
 ## [1.0.96](https://github.com/hoonoh/aws-spot-price/compare/v1.0.95...v1.0.96) (2024-04-05)
 
 
