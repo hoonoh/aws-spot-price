@@ -75,7 +75,7 @@
     "commitizen": "4.3.0",
     "conventional-changelog-cli": "4.1.0",
     "cz-conventional-changelog": "3.3.0",
-    "dts-bundle-generator": "9.5.1",
+    "dts-bundle-generator": "9.4.0",
     "esbuild": "0.20.2",
     "eslint": "9.1.1",
     "eslint-config-airbnb-base": "15.0.0",
