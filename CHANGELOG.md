@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.0.98](https://github.com/hoonoh/aws-spot-price/compare/v1.0.97...v1.0.98) (2024-05-03)
+
+
+### Bug Fixes
+
+* dts-bundle-generator to 9.4.0 ([15bf7d6](https://github.com/hoonoh/aws-spot-price/commit/15bf7d6d9c96f6e250fad74474401a9b15526a87))
+
 ## [1.0.97](https://github.com/hoonoh/aws-spot-price/compare/v1.0.96...v1.0.97) (2024-04-29)
 
 
