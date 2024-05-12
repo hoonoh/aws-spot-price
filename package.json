@@ -103,7 +103,7 @@
   "resolutions": {
     "@aws-sdk/types": "3.535.0",
     "@babel/core": "7.24.5",
-    "@smithy/types": "2.12.0",
+    "@smithy/types": "3.0.0",
     "minimist": "1.2.8"
   }
 }
