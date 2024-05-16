@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+# [1.1.0](https://github.com/hoonoh/aws-spot-price/compare/v1.0.102...v1.1.0) (2024-05-16)
+
+
+### Features
+
+* architecture type filter ([#842](https://github.com/hoonoh/aws-spot-price/issues/842)) ([45682b7](https://github.com/hoonoh/aws-spot-price/commit/45682b7bd53c57d7b0e9a47edb6d43dce1bc717e))
+
 ## [1.0.102](https://github.com/hoonoh/aws-spot-price/compare/v1.0.101...v1.0.102) (2024-05-14)
 
 
