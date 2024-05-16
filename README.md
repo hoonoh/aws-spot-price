@@ -116,6 +116,14 @@ You can use `linux` or `windows` (all in lowercase) as wildcard.
 
 ###### _example `-p windows "Red Hat Enterprise Linux"`_
 
+##### --architectures | -a
+
+Instance architecture types to filter. Accepts multiple string values.
+
+###### _Default: "arm64","arm64_mac","i386","x86_64","x86_64_mac"_
+
+###### _example `-a arm64 x86_64`_
+
 ##### --limit | -l
 
 Limits list of price information items to be returned.
@@ -173,6 +181,7 @@ import { getGlobalSpotPrices } from 'aws-spot-price';
     minVCPU: 2,
     limit: 5,
     reduceAZ: true,
+    architectures: ['arm64', 'x86_64']
   });
   console.log(JSON.stringify(results, null, 2));
 })();
@@ -180,49 +189,65 @@ import { getGlobalSpotPrices } from 'aws-spot-price';
 
 #### Results
 
-```json[
+```json
+[
   {
     "availabilityZone": "us-east-2c",
-    "instanceType": "c5.large",
+    "instanceType": "t4g.medium",
     "platform": "Linux/UNIX",
-    "spotPrice": 0.019,
-    "timestamp": "2020-11-19T15:18:07.000Z",
+    "architectures": [
+      "arm64"
+    ],
+    "spotPrice": 0.0083,
+    "timestamp": "2024-05-16T10:31:10.000Z",
     "vCpu": 2,
     "memoryGiB": 4
   },
   {
-    "availabilityZone": "us-east-2c",
-    "instanceType": "c5a.large",
+    "availabilityZone": "us-west-2a",
+    "instanceType": "c7a.large",
     "platform": "Linux/UNIX",
-    "spotPrice": 0.019,
-    "timestamp": "2020-11-19T22:04:26.000Z",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0103,
+    "timestamp": "2024-05-15T16:09:23.000Z",
     "vCpu": 2,
     "memoryGiB": 4
   },
   {
-    "availabilityZone": "us-east-2a",
-    "instanceType": "c5d.large",
+    "availabilityZone": "us-west-1b",
+    "instanceType": "c7i-flex.large",
     "platform": "Linux/UNIX",
-    "spotPrice": 0.019,
-    "timestamp": "2020-11-19T05:58:45.000Z",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0108,
+    "timestamp": "2024-05-16T04:16:55.000Z",
     "vCpu": 2,
     "memoryGiB": 4
   },
   {
-    "availabilityZone": "us-east-2a",
-    "instanceType": "c5n.large",
+    "availabilityZone": "us-west-2d",
+    "instanceType": "m7a.large",
     "platform": "Linux/UNIX",
-    "spotPrice": 0.019,
-    "timestamp": "2020-11-20T02:27:24.000Z",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0117,
+    "timestamp": "2024-05-16T00:47:33.000Z",
     "vCpu": 2,
-    "memoryGiB": 5.25
+    "memoryGiB": 8
   },
   {
-    "availabilityZone": "us-east-2b",
-    "instanceType": "c6g.large",
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3a.medium",
     "platform": "Linux/UNIX",
-    "spotPrice": 0.02,
-    "timestamp": "2020-11-19T13:41:03.000Z",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0129,
+    "timestamp": "2024-05-16T09:02:05.000Z",
     "vCpu": 2,
     "memoryGiB": 4
   }
