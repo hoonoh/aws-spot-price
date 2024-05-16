@@ -1,5 +1,6 @@
 import {
   _InstanceType,
+  ArchitectureType,
   DescribeInstanceTypesCommand,
   DescribeInstanceTypesResult,
   DescribeSpotPriceHistoryCommand,
@@ -101,10 +102,11 @@ const getEc2SpotPrice = async (options: {
   region: Region;
   instanceTypes?: InstanceType[];
   platforms?: Platform[];
+  architectures?: ArchitectureType[];
   accessKeyId?: string;
   secretAccessKey?: string;
 }): Promise<SpotPrice[]> => {
-  const { region, instanceTypes, platforms, accessKeyId, secretAccessKey } = options;
+  const { region, instanceTypes, platforms, architectures, accessKeyId, secretAccessKey } = options;
 
   let rtn: SpotPrice[] = [];
 
@@ -120,12 +122,26 @@ const getEc2SpotPrice = async (options: {
       const describeSpotPriceHistory = async (): Promise<DescribeSpotPriceHistoryCommandOutput> => {
         let spotPriceHistory: DescribeSpotPriceHistoryCommandOutput | undefined;
         try {
+          const architectureInstanceTypes = architectures?.length
+            ? Object.entries(ec2Info).reduce(
+                (acc, [instanceType, { architectures: instanceTypeArchitecture }]) => {
+                  if (instanceTypeArchitecture?.filter(ita => architectures.includes(ita)).length)
+                    acc.push(instanceType as _InstanceType);
+                  return acc;
+                },
+                [] as _InstanceType[],
+              )
+            : [];
+
           spotPriceHistory = await ec2.send(
             new DescribeSpotPriceHistoryCommand({
               NextToken: nextToken,
               StartTime: startTime,
               ProductDescriptions: platforms,
-              InstanceTypes: instanceTypes as _InstanceType[],
+              InstanceTypes: [
+                ...(instanceTypes?.length ? (instanceTypes as _InstanceType[]) : []),
+                ...architectureInstanceTypes,
+              ],
             }),
           );
         } catch (error) {
@@ -171,7 +187,7 @@ const getEc2SpotPrice = async (options: {
 };
 
 // aws-sdk-js EC2.InstanceType is not always up to date.
-type Ec2InstanceInfos = Record<InstanceType | string, { vCpu?: number; memoryGiB?: number }>;
+type Ec2InstanceInfos = Record<InstanceType | string, Ec2InstanceInfo>;
 
 export const getEc2Info = async ({
   region,
@@ -230,6 +246,7 @@ export const getEc2Info = async ({
           memoryGiB: i.MemoryInfo?.SizeInMiB
             ? Math.ceil((i.MemoryInfo.SizeInMiB / 1024) * 1000) / 1000 // ceil to 3rd decimal place
             : undefined,
+          architectures: i.ProcessorInfo?.SupportedArchitectures,
         };
       }
     });
@@ -256,6 +273,7 @@ export const defaults = {
   wide: false,
   reduceAZ: true,
   platforms: ['Linux/UNIX', 'Linux/UNIX (Amazon VPC)'] as Platform[],
+  architectures: Object.keys(ArchitectureType) as ArchitectureType[],
   minVCPU: 1,
   minMemoryGiB: 0.5,
   priceLimit: 100,
@@ -274,6 +292,9 @@ const SpotPriceToExtended = (cur: SpotPrice) =>
     availabilityZone: cur.AvailabilityZone,
     instanceType: cur.InstanceType,
     platform: cur.ProductDescription,
+    architectures: Object.entries(ec2Info).find(
+      ([instanceType]) => instanceType === cur.InstanceType,
+    )?.[1].architectures,
     spotPrice: cur.SpotPrice !== undefined ? parseFloat(cur.SpotPrice) : Number.MAX_VALUE,
     timestamp: cur.Timestamp,
   }) as SpotPriceExtended;
@@ -287,6 +308,7 @@ export const getGlobalSpotPrices = async (options?: {
   minMemoryGiB?: number;
   instanceTypes?: InstanceType[];
   platforms?: Platform[];
+  architectures?: ArchitectureType[];
   limit?: number;
   reduceAZ?: boolean;
   accessKeyId?: string;
@@ -302,6 +324,7 @@ export const getGlobalSpotPrices = async (options?: {
     minVCPU,
     minMemoryGiB,
     platforms,
+    architectures,
     reduceAZ,
     accessKeyId,
     secretAccessKey,
@@ -335,6 +358,7 @@ export const getGlobalSpotPrices = async (options?: {
           region,
           instanceTypes,
           platforms,
+          architectures,
           accessKeyId,
           secretAccessKey,
         });

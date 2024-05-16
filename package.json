@@ -41,7 +41,7 @@
     "test": "jest --runInBand --verbose",
     "test:coverage": "yarn test --coverage",
     "test:ci": "yarn test:coverage --reporters=default jest-junit --coverageReporters lcov --coverageReporters cobertura",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint \"**/*.ts\"",
+    "lint": "eslint \"**/*.ts\"",
     "types": "tsc",
     "semantic-release": "semantic-release"
   },
@@ -77,7 +77,7 @@
     "cz-conventional-changelog": "3.3.0",
     "dts-bundle-generator": "9.4.0",
     "esbuild": "0.21.3",
-    "eslint": "9.2.0",
+    "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-airbnb-typescript": "18.0.0",
     "eslint-config-prettier": "9.1.0",

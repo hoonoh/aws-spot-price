@@ -328,13 +328,30 @@ describe('lib', () => {
         expect(results).toMatchSnapshot();
       });
     });
+
+    describe('should filter architecture', () => {
+      let results: SpotPriceExtended[];
+      let restoreConsole: RestoreConsole;
+
+      beforeAll(async () => {
+        restoreConsole = mockConsole();
+        mockDefaultRegionEndpoints();
+        results = await getGlobalSpotPrices({ architectures: ['arm64'] });
+      });
+
+      afterAll(() => {
+        restoreConsole();
+        mockDefaultRegionEndpointsClear();
+      });
+
+      it('should return expected values', () => {
+        expect(results).toMatchSnapshot();
+      });
+    });
   });
 
   describe('getEc2Info', () => {
-    type GetEc2InfoResults = Record<
-      string,
-      { vCpu?: number | undefined; memoryGiB?: number | undefined }
-    >;
+    type GetEc2InfoResults = Record<string, Ec2InstanceInfo>;
 
     describe('run with default options', () => {
       let results: GetEc2InfoResults;

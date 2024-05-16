@@ -33,6 +33,7 @@ describe('cli-ui', () => {
         [],
         [],
         [],
+        [],
         undefined,
         undefined,
         undefined,
@@ -68,6 +69,7 @@ describe('cli-ui', () => {
       process.env.UI_INJECT = JSON.stringify([
         [],
         ['general', 'memory'],
+        [],
         [],
         [],
         [],
@@ -111,6 +113,7 @@ describe('cli-ui', () => {
         ['c4', 'r5', 'f1'],
         ['nano', 'micro', 'small', 'medium', 'large'],
         ['Linux/UNIX', 'SUSE Linux'],
+        [],
         undefined,
         undefined,
         0.5,
@@ -141,6 +144,87 @@ describe('cli-ui', () => {
         expect(result.limit).toEqual(21);
         expect(result.accessKeyId).toEqual('accessKeyId');
         expect(result.secretAccessKey).toEqual('secretAccessKey');
+      }
+    });
+  });
+
+  describe('arm64 architecture', () => {
+    beforeAll(() => {
+      process.env.UI_INJECT = JSON.stringify([
+        [],
+        [],
+        [],
+        [],
+        [],
+        ['arm64'],
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        false,
+        false,
+      ]);
+    });
+
+    afterAll(() => {
+      delete process.env.UI_INJECT;
+    });
+
+    it('should return expected object', async () => {
+      const result = await ui();
+      expect(result).toBeDefined();
+      if (result) {
+        expect(result.region).toHaveLength(0);
+        expect(result.family).toEqual([]);
+        expect(result.familyType.sort()).toEqual([]);
+        expect(result.size).toEqual([]);
+        expect(result.platforms).toHaveLength(0);
+        expect(result.priceLimit).toBeFalsy();
+        expect(result.limit).toBeFalsy();
+        expect(result.accessKeyId).toBeFalsy();
+        expect(result.architectures).toEqual(['arm64']);
+      }
+    });
+  });
+
+  describe('no architecture selected', () => {
+    beforeAll(() => {
+      process.env.UI_INJECT = JSON.stringify([
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        false,
+        false,
+      ]);
+    });
+
+    afterAll(() => {
+      delete process.env.UI_INJECT;
+    });
+
+    it('should return expected object', async () => {
+      const result = await ui();
+      expect(result).toBeDefined();
+      if (result) {
+        expect(result.region).toEqual([]);
+        expect(result.family).toHaveLength(0);
+        expect(result.familyType).toEqual([]);
+        expect(result.size).toEqual([]);
+        expect(result.platforms).toEqual([]);
+        expect(result.priceLimit).toBeFalsy();
+        expect(result.limit).toBeFalsy();
+        expect(result.accessKeyId).toBeFalsy();
+        expect(result.secretAccessKey).toBeFalsy();
+        expect(result.architectures).toEqual([]);
       }
     });
   });
