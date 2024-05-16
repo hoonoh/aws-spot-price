@@ -336,7 +336,7 @@ describe('lib', () => {
       beforeAll(async () => {
         restoreConsole = mockConsole();
         mockDefaultRegionEndpoints();
-        results = await getGlobalSpotPrices({ architectures: ['arm64'] });
+        results = await getGlobalSpotPrices();
       });
 
       afterAll(() => {
