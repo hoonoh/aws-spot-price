@@ -2811,7 +2811,9 @@ exports[`lib getGlobalSpotPrices run with default options should return expected
 exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically if not found from constants should return expected values 1`] = `
 [
   {
-    "architectures": undefined,
+    "architectures": {
+      "Item": "x86_64",
+    },
     "availabilityZone": "us-west-2a",
     "instanceType": "t3a.nano",
     "memoryGiB": 1,
@@ -2821,7 +2823,9 @@ exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically
     "vCpu": 4,
   },
   {
-    "architectures": undefined,
+    "architectures": {
+      "Item": "x86_64",
+    },
     "availabilityZone": "us-west-2c",
     "instanceType": "t3a.nano",
     "memoryGiB": 1,
@@ -2831,7 +2835,9 @@ exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically
     "vCpu": 4,
   },
   {
-    "architectures": undefined,
+    "architectures": {
+      "Item": "x86_64",
+    },
     "availabilityZone": "us-west-2d",
     "instanceType": "t3a.nano",
     "memoryGiB": 1,
@@ -3021,7 +3027,9 @@ exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically
     "vCpu": 2,
   },
   {
-    "architectures": undefined,
+    "architectures": {
+      "Item": "x86_64",
+    },
     "availabilityZone": "ca-central-1a",
     "instanceType": "t3a.nano",
     "memoryGiB": 1,
@@ -3031,7 +3039,9 @@ exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically
     "vCpu": 4,
   },
   {
-    "architectures": undefined,
+    "architectures": {
+      "Item": "x86_64",
+    },
     "availabilityZone": "ca-central-1b",
     "instanceType": "t3a.nano",
     "memoryGiB": 1,
@@ -3039,371 +3049,6 @@ exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically
     "spotPrice": 0.0016,
     "timestamp": 2019-10-15T15:04:27.000Z,
     "vCpu": 4,
-  },
-]
-`;
-
-exports[`lib getGlobalSpotPrices should filter architecture should return expected values 1`] = `
-[
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-2a",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0049,
-    "timestamp": 2019-10-15T03:32:13.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-2b",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0049,
-    "timestamp": 2019-10-15T03:32:13.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1b",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0075,
-    "timestamp": 2019-10-15T21:14:19.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1c",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0075,
-    "timestamp": 2019-10-15T21:14:19.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-west-2a",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0083,
-    "timestamp": 2019-10-15T21:08:17.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-1a",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0084,
-    "timestamp": 2019-10-15T14:11:25.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-1b",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0084,
-    "timestamp": 2019-10-15T14:11:25.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-1d",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0084,
-    "timestamp": 2019-10-15T14:11:25.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-northeast-1a",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0086,
-    "timestamp": 2019-10-15T12:42:42.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-northeast-1d",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0086,
-    "timestamp": 2019-10-15T12:42:42.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "eu-central-1a",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0086,
-    "timestamp": 2019-10-15T17:52:24.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "eu-central-1b",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0086,
-    "timestamp": 2019-10-15T17:52:24.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-southeast-2a",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0089,
-    "timestamp": 2019-10-15T22:09:27.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-southeast-2c",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0089,
-    "timestamp": 2019-10-15T22:09:27.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "eu-west-1b",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0089,
-    "timestamp": 2019-10-15T15:42:45.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "eu-west-1c",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0089,
-    "timestamp": 2019-10-15T15:42:45.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-2a",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0098,
-    "timestamp": 2019-10-15T15:03:37.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-2b",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0098,
-    "timestamp": 2019-10-15T15:03:37.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-west-2c",
-    "instanceType": "a1.medium",
-    "memoryGiB": 2,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0148,
-    "timestamp": 2019-10-16T00:22:14.000Z,
-    "vCpu": 1,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1b",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.015,
-    "timestamp": 2019-10-15T04:00:06.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1c",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.015,
-    "timestamp": 2019-10-15T04:00:06.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-west-2a",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0167,
-    "timestamp": 2019-10-15T17:27:17.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-west-2c",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0167,
-    "timestamp": 2019-10-15T17:27:17.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-1a",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0168,
-    "timestamp": 2019-10-16T02:43:12.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-1b",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0168,
-    "timestamp": 2019-10-16T02:43:12.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "us-east-1d",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0168,
-    "timestamp": 2019-10-16T02:43:12.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-northeast-1a",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0172,
-    "timestamp": 2019-10-15T21:08:47.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-northeast-1d",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "spotPrice": 0.0172,
-    "timestamp": 2019-10-15T21:08:47.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "eu-central-1a",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0172,
-    "timestamp": 2019-10-16T01:52:43.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "eu-central-1b",
-    "instanceType": "a1.large",
-    "memoryGiB": 4,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0172,
-    "timestamp": 2019-10-16T01:52:43.000Z,
-    "vCpu": 2,
   },
 ]
 `;
