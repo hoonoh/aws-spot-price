@@ -1,3 +1,4 @@
+import { ArchitectureType } from '@aws-sdk/client-ec2';
 import ora from 'ora';
 import { sep } from 'path';
 import { ColumnUserConfig, Indexable, table } from 'table';
@@ -105,6 +106,14 @@ export const main = (argvInput?: string[]): Promise<void> =>
             choices: [...allPlatforms, ...(Object.keys(platformWildcards) as PlatformsWildcards[])],
             default: defaults.platforms,
           },
+          architectures: {
+            alias: 'a',
+            describe: 'Architectures',
+            type: 'array',
+            choices: Object.keys(ArchitectureType) as ArchitectureType[],
+            string: true,
+            default: defaults.architectures,
+          },
           limit: {
             alias: 'l',
             describe: 'Limit results output length',
@@ -160,6 +169,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               minMemoryGiB,
               priceLimit,
               platforms,
+              architectures,
               json,
               accessKeyId,
               secretAccessKey,
@@ -213,6 +223,11 @@ export const main = (argvInput?: string[]): Promise<void> =>
               });
             }
 
+            const architecturesSet = new Set<ArchitectureType>();
+            if (architectures?.length) {
+              architectures.forEach(a => architecturesSet.add(a));
+            }
+
             if (accessKeyId && !secretAccessKey) {
               console.log('`secretAccessKey` missing.');
               rej();
@@ -232,6 +247,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
             });
 
             const platformsSetArray = Array.from(platformsSet);
+            const architecturesSetArray = Array.from(architecturesSet);
             const familyTypeSetArray = Array.from(familyTypeSet);
             const sizeSetArray = Array.from(sizeSet);
 
@@ -278,6 +294,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
               minMemoryGiB,
               priceLimit,
               platforms: platformsSetArray,
+              architectures: architecturesSetArray,
               accessKeyId,
               secretAccessKey,
               onRegionFetch,
@@ -301,11 +318,12 @@ export const main = (argvInput?: string[]): Promise<void> =>
               let tableFormat: Indexable<ColumnUserConfig> | undefined;
 
               if (!wide) {
-                tableHeader = [['Type', 'Price', 'Platform', 'Availability Zone']];
+                tableHeader = [['Type', 'Price', 'Platform', 'Architecture', 'Availability Zone']];
                 tableData = results.map(info => [
                   info.instanceType,
                   info.spotPrice.toFixed(spotPriceToFixedLen),
                   info.platform,
+                  info.architectures?.join(', '),
                   info.availabilityZone,
                 ]);
                 tableFormat = {
@@ -313,10 +331,20 @@ export const main = (argvInput?: string[]): Promise<void> =>
                   1: { alignment: 'right' },
                   2: { alignment: 'left' },
                   3: { alignment: 'left' },
+                  4: { alignment: 'left' },
                 };
               } else {
                 tableHeader = [
-                  ['Type', 'Price', 'vCPU', 'RAM', 'Platform', 'Availability Zone', 'Region'],
+                  [
+                    'Type',
+                    'Price',
+                    'vCPU',
+                    'RAM',
+                    'Platform',
+                    'Architecture',
+                    'Availability Zone',
+                    'Region',
+                  ],
                 ];
                 tableData = results.map(info => [
                   info.instanceType,
@@ -324,6 +352,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                   info.vCpu ? info.vCpu.toString() : 'unknown',
                   info.memoryGiB ? info.memoryGiB.toString() : 'unknown',
                   info.platform,
+                  info.architectures?.join(', '),
                   info.availabilityZone,
                   info.availabilityZone
                     ? regionNames[info.availabilityZone.slice(0, -1) as Region]
@@ -337,6 +366,7 @@ export const main = (argvInput?: string[]): Promise<void> =>
                   4: { alignment: 'left' },
                   5: { alignment: 'left' },
                   6: { alignment: 'left' },
+                  7: { alignment: 'left' },
                 };
               }
               console.log(

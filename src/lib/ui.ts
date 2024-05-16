@@ -1,3 +1,4 @@
+import { ArchitectureType } from '@aws-sdk/client-ec2';
 import { Choice, prompt } from 'prompts';
 
 import {
@@ -19,6 +20,7 @@ type Answer2 = {
   familyType: InstanceFamilyType[];
   size: InstanceSize[];
   platforms: Platform[];
+  architectures: ArchitectureType[];
   priceLimit: number;
   minVCPU: number;
   minMemoryGiB: number;
@@ -149,6 +151,17 @@ export const ui = async (): Promise<Answers> => {
         title: desc,
         value: desc,
         selected: defaults.platforms.includes(desc),
+      })),
+    },
+    {
+      type: 'autocompleteMultiselect',
+      name: 'architectures',
+      message: `Select Architecture`,
+      instructions: false,
+      choices: (Object.keys(ArchitectureType) as ArchitectureType[]).map(architecture => ({
+        title: architecture,
+        value: architecture,
+        selected: defaults.architectures.includes(architecture),
       })),
     },
     {
