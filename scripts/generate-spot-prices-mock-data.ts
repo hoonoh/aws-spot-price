@@ -18,7 +18,7 @@ const fetchData = async (region: Region, token?: string): Promise<void> => {
   if (results.NextToken) await fetchData(region, results.NextToken);
 };
 
-const jsonPath = resolve(__dirname, '../test/spot-prices-mock.json');
+const jsonPath = resolve(__dirname, '../test/data/spot-prices-mock.json');
 
 const { argv } = yargs()
   .scriptName('generate-spot-prices-mock')
