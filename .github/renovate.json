@@ -16,6 +16,10 @@
     {
       "matchPackageNames": ["chalk"],
       "allowedVersions": "<5"
+    },
+    {
+      "matchPackageNames": ["dts-bundle-generator"],
+      "allowedVersions": ">9.5.1"
     }
   ]
 }
