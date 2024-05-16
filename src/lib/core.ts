@@ -442,6 +442,7 @@ export const getGlobalSpotPrices = async (options?: {
             if (instanceInfo) {
               rExtended.vCpu = instanceInfo.vCpu;
               rExtended.memoryGiB = instanceInfo.memoryGiB;
+              rExtended.architectures = instanceInfo.architectures;
             } else {
               // fetch intance info data from aws
               const region = rExtended.availabilityZone.match(/^.+\d/)?.[0];
@@ -456,14 +457,17 @@ export const getGlobalSpotPrices = async (options?: {
                 if (
                   desc[rExtended.instanceType] &&
                   desc[rExtended.instanceType].vCpu &&
-                  desc[rExtended.instanceType].memoryGiB
+                  desc[rExtended.instanceType].memoryGiB &&
+                  desc[rExtended.instanceType].architectures
                 ) {
                   ec2Info[rExtended.instanceType] = {
                     vCpu: desc[rExtended.instanceType].vCpu,
                     memoryGiB: desc[rExtended.instanceType].memoryGiB,
+                    architectures: desc[rExtended.instanceType].architectures,
                   };
                   rExtended.vCpu = desc[rExtended.instanceType].vCpu;
                   rExtended.memoryGiB = desc[rExtended.instanceType].memoryGiB;
+                  rExtended.architectures = desc[rExtended.instanceType].architectures;
                 }
               }
             }

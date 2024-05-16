@@ -3,122 +3,122 @@
 exports[`cli test by import should handle JSON output option 1`] = `
 "[
   {
-    "availabilityZone": "us-east-1a",
-    "instanceType": "t3.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "architectures": [
-      "x86_64"
-    ],
-    "spotPrice": 0.0016,
-    "timestamp": "2019-10-15T17:09:43.000Z",
-    "vCpu": 2,
-    "memoryGiB": 0.5
-  },
-  {
-    "availabilityZone": "us-east-1b",
-    "instanceType": "t3.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "architectures": [
-      "x86_64"
-    ],
-    "spotPrice": 0.0016,
-    "timestamp": "2019-10-15T17:09:43.000Z",
-    "vCpu": 2,
-    "memoryGiB": 0.5
-  },
-  {
     "availabilityZone": "us-east-1c",
-    "instanceType": "t3.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "architectures": [
-      "x86_64"
-    ],
-    "spotPrice": 0.0016,
-    "timestamp": "2019-10-15T17:09:43.000Z",
-    "vCpu": 2,
-    "memoryGiB": 0.5
-  },
-  {
-    "availabilityZone": "us-east-1d",
-    "instanceType": "t3.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "architectures": [
-      "x86_64"
-    ],
-    "spotPrice": 0.0016,
-    "timestamp": "2019-10-15T17:09:43.000Z",
-    "vCpu": 2,
-    "memoryGiB": 0.5
-  },
-  {
-    "availabilityZone": "us-east-1f",
-    "instanceType": "t3.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "architectures": [
-      "x86_64"
-    ],
-    "spotPrice": 0.0016,
-    "timestamp": "2019-10-15T17:09:43.000Z",
-    "vCpu": 2,
-    "memoryGiB": 0.5
-  },
-  {
-    "availabilityZone": "us-east-1a",
     "instanceType": "t3a.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
+    "platform": "Linux/UNIX",
     "architectures": [
       "x86_64"
     ],
-    "spotPrice": 0.0017,
-    "timestamp": "2019-10-15T22:11:29.000Z",
+    "spotPrice": 0.0021,
+    "timestamp": "2024-05-15T17:09:49.000Z",
     "vCpu": 2,
     "memoryGiB": 0.5
   },
   {
     "availabilityZone": "us-east-1c",
     "instanceType": "t3a.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
+    "platform": "SUSE Linux",
     "architectures": [
       "x86_64"
     ],
-    "spotPrice": 0.0017,
-    "timestamp": "2019-10-15T22:11:29.000Z",
-    "vCpu": 2,
-    "memoryGiB": 0.5
-  },
-  {
-    "availabilityZone": "us-east-1b",
-    "instanceType": "t3a.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
-    "architectures": [
-      "x86_64"
-    ],
-    "spotPrice": 0.0018,
-    "timestamp": "2019-10-15T22:11:29.000Z",
+    "spotPrice": 0.0021,
+    "timestamp": "2024-05-15T17:09:49.000Z",
     "vCpu": 2,
     "memoryGiB": 0.5
   },
   {
     "availabilityZone": "us-east-1d",
-    "instanceType": "t3a.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
+    "instanceType": "t3.nano",
+    "platform": "Linux/UNIX",
     "architectures": [
       "x86_64"
     ],
-    "spotPrice": 0.0018,
-    "timestamp": "2019-10-15T20:21:10.000Z",
+    "spotPrice": 0.0023,
+    "timestamp": "2024-05-15T19:02:55.000Z",
+    "vCpu": 2,
+    "memoryGiB": 0.5
+  },
+  {
+    "availabilityZone": "us-east-1d",
+    "instanceType": "t3.nano",
+    "platform": "SUSE Linux",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0023,
+    "timestamp": "2024-05-15T19:02:55.000Z",
     "vCpu": 2,
     "memoryGiB": 0.5
   },
   {
     "availabilityZone": "us-east-1f",
-    "instanceType": "t3a.nano",
-    "platform": "Linux/UNIX (Amazon VPC)",
+    "instanceType": "t3.nano",
+    "platform": "Linux/UNIX",
     "architectures": [
       "x86_64"
     ],
-    "spotPrice": 0.0018,
-    "timestamp": "2019-10-15T22:11:29.000Z",
+    "spotPrice": 0.0023,
+    "timestamp": "2024-05-16T00:17:19.000Z",
+    "vCpu": 2,
+    "memoryGiB": 0.5
+  },
+  {
+    "availabilityZone": "us-east-1f",
+    "instanceType": "t3.nano",
+    "platform": "SUSE Linux",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0023,
+    "timestamp": "2024-05-16T00:17:19.000Z",
+    "vCpu": 2,
+    "memoryGiB": 0.5
+  },
+  {
+    "availabilityZone": "us-east-1a",
+    "instanceType": "t3a.nano",
+    "platform": "Linux/UNIX",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0023,
+    "timestamp": "2024-05-15T17:09:49.000Z",
+    "vCpu": 2,
+    "memoryGiB": 0.5
+  },
+  {
+    "availabilityZone": "us-east-1a",
+    "instanceType": "t3a.nano",
+    "platform": "SUSE Linux",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0023,
+    "timestamp": "2024-05-15T17:09:49.000Z",
+    "vCpu": 2,
+    "memoryGiB": 0.5
+  },
+  {
+    "availabilityZone": "us-east-1c",
+    "instanceType": "t3.nano",
+    "platform": "Linux/UNIX",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0024,
+    "timestamp": "2024-05-16T03:47:25.000Z",
+    "vCpu": 2,
+    "memoryGiB": 0.5
+  },
+  {
+    "availabilityZone": "us-east-1c",
+    "instanceType": "t3.nano",
+    "platform": "SUSE Linux",
+    "architectures": [
+      "x86_64"
+    ],
+    "spotPrice": 0.0024,
+    "timestamp": "2024-05-16T03:47:25.000Z",
     "vCpu": 2,
     "memoryGiB": 0.5
   }
@@ -126,58 +126,58 @@ exports[`cli test by import should handle JSON output option 1`] = `
 `;
 
 exports[`cli test by import should handle instance family option 1`] = `
-"╔══════════╤════════╤═════════════════════════╤══════════════╤═══════════════════╗
-║ Type     │  Price │ Platform                │ Architecture │ Availability Zone ║
-╟──────────┼────────┼─────────────────────────┼──────────────┼───────────────────╢
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2a        ║
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2c        ║
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2d        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1a       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1b       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1c       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2d        ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ ca-central-1a     ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ ca-central-1b     ║
-╚══════════╧════════╧═════════════════════════╧══════════════╧═══════════════════╝
+"╔══════════╤════════╤════════════╤══════════════╤═══════════════════╗
+║ Type     │  Price │ Platform   │ Architecture │ Availability Zone ║
+╟──────────┼────────┼────────────┼──────────────┼───────────────────╢
+║ t4g.nano │ 0.0006 │ Linux/UNIX │ arm64        │ ap-northeast-3b   ║
+║ t4g.nano │ 0.0006 │ SUSE Linux │ arm64        │ ap-northeast-3b   ║
+║ t4g.nano │ 0.0006 │ Linux/UNIX │ arm64        │ ap-northeast-3c   ║
+║ t4g.nano │ 0.0006 │ SUSE Linux │ arm64        │ ap-northeast-3c   ║
+║ t4g.nano │ 0.0007 │ Linux/UNIX │ arm64        │ ap-northeast-3a   ║
+║ t4g.nano │ 0.0007 │ SUSE Linux │ arm64        │ ap-northeast-3a   ║
+║ t3.nano  │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ t3.nano  │ 0.0010 │ SUSE Linux │ x86_64       │ us-west-2a        ║
+║ t3.nano  │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
+║ t3.nano  │ 0.0010 │ SUSE Linux │ x86_64       │ us-west-2b        ║
+║ t4g.nano │ 0.0010 │ Linux/UNIX │ arm64        │ sa-east-1a        ║
+║ t4g.nano │ 0.0010 │ SUSE Linux │ arm64        │ sa-east-1a        ║
+║ t4g.nano │ 0.0010 │ Linux/UNIX │ arm64        │ sa-east-1b        ║
+║ t4g.nano │ 0.0010 │ SUSE Linux │ arm64        │ sa-east-1b        ║
+║ t3.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
+║ t3.nano  │ 0.0012 │ SUSE Linux │ x86_64       │ us-west-2c        ║
+║ t3.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3.nano  │ 0.0012 │ SUSE Linux │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0012 │ SUSE Linux │ x86_64       │ us-west-2d        ║
+╚══════════╧════════╧════════════╧══════════════╧═══════════════════╝
 "
 `;
 
 exports[`cli test by import should handle no ec2 info found should return expected values 1`] = `
-"╔══════════╤════════╤══════╤═════╤═════════════════════════╤══════════════╤═══════════════════╤═══════════════════════╗
-║ Type     │  Price │ vCPU │ RAM │ Platform                │ Architecture │ Availability Zone │ Region                ║
-╟──────────┼────────┼──────┼─────┼─────────────────────────┼──────────────┼───────────────────┼───────────────────────╢
-║ t3a.nano │ 0.0015 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2a        │ US West (Oregon)      ║
-║ t3a.nano │ 0.0015 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2c        │ US West (Oregon)      ║
-║ t3a.nano │ 0.0015 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2d        │ US West (Oregon)      ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ eu-north-1a       │ Europe (Stockholm)    ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ eu-north-1b       │ Europe (Stockholm)    ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ eu-north-1c       │ Europe (Stockholm)    ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        │ US East (N. Virginia) ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        │ US East (N. Virginia) ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        │ US East (N. Virginia) ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        │ US East (N. Virginia) ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        │ US East (N. Virginia) ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-east-2a        │ US East (Ohio)        ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-east-2b        │ US East (Ohio)        ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-east-2c        │ US East (Ohio)        ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2a        │ US West (Oregon)      ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2b        │ US West (Oregon)      ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2c        │ US West (Oregon)      ║
-║ t3.nano  │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ us-west-2d        │ US West (Oregon)      ║
-║ t3a.nano │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ ca-central-1a     │ Canada (Central)      ║
-║ t3a.nano │ 0.0016 │    2 │ 0.5 │ Linux/UNIX              │ x86_64       │ ca-central-1b     │ Canada (Central)      ║
-╚══════════╧════════╧══════╧═════╧═════════════════════════╧══════════════╧═══════════════════╧═══════════════════════╝
+"╔══════════╤════════╤══════╤═════╤════════════╤══════════════╤═══════════════════╤═══════════════════════════╗
+║ Type     │  Price │ vCPU │ RAM │ Platform   │ Architecture │ Availability Zone │ Region                    ║
+╟──────────┼────────┼──────┼─────┼────────────┼──────────────┼───────────────────┼───────────────────────────╢
+║ t4g.nano │ 0.0006 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ ap-northeast-3b   │ Asia Pacific (Osaka)      ║
+║ t4g.nano │ 0.0006 │    2 │ 0.5 │ SUSE Linux │ arm64        │ ap-northeast-3b   │ Asia Pacific (Osaka)      ║
+║ t4g.nano │ 0.0006 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ ap-northeast-3c   │ Asia Pacific (Osaka)      ║
+║ t4g.nano │ 0.0006 │    2 │ 0.5 │ SUSE Linux │ arm64        │ ap-northeast-3c   │ Asia Pacific (Osaka)      ║
+║ t4g.nano │ 0.0007 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ ap-northeast-3a   │ Asia Pacific (Osaka)      ║
+║ t4g.nano │ 0.0007 │    2 │ 0.5 │ SUSE Linux │ arm64        │ ap-northeast-3a   │ Asia Pacific (Osaka)      ║
+║ t3.nano  │ 0.0010 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2a        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0010 │    2 │ 0.5 │ SUSE Linux │ x86_64       │ us-west-2a        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0010 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2b        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0010 │    2 │ 0.5 │ SUSE Linux │ x86_64       │ us-west-2b        │ US West (Oregon)          ║
+║ t4g.nano │ 0.0010 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ sa-east-1a        │ South America (Sao Paulo) ║
+║ t4g.nano │ 0.0010 │    2 │ 0.5 │ SUSE Linux │ arm64        │ sa-east-1a        │ South America (Sao Paulo) ║
+║ t4g.nano │ 0.0010 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ sa-east-1b        │ South America (Sao Paulo) ║
+║ t4g.nano │ 0.0010 │    2 │ 0.5 │ SUSE Linux │ arm64        │ sa-east-1b        │ South America (Sao Paulo) ║
+║ t3.nano  │ 0.0012 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2c        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0012 │    2 │ 0.5 │ SUSE Linux │ x86_64       │ us-west-2c        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0012 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2d        │ US West (Oregon)          ║
+║ t3.nano  │ 0.0012 │    2 │ 0.5 │ SUSE Linux │ x86_64       │ us-west-2d        │ US West (Oregon)          ║
+║ t3a.nano │ 0.0012 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2d        │ US West (Oregon)          ║
+║ t3a.nano │ 0.0012 │    2 │ 0.5 │ SUSE Linux │ x86_64       │ us-west-2d        │ US West (Oregon)          ║
+╚══════════╧════════╧══════╧═════╧════════════╧══════════════╧═══════════════════╧═══════════════════════════╝
 "
 `;
 
@@ -418,158 +418,141 @@ Options:
 exports[`cli test by import should return expected values if no matching records found 1`] = `"no matching records found"`;
 
 exports[`cli test by import should return expected values with default options 1`] = `
-"╔══════════╤════════╤═════════════════════════╤══════════════╤═══════════════════╗
-║ Type     │  Price │ Platform                │ Architecture │ Availability Zone ║
-╟──────────┼────────┼─────────────────────────┼──────────────┼───────────────────╢
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1a       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2a        ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ ca-central-1a     ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-central-1a     ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-west-1b        ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-west-2a        ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-west-3a        ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2b        ║
-║ t3.nano  │ 0.0017 │ Linux/UNIX              │ x86_64       │ ap-south-1a       ║
-║ t3.nano  │ 0.0017 │ Linux/UNIX              │ x86_64       │ ca-central-1a     ║
-║ t3.nano  │ 0.0017 │ Linux/UNIX              │ x86_64       │ eu-west-1a        ║
-║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3a.nano │ 0.0017 │ Linux/UNIX              │ x86_64       │ us-west-1b        ║
-║ t3.nano  │ 0.0018 │ Linux/UNIX              │ x86_64       │ eu-central-1a     ║
-║ t3.nano  │ 0.0018 │ Linux/UNIX              │ x86_64       │ eu-west-2a        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ ap-northeast-1a   ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX              │ x86_64       │ ap-northeast-2a   ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ ap-southeast-1a   ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX              │ x86_64       │ ap-southeast-2a   ║
-║ t3.nano  │ 0.0019 │ Linux/UNIX              │ x86_64       │ us-west-1b        ║
-║ t3a.nano │ 0.0019 │ Linux/UNIX              │ x86_64       │ sa-east-1a        ║
-║ t1.micro │ 0.0020 │ Linux/UNIX              │ i386, x86_64 │ ap-southeast-1a   ║
-║ t1.micro │ 0.0020 │ Linux/UNIX (Amazon VPC) │ i386, x86_64 │ ap-southeast-1a   ║
-║ t1.micro │ 0.0020 │ Linux/UNIX              │ i386, x86_64 │ ap-southeast-2a   ║
-║ t1.micro │ 0.0020 │ Linux/UNIX              │ i386, x86_64 │ eu-west-1a        ║
-║ t1.micro │ 0.0020 │ Linux/UNIX              │ i386, x86_64 │ us-east-1a        ║
-║ t1.micro │ 0.0020 │ Linux/UNIX (Amazon VPC) │ i386, x86_64 │ us-east-1a        ║
-╚══════════╧════════╧═════════════════════════╧══════════════╧═══════════════════╝
+"╔═══════════╤════════╤════════════╤══════════════╤═══════════════════╗
+║ Type      │  Price │ Platform   │ Architecture │ Availability Zone ║
+╟───────────┼────────┼────────────┼──────────────┼───────────────────╢
+║ t4g.nano  │ 0.0006 │ Linux/UNIX │ arm64        │ ap-northeast-3b   ║
+║ t3.nano   │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ t4g.nano  │ 0.0010 │ Linux/UNIX │ arm64        │ sa-east-1a        ║
+║ t3a.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t4g.nano  │ 0.0012 │ Linux/UNIX │ arm64        │ ap-south-1b       ║
+║ t3a.nano  │ 0.0013 │ Linux/UNIX │ x86_64       │ ap-south-1b       ║
+║ t4g.micro │ 0.0013 │ Linux/UNIX │ arm64        │ ap-northeast-3a   ║
+║ t4g.micro │ 0.0013 │ Linux/UNIX │ arm64        │ sa-east-1b        ║
+║ t3.micro  │ 0.0014 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ t4g.nano  │ 0.0014 │ Linux/UNIX │ arm64        │ eu-north-1a       ║
+║ t3.nano   │ 0.0015 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
+║ t3.nano   │ 0.0016 │ Linux/UNIX │ x86_64       │ ap-northeast-3c   ║
+║ t3.nano   │ 0.0016 │ Linux/UNIX │ x86_64       │ ap-southeast-1a   ║
+║ t3.nano   │ 0.0017 │ Linux/UNIX │ x86_64       │ ap-south-1b       ║
+║ t3.nano   │ 0.0017 │ Linux/UNIX │ x86_64       │ sa-east-1a        ║
+║ t3a.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ ap-southeast-1a   ║
+║ t3a.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
+║ t4g.nano  │ 0.0017 │ Linux/UNIX │ arm64        │ ap-northeast-2b   ║
+║ t4g.nano  │ 0.0017 │ Linux/UNIX │ arm64        │ eu-central-1a     ║
+║ t4g.nano  │ 0.0017 │ Linux/UNIX │ arm64        │ eu-west-3a        ║
+║ t3.nano   │ 0.0018 │ Linux/UNIX │ x86_64       │ ap-northeast-2b   ║
+║ t3.nano   │ 0.0018 │ Linux/UNIX │ x86_64       │ eu-central-1c     ║
+║ t3.nano   │ 0.0018 │ Linux/UNIX │ x86_64       │ eu-north-1b       ║
+║ t3.nano   │ 0.0018 │ Linux/UNIX │ x86_64       │ eu-west-3b        ║
+║ t3a.nano  │ 0.0018 │ Linux/UNIX │ x86_64       │ ca-central-1b     ║
+║ t4g.micro │ 0.0018 │ Linux/UNIX │ arm64        │ ap-south-1b       ║
+║ t4g.micro │ 0.0018 │ Linux/UNIX │ arm64        │ eu-west-3a        ║
+║ t4g.nano  │ 0.0018 │ Linux/UNIX │ arm64        │ us-east-2c        ║
+║ t3.micro  │ 0.0019 │ Linux/UNIX │ x86_64       │ ap-northeast-2c   ║
+║ t3.nano   │ 0.0020 │ Linux/UNIX │ x86_64       │ ca-central-1d     ║
+╚═══════════╧════════╧════════════╧══════════════╧═══════════════════╝
 "
 `;
 
 exports[`cli test by import should return expected values with instance family types and sizes 1`] = `
-"╔══════════╤════════╤═════════════════════════╤══════════════╤═══════════════════╗
-║ Type     │  Price │ Platform                │ Architecture │ Availability Zone ║
-╟──────────┼────────┼─────────────────────────┼──────────────┼───────────────────╢
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2a        ║
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2c        ║
-║ t3a.nano │ 0.0015 │ Linux/UNIX              │ x86_64       │ us-west-2d        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1a       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1b       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ eu-north-1c       ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-east-2c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX              │ x86_64       │ us-west-2d        ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ ca-central-1a     ║
-║ t3a.nano │ 0.0016 │ Linux/UNIX              │ x86_64       │ ca-central-1b     ║
-╚══════════╧════════╧═════════════════════════╧══════════════╧═══════════════════╝
+"╔══════════╤════════╤════════════╤══════════════╤═══════════════════╗
+║ Type     │  Price │ Platform   │ Architecture │ Availability Zone ║
+╟──────────┼────────┼────────────┼──────────────┼───────────────────╢
+║ t4g.nano │ 0.0006 │ Linux/UNIX │ arm64        │ ap-northeast-3b   ║
+║ t4g.nano │ 0.0006 │ SUSE Linux │ arm64        │ ap-northeast-3b   ║
+║ t4g.nano │ 0.0006 │ Linux/UNIX │ arm64        │ ap-northeast-3c   ║
+║ t4g.nano │ 0.0006 │ SUSE Linux │ arm64        │ ap-northeast-3c   ║
+║ t4g.nano │ 0.0007 │ Linux/UNIX │ arm64        │ ap-northeast-3a   ║
+║ t4g.nano │ 0.0007 │ SUSE Linux │ arm64        │ ap-northeast-3a   ║
+║ t3.nano  │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ t3.nano  │ 0.0010 │ SUSE Linux │ x86_64       │ us-west-2a        ║
+║ t3.nano  │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
+║ t3.nano  │ 0.0010 │ SUSE Linux │ x86_64       │ us-west-2b        ║
+║ t4g.nano │ 0.0010 │ Linux/UNIX │ arm64        │ sa-east-1a        ║
+║ t4g.nano │ 0.0010 │ SUSE Linux │ arm64        │ sa-east-1a        ║
+║ t4g.nano │ 0.0010 │ Linux/UNIX │ arm64        │ sa-east-1b        ║
+║ t4g.nano │ 0.0010 │ SUSE Linux │ arm64        │ sa-east-1b        ║
+║ t3.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
+║ t3.nano  │ 0.0012 │ SUSE Linux │ x86_64       │ us-west-2c        ║
+║ t3.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3.nano  │ 0.0012 │ SUSE Linux │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0012 │ SUSE Linux │ x86_64       │ us-west-2d        ║
+╚══════════╧════════╧════════════╧══════════════╧═══════════════════╝
 "
 `;
 
-exports[`cli test by import should return expected values with user options 1`] = `
-"╔══════════╤════════╤═════════════════════════╤══════════════╤═══════════════════╗
-║ Type     │  Price │ Platform                │ Architecture │ Availability Zone ║
-╟──────────┼────────┼─────────────────────────┼──────────────┼───────────────────╢
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        ║
-║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        ║
-║ t1.micro │ 0.0020 │ Linux/UNIX (Amazon VPC) │ i386, x86_64 │ us-east-1a        ║
-╚══════════╧════════╧═════════════════════════╧══════════════╧═══════════════════╝
-"
-`;
+exports[`cli test by import should return expected values with user options 1`] = `"no matching records found"`;
 
 exports[`cli test by import should return expected values with wide option 1`] = `
-"╔══════════╤════════╤══════╤═══════╤═════════════════════════╤══════════════╤═══════════════════╤═══════════════════════════╗
-║ Type     │  Price │ vCPU │   RAM │ Platform                │ Architecture │ Availability Zone │ Region                    ║
-╟──────────┼────────┼──────┼───────┼─────────────────────────┼──────────────┼───────────────────┼───────────────────────────╢
-║ t3a.nano │ 0.0015 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ us-west-2a        │ US West (Oregon)          ║
-║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-north-1a       │ Europe (Stockholm)        ║
-║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        │ US East (N. Virginia)     ║
-║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ us-east-2a        │ US East (Ohio)            ║
-║ t3.nano  │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ us-west-2a        │ US West (Oregon)          ║
-║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ ca-central-1a     │ Canada (Central)          ║
-║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-central-1a     │ Europe (Frankfurt)        ║
-║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-west-1b        │ Europe (Ireland)          ║
-║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-west-2a        │ Europe (London)           ║
-║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-west-3a        │ Europe (Paris)            ║
-║ t3a.nano │ 0.0016 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ us-east-2b        │ US East (Ohio)            ║
-║ t3.nano  │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ ap-south-1a       │ Asia Pacific (Mumbai)     ║
-║ t3.nano  │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ ca-central-1a     │ Canada (Central)          ║
-║ t3.nano  │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-west-1a        │ Europe (Ireland)          ║
-║ t3a.nano │ 0.0017 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        │ US East (N. Virginia)     ║
-║ t3a.nano │ 0.0017 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ us-west-1b        │ US West (N. California)   ║
-║ t3.nano  │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-central-1a     │ Europe (Frankfurt)        ║
-║ t3.nano  │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ eu-west-2a        │ Europe (London)           ║
-║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ ap-northeast-1a   │ Asia Pacific (Tokyo)      ║
-║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ ap-northeast-2a   │ Asia Pacific (Seoul)      ║
-║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX (Amazon VPC) │ x86_64       │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
-║ t3a.nano │ 0.0018 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ ap-southeast-2a   │ Asia Pacific (Sydney)     ║
-║ t3.nano  │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ us-west-1b        │ US West (N. California)   ║
-║ t3a.nano │ 0.0019 │    2 │   0.5 │ Linux/UNIX              │ x86_64       │ sa-east-1a        │ South America (Sao Paulo) ║
-║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ i386, x86_64 │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
-║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX (Amazon VPC) │ i386, x86_64 │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
-║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ i386, x86_64 │ ap-southeast-2a   │ Asia Pacific (Sydney)     ║
-║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ i386, x86_64 │ eu-west-1a        │ Europe (Ireland)          ║
-║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX              │ i386, x86_64 │ us-east-1a        │ US East (N. Virginia)     ║
-║ t1.micro │ 0.0020 │    1 │ 0.613 │ Linux/UNIX (Amazon VPC) │ i386, x86_64 │ us-east-1a        │ US East (N. Virginia)     ║
-╚══════════╧════════╧══════╧═══════╧═════════════════════════╧══════════════╧═══════════════════╧═══════════════════════════╝
+"╔═══════════╤════════╤══════╤═════╤════════════╤══════════════╤═══════════════════╤═══════════════════════════╗
+║ Type      │  Price │ vCPU │ RAM │ Platform   │ Architecture │ Availability Zone │ Region                    ║
+╟───────────┼────────┼──────┼─────┼────────────┼──────────────┼───────────────────┼───────────────────────────╢
+║ t4g.nano  │ 0.0006 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ ap-northeast-3b   │ Asia Pacific (Osaka)      ║
+║ t3.nano   │ 0.0010 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2a        │ US West (Oregon)          ║
+║ t4g.nano  │ 0.0010 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ sa-east-1a        │ South America (Sao Paulo) ║
+║ t3a.nano  │ 0.0012 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-west-2d        │ US West (Oregon)          ║
+║ t4g.nano  │ 0.0012 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ ap-south-1b       │ Asia Pacific (Mumbai)     ║
+║ t3a.nano  │ 0.0013 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ap-south-1b       │ Asia Pacific (Mumbai)     ║
+║ t4g.micro │ 0.0013 │    2 │   1 │ Linux/UNIX │ arm64        │ ap-northeast-3a   │ Asia Pacific (Osaka)      ║
+║ t4g.micro │ 0.0013 │    2 │   1 │ Linux/UNIX │ arm64        │ sa-east-1b        │ South America (Sao Paulo) ║
+║ t3.micro  │ 0.0014 │    2 │   1 │ Linux/UNIX │ x86_64       │ us-west-2a        │ US West (Oregon)          ║
+║ t4g.nano  │ 0.0014 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ eu-north-1a       │ Europe (Stockholm)        ║
+║ t3.nano   │ 0.0015 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-east-2c        │ US East (Ohio)            ║
+║ t3.nano   │ 0.0016 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ap-northeast-3c   │ Asia Pacific (Osaka)      ║
+║ t3.nano   │ 0.0016 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
+║ t3.nano   │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ap-south-1b       │ Asia Pacific (Mumbai)     ║
+║ t3.nano   │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ sa-east-1a        │ South America (Sao Paulo) ║
+║ t3a.nano  │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ap-southeast-1a   │ Asia Pacific (Singapore)  ║
+║ t3a.nano  │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ us-east-2c        │ US East (Ohio)            ║
+║ t4g.nano  │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ ap-northeast-2b   │ Asia Pacific (Seoul)      ║
+║ t4g.nano  │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ eu-central-1a     │ Europe (Frankfurt)        ║
+║ t4g.nano  │ 0.0017 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ eu-west-3a        │ Europe (Paris)            ║
+║ t3.nano   │ 0.0018 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ap-northeast-2b   │ Asia Pacific (Seoul)      ║
+║ t3.nano   │ 0.0018 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ eu-central-1c     │ Europe (Frankfurt)        ║
+║ t3.nano   │ 0.0018 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ eu-north-1b       │ Europe (Stockholm)        ║
+║ t3.nano   │ 0.0018 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ eu-west-3b        │ Europe (Paris)            ║
+║ t3a.nano  │ 0.0018 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ca-central-1b     │ Canada (Central)          ║
+║ t4g.micro │ 0.0018 │    2 │   1 │ Linux/UNIX │ arm64        │ ap-south-1b       │ Asia Pacific (Mumbai)     ║
+║ t4g.micro │ 0.0018 │    2 │   1 │ Linux/UNIX │ arm64        │ eu-west-3a        │ Europe (Paris)            ║
+║ t4g.nano  │ 0.0018 │    2 │ 0.5 │ Linux/UNIX │ arm64        │ us-east-2c        │ US East (Ohio)            ║
+║ t3.micro  │ 0.0019 │    2 │   1 │ Linux/UNIX │ x86_64       │ ap-northeast-2c   │ Asia Pacific (Seoul)      ║
+║ t3.nano   │ 0.0020 │    2 │ 0.5 │ Linux/UNIX │ x86_64       │ ca-central-1d     │ Canada (Central)          ║
+╚═══════════╧════════╧══════╧═════╧════════════╧══════════════╧═══════════════════╧═══════════════════════════╝
 "
 `;
 
 exports[`cli test by import should return expected values with wildcard platforms 1`] = `
-"╔══════════╤════════╤═════════════════════════╤══════════════╤═══════════════════╗
-║ Type     │  Price │ Platform                │ Architecture │ Availability Zone ║
-╟──────────┼────────┼─────────────────────────┼──────────────┼───────────────────╢
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        ║
-║ t3.nano  │ 0.0016 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        ║
-║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1a        ║
-║ t3a.nano │ 0.0017 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1c        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1b        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1d        ║
-║ t3a.nano │ 0.0018 │ Linux/UNIX (Amazon VPC) │ x86_64       │ us-east-1f        ║
-╚══════════╧════════╧═════════════════════════╧══════════════╧═══════════════════╝
+"╔══════════╤════════╤════════════╤══════════════╤═══════════════════╗
+║ Type     │  Price │ Platform   │ Architecture │ Availability Zone ║
+╟──────────┼────────┼────────────┼──────────────┼───────────────────╢
+║ t3a.nano │ 0.0021 │ Linux/UNIX │ x86_64       │ us-east-1c        ║
+║ t3a.nano │ 0.0021 │ SUSE Linux │ x86_64       │ us-east-1c        ║
+║ t3.nano  │ 0.0023 │ Linux/UNIX │ x86_64       │ us-east-1d        ║
+║ t3.nano  │ 0.0023 │ SUSE Linux │ x86_64       │ us-east-1d        ║
+║ t3.nano  │ 0.0023 │ Linux/UNIX │ x86_64       │ us-east-1f        ║
+║ t3.nano  │ 0.0023 │ SUSE Linux │ x86_64       │ us-east-1f        ║
+║ t3a.nano │ 0.0023 │ Linux/UNIX │ x86_64       │ us-east-1a        ║
+║ t3a.nano │ 0.0023 │ SUSE Linux │ x86_64       │ us-east-1a        ║
+║ t3.nano  │ 0.0024 │ Linux/UNIX │ x86_64       │ us-east-1c        ║
+║ t3.nano  │ 0.0024 │ SUSE Linux │ x86_64       │ us-east-1c        ║
+╚══════════╧════════╧════════════╧══════════════╧═══════════════════╝
 
-╔══════════╤═══════╤══════════════════════╤══════════════╤═══════════════════╗
-║ Type     │ Price │ Platform             │ Architecture │ Availability Zone ║
-╟──────────┼───────┼──────────────────────┼──────────────┼───────────────────╢
-║ t1.micro │ 0.002 │ Windows              │ i386, x86_64 │ us-east-1a        ║
-║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ i386, x86_64 │ us-east-1a        ║
-║ t1.micro │ 0.002 │ Windows              │ i386, x86_64 │ us-east-1b        ║
-║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ i386, x86_64 │ us-east-1b        ║
-║ t1.micro │ 0.002 │ Windows              │ i386, x86_64 │ us-east-1c        ║
-║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ i386, x86_64 │ us-east-1c        ║
-║ t1.micro │ 0.002 │ Windows              │ i386, x86_64 │ us-east-1d        ║
-║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ i386, x86_64 │ us-east-1d        ║
-║ t1.micro │ 0.002 │ Windows (Amazon VPC) │ i386, x86_64 │ us-east-1f        ║
-║ t3a.nano │ 0.006 │ Windows (Amazon VPC) │ x86_64       │ us-east-1a        ║
-╚══════════╧═══════╧══════════════════════╧══════════════╧═══════════════════╝
+╔══════════╤════════╤══════════╤══════════════╤═══════════════════╗
+║ Type     │  Price │ Platform │ Architecture │ Availability Zone ║
+╟──────────┼────────┼──────────┼──────────────┼───────────────────╢
+║ t3a.nano │ 0.0066 │ Windows  │ x86_64       │ us-east-1f        ║
+║ t3a.nano │ 0.0067 │ Windows  │ x86_64       │ us-east-1c        ║
+║ t3.nano  │ 0.0068 │ Windows  │ x86_64       │ us-east-1d        ║
+║ t3a.nano │ 0.0068 │ Windows  │ x86_64       │ us-east-1b        ║
+║ t3.nano  │ 0.0069 │ Windows  │ x86_64       │ us-east-1b        ║
+║ t3.nano  │ 0.0069 │ Windows  │ x86_64       │ us-east-1f        ║
+║ t3a.nano │ 0.0069 │ Windows  │ x86_64       │ us-east-1a        ║
+║ t3a.nano │ 0.0069 │ Windows  │ x86_64       │ us-east-1d        ║
+║ t3.nano  │ 0.0070 │ Windows  │ x86_64       │ us-east-1a        ║
+║ t3.nano  │ 0.0070 │ Windows  │ x86_64       │ us-east-1c        ║
+╚══════════╧════════╧══════════╧══════════════╧═══════════════════╝
 "
 `;
 
@@ -577,34 +560,62 @@ exports[`cli test by import ui mode should return expected result 1`] = `
 "╔══════════╤════════╤════════════╤══════════════╤═══════════════════╗
 ║ Type     │  Price │ Platform   │ Architecture │ Availability Zone ║
 ╟──────────┼────────┼────────────┼──────────────┼───────────────────╢
-║ c4.large │ 0.0181 │ Linux/UNIX │ x86_64       │ us-east-2a        ║
-║ c4.large │ 0.0181 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
-║ c4.large │ 0.0195 │ Linux/UNIX │ x86_64       │ us-east-2b        ║
-║ r5.large │ 0.0209 │ Linux/UNIX │ x86_64       │ us-east-2a        ║
-║ r5.large │ 0.0211 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
-║ r5.large │ 0.0212 │ Linux/UNIX │ x86_64       │ us-east-2b        ║
-║ c4.large │ 0.0293 │ Linux/UNIX │ x86_64       │ us-west-1b        ║
-║ c4.large │ 0.0293 │ Linux/UNIX │ x86_64       │ us-west-1c        ║
-║ c4.large │ 0.0313 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
-║ c4.large │ 0.0315 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
-║ c4.large │ 0.0333 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
-║ r5.large │ 0.0338 │ Linux/UNIX │ x86_64       │ us-west-1c        ║
-║ r5.large │ 0.0354 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
-║ r5.large │ 0.0354 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
-║ r5.large │ 0.0354 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
-║ r5.large │ 0.0414 │ Linux/UNIX │ x86_64       │ us-west-1b        ║
-║ r5.large │ 0.0690 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
-║ c4.large │ 0.1293 │ SUSE Linux │ x86_64       │ us-west-1b        ║
-║ c4.large │ 0.1293 │ SUSE Linux │ x86_64       │ us-west-1c        ║
-║ c4.large │ 0.1313 │ SUSE Linux │ x86_64       │ us-west-2c        ║
-║ c4.large │ 0.1315 │ SUSE Linux │ x86_64       │ us-west-2a        ║
-║ c4.large │ 0.1333 │ SUSE Linux │ x86_64       │ us-west-2b        ║
-║ r5.large │ 0.1338 │ SUSE Linux │ x86_64       │ us-west-1c        ║
-║ r5.large │ 0.1354 │ SUSE Linux │ x86_64       │ us-west-2a        ║
-║ r5.large │ 0.1354 │ SUSE Linux │ x86_64       │ us-west-2b        ║
-║ r5.large │ 0.1354 │ SUSE Linux │ x86_64       │ us-west-2c        ║
-║ r5.large │ 0.1414 │ SUSE Linux │ x86_64       │ us-west-1b        ║
-║ r5.large │ 0.1690 │ SUSE Linux │ x86_64       │ us-west-2d        ║
+║ c4.large │ 0.0344 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
+║ c4.large │ 0.0353 │ Linux/UNIX │ x86_64       │ us-east-2b        ║
+║ c4.large │ 0.0376 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
+║ c4.large │ 0.0379 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ c4.large │ 0.0382 │ Linux/UNIX │ x86_64       │ us-east-2a        ║
+║ c4.large │ 0.0389 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
+║ r5.large │ 0.0446 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ c4.large │ 0.0464 │ Linux/UNIX │ x86_64       │ us-east-1f        ║
+║ c4.large │ 0.0472 │ Linux/UNIX │ x86_64       │ us-west-1b        ║
+║ r5.large │ 0.0485 │ Linux/UNIX │ x86_64       │ us-west-1b        ║
+║ c4.large │ 0.0493 │ Linux/UNIX │ x86_64       │ us-east-1e        ║
+║ c4.large │ 0.0506 │ Linux/UNIX │ x86_64       │ us-east-1d        ║
+║ c4.large │ 0.0515 │ Linux/UNIX │ x86_64       │ us-west-1c        ║
+║ c4.large │ 0.0531 │ Linux/UNIX │ x86_64       │ us-east-1a        ║
+║ r5.large │ 0.0534 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
+║ r5.large │ 0.0545 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ c4.large │ 0.0554 │ Linux/UNIX │ x86_64       │ us-east-1b        ║
+║ r5.large │ 0.0554 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
+║ r5.large │ 0.0560 │ Linux/UNIX │ x86_64       │ us-east-2b        ║
+║ r5.large │ 0.0560 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
+║ c4.large │ 0.0575 │ Linux/UNIX │ x86_64       │ us-east-1c        ║
+║ r5.large │ 0.0618 │ Linux/UNIX │ x86_64       │ us-east-2a        ║
+║ r5.large │ 0.0621 │ Linux/UNIX │ x86_64       │ us-west-1c        ║
+║ r5.large │ 0.0626 │ Linux/UNIX │ x86_64       │ us-east-1a        ║
+║ r5.large │ 0.0650 │ Linux/UNIX │ x86_64       │ us-east-1c        ║
+║ r5.large │ 0.0653 │ Linux/UNIX │ x86_64       │ us-east-1b        ║
+║ r5.large │ 0.0668 │ Linux/UNIX │ x86_64       │ us-east-1f        ║
+║ r5.large │ 0.0675 │ Linux/UNIX │ x86_64       │ us-east-1d        ║
+║ r5.large │ 0.1006 │ SUSE Linux │ x86_64       │ us-west-2d        ║
+║ r5.large │ 0.1045 │ SUSE Linux │ x86_64       │ us-west-1b        ║
+║ r5.large │ 0.1094 │ SUSE Linux │ x86_64       │ us-west-2c        ║
+║ r5.large │ 0.1105 │ SUSE Linux │ x86_64       │ us-west-2a        ║
+║ r5.large │ 0.1114 │ SUSE Linux │ x86_64       │ us-east-2c        ║
+║ r5.large │ 0.1120 │ SUSE Linux │ x86_64       │ us-east-2b        ║
+║ r5.large │ 0.1120 │ SUSE Linux │ x86_64       │ us-west-2b        ║
+║ r5.large │ 0.1178 │ SUSE Linux │ x86_64       │ us-east-2a        ║
+║ r5.large │ 0.1181 │ SUSE Linux │ x86_64       │ us-west-1c        ║
+║ r5.large │ 0.1186 │ SUSE Linux │ x86_64       │ us-east-1a        ║
+║ r5.large │ 0.1210 │ SUSE Linux │ x86_64       │ us-east-1c        ║
+║ r5.large │ 0.1213 │ SUSE Linux │ x86_64       │ us-east-1b        ║
+║ r5.large │ 0.1228 │ SUSE Linux │ x86_64       │ us-east-1f        ║
+║ r5.large │ 0.1235 │ SUSE Linux │ x86_64       │ us-east-1d        ║
+║ c4.large │ 0.1344 │ SUSE Linux │ x86_64       │ us-east-2c        ║
+║ c4.large │ 0.1353 │ SUSE Linux │ x86_64       │ us-east-2b        ║
+║ c4.large │ 0.1376 │ SUSE Linux │ x86_64       │ us-west-2c        ║
+║ c4.large │ 0.1379 │ SUSE Linux │ x86_64       │ us-west-2a        ║
+║ c4.large │ 0.1382 │ SUSE Linux │ x86_64       │ us-east-2a        ║
+║ c4.large │ 0.1389 │ SUSE Linux │ x86_64       │ us-west-2b        ║
+║ c4.large │ 0.1464 │ SUSE Linux │ x86_64       │ us-east-1f        ║
+║ c4.large │ 0.1472 │ SUSE Linux │ x86_64       │ us-west-1b        ║
+║ c4.large │ 0.1493 │ SUSE Linux │ x86_64       │ us-east-1e        ║
+║ c4.large │ 0.1506 │ SUSE Linux │ x86_64       │ us-east-1d        ║
+║ c4.large │ 0.1515 │ SUSE Linux │ x86_64       │ us-west-1c        ║
+║ c4.large │ 0.1531 │ SUSE Linux │ x86_64       │ us-east-1a        ║
+║ c4.large │ 0.1554 │ SUSE Linux │ x86_64       │ us-east-1b        ║
+║ c4.large │ 0.1575 │ SUSE Linux │ x86_64       │ us-east-1c        ║
 ╚══════════╧════════╧════════════╧══════════════╧═══════════════════╝
 "
 `;
