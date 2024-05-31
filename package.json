@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.587.0",
-    "@aws-sdk/client-ssm": "3.587.0",
-    "@aws-sdk/client-sts": "3.587.0",
+    "@aws-sdk/client-ec2": "3.588.0",
+    "@aws-sdk/client-ssm": "3.588.0",
+    "@aws-sdk/client-sts": "3.588.0",
     "@commitlint/cli": "19.3.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "12.0.0",
@@ -65,7 +65,7 @@
     "@types/jest": "29.5.12",
     "@types/lodash": "4.17.4",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "20.12.13",
+    "@types/node": "20.13.0",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.32",
