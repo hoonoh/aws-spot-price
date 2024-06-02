@@ -71,7 +71,7 @@
     "@types/yargs": "17.0.32",
     "@typescript-eslint/eslint-plugin": "7.11.0",
     "@typescript-eslint/parser": "7.11.0",
-    "aws-sdk-client-mock": "4.0.0",
+    "aws-sdk-client-mock": "4.0.1",
     "commitizen": "4.3.0",
     "conventional-changelog-cli": "5.0.0",
     "cz-conventional-changelog": "3.3.0",
