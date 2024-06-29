@@ -507,6 +507,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'm7i.metal-48xl': { vCpu: 192, memoryGiB: 768, architectures: ['x86_64'] },
   'm7i.xlarge': { vCpu: 4, memoryGiB: 16, architectures: ['x86_64'] },
   'mac1.metal': { vCpu: 12, memoryGiB: 32, architectures: ['x86_64_mac'] },
+  'mac2-m1ultra.metal': { vCpu: 20, memoryGiB: 128, architectures: ['arm64_mac'] },
   'mac2-m2.metal': { vCpu: 8, memoryGiB: 24, architectures: ['arm64_mac'] },
   'mac2-m2pro.metal': { vCpu: 12, memoryGiB: 32, architectures: ['arm64_mac'] },
   'mac2.metal': { vCpu: 8, memoryGiB: 16, architectures: ['arm64_mac'] },
