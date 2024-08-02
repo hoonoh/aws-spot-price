@@ -21,7 +21,7 @@
   "author": {
     "name": "hoonoh"
   },
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.4.0",
   "bin": "bin/aws-spot-price",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.622.0",
-    "@aws-sdk/client-ssm": "3.622.0",
-    "@aws-sdk/client-sts": "3.622.0",
+    "@aws-sdk/client-ec2": "3.623.0",
+    "@aws-sdk/client-ssm": "3.623.0",
+    "@aws-sdk/client-sts": "3.623.0",
     "@commitlint/cli": "19.3.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.0",
