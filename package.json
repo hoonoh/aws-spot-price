@@ -65,7 +65,7 @@
     "@types/jest": "29.5.12",
     "@types/lodash": "4.17.7",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "20.15.0",
+    "@types/node": "20.16.0",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.33",
