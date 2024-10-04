@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.658.1",
-    "@aws-sdk/client-ssm": "3.658.1",
-    "@aws-sdk/client-sts": "3.658.1",
+    "@aws-sdk/client-ec2": "3.664.0",
+    "@aws-sdk/client-ssm": "3.664.0",
+    "@aws-sdk/client-sts": "3.664.0",
     "@commitlint/cli": "19.5.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.0",
@@ -63,7 +63,7 @@
     "@semantic-release/npm": "12.0.1",
     "@semantic-release/release-notes-generator": "14.0.1",
     "@types/jest": "29.5.13",
-    "@types/lodash": "4.17.9",
+    "@types/lodash": "4.17.10",
     "@types/mock-fs": "4.13.4",
     "@types/node": "20.16.10",
     "@types/prettier": "3.0.0",
@@ -82,7 +82,7 @@
     "eslint-config-airbnb-typescript": "18.0.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.3",
-    "eslint-plugin-import": "2.30.0",
+    "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.8.3",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-plugin-simple-import-sort": "12.1.1",
@@ -101,9 +101,9 @@
     "typescript": "5.6.2"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.654.0",
-    "@babel/core": "7.25.2",
-    "@smithy/types": "3.4.2",
+    "@aws-sdk/types": "3.664.0",
+    "@babel/core": "7.25.7",
+    "@smithy/types": "3.5.0",
     "minimist": "1.2.8"
   }
 }
