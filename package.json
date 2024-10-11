@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.665.0",
-    "@aws-sdk/client-ssm": "3.665.0",
-    "@aws-sdk/client-sts": "3.665.0",
+    "@aws-sdk/client-ec2": "3.669.0",
+    "@aws-sdk/client-ssm": "3.669.0",
+    "@aws-sdk/client-sts": "3.669.0",
     "@commitlint/cli": "19.5.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.0",
@@ -65,7 +65,7 @@
     "@types/jest": "29.5.13",
     "@types/lodash": "4.17.10",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "20.16.10",
+    "@types/node": "20.16.11",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.33",
@@ -92,17 +92,17 @@
     "jest-junit": "16.0.0",
     "jest-mock-console": "2.0.0",
     "lodash": "4.17.21",
-    "mock-fs": "5.3.0",
+    "mock-fs": "5.4.0",
     "prettier": "3.3.3",
     "semantic-release": "24.1.2",
     "ts-jest": "29.2.5",
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
-    "typescript": "5.6.2"
+    "typescript": "5.6.3"
   },
   "resolutions": {
     "@aws-sdk/types": "3.664.0",
-    "@babel/core": "7.25.7",
+    "@babel/core": "7.25.8",
     "@smithy/types": "3.5.0",
     "minimist": "1.2.8"
   }
