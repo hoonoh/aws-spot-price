@@ -21,7 +21,7 @@
   "author": {
     "name": "hoonoh"
   },
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.1",
   "bin": "bin/aws-spot-price",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
@@ -52,8 +52,8 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.670.0",
-    "@aws-sdk/client-ssm": "3.670.0",
+    "@aws-sdk/client-ec2": "3.674.0",
+    "@aws-sdk/client-ssm": "3.674.0",
     "@aws-sdk/client-sts": "3.670.0",
     "@commitlint/cli": "19.5.0",
     "@semantic-release/changelog": "6.0.3",
@@ -63,15 +63,15 @@
     "@semantic-release/npm": "12.0.1",
     "@semantic-release/release-notes-generator": "14.0.1",
     "@types/jest": "29.5.13",
-    "@types/lodash": "4.17.10",
+    "@types/lodash": "4.17.11",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "20.16.11",
+    "@types/node": "20.16.12",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.33",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "aws-sdk-client-mock": "4.0.2",
+    "aws-sdk-client-mock": "4.1.0",
     "commitizen": "4.3.1",
     "conventional-changelog-cli": "5.0.0",
     "cz-conventional-changelog": "3.3.0",
