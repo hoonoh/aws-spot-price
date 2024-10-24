@@ -112,7 +112,6 @@ export const main = (argvInput?: string[]): Promise<void> =>
             type: 'array',
             choices: Object.keys(ArchitectureType) as ArchitectureType[],
             string: true,
-            default: defaults.architectures,
           },
           limit: {
             alias: 'l',
