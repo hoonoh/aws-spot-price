@@ -88,6 +88,11 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
+    it('should handle architecture option', async () => {
+      await main(['--architectures', 'x86_64', '--raz', 'false', '-l', '20']);
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
     it('should handle JSON output option', async () => {
       await main(['--json', '-r', 'us-east-1', '-l', '10', '--raz', 'false', '-p', 'linux']);
       const results = consoleMockCallJoin();
