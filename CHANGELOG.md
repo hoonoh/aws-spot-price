@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.1.26](https://github.com/hoonoh/aws-spot-price/compare/v1.1.25...v1.1.26) (2024-10-24)
+
+
+### Bug Fixes
+
+* remove default architectures ([#938](https://github.com/hoonoh/aws-spot-price/issues/938)) ([c79ead2](https://github.com/hoonoh/aws-spot-price/commit/c79ead2cfa8a29f6033c7ceaabde0c638211c7f4))
+
 ## [1.1.25](https://github.com/hoonoh/aws-spot-price/compare/v1.1.24...v1.1.25) (2024-10-24)
 
 
