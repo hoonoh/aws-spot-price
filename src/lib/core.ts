@@ -292,9 +292,7 @@ const SpotPriceToExtended = (cur: SpotPrice) =>
     availabilityZone: cur.AvailabilityZone,
     instanceType: cur.InstanceType,
     platform: cur.ProductDescription,
-    architectures: Object.entries(ec2Info).find(
-      ([instanceType]) => instanceType === cur.InstanceType,
-    )?.[1].architectures,
+    architectures: cur.InstanceType ? ec2Info[cur.InstanceType]?.architectures : [],
     spotPrice: cur.SpotPrice !== undefined ? parseFloat(cur.SpotPrice) : Number.MAX_VALUE,
     timestamp: cur.Timestamp,
   }) as SpotPriceExtended;
@@ -384,27 +382,18 @@ export const getGlobalSpotPrices = async (options?: {
         results
           .reduce((acc, r) => {
             // look for duplicate and remove prev data if older than current
-            const reduceToLatest = r.reduce((reduced, cur) => {
-              const duplicateIndex = reduced.findIndex(
-                info =>
-                  cur.AvailabilityZone &&
-                  cur.AvailabilityZone === info.availabilityZone &&
-                  cur.InstanceType &&
-                  cur.InstanceType === info.instanceType &&
-                  cur.ProductDescription &&
-                  cur.ProductDescription === info.platform,
-              );
-              if (duplicateIndex >= 0) {
-                const dupeTimestamp = reduced[duplicateIndex].timestamp;
-                if (cur.Timestamp && dupeTimestamp && cur.Timestamp > dupeTimestamp) {
-                  reduced.splice(duplicateIndex, 1);
-                  reduced.push(SpotPriceToExtended(cur));
-                }
-              } else {
-                reduced.push(SpotPriceToExtended(cur));
-              }
-              return reduced;
-            }, [] as SpotPriceExtended[]);
+            const reduceToLatest = Object.values(
+              r.reduce(
+                (reduced, cur) => {
+                  const key = `${cur.AvailabilityZone}${cur.InstanceType}${cur.ProductDescription}`;
+                  if (!reduced[key] || (cur.Timestamp && reduced[key].timestamp < cur.Timestamp)) {
+                    reduced[key] = SpotPriceToExtended(cur);
+                  }
+                  return reduced;
+                },
+                {} as Record<string, SpotPriceExtended>,
+              ),
+            );
 
             if (!reduceAZ) {
               acc.push(...reduceToLatest);
@@ -436,9 +425,7 @@ export const getGlobalSpotPrices = async (options?: {
           }, [] as SpotPriceExtended[])
           .map(async r => {
             const rExtended = { ...r } as SpotPriceExtended;
-            const instanceInfo = Object.entries(ec2Info).find(
-              ([instanceType]) => instanceType === r.instanceType,
-            )?.[1];
+            const instanceInfo = ec2Info[r.instanceType];
             if (instanceInfo) {
               rExtended.vCpu = instanceInfo.vCpu;
               rExtended.memoryGiB = instanceInfo.memoryGiB;
