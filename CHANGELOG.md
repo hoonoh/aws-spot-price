@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.1.27](https://github.com/hoonoh/aws-spot-price/compare/v1.1.26...v1.1.27) (2024-10-26)
+
+
+### Performance Improvements
+
+* reduce performance bottlenecks ([#940](https://github.com/hoonoh/aws-spot-price/issues/940)) ([4553440](https://github.com/hoonoh/aws-spot-price/commit/4553440b074bb816553bb143cc1c5fb338e443d0))
+
 ## [1.1.26](https://github.com/hoonoh/aws-spot-price/compare/v1.1.25...v1.1.26) (2024-10-24)
 
 
