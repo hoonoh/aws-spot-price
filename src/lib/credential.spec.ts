@@ -21,7 +21,7 @@ describe('credential', () => {
         let threwError = false;
         try {
           await awsCredentialsCheck();
-        } catch (error) {
+        } catch {
           threwError = true;
         }
         expect(threwError).toBeTruthy();
@@ -39,7 +39,7 @@ describe('credential', () => {
         let threwError = false;
         try {
           await awsCredentialsCheck();
-        } catch (error) {
+        } catch {
           threwError = true;
         }
         expect(threwError).toBeFalsy();
@@ -89,7 +89,7 @@ describe('credential', () => {
         let threwError = false;
         try {
           await main();
-        } catch (error) {
+        } catch {
           threwError = true;
           expect(consoleMockCallJoin()).toContain('AWS credentials are not found.');
         }
@@ -112,7 +112,7 @@ describe('credential', () => {
         let threwError = false;
         try {
           await main(['--accessKeyId', 'temp', '--secretAccessKey', 'temp2']);
-        } catch (error) {
+        } catch {
           threwError = true;
           expect(consoleMockCallJoin()).toContain('Invalid AWS credentials provided.');
         }

@@ -424,7 +424,7 @@ if (
   (async (): Promise<void> => {
     try {
       await main();
-    } catch (error) {
+    } catch {
       //
     }
   })();

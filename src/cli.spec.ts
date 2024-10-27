@@ -110,7 +110,7 @@ describe('cli', () => {
       let caughtError = false;
       try {
         await main(['--secretAccessKey', 'rand']);
-      } catch (error) {
+      } catch {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
@@ -121,7 +121,7 @@ describe('cli', () => {
       let caughtError = false;
       try {
         await main(['--accessKeyId', 'rand']);
-      } catch (error) {
+      } catch {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();
@@ -191,7 +191,7 @@ describe('cli', () => {
       let caughtError = false;
       try {
         await main(['--accessKeyId', 'rand', '--secretAccessKey', 'rand']);
-      } catch (error) {
+      } catch {
         caughtError = true;
       }
       expect(caughtError).toBeTruthy();

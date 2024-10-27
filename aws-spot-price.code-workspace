@@ -1,52 +1,37 @@
 {
   "folders": [
     {
-      "path": "."
-    }
+      "path": ".",
+    },
   ],
 
   "settings": {
-    "typescript.tsdk": ".yarn/sdks/typescript/lib",
-    "eslint.nodePath": ".yarn/sdks",
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-
     // editor
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "editor.rulers": [100],
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "always",
+      "source.formatDocument": "always",
+      "source.fixAll.eslint": "always",
+    },
 
     // eslint
     "eslint.validate": ["javascript", "typescript"],
     "eslint.run": "onType",
-
-    // formatters
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "[javascript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[yaml]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
 
     "files.watcherExclude": {
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
       "**/.hg/store/**": true,
-      "yarn.lock": true
+      "yarn.lock": true,
     },
 
     "search.exclude": {
@@ -54,8 +39,8 @@
       "**/bower_components": true,
       "**/*.code-search": true,
       ".yarn": true,
-      "yarn.lock": true
-    }
+      "yarn.lock": true,
+    },
   },
 
   "extensions": {
@@ -63,8 +48,8 @@
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
       "KnisterPeter.vscode-commitizen",
-      "arcanis.vscode-zipfs"
-    ]
+      "arcanis.vscode-zipfs",
+    ],
   },
 
   "launch": {
@@ -76,11 +61,10 @@
         "args": ["${relativeFile}"],
         "sourceMaps": true,
         "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
-        "protocol": "inspector",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "runtimeExecutable": "node",
-        "cwd": "${workspaceRoot}"
+        "cwd": "${workspaceRoot}",
       },
       {
         "name": "current TS test file",
@@ -89,11 +73,10 @@
         "program": "${workspaceRoot}/node_modules/.bin/jest",
         "args": ["--runInBand", "--no-cache", "${relativeFile}"],
         "sourceMaps": true,
-        "protocol": "inspector",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "runtimeExecutable": "node",
-        "cwd": "${workspaceRoot}"
+        "cwd": "${workspaceRoot}",
       },
       {
         "name": "current TS test file with selected text as test name",
@@ -102,12 +85,11 @@
         "program": "${workspaceRoot}/node_modules/.bin/jest",
         "args": ["--runInBand", "--no-cache", "-t", "${selectedText}", "${relativeFile}"],
         "sourceMaps": true,
-        "protocol": "inspector",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "runtimeExecutable": "node",
-        "cwd": "${workspaceRoot}"
-      }
-    ]
-  }
+        "cwd": "${workspaceRoot}",
+      },
+    ],
+  },
 }
