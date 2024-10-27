@@ -139,7 +139,7 @@ export const mockDefaultRegionEndpoints = (
             InstanceTypes: mockedData,
           };
           return rtn;
-        } catch (error) {
+        } catch {
           // handle c1.medium type runtime error mock
           if (InstanceTypes.includes('c1.medium'))
             throw new EC2ServiceException({

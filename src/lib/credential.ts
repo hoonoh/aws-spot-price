@@ -33,7 +33,7 @@ export const awsCredentialsCheck = async (options?: {
   try {
     ({ accessKeyId: cpAccessKeyId, secretAccessKey: cpSecretAccessKey } =
       await sts.config.credentials());
-  } catch (error) {
+  } catch {
     //
   }
 
