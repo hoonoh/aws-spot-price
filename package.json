@@ -54,7 +54,7 @@
   "devDependencies": {
     "@aws-sdk/client-ec2": "3.698.0",
     "@aws-sdk/client-ssm": "3.698.0",
-    "@aws-sdk/client-sts": "3.696.0",
+    "@aws-sdk/client-sts": "3.699.0",
     "@commitlint/cli": "19.6.0",
     "@eslint/eslintrc": "3.2.0",
     "@eslint/js": "9.15.0",
