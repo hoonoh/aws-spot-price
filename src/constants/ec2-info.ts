@@ -804,6 +804,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'trn1.2xlarge': { vCpu: 8, memoryGiB: 32, architectures: ['x86_64'] },
   'trn1.32xlarge': { vCpu: 128, memoryGiB: 512, architectures: ['x86_64'] },
   'trn1n.32xlarge': { vCpu: 128, memoryGiB: 512, architectures: ['x86_64'] },
+  'trn2.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
   'u-12tb1.112xlarge': { vCpu: 448, memoryGiB: 12288, architectures: ['x86_64'] },
   'u-18tb1.112xlarge': { vCpu: 448, memoryGiB: 18432, architectures: ['x86_64'] },
   'u-24tb1.112xlarge': { vCpu: 448, memoryGiB: 24576, architectures: ['x86_64'] },
