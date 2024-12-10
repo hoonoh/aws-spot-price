@@ -813,6 +813,8 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'u-6tb1.56xlarge': { vCpu: 224, memoryGiB: 6144, architectures: ['x86_64'] },
   'u-9tb1.112xlarge': { vCpu: 448, memoryGiB: 9216, architectures: ['x86_64'] },
   'u7i-12tb.224xlarge': { vCpu: 896, memoryGiB: 12288, architectures: ['x86_64'] },
+  'u7i-6tb.112xlarge': { vCpu: 448, memoryGiB: 6144, architectures: ['x86_64'] },
+  'u7i-8tb.112xlarge': { vCpu: 448, memoryGiB: 8192, architectures: ['x86_64'] },
   'u7in-16tb.224xlarge': { vCpu: 896, memoryGiB: 16384, architectures: ['x86_64'] },
   'u7in-24tb.224xlarge': { vCpu: 896, memoryGiB: 24576, architectures: ['x86_64'] },
   'u7in-32tb.224xlarge': { vCpu: 896, memoryGiB: 32768, architectures: ['x86_64'] },
