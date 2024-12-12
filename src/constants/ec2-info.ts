@@ -219,6 +219,8 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'f1.16xlarge': { vCpu: 64, memoryGiB: 976, architectures: ['x86_64'] },
   'f1.2xlarge': { vCpu: 8, memoryGiB: 122, architectures: ['x86_64'] },
   'f1.4xlarge': { vCpu: 16, memoryGiB: 244, architectures: ['x86_64'] },
+  'f2.12xlarge': { vCpu: 48, memoryGiB: 512, architectures: ['x86_64'] },
+  'f2.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
   'g4ad.16xlarge': { vCpu: 64, memoryGiB: 256, architectures: ['x86_64'] },
   'g4ad.2xlarge': { vCpu: 8, memoryGiB: 32, architectures: ['x86_64'] },
   'g4ad.4xlarge': { vCpu: 16, memoryGiB: 64, architectures: ['x86_64'] },
