@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.731.0",
-    "@aws-sdk/client-ssm": "3.731.0",
-    "@aws-sdk/client-sts": "3.731.0",
+    "@aws-sdk/client-ec2": "3.731.1",
+    "@aws-sdk/client-ssm": "3.731.1",
+    "@aws-sdk/client-sts": "3.731.1",
     "@commitlint/cli": "19.6.1",
     "@eslint/eslintrc": "3.2.0",
     "@eslint/js": "9.18.0",
