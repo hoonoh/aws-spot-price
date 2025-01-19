@@ -340,8 +340,9 @@ Options:
      "u-12tb1.metal", "u-18tb1.112xlarge", "u-18tb1.metal", "u-24tb1.112xlarge",
       "u-24tb1.metal", "u-3tb1.56xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge",
        "u-6tb1.metal", "u-9tb1.112xlarge", "u-9tb1.metal", "u7i-12tb.224xlarge",
-            "u7ib-12tb.224xlarge", "u7in-16tb.224xlarge", "u7in-24tb.224xlarge",
-              "u7in-32tb.224xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge",
+                "u7i-6tb.112xlarge", "u7i-8tb.112xlarge", "u7ib-12tb.224xlarge",
+            "u7in-16tb.224xlarge", "u7in-24tb.224xlarge", "u7in-32tb.224xlarge",
+             "u7inh-32tb.480xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge",
     "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge",
      "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge",
                  "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal",
@@ -387,11 +388,12 @@ Options:
                  "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "inf2.xlarge",
     "inf2.8xlarge", "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge",
       "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge",
-                "p4d.24xlarge", "p4de.24xlarge", "p5.48xlarge", "p5en.48xlarge",
-               "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge", "vt1.3xlarge",
-                 "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
-        "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge",
-           "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
+                 "p4d.24xlarge", "p4de.24xlarge", "p5.48xlarge", "p5e.48xlarge",
+             "p5en.48xlarge", "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge",
+   "trn2.48xlarge", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge",
+        "hpc6a.48xlarge", "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge",
+           "hpc7a.48xlarge", "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge",
+                                                               "hpc7g.16xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                          "acceleratedComputing", "hpcOptimized"]
@@ -405,19 +407,19 @@ Options:
      "cc2", "r3", "r4", "r5", "r5a", "r5ad", "r5b", "r5d", "r5dn", "r5n", "r6a",
      "r6g", "r6gd", "r6i", "r6id", "r6idn", "r6in", "r7a", "r7g", "r7gd", "r7i",
    "r7iz", "r8g", "u-12tb1", "u-18tb1", "u-24tb1", "u-3tb1", "u-6tb1", "u-9tb1",
-    "u7i-12tb", "u7ib-12tb", "u7in-16tb", "u7in-24tb", "u7in-32tb", "x1", "x1e",
-   "x2gd", "x2idn", "x2iedn", "x2iezn", "x8g", "z1d", "cr1", "d2", "d3", "d3en",
-   "h1", "hi1", "hs1", "i2", "i3", "i3en", "i4g", "i4i", "i7ie", "i8g", "im4gn",
-   "is4gen", "dl1", "dl2q", "f1", "f2", "g2", "g3", "g3s", "g4ad", "g4dn", "g5",
-   "g5g", "g6", "g6e", "gr6", "inf1", "inf2", "p2", "p3", "p3dn", "p4d", "p4de",
-        "p5", "p5en", "trn1", "trn1n", "vt1", "cg1", "hpc6a", "hpc6id", "hpc7a",
-                                                                        "hpc7g"]
+        "u7i-12tb", "u7i-6tb", "u7i-8tb", "u7ib-12tb", "u7in-16tb", "u7in-24tb",
+    "u7in-32tb", "u7inh-32tb", "x1", "x1e", "x2gd", "x2idn", "x2iedn", "x2iezn",
+        "x8g", "z1d", "cr1", "d2", "d3", "d3en", "h1", "hi1", "hs1", "i2", "i3",
+    "i3en", "i4g", "i4i", "i7ie", "i8g", "im4gn", "is4gen", "dl1", "dl2q", "f1",
+       "f2", "g2", "g3", "g3s", "g4ad", "g4dn", "g5", "g5g", "g6", "g6e", "gr6",
+         "inf1", "inf2", "p2", "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en",
+     "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a", "hpc6id", "hpc7a", "hpc7g"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
          "12xlarge", "16xlarge", "18xlarge", "24xlarge", "32xlarge", "48xlarge",
-        "56xlarge", "96xlarge", "112xlarge", "224xlarge", "metal", "metal-16xl",
-                                       "metal-24xl", "metal-32xl", "metal-48xl"]
+         "56xlarge", "96xlarge", "112xlarge", "224xlarge", "480xlarge", "metal",
+                         "metal-16xl", "metal-24xl", "metal-32xl", "metal-48xl"]
       --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
       --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
       --priceLimit, --pl    Maximum price limit          [number] [default: 100]
@@ -801,8 +803,9 @@ Options:
      "u-12tb1.metal", "u-18tb1.112xlarge", "u-18tb1.metal", "u-24tb1.112xlarge",
       "u-24tb1.metal", "u-3tb1.56xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge",
        "u-6tb1.metal", "u-9tb1.112xlarge", "u-9tb1.metal", "u7i-12tb.224xlarge",
-            "u7ib-12tb.224xlarge", "u7in-16tb.224xlarge", "u7in-24tb.224xlarge",
-              "u7in-32tb.224xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge",
+                "u7i-6tb.112xlarge", "u7i-8tb.112xlarge", "u7ib-12tb.224xlarge",
+            "u7in-16tb.224xlarge", "u7in-24tb.224xlarge", "u7in-32tb.224xlarge",
+             "u7inh-32tb.480xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge",
     "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge",
      "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge",
                  "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal",
@@ -848,11 +851,12 @@ Options:
                  "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "inf2.xlarge",
     "inf2.8xlarge", "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge",
       "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge",
-                "p4d.24xlarge", "p4de.24xlarge", "p5.48xlarge", "p5en.48xlarge",
-               "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge", "vt1.3xlarge",
-                 "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
-        "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge",
-           "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
+                 "p4d.24xlarge", "p4de.24xlarge", "p5.48xlarge", "p5e.48xlarge",
+             "p5en.48xlarge", "trn1.2xlarge", "trn1.32xlarge", "trn1n.32xlarge",
+   "trn2.48xlarge", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge",
+        "hpc6a.48xlarge", "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge",
+           "hpc7a.48xlarge", "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge",
+                                                               "hpc7g.16xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                          "acceleratedComputing", "hpcOptimized"]
@@ -866,19 +870,19 @@ Options:
      "cc2", "r3", "r4", "r5", "r5a", "r5ad", "r5b", "r5d", "r5dn", "r5n", "r6a",
      "r6g", "r6gd", "r6i", "r6id", "r6idn", "r6in", "r7a", "r7g", "r7gd", "r7i",
    "r7iz", "r8g", "u-12tb1", "u-18tb1", "u-24tb1", "u-3tb1", "u-6tb1", "u-9tb1",
-    "u7i-12tb", "u7ib-12tb", "u7in-16tb", "u7in-24tb", "u7in-32tb", "x1", "x1e",
-   "x2gd", "x2idn", "x2iedn", "x2iezn", "x8g", "z1d", "cr1", "d2", "d3", "d3en",
-   "h1", "hi1", "hs1", "i2", "i3", "i3en", "i4g", "i4i", "i7ie", "i8g", "im4gn",
-   "is4gen", "dl1", "dl2q", "f1", "f2", "g2", "g3", "g3s", "g4ad", "g4dn", "g5",
-   "g5g", "g6", "g6e", "gr6", "inf1", "inf2", "p2", "p3", "p3dn", "p4d", "p4de",
-        "p5", "p5en", "trn1", "trn1n", "vt1", "cg1", "hpc6a", "hpc6id", "hpc7a",
-                                                                        "hpc7g"]
+        "u7i-12tb", "u7i-6tb", "u7i-8tb", "u7ib-12tb", "u7in-16tb", "u7in-24tb",
+    "u7in-32tb", "u7inh-32tb", "x1", "x1e", "x2gd", "x2idn", "x2iedn", "x2iezn",
+        "x8g", "z1d", "cr1", "d2", "d3", "d3en", "h1", "hi1", "hs1", "i2", "i3",
+    "i3en", "i4g", "i4i", "i7ie", "i8g", "im4gn", "is4gen", "dl1", "dl2q", "f1",
+       "f2", "g2", "g3", "g3s", "g4ad", "g4dn", "g5", "g5g", "g6", "g6e", "gr6",
+         "inf1", "inf2", "p2", "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en",
+     "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a", "hpc6id", "hpc7a", "hpc7g"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
          "12xlarge", "16xlarge", "18xlarge", "24xlarge", "32xlarge", "48xlarge",
-        "56xlarge", "96xlarge", "112xlarge", "224xlarge", "metal", "metal-16xl",
-                                       "metal-24xl", "metal-32xl", "metal-48xl"]
+         "56xlarge", "96xlarge", "112xlarge", "224xlarge", "480xlarge", "metal",
+                         "metal-16xl", "metal-24xl", "metal-32xl", "metal-48xl"]
       --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
       --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
       --priceLimit, --pl    Maximum price limit          [number] [default: 100]
