@@ -78,7 +78,7 @@
     "conventional-changelog-cli": "5.0.0",
     "cz-conventional-changelog": "3.3.0",
     "dts-bundle-generator": "9.4.0",
-    "esbuild": "0.24.2",
+    "esbuild": "0.25.0",
     "eslint": "9.20.0",
     "eslint-config-prettier": "10.0.1",
     "eslint-import-resolver-typescript": "3.7.0",
