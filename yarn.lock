@@ -4653,9 +4653,9 @@ __metadata:
     lodash: "npm:4.17.21"
     mock-fs: "npm:5.5.0"
     ora: "npm:5.4.1"
-    prettier: "npm:3.4.2"
+    prettier: "npm:3.5.0"
     prompts: "npm:2.4.2"
-    semantic-release: "npm:24.2.1"
+    semantic-release: "npm:24.2.2"
     table: "npm:6.9.0"
     ts-jest: "npm:29.2.5"
     ts-loader: "npm:9.5.2"
@@ -11824,12 +11824,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
+"prettier@npm:3.5.0":
+  version: 3.5.0
+  resolution: "prettier@npm:3.5.0"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/99e076a26ed0aba4ebc043880d0f08bbb8c59a4c6641cdee6cdadf2205bdd87aa1d7823f50c3aea41e015e99878d37c58d7b5f0e663bba0ef047f94e36b96446
+  checksum: 10c0/6c355d74c377f5622953229d92477e8b9779162e848db90fd7e06c431deb73585d31fafc4516cf5868917825b97b9ec7c87c8d8b8e03ccd9fc9c0b7699d1a650
   languageName: node
   linkType: hard
 
@@ -12409,9 +12409,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:24.2.1":
-  version: 24.2.1
-  resolution: "semantic-release@npm:24.2.1"
+"semantic-release@npm:24.2.2":
+  version: 24.2.2
+  resolution: "semantic-release@npm:24.2.2"
   dependencies:
     "@semantic-release/commit-analyzer": "npm:^13.0.0-beta.1"
     "@semantic-release/error": "npm:^4.0.0"
@@ -12444,7 +12444,7 @@ __metadata:
     yargs: "npm:^17.5.1"
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 10c0/c27b187e84b3410e1fd3c9c8d92fad7b4905e6d8719c75f03e684d1ca1d1bf2c843e4e12a0cf54cd6292608af3c50ac17ff9e383add2619dbd0d643a77424ae4
+  checksum: 10c0/82b3f4654badbb80bf20be563ab232531aa721b1aeb17b9e24edf68dc0a6d1c7e10eddb38b6d2eb059ae5c09b6026787743a2f41eaccf0febb7bedebffa7c479
   languageName: node
   linkType: hard
 
