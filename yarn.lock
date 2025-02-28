@@ -119,9 +119,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ssm@npm:3.758.0":
-  version: 3.758.0
-  resolution: "@aws-sdk/client-ssm@npm:3.758.0"
+"@aws-sdk/client-ssm@npm:3.759.0":
+  version: 3.759.0
+  resolution: "@aws-sdk/client-ssm@npm:3.759.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -165,7 +165,7 @@ __metadata:
     "@types/uuid": "npm:^9.0.1"
     tslib: "npm:^2.6.2"
     uuid: "npm:^9.0.1"
-  checksum: 10c0/732f64f9ae2868e850d64cb4d0b374dbb2ff793deb26f0b7b8839c8c8bca930ccd3f67a734fb00df3e74bcf514d2896e5e687e55d54b2ce98da6d104397cd399
+  checksum: 10c0/92960da858dd8be72756fb62b66c753fc72f2b6431e831c6cbb9ccce44fa4ddf06d75d6fc862da1c6f2f50fbe8b72a1489e284d12dd60e38dae571595703c01b
   languageName: node
   linkType: hard
 
@@ -3775,12 +3775,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.13.5":
-  version: 22.13.5
-  resolution: "@types/node@npm:22.13.5"
+"@types/node@npm:22.13.6":
+  version: 22.13.6
+  resolution: "@types/node@npm:22.13.6"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10c0/a2e7ed7bb0690e439004779baedeb05159c5cc41ef6d81c7a6ebea5303fde4033669e1c0e41ff7453b45fd2fea8dbd55fddfcd052950c7fcae3167c970bca725
+  checksum: 10c0/4058f663c08a3fef0200bd1a728c0ff881c0b35594e2151312500633acf02d7074e3f34d4bd096f2fe60ccdb1203d93bd8c97e7c1809f20b4b24cdc25e5c5117
   languageName: node
   linkType: hard
 
@@ -4585,7 +4585,7 @@ __metadata:
   resolution: "aws-spot-price@workspace:."
   dependencies:
     "@aws-sdk/client-ec2": "npm:3.758.0"
-    "@aws-sdk/client-ssm": "npm:3.758.0"
+    "@aws-sdk/client-ssm": "npm:3.759.0"
     "@aws-sdk/client-sts": "npm:3.758.0"
     "@commitlint/cli": "npm:19.7.1"
     "@eslint/eslintrc": "npm:3.3.0"
@@ -4599,7 +4599,7 @@ __metadata:
     "@types/jest": "npm:29.5.14"
     "@types/lodash": "npm:4.17.15"
     "@types/mock-fs": "npm:4.13.4"
-    "@types/node": "npm:22.13.5"
+    "@types/node": "npm:22.13.6"
     "@types/prettier": "npm:3.0.0"
     "@types/prompts": "npm:2.4.9"
     "@types/yargs": "npm:17.0.33"
