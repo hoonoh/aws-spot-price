@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.750.0",
-    "@aws-sdk/client-ssm": "3.750.0",
-    "@aws-sdk/client-sts": "3.750.0",
+    "@aws-sdk/client-ec2": "3.758.0",
+    "@aws-sdk/client-ssm": "3.758.0",
+    "@aws-sdk/client-sts": "3.758.0",
     "@commitlint/cli": "19.7.1",
     "@eslint/eslintrc": "3.3.0",
     "@eslint/js": "9.21.0",
@@ -71,8 +71,8 @@
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.33",
-    "@typescript-eslint/eslint-plugin": "8.24.1",
-    "@typescript-eslint/parser": "8.24.1",
+    "@typescript-eslint/eslint-plugin": "8.25.0",
+    "@typescript-eslint/parser": "8.25.0",
     "aws-sdk-client-mock": "4.1.0",
     "commitizen": "4.3.1",
     "conventional-changelog-cli": "5.0.0",
@@ -80,7 +80,7 @@
     "dts-bundle-generator": "9.4.0",
     "esbuild": "0.25.0",
     "eslint": "9.21.0",
-    "eslint-config-prettier": "10.0.1",
+    "eslint-config-prettier": "10.0.2",
     "eslint-import-resolver-typescript": "3.8.3",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.11.0",
@@ -99,7 +99,7 @@
     "ts-jest": "29.2.6",
     "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   },
   "resolutions": {
     "@aws-sdk/types": "3.734.0",
