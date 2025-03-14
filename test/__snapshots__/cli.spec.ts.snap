@@ -125,7 +125,61 @@ exports[`cli test by import should handle JSON output option 1`] = `
 ]"
 `;
 
-exports[`cli test by import should handle architecture option 1`] = `"no matching records found"`;
+exports[`cli test by import should handle architecture and platform options 1`] = `
+"╔══════════╤════════╤══════════╤══════════════╤═══════════════════╗
+║ Type     │  Price │ Platform │ Architecture │ Availability Zone ║
+╟──────────┼────────┼──────────┼──────────────┼───────────────────╢
+║ t1.micro │ 0.0028 │ Windows  │ i386, x86_64 │ ap-southeast-1a   ║
+║ t1.micro │ 0.0028 │ Windows  │ i386, x86_64 │ ap-southeast-2a   ║
+║ t3.nano  │ 0.0051 │ Windows  │ x86_64       │ us-west-2a        ║
+║ t3.nano  │ 0.0051 │ Windows  │ x86_64       │ us-west-2b        ║
+║ t3a.nano │ 0.0051 │ Windows  │ x86_64       │ us-west-2d        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ ca-central-1a     ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-central-1a     ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-central-1b     ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-central-1c     ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-north-1a       ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-west-3a        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-west-3b        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ eu-west-3c        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ us-west-1b        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ us-west-1c        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ us-west-2c        ║
+║ t3.nano  │ 0.0052 │ Windows  │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0052 │ Windows  │ x86_64       │ ap-northeast-2a   ║
+║ t3a.nano │ 0.0052 │ Windows  │ x86_64       │ ap-northeast-2c   ║
+║ t3a.nano │ 0.0052 │ Windows  │ x86_64       │ ap-southeast-1a   ║
+╚══════════╧════════╧══════════╧══════════════╧═══════════════════╝
+"
+`;
+
+exports[`cli test by import should handle architecture option 1`] = `
+"╔══════════╤════════╤════════════╤══════════════╤═══════════════════╗
+║ Type     │  Price │ Platform   │ Architecture │ Availability Zone ║
+╟──────────┼────────┼────────────┼──────────────┼───────────────────╢
+║ t3.nano  │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ t3.nano  │ 0.0010 │ Linux/UNIX │ x86_64       │ us-west-2b        ║
+║ t3.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
+║ t3.nano  │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0012 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3a.nano │ 0.0013 │ Linux/UNIX │ x86_64       │ ap-south-1b       ║
+║ t3.micro │ 0.0014 │ Linux/UNIX │ x86_64       │ us-west-2a        ║
+║ t3.micro │ 0.0015 │ Linux/UNIX │ x86_64       │ us-west-2c        ║
+║ t3.micro │ 0.0015 │ Linux/UNIX │ x86_64       │ us-west-2d        ║
+║ t3.nano  │ 0.0015 │ Linux/UNIX │ x86_64       │ us-east-2c        ║
+║ t3a.nano │ 0.0015 │ Linux/UNIX │ x86_64       │ ap-south-1a       ║
+║ t3a.nano │ 0.0015 │ Linux/UNIX │ x86_64       │ ap-south-1c       ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX │ x86_64       │ ap-northeast-3c   ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX │ x86_64       │ ap-southeast-1a   ║
+║ t3.nano  │ 0.0016 │ Linux/UNIX │ x86_64       │ ap-southeast-1b   ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ ap-northeast-3a   ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ ap-south-1b       ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ ap-southeast-1c   ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ sa-east-1a        ║
+║ t3.nano  │ 0.0017 │ Linux/UNIX │ x86_64       │ us-east-2a        ║
+╚══════════╧════════╧════════════╧══════════════╧═══════════════════╝
+"
+`;
 
 exports[`cli test by import should handle instance family option 1`] = `
 "╔═════════════╤════════╤════════════╤══════════════╤═══════════════════╗

@@ -3,2416 +3,6066 @@
 exports[`lib getEc2Info run with default options should return expected values 1`] = `
 {
   "a1.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "a1.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "a1.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "a1.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 2,
     "vCpu": 1,
   },
   "a1.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "a1.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
   "c1.medium": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 1.7,
     "vCpu": 2,
   },
   "c1.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 7,
     "vCpu": 8,
   },
   "c3.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15,
     "vCpu": 8,
   },
   "c3.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30,
     "vCpu": 16,
   },
   "c3.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 60,
     "vCpu": 32,
   },
   "c3.large": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 3.75,
     "vCpu": 2,
   },
   "c3.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 7.5,
     "vCpu": 4,
   },
   "c4.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15,
     "vCpu": 8,
   },
   "c4.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30,
     "vCpu": 16,
   },
   "c4.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 60,
     "vCpu": 36,
   },
   "c4.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 3.75,
     "vCpu": 2,
   },
   "c4.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 7.5,
     "vCpu": 4,
   },
   "c5.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 48,
   },
   "c5.18xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 144,
     "vCpu": 72,
   },
   "c5.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "c5.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "c5.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "c5.9xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 72,
     "vCpu": 36,
   },
   "c5.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "c5.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "c5.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
   "c5a.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 48,
   },
   "c5a.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 64,
   },
   "c5a.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "c5a.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "c5a.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "c5a.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 32,
   },
   "c5a.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "c5a.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
   "c5ad.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 48,
   },
   "c5ad.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 64,
   },
   "c5ad.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "c5ad.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "c5ad.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "c5ad.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 32,
   },
   "c5ad.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "c5ad.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
   "c5d.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 48,
   },
   "c5d.18xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 144,
     "vCpu": 72,
   },
   "c5d.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "c5d.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "c5d.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "c5d.9xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 72,
     "vCpu": 36,
   },
   "c5d.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "c5d.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "c5d.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
   "c5n.18xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 72,
   },
   "c5n.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 21,
     "vCpu": 8,
   },
   "c5n.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 42,
     "vCpu": 16,
   },
   "c5n.9xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 36,
   },
   "c5n.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 5.25,
     "vCpu": 2,
   },
   "c5n.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 72,
   },
   "c5n.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 10.5,
     "vCpu": 4,
   },
+  "c6a.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6a.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6a.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c6a.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6a.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6a.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c6a.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6a.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6a.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6a.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c6a.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
   "c6g.12xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 96,
     "vCpu": 48,
   },
   "c6g.16xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 64,
   },
   "c6g.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "c6g.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "c6g.8xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 64,
     "vCpu": 32,
   },
   "c6g.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "c6g.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 2,
     "vCpu": 1,
   },
   "c6g.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 64,
   },
   "c6g.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
   "c6gd.12xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 96,
     "vCpu": 48,
   },
   "c6gd.16xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 64,
   },
   "c6gd.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "c6gd.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 16,
   },
   "c6gd.8xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 64,
     "vCpu": 32,
   },
   "c6gd.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "c6gd.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 2,
     "vCpu": 1,
   },
   "c6gd.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 64,
   },
   "c6gd.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
-  "cc2.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 60.5,
+  "c6gn.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6gn.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6gn.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6gn.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6gn.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
     "vCpu": 32,
   },
+  "c6gn.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6gn.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c6gn.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c6i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c6i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6i.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6i.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c6id.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6id.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6id.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c6id.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6id.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6id.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6id.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6id.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6id.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6id.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c6in.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c6in.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c6in.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c6in.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c6in.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6in.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c6in.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c6in.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c6in.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c6in.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c7a.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c7a.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7a.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c7a.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c7a.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 128,
+  },
+  "c7a.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c7a.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c7a.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c7a.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c7a.medium": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c7a.metal-48xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c7a.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c7g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c7g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c7g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c7g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c7g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c7g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c7g.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c7gd.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c7gd.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7gd.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c7gd.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c7gd.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c7gd.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c7gd.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c7gd.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7gd.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c7gn.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c7gn.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7gn.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c7gn.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c7gn.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c7gn.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c7gn.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c7gn.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7gn.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c7i-flex.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c7i-flex.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7i-flex.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c7i-flex.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c7i-flex.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c7i-flex.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c7i-flex.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c7i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c7i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c7i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c7i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c7i.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c7i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c7i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c7i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c7i.metal-24xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c7i.metal-48xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c7i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "c8g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 48,
+  },
+  "c8g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "c8g.24xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c8g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "c8g.48xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c8g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "c8g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "c8g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 2,
+  },
+  "c8g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 2,
+    "vCpu": 1,
+  },
+  "c8g.metal-24xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "c8g.metal-48xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 192,
+  },
+  "c8g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
   "d2.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 8,
   },
   "d2.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 16,
   },
   "d2.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 36,
   },
   "d2.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30.5,
     "vCpu": 4,
   },
+  "d3.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "d3.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "d3.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "d3.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "d3en.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "d3en.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "d3en.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "d3en.6xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 24,
+  },
+  "d3en.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "d3en.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "dl1.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
   "f1.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 976,
     "vCpu": 64,
   },
   "f1.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 8,
   },
   "f1.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 16,
   },
-  "g2.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 15,
-    "vCpu": 8,
+  "f2.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 48,
   },
-  "g2.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 60,
-    "vCpu": 32,
+  "f2.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 2048,
+    "vCpu": 192,
   },
-  "g3.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 488,
+  "f2.6xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 24,
+  },
+  "g4ad.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
     "vCpu": 64,
   },
-  "g3.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 122,
+  "g4ad.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "g4ad.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
     "vCpu": 16,
   },
-  "g3.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 244,
+  "g4ad.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
     "vCpu": 32,
   },
-  "g3s.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
-    "memoryGiB": 30.5,
+  "g4ad.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
     "vCpu": 4,
   },
   "g4dn.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "g4dn.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "g4dn.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "g4dn.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "g4dn.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "g4dn.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "g4dn.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
+  "g5.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "g5.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "g5.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "g5.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "g5.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "g5.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "g5.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "g5.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "g5g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "g5g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
+  "g5g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 16,
+  },
+  "g5g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 32,
+  },
+  "g5g.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "g5g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 4,
+  },
+  "g6.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "g6.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "g6.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "g6.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "g6.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "g6.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "g6.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "g6.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "g6e.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "g6e.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "g6e.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "g6e.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "g6e.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "g6e.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "g6e.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "g6e.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "gr6.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "gr6.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
   "h1.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "h1.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "h1.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "h1.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "hpc7g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 64,
+  },
+  "hpc7g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "hpc7g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "i2.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 8,
   },
   "i2.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 16,
   },
   "i2.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 32,
   },
   "i2.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30.5,
     "vCpu": 4,
   },
   "i3.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 488,
     "vCpu": 64,
   },
   "i3.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 8,
   },
   "i3.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 16,
   },
   "i3.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 32,
   },
   "i3.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15.25,
     "vCpu": 2,
   },
   "i3.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 72,
   },
   "i3.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30.5,
     "vCpu": 4,
   },
   "i3en.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "i3en.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "i3en.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "i3en.3xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 12,
   },
   "i3en.6xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 24,
   },
   "i3en.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "i3en.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "i3en.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
+  "i4g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "i4g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "i4g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "i4g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "i4g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "i4g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "i4i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "i4i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "i4i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "i4i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "i4i.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "i4i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "i4i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "i4i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "i4i.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "i4i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "i7ie.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "i7ie.18xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 576,
+    "vCpu": 72,
+  },
+  "i7ie.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "i7ie.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "i7ie.3xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 12,
+  },
+  "i7ie.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "i7ie.6xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 24,
+  },
+  "i7ie.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "i7ie.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "i8g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "i8g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "i8g.24xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "i8g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "i8g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "i8g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "i8g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "i8g.metal-24xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "i8g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "im4gn.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "im4gn.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "im4gn.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "im4gn.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "im4gn.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "im4gn.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
   "inf1.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 96,
   },
   "inf1.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 8,
   },
   "inf1.6xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 48,
     "vCpu": 24,
   },
   "inf1.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 4,
   },
+  "inf2.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "inf2.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "inf2.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "inf2.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "is4gen.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 48,
+    "vCpu": 8,
+  },
+  "is4gen.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 16,
+  },
+  "is4gen.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 32,
+  },
+  "is4gen.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 12,
+    "vCpu": 2,
+  },
+  "is4gen.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 6,
+    "vCpu": 1,
+  },
+  "is4gen.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 24,
+    "vCpu": 4,
+  },
   "m1.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 7.5,
     "vCpu": 2,
   },
   "m1.medium": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 3.7,
     "vCpu": 1,
   },
   "m1.small": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 1.7,
     "vCpu": 1,
   },
   "m1.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15,
     "vCpu": 4,
   },
   "m2.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 34.2,
     "vCpu": 4,
   },
   "m2.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 68.4,
     "vCpu": 8,
   },
   "m2.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 17.1,
     "vCpu": 2,
   },
   "m3.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30,
     "vCpu": 8,
   },
   "m3.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 7.5,
     "vCpu": 2,
   },
   "m3.medium": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 3.75,
     "vCpu": 1,
   },
   "m3.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15,
     "vCpu": 4,
   },
   "m4.10xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 160,
     "vCpu": 40,
   },
   "m4.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m4.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m4.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m4.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m4.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m5.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m5.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m5.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m5.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m5.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m5.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m5.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m5a.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m5a.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m5a.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5a.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m5a.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m5a.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m5a.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m5a.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m5ad.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m5ad.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m5ad.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5ad.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m5ad.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m5ad.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m5ad.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m5ad.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m5d.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m5d.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m5d.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5d.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m5d.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m5d.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m5d.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m5d.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5d.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m5dn.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m5dn.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m5dn.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5dn.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m5dn.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m5dn.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m5dn.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
+  "m5dn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
   "m5dn.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m5n.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m5n.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m5n.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 96,
   },
   "m5n.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m5n.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m5n.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m5n.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
+  "m5n.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
   "m5n.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m5zn.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5zn.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m5zn.3xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 48,
+    "vCpu": 12,
+  },
+  "m5zn.6xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 96,
+    "vCpu": 24,
+  },
+  "m5zn.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m5zn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m5zn.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6a.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6a.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6a.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6a.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6a.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6a.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m6a.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6a.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6a.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6a.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m6a.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m6g.12xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m6g.16xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m6g.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m6g.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m6g.8xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m6g.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m6g.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 4,
     "vCpu": 1,
   },
   "m6g.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m6g.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "m6gd.12xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 192,
     "vCpu": 48,
   },
   "m6gd.16xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m6gd.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "m6gd.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 64,
     "vCpu": 16,
   },
   "m6gd.8xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 32,
   },
   "m6gd.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "m6gd.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 4,
     "vCpu": 1,
   },
   "m6gd.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 256,
     "vCpu": 64,
   },
   "m6gd.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
+  "m6i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6i.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6i.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6id.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6id.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6id.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6id.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6id.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6id.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6id.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6id.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6id.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6id.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6idn.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6idn.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6idn.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6idn.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6idn.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6idn.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6idn.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6idn.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6idn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6idn.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m6in.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m6in.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m6in.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m6in.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m6in.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6in.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m6in.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m6in.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m6in.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m6in.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m7a.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m7a.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7a.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m7a.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m7a.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "m7a.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m7a.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m7a.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m7a.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m7a.medium": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 1,
+  },
+  "m7a.metal-48xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m7a.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m7g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m7g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m7g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m7g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m7g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m7g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 1,
+  },
+  "m7g.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m7gd.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m7gd.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7gd.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m7gd.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m7gd.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m7gd.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m7gd.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 1,
+  },
+  "m7gd.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7gd.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m7i-flex.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m7i-flex.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7i-flex.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m7i-flex.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m7i-flex.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m7i-flex.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m7i-flex.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m7i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m7i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m7i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m7i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m7i.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m7i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m7i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m7i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m7i.metal-24xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m7i.metal-48xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m7i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "m8g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 48,
+  },
+  "m8g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 64,
+  },
+  "m8g.24xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m8g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "m8g.48xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m8g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 16,
+  },
+  "m8g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 32,
+  },
+  "m8g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 2,
+  },
+  "m8g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 4,
+    "vCpu": 1,
+  },
+  "m8g.metal-24xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 96,
+  },
+  "m8g.metal-48xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 192,
+  },
+  "m8g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 4,
+  },
+  "mac1.metal": {
+    "architectures": [
+      "x86_64_mac",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 12,
+  },
+  "mac2-m1ultra.metal": {
+    "architectures": [
+      "arm64_mac",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 20,
+  },
+  "mac2-m2.metal": {
+    "architectures": [
+      "arm64_mac",
+    ],
+    "memoryGiB": 24,
+    "vCpu": 8,
+  },
+  "mac2-m2pro.metal": {
+    "architectures": [
+      "arm64_mac",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 12,
+  },
+  "mac2.metal": {
+    "architectures": [
+      "arm64_mac",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 8,
+  },
   "p2.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 732,
     "vCpu": 64,
   },
   "p2.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 488,
     "vCpu": 32,
   },
   "p2.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 4,
   },
   "p3.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 488,
     "vCpu": 64,
   },
   "p3.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 8,
   },
   "p3.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 32,
   },
   "p3dn.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "p4d.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 1152,
     "vCpu": 96,
   },
+  "p5.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 2048,
+    "vCpu": 192,
+  },
   "r3.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 8,
   },
   "r3.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 16,
   },
   "r3.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 32,
   },
   "r3.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15,
     "vCpu": 2,
   },
   "r3.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30.5,
     "vCpu": 4,
   },
   "r4.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 488,
     "vCpu": 64,
   },
   "r4.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 61,
     "vCpu": 8,
   },
   "r4.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 16,
   },
   "r4.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 32,
   },
   "r4.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 15.25,
     "vCpu": 2,
   },
   "r4.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 30.5,
     "vCpu": 4,
   },
   "r5.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r5.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r5.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r5.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r5.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r5.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "r5.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r5a.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r5a.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r5a.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5a.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r5a.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r5a.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r5a.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "r5a.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r5ad.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r5ad.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r5ad.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5ad.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r5ad.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r5ad.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r5ad.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "r5ad.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r5b.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r5b.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r5b.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5b.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r5b.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r5b.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r5b.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r5b.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r5b.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r5d.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r5d.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r5d.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5d.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r5d.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r5d.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r5d.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "r5d.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5d.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r5dn.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r5dn.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r5dn.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5dn.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r5dn.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r5dn.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r5dn.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
+  "r5dn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
   "r5dn.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r5n.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r5n.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r5n.24xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 768,
     "vCpu": 96,
   },
   "r5n.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r5n.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r5n.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r5n.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
+  "r5n.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
   "r5n.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6a.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6a.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6a.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r6a.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6a.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6a.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r6a.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6a.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6a.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6a.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r6a.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r6g.12xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r6g.16xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r6g.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r6g.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r6g.8xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r6g.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "r6g.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 1,
   },
   "r6g.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r6g.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "r6gd.12xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "r6gd.16xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r6gd.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "r6gd.4xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 128,
     "vCpu": 16,
   },
   "r6gd.8xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 256,
     "vCpu": 32,
   },
   "r6gd.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "r6gd.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 1,
   },
   "r6gd.metal": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 512,
     "vCpu": 64,
   },
   "r6gd.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r6i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6i.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6i.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6id.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6id.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6id.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r6id.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6id.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6id.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6id.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6id.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6id.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6id.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6idn.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6idn.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6idn.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r6idn.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6idn.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6idn.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6idn.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6idn.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6idn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6idn.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r6in.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r6in.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r6in.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r6in.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r6in.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6in.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r6in.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r6in.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r6in.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r6in.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r7a.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r7a.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7a.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r7a.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r7a.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r7a.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r7a.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r7a.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r7a.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r7a.medium": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 1,
+  },
+  "r7a.metal-48xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r7a.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r7g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r7g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r7g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r7g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r7g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r7g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 1,
+  },
+  "r7g.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r7gd.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r7gd.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7gd.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r7gd.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r7gd.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r7gd.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r7gd.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 1,
+  },
+  "r7gd.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7gd.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r7i.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r7i.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7i.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r7i.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r7i.48xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r7i.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r7i.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r7i.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r7i.metal-24xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r7i.metal-48xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r7i.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r7iz.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r7iz.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7iz.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r7iz.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r7iz.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r7iz.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r7iz.large": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r7iz.metal-16xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r7iz.metal-32xl": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 128,
+  },
+  "r7iz.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 4,
+  },
+  "r8g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 384,
+    "vCpu": 48,
+  },
+  "r8g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 64,
+  },
+  "r8g.24xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r8g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 8,
+  },
+  "r8g.48xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r8g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 16,
+  },
+  "r8g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 32,
+  },
+  "r8g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 2,
+  },
+  "r8g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 8,
+    "vCpu": 1,
+  },
+  "r8g.metal-24xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 96,
+  },
+  "r8g.metal-48xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 192,
+  },
+  "r8g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
   "t1.micro": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 0.613,
     "vCpu": 1,
   },
   "t2.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "t2.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "t2.medium": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "t2.micro": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 1,
     "vCpu": 1,
   },
   "t2.nano": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 0.5,
     "vCpu": 1,
   },
   "t2.small": {
-    "architectures": {
-      "Item": [
-        "i386",
-        "x86_64",
-      ],
-    },
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
     "memoryGiB": 2,
     "vCpu": 1,
   },
   "t2.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "t3.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "t3.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "t3.medium": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "t3.micro": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 1,
     "vCpu": 2,
   },
   "t3.nano": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 0.5,
     "vCpu": 2,
   },
   "t3.small": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 2,
     "vCpu": 2,
   },
   "t3.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "t3a.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "t3a.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "t3a.medium": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "t3a.micro": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 1,
     "vCpu": 2,
   },
   "t3a.nano": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 0.5,
     "vCpu": 2,
   },
   "t3a.small": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 2,
     "vCpu": 2,
   },
   "t3a.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
   "t4g.2xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 32,
     "vCpu": 8,
   },
   "t4g.large": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 8,
     "vCpu": 2,
   },
   "t4g.medium": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 4,
     "vCpu": 2,
   },
   "t4g.micro": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 1,
     "vCpu": 2,
   },
   "t4g.nano": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 0.5,
     "vCpu": 2,
   },
   "t4g.small": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 2,
     "vCpu": 2,
   },
   "t4g.xlarge": {
-    "architectures": {
-      "Item": "arm64",
-    },
+    "architectures": [
+      "arm64",
+    ],
     "memoryGiB": 16,
     "vCpu": 4,
   },
+  "trn1.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 8,
+  },
+  "trn1.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "trn1n.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 128,
+  },
+  "u-12tb1.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 12288,
+    "vCpu": 448,
+  },
+  "u-18tb1.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 18432,
+    "vCpu": 448,
+  },
+  "u-24tb1.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 24576,
+    "vCpu": 448,
+  },
+  "u-3tb1.56xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 3072,
+    "vCpu": 224,
+  },
+  "u-6tb1.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 6144,
+    "vCpu": 448,
+  },
+  "u-6tb1.56xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 6144,
+    "vCpu": 224,
+  },
+  "u-9tb1.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 9216,
+    "vCpu": 448,
+  },
+  "u7i-12tb.224xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 12288,
+    "vCpu": 896,
+  },
+  "u7i-6tb.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 6144,
+    "vCpu": 448,
+  },
+  "u7i-8tb.112xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 8192,
+    "vCpu": 448,
+  },
+  "u7in-16tb.224xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 16384,
+    "vCpu": 896,
+  },
+  "u7in-24tb.224xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 24576,
+    "vCpu": 896,
+  },
+  "u7in-32tb.224xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 32768,
+    "vCpu": 896,
+  },
+  "vt1.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 192,
+    "vCpu": 96,
+  },
+  "vt1.3xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 24,
+    "vCpu": 12,
+  },
+  "vt1.6xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 48,
+    "vCpu": 24,
+  },
   "x1.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 976,
     "vCpu": 64,
   },
   "x1.32xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 1952,
     "vCpu": 128,
   },
   "x1e.16xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 1952,
     "vCpu": 64,
   },
   "x1e.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 244,
     "vCpu": 8,
   },
   "x1e.32xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 3904,
     "vCpu": 128,
   },
   "x1e.4xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 488,
     "vCpu": 16,
   },
   "x1e.8xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 976,
     "vCpu": 32,
   },
   "x1e.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 122,
     "vCpu": 4,
   },
+  "x2gd.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 48,
+  },
+  "x2gd.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 64,
+  },
+  "x2gd.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 8,
+  },
+  "x2gd.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 16,
+  },
+  "x2gd.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 32,
+  },
+  "x2gd.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 2,
+  },
+  "x2gd.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 1,
+  },
+  "x2gd.metal": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 64,
+  },
+  "x2gd.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 4,
+  },
+  "x2idn.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 64,
+  },
+  "x2idn.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 96,
+  },
+  "x2idn.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 2048,
+    "vCpu": 128,
+  },
+  "x2idn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 2048,
+    "vCpu": 128,
+  },
+  "x2iedn.16xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 2048,
+    "vCpu": 64,
+  },
+  "x2iedn.24xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 3072,
+    "vCpu": 96,
+  },
+  "x2iedn.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 8,
+  },
+  "x2iedn.32xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4096,
+    "vCpu": 128,
+  },
+  "x2iedn.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 16,
+  },
+  "x2iedn.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 32,
+  },
+  "x2iedn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 4096,
+    "vCpu": 128,
+  },
+  "x2iedn.xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 4,
+  },
+  "x2iezn.12xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 48,
+  },
+  "x2iezn.2xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 8,
+  },
+  "x2iezn.4xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 16,
+  },
+  "x2iezn.6xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 24,
+  },
+  "x2iezn.8xlarge": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 32,
+  },
+  "x2iezn.metal": {
+    "architectures": [
+      "x86_64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 48,
+  },
+  "x8g.12xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 768,
+    "vCpu": 48,
+  },
+  "x8g.16xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1024,
+    "vCpu": 64,
+  },
+  "x8g.24xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 96,
+  },
+  "x8g.2xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 128,
+    "vCpu": 8,
+  },
+  "x8g.48xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 3072,
+    "vCpu": 192,
+  },
+  "x8g.4xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 256,
+    "vCpu": 16,
+  },
+  "x8g.8xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 512,
+    "vCpu": 32,
+  },
+  "x8g.large": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 32,
+    "vCpu": 2,
+  },
+  "x8g.medium": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 16,
+    "vCpu": 1,
+  },
+  "x8g.metal-24xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 1536,
+    "vCpu": 96,
+  },
+  "x8g.metal-48xl": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 3072,
+    "vCpu": 192,
+  },
+  "x8g.xlarge": {
+    "architectures": [
+      "arm64",
+    ],
+    "memoryGiB": 64,
+    "vCpu": 4,
+  },
   "z1d.12xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "z1d.2xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 64,
     "vCpu": 8,
   },
   "z1d.3xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 96,
     "vCpu": 12,
   },
   "z1d.6xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 192,
     "vCpu": 24,
   },
   "z1d.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
   "z1d.metal": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 384,
     "vCpu": 48,
   },
   "z1d.xlarge": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 32,
     "vCpu": 4,
   },
@@ -2422,9 +6072,9 @@ exports[`lib getEc2Info run with default options should return expected values 1
 exports[`lib getEc2Info run with targeted instance type should return expected values 1`] = `
 {
   "dummy.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
@@ -2434,9 +6084,9 @@ exports[`lib getEc2Info run with targeted instance type should return expected v
 exports[`lib getEc2Info should handle RequestLimitExceeded error should return expected values 1`] = `
 {
   "dummy.large": {
-    "architectures": {
-      "Item": "x86_64",
-    },
+    "architectures": [
+      "x86_64",
+    ],
     "memoryGiB": 16,
     "vCpu": 2,
   },
@@ -3053,7 +6703,7 @@ exports[`lib getGlobalSpotPrices should fetch ec2 instance type info dynamically
 ]
 `;
 
-exports[`lib getGlobalSpotPrices should filter architecture should return expected values 1`] = `
+exports[`lib getGlobalSpotPrices should filter architecture arm64 should return expected values 1`] = `
 [
   {
     "architectures": [
@@ -3129,54 +6779,6 @@ exports[`lib getGlobalSpotPrices should filter architecture should return expect
   },
   {
     "architectures": [
-      "x86_64",
-    ],
-    "availabilityZone": "us-west-2a",
-    "instanceType": "t3.nano",
-    "memoryGiB": 0.5,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.001,
-    "timestamp": 2024-05-16T00:32:49.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "x86_64",
-    ],
-    "availabilityZone": "us-west-2a",
-    "instanceType": "t3.nano",
-    "memoryGiB": 0.5,
-    "platform": "SUSE Linux",
-    "spotPrice": 0.001,
-    "timestamp": 2024-05-16T00:32:49.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "x86_64",
-    ],
-    "availabilityZone": "us-west-2b",
-    "instanceType": "t3.nano",
-    "memoryGiB": 0.5,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.001,
-    "timestamp": 2024-05-16T06:47:32.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "x86_64",
-    ],
-    "availabilityZone": "us-west-2b",
-    "instanceType": "t3.nano",
-    "memoryGiB": 0.5,
-    "platform": "SUSE Linux",
-    "spotPrice": 0.001,
-    "timestamp": 2024-05-16T06:47:32.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
       "arm64",
     ],
     "availabilityZone": "sa-east-1a",
@@ -3221,6 +6823,299 @@ exports[`lib getGlobalSpotPrices should filter architecture should return expect
     "platform": "SUSE Linux",
     "spotPrice": 0.001,
     "timestamp": 2024-05-15T20:16:23.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-south-1b",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0012,
+    "timestamp": 2024-05-15T16:48:20.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-south-1b",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0012,
+    "timestamp": 2024-05-15T16:48:20.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-south-1c",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0012,
+    "timestamp": 2024-05-16T09:16:25.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-south-1c",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0012,
+    "timestamp": 2024-05-16T09:16:25.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-northeast-3a",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0013,
+    "timestamp": 2024-05-16T05:24:09.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-northeast-3a",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0013,
+    "timestamp": 2024-05-16T05:24:09.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "sa-east-1b",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0013,
+    "timestamp": 2024-05-15T23:54:20.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "sa-east-1b",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0013,
+    "timestamp": 2024-05-15T23:54:20.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "sa-east-1a",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-16T13:17:29.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "sa-east-1a",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-16T13:17:29.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-south-1a",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-16T05:46:27.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-south-1a",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-16T05:46:27.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "eu-north-1a",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-15T18:10:15.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "eu-north-1a",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-15T18:10:15.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "eu-north-1b",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-15T18:10:15.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "eu-north-1b",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-15T18:10:15.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "sa-east-1c",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-16T11:01:42.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "sa-east-1c",
+    "instanceType": "t4g.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-16T11:01:42.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-northeast-3b",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-16T05:24:09.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "arm64",
+    ],
+    "availabilityZone": "ap-northeast-3b",
+    "instanceType": "t4g.micro",
+    "memoryGiB": 1,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-16T05:24:09.000Z,
+    "vCpu": 2,
+  },
+]
+`;
+
+exports[`lib getGlobalSpotPrices should filter architecture x86_64 should return expected values 1`] = `
+[
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.001,
+    "timestamp": 2024-05-16T00:32:49.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.001,
+    "timestamp": 2024-05-16T00:32:49.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.001,
+    "timestamp": 2024-05-16T06:47:32.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.001,
+    "timestamp": 2024-05-16T06:47:32.000Z,
     "vCpu": 2,
   },
   {
@@ -3297,54 +7192,6 @@ exports[`lib getGlobalSpotPrices should filter architecture should return expect
   },
   {
     "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1b",
-    "instanceType": "t4g.nano",
-    "memoryGiB": 0.5,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0012,
-    "timestamp": 2024-05-15T16:48:20.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1b",
-    "instanceType": "t4g.nano",
-    "memoryGiB": 0.5,
-    "platform": "SUSE Linux",
-    "spotPrice": 0.0012,
-    "timestamp": 2024-05-15T16:48:20.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1c",
-    "instanceType": "t4g.nano",
-    "memoryGiB": 0.5,
-    "platform": "Linux/UNIX",
-    "spotPrice": 0.0012,
-    "timestamp": 2024-05-16T09:16:25.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
-      "arm64",
-    ],
-    "availabilityZone": "ap-south-1c",
-    "instanceType": "t4g.nano",
-    "memoryGiB": 0.5,
-    "platform": "SUSE Linux",
-    "spotPrice": 0.0012,
-    "timestamp": 2024-05-16T09:16:25.000Z,
-    "vCpu": 2,
-  },
-  {
-    "architectures": [
       "x86_64",
     ],
     "availabilityZone": "ap-south-1b",
@@ -3369,50 +7216,585 @@ exports[`lib getGlobalSpotPrices should filter architecture should return expect
   },
   {
     "architectures": [
-      "arm64",
+      "x86_64",
     ],
-    "availabilityZone": "ap-northeast-3a",
-    "instanceType": "t4g.micro",
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.micro",
     "memoryGiB": 1,
     "platform": "Linux/UNIX",
-    "spotPrice": 0.0013,
-    "timestamp": 2024-05-16T05:24:09.000Z,
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-15T16:47:11.000Z,
     "vCpu": 2,
   },
   {
     "architectures": [
-      "arm64",
+      "x86_64",
     ],
-    "availabilityZone": "ap-northeast-3a",
-    "instanceType": "t4g.micro",
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.micro",
     "memoryGiB": 1,
     "platform": "SUSE Linux",
-    "spotPrice": 0.0013,
-    "timestamp": 2024-05-16T05:24:09.000Z,
+    "spotPrice": 0.0014,
+    "timestamp": 2024-05-15T16:47:11.000Z,
     "vCpu": 2,
   },
   {
     "architectures": [
-      "arm64",
+      "x86_64",
     ],
-    "availabilityZone": "sa-east-1b",
-    "instanceType": "t4g.micro",
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3.micro",
     "memoryGiB": 1,
     "platform": "Linux/UNIX",
-    "spotPrice": 0.0013,
-    "timestamp": 2024-05-15T23:54:20.000Z,
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-16T06:47:25.000Z,
     "vCpu": 2,
   },
   {
     "architectures": [
-      "arm64",
+      "x86_64",
     ],
-    "availabilityZone": "sa-east-1b",
-    "instanceType": "t4g.micro",
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3.micro",
     "memoryGiB": 1,
     "platform": "SUSE Linux",
-    "spotPrice": 0.0013,
-    "timestamp": 2024-05-15T23:54:20.000Z,
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-16T06:47:25.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3.micro",
+    "memoryGiB": 1,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-15T16:01:52.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3.micro",
+    "memoryGiB": 1,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-15T16:01:52.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-east-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-15T21:01:24.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-east-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-15T21:01:24.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-south-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-15T18:47:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-south-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-15T18:47:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-south-1c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-16T03:01:09.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-south-1c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0015,
+    "timestamp": 2024-05-16T03:01:09.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-northeast-3c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2024-05-15T22:15:35.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-northeast-3c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0016,
+    "timestamp": 2024-05-15T22:15:35.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2024-05-16T11:16:15.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0016,
+    "timestamp": 2024-05-16T11:16:15.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Linux/UNIX",
+    "spotPrice": 0.0016,
+    "timestamp": 2024-05-15T18:01:31.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "SUSE Linux",
+    "spotPrice": 0.0016,
+    "timestamp": 2024-05-15T18:01:31.000Z,
+    "vCpu": 2,
+  },
+]
+`;
+
+exports[`lib getGlobalSpotPrices should filter architecture x86_64 with platform option should return expected values 1`] = `
+[
+  {
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1a",
+    "instanceType": "t1.micro",
+    "memoryGiB": 0.613,
+    "platform": "Windows",
+    "spotPrice": 0.0028,
+    "timestamp": 2024-05-16T03:16:44.000Z,
+    "vCpu": 1,
+  },
+  {
+    "architectures": [
+      "i386",
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-2a",
+    "instanceType": "t1.micro",
+    "memoryGiB": 0.613,
+    "platform": "Windows",
+    "spotPrice": 0.0028,
+    "timestamp": 2024-05-16T02:16:10.000Z,
+    "vCpu": 1,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0051,
+    "timestamp": 2024-05-15T18:54:32.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0051,
+    "timestamp": 2024-05-15T18:54:32.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0051,
+    "timestamp": 2024-05-16T01:21:29.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ca-central-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T06:50:33.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-central-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T21:17:33.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-central-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T21:17:33.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-central-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T21:17:33.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-north-1a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T09:02:33.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-west-3a",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T04:35:17.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-west-3b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T04:35:17.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-west-3c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T04:35:17.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-1b",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T15:35:48.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T15:50:29.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T03:02:34.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2d",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T00:47:41.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-northeast-2a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T10:01:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-northeast-2c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T10:01:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T04:30:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T02:49:20.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-southeast-1c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T04:30:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ca-central-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T23:55:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ca-central-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T23:55:30.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-central-1a",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T21:16:49.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "eu-central-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-15T21:16:49.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-1b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T06:46:37.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-1c",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T06:46:37.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "us-west-2b",
+    "instanceType": "t3a.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0052,
+    "timestamp": 2024-05-16T01:43:29.000Z,
+    "vCpu": 2,
+  },
+  {
+    "architectures": [
+      "x86_64",
+    ],
+    "availabilityZone": "ap-northeast-1c",
+    "instanceType": "t3.nano",
+    "memoryGiB": 0.5,
+    "platform": "Windows",
+    "spotPrice": 0.0053,
+    "timestamp": 2024-05-15T15:33:16.000Z,
     "vCpu": 2,
   },
 ]
