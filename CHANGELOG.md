@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.1.50](https://github.com/hoonoh/aws-spot-price/compare/v1.1.49...v1.1.50) (2025-03-14)
+
+
+### Bug Fixes
+
+* architectures mixed with instance type options ([#1031](https://github.com/hoonoh/aws-spot-price/issues/1031)) ([0f56b6b](https://github.com/hoonoh/aws-spot-price/commit/0f56b6b73641a820254672da023b5483e9a43d99)), closes [#1000](https://github.com/hoonoh/aws-spot-price/issues/1000)
+
 ## [1.1.49](https://github.com/hoonoh/aws-spot-price/compare/v1.1.48...v1.1.49) (2025-03-14)
 
 
