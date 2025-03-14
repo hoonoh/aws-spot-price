@@ -35,61 +35,55 @@
       "Ipv6Supported": true,
       "MaximumNetworkCards": 1,
       "MaximumNetworkInterfaces": 3,
-      "NetworkCards": {
-        "Item": {
-          "MaximumNetworkInterfaces": 3,
+      "NetworkCards": [
+        {
           "NetworkCardIndex": 0,
-          "NetworkPerformance": "Up to 25 Gigabit"
+          "NetworkPerformance": "50 Gigabit",
+          "MaximumNetworkInterfaces": 15,
+          "BaselineBandwidthInGbps": 50,
+          "PeakBandwidthInGbps": 50
         }
-      },
+      ],
       "NetworkPerformance": "Up to 25 Gigabit"
     },
     "PlacementGroupInfo": {
-      "SupportedStrategies": {
-        "Item": [
-          "cluster",
-          "partition",
-          "spread"
-        ]
-      }
+      "SupportedStrategies": [
+        "cluster",
+        "partition",
+        "spread"
+      ]
     },
     "ProcessorInfo": {
-      "SupportedArchitectures": {
-        "Item": "x86_64"
-      },
+      "SupportedArchitectures": [
+        "x86_64"
+      ],
       "SustainedClockSpeedInGhz": 3.1
     },
-    "SupportedBootModes": {
-      "Item": [
-        "legacy-bios",
-        "uefi"
-      ]
-    },
-    "SupportedRootDeviceTypes": {
-      "Item": "ebs"
-    },
-    "SupportedUsageClasses": {
-      "Item": [
-        "on-demand",
-        "spot"
-      ]
-    },
-    "SupportedVirtualizationTypes": {
-      "Item": "hvm"
-    },
+    "SupportedBootModes": [
+      "legacy-bios",
+      "uefi"
+    ],
+    "SupportedRootDeviceTypes": [
+      "ebs"
+    ],
+    "SupportedUsageClasses": [
+      "on-demand",
+      "spot"
+    ],
+    "SupportedVirtualizationTypes": [
+      "hvm"
+    ],
     "VCpuInfo": {
       "DefaultCores": 1,
       "DefaultThreadsPerCore": 2,
       "DefaultVCpus": 2,
-      "ValidCores": {
-        "Item": 1
-      },
-      "ValidThreadsPerCore": {
-        "Item": [
-          1,
-          2
-        ]
-      }
+      "ValidCores": [
+        1
+      ],
+      "ValidThreadsPerCore": [
+        1,
+        2
+      ]
     }
   }
 ]

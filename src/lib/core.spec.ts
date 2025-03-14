@@ -330,22 +330,90 @@ describe('lib', () => {
     });
 
     describe('should filter architecture', () => {
-      let results: SpotPriceExtended[];
-      let restoreConsole: RestoreConsole;
+      describe('x86_64', () => {
+        let results: SpotPriceExtended[];
+        let restoreConsole: RestoreConsole;
 
-      beforeAll(async () => {
-        restoreConsole = mockConsole();
-        mockDefaultRegionEndpoints();
-        results = await getGlobalSpotPrices();
+        beforeAll(async () => {
+          restoreConsole = mockConsole();
+          mockDefaultRegionEndpoints();
+          results = await getGlobalSpotPrices({ architectures: ['x86_64'] });
+        });
+
+        afterAll(() => {
+          restoreConsole();
+          mockDefaultRegionEndpointsClear();
+        });
+
+        it('should return expected values', () => {
+          expect(results).toMatchSnapshot();
+        });
       });
 
-      afterAll(() => {
-        restoreConsole();
-        mockDefaultRegionEndpointsClear();
+      describe('arm64', () => {
+        let results: SpotPriceExtended[];
+        let restoreConsole: RestoreConsole;
+
+        beforeAll(async () => {
+          restoreConsole = mockConsole();
+          mockDefaultRegionEndpoints();
+          results = await getGlobalSpotPrices({ architectures: ['arm64'] });
+        });
+
+        afterAll(() => {
+          restoreConsole();
+          mockDefaultRegionEndpointsClear();
+        });
+
+        it('should return expected values', () => {
+          expect(results).toMatchSnapshot();
+        });
       });
 
-      it('should return expected values', () => {
-        expect(results).toMatchSnapshot();
+      describe('x86_64 with platform option', () => {
+        let results: SpotPriceExtended[];
+        let restoreConsole: RestoreConsole;
+
+        beforeAll(async () => {
+          restoreConsole = mockConsole();
+          mockDefaultRegionEndpoints();
+          results = await getGlobalSpotPrices({
+            architectures: ['x86_64'],
+            platforms: ['Windows'],
+          });
+        });
+
+        afterAll(() => {
+          restoreConsole();
+          mockDefaultRegionEndpointsClear();
+        });
+
+        it('should return expected values', () => {
+          expect(results).toMatchSnapshot();
+        });
+      });
+
+      describe('arm64 with familyType option resulting no matching instance types', () => {
+        let results: SpotPriceExtended[];
+        let restoreConsole: RestoreConsole;
+
+        beforeAll(async () => {
+          restoreConsole = mockConsole();
+          mockDefaultRegionEndpoints();
+          results = await getGlobalSpotPrices({
+            architectures: ['arm64'],
+            familyTypes: ['g4ad'],
+          });
+        });
+
+        afterAll(() => {
+          restoreConsole();
+          mockDefaultRegionEndpointsClear();
+        });
+
+        it('should return expected values', () => {
+          expect(results.length).toEqual(0);
+        });
       });
     });
   });
@@ -366,7 +434,7 @@ describe('lib', () => {
       });
 
       it('should return expected values', () => {
-        expect(Object.keys(results).length).toEqual(341);
+        expect(Object.keys(results).length).toEqual(865);
         expect(results).toMatchSnapshot();
       });
     });

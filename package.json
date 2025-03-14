@@ -38,7 +38,7 @@
     "build:module": "yarn esbuild --outdir=./dist --platform=node --format=cjs --bundle --minify --main-fields=module,main --sources-content=false ./src/module.ts",
     "build": "yarn build:cli && yarn build:module",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
-    "test": "jest --runInBand --verbose",
+    "test": "NODE_OPTIONS=--max_old_space_size=8192 jest --runInBand --verbose",
     "test:coverage": "yarn test --coverage",
     "test:ci": "yarn test:coverage --reporters=default jest-junit --coverageReporters lcov --coverageReporters cobertura",
     "lint": "eslint \"**/*.ts\"",
