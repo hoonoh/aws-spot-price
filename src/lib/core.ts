@@ -122,26 +122,37 @@ const getEc2SpotPrice = async (options: {
       const describeSpotPriceHistory = async (): Promise<DescribeSpotPriceHistoryCommandOutput> => {
         let spotPriceHistory: DescribeSpotPriceHistoryCommandOutput | undefined;
         try {
-          const architectureInstanceTypes = architectures?.length
-            ? Object.entries(ec2Info).reduce(
+          let InstanceTypes: _InstanceType[] = [
+            ...(instanceTypes?.length ? (instanceTypes as _InstanceType[]) : []),
+          ];
+          if (architectures?.length) {
+            if (InstanceTypes.length) {
+              // when `instanceTypes` is given, filter instance types by architectures
+              InstanceTypes = InstanceTypes.filter(it =>
+                ec2Info[it].architectures?.reduce((acc, cur) => {
+                  if (acc) return acc;
+                  return architectures.includes(cur);
+                }, false),
+              );
+            } else {
+              // otherwise, get all instance types that match architectures
+              InstanceTypes = Object.entries(ec2Info).reduce(
                 (acc, [instanceType, { architectures: instanceTypeArchitecture }]) => {
                   if (instanceTypeArchitecture?.filter(ita => architectures.includes(ita)).length)
                     acc.push(instanceType as _InstanceType);
                   return acc;
                 },
                 [] as _InstanceType[],
-              )
-            : [];
+              );
+            }
+          }
 
           spotPriceHistory = await ec2.send(
             new DescribeSpotPriceHistoryCommand({
               NextToken: nextToken,
               StartTime: startTime,
               ProductDescriptions: platforms,
-              InstanceTypes: [
-                ...(instanceTypes?.length ? (instanceTypes as _InstanceType[]) : []),
-                ...architectureInstanceTypes,
-              ],
+              InstanceTypes,
             }),
           );
         } catch (error) {
