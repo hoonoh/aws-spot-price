@@ -392,6 +392,29 @@ describe('lib', () => {
           expect(results).toMatchSnapshot();
         });
       });
+
+      describe('arm64 with familyType option resulting no matching instance types', () => {
+        let results: SpotPriceExtended[];
+        let restoreConsole: RestoreConsole;
+
+        beforeAll(async () => {
+          restoreConsole = mockConsole();
+          mockDefaultRegionEndpoints();
+          results = await getGlobalSpotPrices({
+            architectures: ['arm64'],
+            familyTypes: ['g4ad'],
+          });
+        });
+
+        afterAll(() => {
+          restoreConsole();
+          mockDefaultRegionEndpointsClear();
+        });
+
+        it('should return expected values', () => {
+          expect(results.length).toEqual(0);
+        });
+      });
     });
   });
 

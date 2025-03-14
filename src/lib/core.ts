@@ -134,6 +134,13 @@ const getEc2SpotPrice = async (options: {
                   return architectures.includes(cur);
                 }, false),
               );
+              if (InstanceTypes.length === 0) {
+                // if no instance types match architectures, return empty array (otherwise will get all instance types)
+                return {
+                  $metadata: {},
+                  SpotPriceHistory: [],
+                } satisfies DescribeSpotPriceHistoryCommandOutput;
+              }
             } else {
               // otherwise, get all instance types that match architectures
               InstanceTypes = Object.entries(ec2Info).reduce(

@@ -107,6 +107,20 @@ describe('cli', () => {
       expect(consoleMockCallJoin()).toMatchSnapshot();
     });
 
+    it('should handle architecture and familyType options resulting no matching instance types', async () => {
+      await main([
+        '--architectures',
+        'arm64',
+        '--familyType',
+        'g4ad',
+        '--raz',
+        'false',
+        '-l',
+        '20',
+      ]);
+      expect(consoleMockCallJoin()).toMatchSnapshot();
+    });
+
     it('should handle JSON output option', async () => {
       await main(['--json', '-r', 'us-east-1', '-l', '10', '--raz', 'false', '-p', 'linux']);
       const results = consoleMockCallJoin();

@@ -125,6 +125,8 @@ exports[`cli test by import should handle JSON output option 1`] = `
 ]"
 `;
 
+exports[`cli test by import should handle architecture and familyType options resulting no matching instance types 1`] = `"no matching records found"`;
+
 exports[`cli test by import should handle architecture and platform options 1`] = `
 "╔══════════╤════════╤══════════╤══════════════╤═══════════════════╗
 ║ Type     │  Price │ Platform │ Architecture │ Availability Zone ║
