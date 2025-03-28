@@ -21,7 +21,7 @@
   "author": {
     "name": "hoonoh"
   },
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.0",
   "bin": "bin/aws-spot-price",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.772.0",
-    "@aws-sdk/client-ssm": "3.772.0",
-    "@aws-sdk/client-sts": "3.772.0",
+    "@aws-sdk/client-ec2": "3.777.0",
+    "@aws-sdk/client-ssm": "3.777.0",
+    "@aws-sdk/client-sts": "3.777.0",
     "@commitlint/cli": "19.8.0",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.23.0",
@@ -67,12 +67,12 @@
     "@types/jest": "29.5.14",
     "@types/lodash": "4.17.16",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "22.13.11",
+    "@types/node": "22.13.14",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.33",
-    "@typescript-eslint/eslint-plugin": "8.27.0",
-    "@typescript-eslint/parser": "8.27.0",
+    "@typescript-eslint/eslint-plugin": "8.28.0",
+    "@typescript-eslint/parser": "8.28.0",
     "aws-sdk-client-mock": "4.1.0",
     "commitizen": "4.3.1",
     "conventional-changelog-cli": "5.0.0",
@@ -81,10 +81,10 @@
     "esbuild": "0.25.1",
     "eslint": "9.23.0",
     "eslint-config-prettier": "10.1.1",
-    "eslint-import-resolver-typescript": "4.2.2",
+    "eslint-import-resolver-typescript": "4.2.7",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.11.0",
-    "eslint-plugin-prettier": "5.2.3",
+    "eslint-plugin-prettier": "5.2.5",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-unused-imports": "4.1.4",
     "globals": "16.0.0",
@@ -96,15 +96,15 @@
     "mock-fs": "5.5.0",
     "prettier": "3.5.3",
     "semantic-release": "24.2.3",
-    "ts-jest": "29.2.6",
+    "ts-jest": "29.3.0",
     "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
     "typescript": "5.8.2"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.734.0",
+    "@aws-sdk/types": "3.775.0",
     "@babel/core": "7.26.10",
-    "@smithy/types": "4.1.0",
+    "@smithy/types": "4.2.0",
     "minimist": "1.2.8"
   }
 }
