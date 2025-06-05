@@ -20,6 +20,10 @@
     {
       "matchPackageNames": ["dts-bundle-generator"],
       "allowedVersions": ">9.5.1"
+    },
+    {
+      "matchPackageNames": ["yargs"],
+      "allowedVersions": "<18"
     }
   ]
 }
