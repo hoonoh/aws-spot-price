@@ -314,7 +314,6 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'i3.4xlarge': { vCpu: 16, memoryGiB: 122, architectures: ['x86_64'] },
   'i3.8xlarge': { vCpu: 32, memoryGiB: 244, architectures: ['x86_64'] },
   'i3.large': { vCpu: 2, memoryGiB: 15.25, architectures: ['x86_64'] },
-  'i3.metal': { vCpu: 72, memoryGiB: 512, architectures: ['x86_64'] },
   'i3.xlarge': { vCpu: 4, memoryGiB: 30.5, architectures: ['x86_64'] },
   'i3en.12xlarge': { vCpu: 48, memoryGiB: 384, architectures: ['x86_64'] },
   'i3en.24xlarge': { vCpu: 96, memoryGiB: 768, architectures: ['x86_64'] },
