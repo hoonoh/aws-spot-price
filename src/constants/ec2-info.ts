@@ -625,6 +625,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'p4d.24xlarge': { vCpu: 96, memoryGiB: 1152, architectures: ['x86_64'] },
   'p4de.24xlarge': { vCpu: 96, memoryGiB: 1152, architectures: ['x86_64'] },
   'p5.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
+  'p5.4xlarge': { vCpu: 16, memoryGiB: 256, architectures: ['x86_64'] },
   'p5e.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
   'p5en.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
   'p6-b200.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
