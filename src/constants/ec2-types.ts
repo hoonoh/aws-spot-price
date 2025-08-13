@@ -1172,6 +1172,7 @@ export const allInstances = [
   'p3dn.24xlarge',
   'p4d.24xlarge',
   'p4de.24xlarge',
+  'p5.4xlarge',
   'p5.48xlarge',
   'p5e.48xlarge',
   'p5en.48xlarge',
