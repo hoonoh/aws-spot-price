@@ -644,6 +644,8 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'm8i.metal-48xl': { vCpu: 192, memoryGiB: 768, architectures: ['x86_64'] },
   'm8i.metal-96xl': { vCpu: 384, memoryGiB: 1536, architectures: ['x86_64'] },
   'm8i.xlarge': { vCpu: 4, memoryGiB: 16, architectures: ['x86_64'] },
+  'mac-m4.metal': { vCpu: 10, memoryGiB: 24, architectures: ['arm64_mac'] },
+  'mac-m4pro.metal': { vCpu: 14, memoryGiB: 48, architectures: ['arm64_mac'] },
   'mac1.metal': { vCpu: 12, memoryGiB: 32, architectures: ['x86_64_mac'] },
   'mac2-m1ultra.metal': { vCpu: 20, memoryGiB: 128, architectures: ['arm64_mac'] },
   'mac2-m2.metal': { vCpu: 8, memoryGiB: 24, architectures: ['arm64_mac'] },
