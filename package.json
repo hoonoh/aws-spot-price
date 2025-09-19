@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.892.0",
-    "@aws-sdk/client-ssm": "3.891.0",
-    "@aws-sdk/client-sts": "3.891.0",
+    "@aws-sdk/client-ec2": "3.893.0",
+    "@aws-sdk/client-ssm": "3.893.0",
+    "@aws-sdk/client-sts": "3.893.0",
     "@commitlint/cli": "19.8.1",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.36.0",
@@ -94,14 +94,14 @@
     "lodash": "4.17.21",
     "mock-fs": "5.5.0",
     "prettier": "3.6.2",
-    "semantic-release": "24.2.8",
+    "semantic-release": "24.2.9",
     "ts-jest": "29.4.4",
     "ts-loader": "9.5.4",
     "ts-node": "10.9.2",
     "typescript": "5.9.2"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.887.0",
+    "@aws-sdk/types": "3.893.0",
     "@babel/core": "7.28.4",
     "@smithy/types": "4.5.0",
     "minimist": "1.2.8"
