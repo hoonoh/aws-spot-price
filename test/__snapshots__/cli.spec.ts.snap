@@ -258,7 +258,7 @@ Options:
           "eu-west-1", "eu-west-2", "eu-west-3", "il-central-1", "me-central-1",
                                       "me-south-1", "mx-central-1", "sa-east-1"]
   -i, --instanceType        EC2 type
-           [array] [choices: "a1.medium", "a1.xlarge", "a1.large", "a1.2xlarge",
+           [array] [choices: "a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge",
         "a1.4xlarge", "a1.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small",
       "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro",
      "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano",
@@ -758,7 +758,7 @@ Options:
           "eu-west-1", "eu-west-2", "eu-west-3", "il-central-1", "me-central-1",
                                       "me-south-1", "mx-central-1", "sa-east-1"]
   -i, --instanceType        EC2 type
-           [array] [choices: "a1.medium", "a1.xlarge", "a1.large", "a1.2xlarge",
+           [array] [choices: "a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge",
         "a1.4xlarge", "a1.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small",
       "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro",
      "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano",
