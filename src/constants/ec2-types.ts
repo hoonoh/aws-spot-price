@@ -241,8 +241,8 @@ export type InstanceSize = (typeof instanceSizes)[number];
 
 export const allInstances = [
   'a1.medium',
-  'a1.xlarge',
   'a1.large',
+  'a1.xlarge',
   'a1.2xlarge',
   'a1.4xlarge',
   'a1.metal',
