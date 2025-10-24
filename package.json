@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.913.0",
-    "@aws-sdk/client-ssm": "3.913.0",
-    "@aws-sdk/client-sts": "3.913.0",
+    "@aws-sdk/client-ec2": "3.917.0",
+    "@aws-sdk/client-ssm": "3.917.0",
+    "@aws-sdk/client-sts": "3.917.0",
     "@commitlint/cli": "19.8.1",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.38.0",
@@ -67,12 +67,12 @@
     "@types/jest": "30.0.0",
     "@types/lodash": "4.17.20",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "22.18.11",
+    "@types/node": "22.18.12",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
-    "@types/yargs": "17.0.33",
-    "@typescript-eslint/eslint-plugin": "8.46.1",
-    "@typescript-eslint/parser": "8.46.1",
+    "@types/yargs": "17.0.34",
+    "@typescript-eslint/eslint-plugin": "8.46.2",
+    "@typescript-eslint/parser": "8.46.2",
     "aws-sdk-client-mock": "4.1.0",
     "commitizen": "4.3.1",
     "conventional-changelog-cli": "5.0.0",
@@ -85,7 +85,7 @@
     "eslint-plugin-jest": "29.0.1",
     "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-simple-import-sort": "12.1.1",
-    "eslint-plugin-unused-imports": "4.2.0",
+    "eslint-plugin-unused-imports": "4.3.0",
     "globals": "16.4.0",
     "husky": "9.1.7",
     "jest": "30.2.0",
@@ -101,8 +101,8 @@
     "typescript": "5.9.3"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.910.0",
-    "@babel/core": "7.28.4",
+    "@aws-sdk/types": "3.914.0",
+    "@babel/core": "7.28.5",
     "@smithy/types": "4.8.0",
     "minimist": "1.2.8"
   }
