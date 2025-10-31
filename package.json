@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.917.0",
-    "@aws-sdk/client-ssm": "3.917.0",
-    "@aws-sdk/client-sts": "3.917.0",
+    "@aws-sdk/client-ec2": "3.921.0",
+    "@aws-sdk/client-ssm": "3.921.0",
+    "@aws-sdk/client-sts": "3.921.0",
     "@commitlint/cli": "20.1.0",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.38.0",
@@ -67,7 +67,7 @@
     "@types/jest": "30.0.0",
     "@types/lodash": "4.17.20",
     "@types/mock-fs": "4.13.4",
-    "@types/node": "22.18.12",
+    "@types/node": "22.18.13",
     "@types/prettier": "3.0.0",
     "@types/prompts": "2.4.9",
     "@types/yargs": "17.0.34",
@@ -101,9 +101,9 @@
     "typescript": "5.9.3"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.914.0",
+    "@aws-sdk/types": "3.921.0",
     "@babel/core": "7.28.5",
-    "@smithy/types": "4.8.0",
+    "@smithy/types": "4.8.1",
     "minimist": "1.2.8"
   }
 }
