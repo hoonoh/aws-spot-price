@@ -490,10 +490,10 @@ Options:
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
   "p4de.24xlarge", "p5.4xlarge", "p5.48xlarge", "p5e.48xlarge", "p5en.48xlarge",
       "p6-b200.48xlarge", "p6e-gb200.36xlarge", "trn1.2xlarge", "trn1.32xlarge",
-                "trn1n.32xlarge", "trn2.48xlarge", "vt1.3xlarge", "vt1.6xlarge",
-             "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge", "hpc6id.32xlarge",
-         "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge", "hpc7a.96xlarge",
-                             "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
+               "trn1n.32xlarge", "trn2.3xlarge", "trn2.48xlarge", "vt1.3xlarge",
+                 "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
+        "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge",
+           "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                          "acceleratedComputing", "hpcOptimized"]
@@ -1000,10 +1000,10 @@ Options:
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
   "p4de.24xlarge", "p5.4xlarge", "p5.48xlarge", "p5e.48xlarge", "p5en.48xlarge",
       "p6-b200.48xlarge", "p6e-gb200.36xlarge", "trn1.2xlarge", "trn1.32xlarge",
-                "trn1n.32xlarge", "trn2.48xlarge", "vt1.3xlarge", "vt1.6xlarge",
-             "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge", "hpc6id.32xlarge",
-         "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge", "hpc7a.96xlarge",
-                             "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
+               "trn1n.32xlarge", "trn2.3xlarge", "trn2.48xlarge", "vt1.3xlarge",
+                 "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
+        "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge",
+           "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                          "acceleratedComputing", "hpcOptimized"]

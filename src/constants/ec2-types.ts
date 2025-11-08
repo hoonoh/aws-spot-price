@@ -1314,6 +1314,7 @@ export const allInstances = [
   'trn1.2xlarge',
   'trn1.32xlarge',
   'trn1n.32xlarge',
+  'trn2.3xlarge',
   'trn2.48xlarge',
   'vt1.3xlarge',
   'vt1.6xlarge',
