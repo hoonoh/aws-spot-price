@@ -94,9 +94,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ec2@npm:3.937.0":
-  version: 3.937.0
-  resolution: "@aws-sdk/client-ec2@npm:3.937.0"
+"@aws-sdk/client-ec2@npm:3.938.0":
+  version: 3.938.0
+  resolution: "@aws-sdk/client-ec2@npm:3.938.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -139,7 +139,7 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.0"
     "@smithy/util-waiter": "npm:^4.2.5"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/24df749754089242b0ebcdfbc3f6ca30c5b42d25e51b35d27caca902ecc44375cfb02a3bed441bd502eb4aba9cdc518d7dce97b75b1b0958eee38f1c66dbe84c
+  checksum: 10c0/6a33ec4c59a16410e9507bb2003e9c96316f69d94a0a4c9a02d4c438c751f233673f4a2cf24ee722f1497d2fd17c5685aee0556ef964f3fc09d1197b3af855f5
   languageName: node
   linkType: hard
 
@@ -4932,7 +4932,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aws-spot-price@workspace:."
   dependencies:
-    "@aws-sdk/client-ec2": "npm:3.937.0"
+    "@aws-sdk/client-ec2": "npm:3.938.0"
     "@aws-sdk/client-ssm": "npm:3.936.0"
     "@aws-sdk/client-sts": "npm:3.936.0"
     "@commitlint/cli": "npm:20.1.0"
