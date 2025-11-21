@@ -489,9 +489,9 @@ Options:
      "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge", "p2.16xlarge",
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
   "p4de.24xlarge", "p5.4xlarge", "p5.48xlarge", "p5e.48xlarge", "p5en.48xlarge",
-      "p6-b200.48xlarge", "p6e-gb200.36xlarge", "trn1.2xlarge", "trn1.32xlarge",
-               "trn1n.32xlarge", "trn2.3xlarge", "trn2.48xlarge", "vt1.3xlarge",
-                 "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
+   "p6-b200.48xlarge", "p6-b300.48xlarge", "p6e-gb200.36xlarge", "trn1.2xlarge",
+             "trn1.32xlarge", "trn1n.32xlarge", "trn2.3xlarge", "trn2.48xlarge",
+  "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
         "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge",
            "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
       --family              EC2 instance family.
@@ -515,8 +515,9 @@ Options:
    "hi1", "hs1", "i2", "i3", "i3en", "i4g", "i4i", "i7i", "i7ie", "i8g", "i8ge",
         "im4gn", "is4gen", "dl1", "dl2q", "f1", "f2", "g2", "g3", "g3s", "g4ad",
    "g4dn", "g5", "g5g", "g6", "g6e", "g6f", "gr6", "gr6f", "inf1", "inf2", "p2",
-       "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en", "p6-b200", "p6e-gb200",
-     "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a", "hpc6id", "hpc7a", "hpc7g"]
+         "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en", "p6-b200", "p6-b300",
+          "p6e-gb200", "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a", "hpc6id",
+                                                               "hpc7a", "hpc7g"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
@@ -999,9 +1000,9 @@ Options:
      "inf2.24xlarge", "inf2.48xlarge", "p2.xlarge", "p2.8xlarge", "p2.16xlarge",
      "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge",
   "p4de.24xlarge", "p5.4xlarge", "p5.48xlarge", "p5e.48xlarge", "p5en.48xlarge",
-      "p6-b200.48xlarge", "p6e-gb200.36xlarge", "trn1.2xlarge", "trn1.32xlarge",
-               "trn1n.32xlarge", "trn2.3xlarge", "trn2.48xlarge", "vt1.3xlarge",
-                 "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
+   "p6-b200.48xlarge", "p6-b300.48xlarge", "p6e-gb200.36xlarge", "trn1.2xlarge",
+             "trn1.32xlarge", "trn1n.32xlarge", "trn2.3xlarge", "trn2.48xlarge",
+  "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge", "hpc6a.48xlarge",
         "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge", "hpc7a.48xlarge",
            "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge", "hpc7g.16xlarge"]
       --family              EC2 instance family.
@@ -1025,8 +1026,9 @@ Options:
    "hi1", "hs1", "i2", "i3", "i3en", "i4g", "i4i", "i7i", "i7ie", "i8g", "i8ge",
         "im4gn", "is4gen", "dl1", "dl2q", "f1", "f2", "g2", "g3", "g3s", "g4ad",
    "g4dn", "g5", "g5g", "g6", "g6e", "g6f", "gr6", "gr6f", "inf1", "inf2", "p2",
-       "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en", "p6-b200", "p6e-gb200",
-     "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a", "hpc6id", "hpc7a", "hpc7g"]
+         "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en", "p6-b200", "p6-b300",
+          "p6e-gb200", "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a", "hpc6id",
+                                                               "hpc7a", "hpc7g"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
