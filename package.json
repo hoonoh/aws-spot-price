@@ -52,9 +52,9 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-ec2": "3.955.0",
-    "@aws-sdk/client-ssm": "3.955.0",
-    "@aws-sdk/client-sts": "3.955.0",
+    "@aws-sdk/client-ec2": "3.956.0",
+    "@aws-sdk/client-ssm": "3.956.0",
+    "@aws-sdk/client-sts": "3.956.0",
     "@commitlint/cli": "20.2.0",
     "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
@@ -101,7 +101,7 @@
     "typescript": "5.9.3"
   },
   "resolutions": {
-    "@aws-sdk/types": "3.953.0",
+    "@aws-sdk/types": "3.956.0",
     "@babel/core": "7.28.5",
     "@smithy/types": "4.11.0",
     "minimist": "1.2.8"
