@@ -272,7 +272,7 @@ Options:
             "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge",
    "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge",
     "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge",
-   "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.xlarge", "m5d.large",
+   "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge",
     "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge",
        "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge",
                "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge",
@@ -456,7 +456,10 @@ Options:
             "x8aedz.metal-12xl", "x8aedz.metal-24xl", "x8g.medium", "x8g.large",
       "x8g.xlarge", "x8g.2xlarge", "x8g.4xlarge", "x8g.8xlarge", "x8g.12xlarge",
                "x8g.16xlarge", "x8g.24xlarge", "x8g.48xlarge", "x8g.metal-24xl",
-      "x8g.metal-48xl", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge",
+      "x8g.metal-48xl", "x8i.large", "x8i.xlarge", "x8i.2xlarge", "x8i.4xlarge",
+  "x8i.8xlarge", "x8i.12xlarge", "x8i.16xlarge", "x8i.24xlarge", "x8i.32xlarge",
+               "x8i.48xlarge", "x8i.64xlarge", "x8i.96xlarge", "x8i.metal-48xl",
+      "x8i.metal-96xl", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge",
          "z1d.6xlarge", "z1d.12xlarge", "z1d.metal", "cr1.8xlarge", "d2.xlarge",
             "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge",
       "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge",
@@ -521,7 +524,7 @@ Options:
      "r8gb", "r8gd", "r8gn", "r8i", "r8i-flex", "u-12tb1", "u-18tb1", "u-24tb1",
     "u-3tb1", "u-6tb1", "u-9tb1", "u7i-12tb", "u7i-6tb", "u7i-8tb", "u7ib-12tb",
        "u7in-16tb", "u7in-24tb", "u7in-32tb", "u7inh-32tb", "x1", "x1e", "x2gd",
-         "x2idn", "x2iedn", "x2iezn", "x8aedz", "x8g", "z1d", "cr1", "d2", "d3",
+  "x2idn", "x2iedn", "x2iezn", "x8aedz", "x8g", "x8i", "z1d", "cr1", "d2", "d3",
     "d3en", "h1", "hi1", "hs1", "i2", "i3", "i3en", "i4g", "i4i", "i7i", "i7ie",
         "i8g", "i8ge", "im4gn", "is4gen", "dl1", "dl2q", "f1", "f2", "g2", "g3",
   "g3s", "g4ad", "g4dn", "g5", "g5g", "g6", "g6e", "g6f", "gr6", "gr6f", "inf1",
@@ -532,9 +535,9 @@ Options:
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
          "12xlarge", "16xlarge", "18xlarge", "24xlarge", "32xlarge", "36xlarge",
-      "48xlarge", "56xlarge", "96xlarge", "112xlarge", "224xlarge", "480xlarge",
-  "metal", "metal-12xl", "metal-16xl", "metal-24xl", "metal-32xl", "metal-48xl",
-                                                                   "metal-96xl"]
+       "48xlarge", "56xlarge", "64xlarge", "96xlarge", "112xlarge", "224xlarge",
+   "480xlarge", "metal", "metal-12xl", "metal-16xl", "metal-24xl", "metal-32xl",
+                                                     "metal-48xl", "metal-96xl"]
       --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
       --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
       --priceLimit, --pl    Maximum price limit          [number] [default: 100]
@@ -794,7 +797,7 @@ Options:
             "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge",
    "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge",
     "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge",
-   "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.xlarge", "m5d.large",
+   "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge",
     "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge",
        "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge",
                "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge",
@@ -978,7 +981,10 @@ Options:
             "x8aedz.metal-12xl", "x8aedz.metal-24xl", "x8g.medium", "x8g.large",
       "x8g.xlarge", "x8g.2xlarge", "x8g.4xlarge", "x8g.8xlarge", "x8g.12xlarge",
                "x8g.16xlarge", "x8g.24xlarge", "x8g.48xlarge", "x8g.metal-24xl",
-      "x8g.metal-48xl", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge",
+      "x8g.metal-48xl", "x8i.large", "x8i.xlarge", "x8i.2xlarge", "x8i.4xlarge",
+  "x8i.8xlarge", "x8i.12xlarge", "x8i.16xlarge", "x8i.24xlarge", "x8i.32xlarge",
+               "x8i.48xlarge", "x8i.64xlarge", "x8i.96xlarge", "x8i.metal-48xl",
+      "x8i.metal-96xl", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge",
          "z1d.6xlarge", "z1d.12xlarge", "z1d.metal", "cr1.8xlarge", "d2.xlarge",
             "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge",
       "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge",
@@ -1043,7 +1049,7 @@ Options:
      "r8gb", "r8gd", "r8gn", "r8i", "r8i-flex", "u-12tb1", "u-18tb1", "u-24tb1",
     "u-3tb1", "u-6tb1", "u-9tb1", "u7i-12tb", "u7i-6tb", "u7i-8tb", "u7ib-12tb",
        "u7in-16tb", "u7in-24tb", "u7in-32tb", "u7inh-32tb", "x1", "x1e", "x2gd",
-         "x2idn", "x2iedn", "x2iezn", "x8aedz", "x8g", "z1d", "cr1", "d2", "d3",
+  "x2idn", "x2iedn", "x2iezn", "x8aedz", "x8g", "x8i", "z1d", "cr1", "d2", "d3",
     "d3en", "h1", "hi1", "hs1", "i2", "i3", "i3en", "i4g", "i4i", "i7i", "i7ie",
         "i8g", "i8ge", "im4gn", "is4gen", "dl1", "dl2q", "f1", "f2", "g2", "g3",
   "g3s", "g4ad", "g4dn", "g5", "g5g", "g6", "g6e", "g6f", "gr6", "gr6f", "inf1",
@@ -1054,9 +1060,9 @@ Options:
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
          "12xlarge", "16xlarge", "18xlarge", "24xlarge", "32xlarge", "36xlarge",
-      "48xlarge", "56xlarge", "96xlarge", "112xlarge", "224xlarge", "480xlarge",
-  "metal", "metal-12xl", "metal-16xl", "metal-24xl", "metal-32xl", "metal-48xl",
-                                                                   "metal-96xl"]
+       "48xlarge", "56xlarge", "64xlarge", "96xlarge", "112xlarge", "224xlarge",
+   "480xlarge", "metal", "metal-12xl", "metal-16xl", "metal-24xl", "metal-32xl",
+                                                     "metal-48xl", "metal-96xl"]
       --minVCPU, --mc       Minimum VCPU count             [number] [default: 1]
       --minMemoryGiB, --mm  Minimum memory (GiB)         [number] [default: 0.5]
       --priceLimit, --pl    Maximum price limit          [number] [default: 100]
