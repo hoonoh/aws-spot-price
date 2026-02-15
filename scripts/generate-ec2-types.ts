@@ -108,7 +108,7 @@ const getSizeOrderIndex = (size: string) => {
     return 10_000 + (!isNaN(metalUnits) ? metalUnits : 0);
   }
   if (size.endsWith('xlarge')) {
-    return smallSizeOrder.length - 1 + parseInt(size.match(/(\d{1,})?xlarge/)?.[1] || '0');
+    return smallSizeOrder.length - 1 + parseInt(size.match(/(\d{1,})?xlarge/)?.[1] || '1');
   }
   return smallSizeOrder.indexOf(size);
 };
