@@ -373,6 +373,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'hpc7g.16xlarge': { vCpu: 64, memoryGiB: 128, architectures: ['arm64'] },
   'hpc7g.4xlarge': { vCpu: 16, memoryGiB: 128, architectures: ['arm64'] },
   'hpc7g.8xlarge': { vCpu: 32, memoryGiB: 128, architectures: ['arm64'] },
+  'hpc8a.96xlarge': { vCpu: 192, memoryGiB: 768, architectures: ['x86_64'] },
   'i2.2xlarge': { vCpu: 8, memoryGiB: 61, architectures: ['x86_64'] },
   'i2.4xlarge': { vCpu: 16, memoryGiB: 122, architectures: ['x86_64'] },
   'i2.8xlarge': { vCpu: 32, memoryGiB: 244, architectures: ['x86_64'] },
