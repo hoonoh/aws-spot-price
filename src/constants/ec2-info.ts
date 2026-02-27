@@ -439,6 +439,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'i8g.8xlarge': { vCpu: 32, memoryGiB: 256, architectures: ['arm64'] },
   'i8g.large': { vCpu: 2, memoryGiB: 16, architectures: ['arm64'] },
   'i8g.metal-24xl': { vCpu: 96, memoryGiB: 768, architectures: ['arm64'] },
+  'i8g.metal-48xl': { vCpu: 192, memoryGiB: 1536, architectures: ['arm64'] },
   'i8g.xlarge': { vCpu: 4, memoryGiB: 32, architectures: ['arm64'] },
   'i8ge.12xlarge': { vCpu: 48, memoryGiB: 384, architectures: ['arm64'] },
   'i8ge.18xlarge': { vCpu: 72, memoryGiB: 576, architectures: ['arm64'] },
