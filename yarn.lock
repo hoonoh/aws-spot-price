@@ -130,9 +130,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ec2@npm:3.999.0":
-  version: 3.999.0
-  resolution: "@aws-sdk/client-ec2@npm:3.999.0"
+"@aws-sdk/client-ec2@npm:3.1000.0":
+  version: 3.1000.0
+  resolution: "@aws-sdk/client-ec2@npm:3.1000.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -175,13 +175,13 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.1"
     "@smithy/util-waiter": "npm:^4.2.10"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/30c25d170774e8e3396b3bd63698a8890761fdaad38b0d40b2147479f9cbabb62ba30bfcdd18d2770bdede5f6525769a04d91da8206b6cd4053c0c8bc22d860d
+  checksum: 10c0/29a8a5e52c2ed546f0f8920ce622790f043c21fbd4d54269a4c08fec22b071e03d001dda7ead8c2355f52aa4c59d6c4d6f33a09d2dc33018a7283329f0960adf
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ssm@npm:3.999.0":
-  version: 3.999.0
-  resolution: "@aws-sdk/client-ssm@npm:3.999.0"
+"@aws-sdk/client-ssm@npm:3.1000.0":
+  version: 3.1000.0
+  resolution: "@aws-sdk/client-ssm@npm:3.1000.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -223,13 +223,13 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.1"
     "@smithy/util-waiter": "npm:^4.2.10"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/9b02f3ddd2b9b133035656d1d866a68414b7802617240a8bf7a02919fe8db4e6938eb11ff7ea1280a642fd279985463edcf88b44d861ba1454e69f426e4df1cd
+  checksum: 10c0/99ec0d12b12157c25a5c4924eb5037ffe972043d41759256422587bf33cddd74fbf66e788057931b65da721e4b08180e68a7dc8f759b21ca7fbd8f0f86ec5713
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sts@npm:3.999.0":
-  version: 3.999.0
-  resolution: "@aws-sdk/client-sts@npm:3.999.0"
+"@aws-sdk/client-sts@npm:3.1000.0":
+  version: 3.1000.0
+  resolution: "@aws-sdk/client-sts@npm:3.1000.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -270,7 +270,7 @@ __metadata:
     "@smithy/util-retry": "npm:^4.2.10"
     "@smithy/util-utf8": "npm:^4.2.1"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/fa04f49a00b609399f84dba3a4ed29b1137423b4667ce1d0cfafd8dd123570dfbdc6f625ac6901f2b606188ee74ece020ea190529509b4d719579743b608291d
+  checksum: 10c0/f82d81da3680979a749b1493656705cea0aa209f2ed29e61f304567cdc3141f872a7f45146fad0ca92e47f464ee247cb25274417be0d87cdc3c08f1e2bdd3f5b
   languageName: node
   linkType: hard
 
@@ -4886,9 +4886,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aws-spot-price@workspace:."
   dependencies:
-    "@aws-sdk/client-ec2": "npm:3.999.0"
-    "@aws-sdk/client-ssm": "npm:3.999.0"
-    "@aws-sdk/client-sts": "npm:3.999.0"
+    "@aws-sdk/client-ec2": "npm:3.1000.0"
+    "@aws-sdk/client-ssm": "npm:3.1000.0"
+    "@aws-sdk/client-sts": "npm:3.1000.0"
     "@commitlint/cli": "npm:20.4.2"
     "@eslint/eslintrc": "npm:3.3.4"
     "@eslint/js": "npm:9.39.3"
