@@ -196,7 +196,7 @@ export const instanceFamilyAcceleratedComputing = [
   'cg1',
 ] as const;
 
-export const instanceFamilyHpcOptimized = ['hpc6a', 'hpc6id', 'hpc7a', 'hpc7g'] as const;
+export const instanceFamilyHpcOptimized = ['hpc6a', 'hpc6id', 'hpc7a', 'hpc7g', 'hpc8a'] as const;
 
 export const instanceFamily = {
   general: instanceFamilyGeneral,
@@ -1472,6 +1472,7 @@ export const allInstances = [
   'hpc7g.4xlarge',
   'hpc7g.8xlarge',
   'hpc7g.16xlarge',
+  'hpc8a.96xlarge',
 ] as const;
 
 export type InstanceType = (typeof allInstances)[number];
