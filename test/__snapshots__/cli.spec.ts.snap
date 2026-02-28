@@ -525,7 +525,7 @@ Options:
    "trn2.48xlarge", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge",
         "hpc6a.48xlarge", "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge",
            "hpc7a.48xlarge", "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge",
-                                                               "hpc7g.16xlarge"]
+                                             "hpc7g.16xlarge", "hpc8a.96xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                          "acceleratedComputing", "hpcOptimized"]
@@ -550,7 +550,7 @@ Options:
   "g4ad", "g4dn", "g5", "g5g", "g6", "g6e", "g6f", "g7e", "gr6", "gr6f", "inf1",
       "inf2", "p2", "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en", "p6-b200",
          "p6-b300", "p6e-gb200", "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a",
-                                                     "hpc6id", "hpc7a", "hpc7g"]
+                                            "hpc6id", "hpc7a", "hpc7g", "hpc8a"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
@@ -1070,7 +1070,7 @@ Options:
    "trn2.48xlarge", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "cg1.4xlarge",
         "hpc6a.48xlarge", "hpc6id.32xlarge", "hpc7a.12xlarge", "hpc7a.24xlarge",
            "hpc7a.48xlarge", "hpc7a.96xlarge", "hpc7g.4xlarge", "hpc7g.8xlarge",
-                                                               "hpc7g.16xlarge"]
+                                             "hpc7g.16xlarge", "hpc8a.96xlarge"]
       --family              EC2 instance family.
                     [array] [choices: "general", "compute", "memory", "storage",
                                          "acceleratedComputing", "hpcOptimized"]
@@ -1095,7 +1095,7 @@ Options:
   "g4ad", "g4dn", "g5", "g5g", "g6", "g6e", "g6f", "g7e", "gr6", "gr6f", "inf1",
       "inf2", "p2", "p3", "p3dn", "p4d", "p4de", "p5", "p5e", "p5en", "p6-b200",
          "p6-b300", "p6e-gb200", "trn1", "trn1n", "trn2", "vt1", "cg1", "hpc6a",
-                                                     "hpc6id", "hpc7a", "hpc7g"]
+                                            "hpc6id", "hpc7a", "hpc7g", "hpc8a"]
   -s, --size                EC2 instance sizes.
         [array] [choices: "nano", "micro", "small", "medium", "large", "xlarge",
    "2xlarge", "3xlarge", "4xlarge", "6xlarge", "8xlarge", "9xlarge", "10xlarge",
