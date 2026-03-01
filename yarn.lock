@@ -2998,9 +2998,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:13.1.4":
-  version: 13.1.4
-  resolution: "@semantic-release/npm@npm:13.1.4"
+"@semantic-release/npm@npm:13.1.5":
+  version: 13.1.5
+  resolution: "@semantic-release/npm@npm:13.1.5"
   dependencies:
     "@actions/core": "npm:^3.0.0"
     "@semantic-release/error": "npm:^4.0.0"
@@ -3010,7 +3010,7 @@ __metadata:
     fs-extra: "npm:^11.0.0"
     lodash-es: "npm:^4.17.21"
     nerf-dart: "npm:^1.0.0"
-    normalize-url: "npm:^8.0.0"
+    normalize-url: "npm:^9.0.0"
     npm: "npm:^11.6.2"
     rc: "npm:^1.2.8"
     read-pkg: "npm:^10.0.0"
@@ -3019,7 +3019,7 @@ __metadata:
     tempy: "npm:^3.0.0"
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 10c0/a0924893ccdb277fcfea65a5894f807f47b9155d0d04153adc874a25a9c4187eaff08e6b038e8408426545ee0a45760c19525f6308da143effb712ecdb8e6414
+  checksum: 10c0/940bfe3f7ec1189e100b81242835230ab3c14da58a5e2feaf43055fd432453ee7efbde93562daf083aedd73478b7f7b12b7dc63752af9e61b3e010043374c552
   languageName: node
   linkType: hard
 
@@ -4896,7 +4896,7 @@ __metadata:
     "@semantic-release/commit-analyzer": "npm:13.0.1"
     "@semantic-release/git": "npm:10.0.1"
     "@semantic-release/github": "npm:12.0.6"
-    "@semantic-release/npm": "npm:13.1.4"
+    "@semantic-release/npm": "npm:13.1.5"
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/lodash": "npm:4.17.24"
@@ -4920,7 +4920,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.5.5"
     eslint-plugin-simple-import-sort: "npm:12.1.1"
     eslint-plugin-unused-imports: "npm:4.4.1"
-    globals: "npm:17.3.0"
+    globals: "npm:17.4.0"
     husky: "npm:9.1.7"
     jest: "npm:30.2.0"
     jest-junit: "npm:16.0.0"
@@ -8299,10 +8299,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:17.3.0":
-  version: 17.3.0
-  resolution: "globals@npm:17.3.0"
-  checksum: 10c0/7f21443ecaa60c6e9ff56d9fb6f10a9b5f9514e7f22e5392f715472bb220ce31c865ebf414a32695150e733fb3e1013e6322dbce70fddd1e066f372b8d55a4b8
+"globals@npm:17.4.0":
+  version: 17.4.0
+  resolution: "globals@npm:17.4.0"
+  checksum: 10c0/2be9e8c2b9035836f13d420b22f0247a328db82967d3bebfc01126d888ed609305f06c05895914e969653af5c6ba35fd7a0920f3e6c869afa60666c810630feb
   languageName: node
   linkType: hard
 
@@ -11509,6 +11509,13 @@ __metadata:
   version: 8.0.0
   resolution: "normalize-url@npm:8.0.0"
   checksum: 10c0/09582d56acd562d89849d9239852c2aff225c72be726556d6883ff36de50006803d32a023c10e917bcc1c55f73f3bb16434f67992fe9b61906a3db882192753c
+  languageName: node
+  linkType: hard
+
+"normalize-url@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "normalize-url@npm:9.0.0"
+  checksum: 10c0/ff8271b26b808dc4c9caf309e1f5f0dcf75e4e05c5c09f3ee3c9dde2bda7f761df1b4c9458758c1919e3420a71c464da8026c1a9a11dedff99c056f3efd6afbc
   languageName: node
   linkType: hard
 
