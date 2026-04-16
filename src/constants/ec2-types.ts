@@ -1338,6 +1338,7 @@ export const allInstances = [
   'i8g.24xlarge',
   'i8g.48xlarge',
   'i8g.metal-24xl',
+  'i8g.metal-48xl',
   'i8ge.large',
   'i8ge.xlarge',
   'i8ge.2xlarge',
