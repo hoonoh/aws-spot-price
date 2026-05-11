@@ -4,7 +4,6 @@ import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 import tsParser from '@typescript-eslint/parser';
-import jest from 'eslint-plugin-jest';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
@@ -92,13 +91,9 @@ export default [
   {
     files: ['**/*.spec.ts', 'test/jest.setup.js', 'test/**/*.ts'],
 
-    plugins: {
-      jest,
-    },
-
     languageOptions: {
       globals: {
-        ...jest.environments.globals.globals,
+        ...globals.jest,
       },
     },
   },
