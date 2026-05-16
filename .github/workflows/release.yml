@@ -11,10 +11,16 @@ jobs:
     name: Run status checks and release
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
 
     steps:
       - uses: actions/checkout@v6
         with:
+          fetch-depth: 0
           persist-credentials: false
 
       - uses: actions/setup-node@v6
@@ -24,7 +30,7 @@ jobs:
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         shell: bash
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@v5
         id: yarn-cache
@@ -44,4 +50,3 @@ jobs:
         run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
