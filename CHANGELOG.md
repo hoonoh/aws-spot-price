@@ -1,5 +1,23 @@
 # aws-spot-price changelog
 
+## [1.1.140](https://github.com/hoonoh/aws-spot-price/compare/v1.1.139...v1.1.140) (2026-05-16)
+
+
+### Bug Fixes
+
+* **deps:** resolve dependabot alerts ([#1291](https://github.com/hoonoh/aws-spot-price/issues/1291)) ([0dbfe14](https://github.com/hoonoh/aws-spot-price/commit/0dbfe14321a767d4f3c09c515253a36268e23ff6))
+* stable sort order between large and xlarge instance types ([#1270](https://github.com/hoonoh/aws-spot-price/issues/1270)) ([1c73b6a](https://github.com/hoonoh/aws-spot-price/commit/1c73b6a0d8d9e3895b579f157118346d8b969252))
+* update constants ([#1269](https://github.com/hoonoh/aws-spot-price/issues/1269)) ([068f44b](https://github.com/hoonoh/aws-spot-price/commit/068f44bf34b486426c20d8d946fb74101932a3a2))
+* update constants ([#1272](https://github.com/hoonoh/aws-spot-price/issues/1272)) ([e19a4d1](https://github.com/hoonoh/aws-spot-price/commit/e19a4d10edbadc06d35bf4d4766dcf4a88d05fe9))
+* update constants ([#1273](https://github.com/hoonoh/aws-spot-price/issues/1273)) ([e47d2d5](https://github.com/hoonoh/aws-spot-price/commit/e47d2d59a5a7bbfd20a711ca2667714e6f0086ca))
+* update constants ([#1277](https://github.com/hoonoh/aws-spot-price/issues/1277)) ([e22f832](https://github.com/hoonoh/aws-spot-price/commit/e22f832fae441a0d7e4145286e009fd78752e69f))
+* update constants ([#1278](https://github.com/hoonoh/aws-spot-price/issues/1278)) ([aa442bb](https://github.com/hoonoh/aws-spot-price/commit/aa442bba594e6a5e5ef097d3f97cb6fb08eb7cc5))
+* update constants ([#1281](https://github.com/hoonoh/aws-spot-price/issues/1281)) ([4e1c870](https://github.com/hoonoh/aws-spot-price/commit/4e1c87023ba65a96f6dbce2379cfb17f95f218e1))
+* update constants ([#1289](https://github.com/hoonoh/aws-spot-price/issues/1289)) ([c306193](https://github.com/hoonoh/aws-spot-price/commit/c30619326541203a6dfdd67a0e2dec6f668e8f81))
+* update constants ([#1290](https://github.com/hoonoh/aws-spot-price/issues/1290)) ([207bde0](https://github.com/hoonoh/aws-spot-price/commit/207bde09fcf82486b3a991bfcb24d151a285f94d))
+* update constants ([#1293](https://github.com/hoonoh/aws-spot-price/issues/1293)) ([400eef2](https://github.com/hoonoh/aws-spot-price/commit/400eef21407c4b6178d1463883028c93bfdacf76))
+* update constants ([#1294](https://github.com/hoonoh/aws-spot-price/issues/1294)) ([cb0b58f](https://github.com/hoonoh/aws-spot-price/commit/cb0b58f82118f709a1e8b5c06ab4297684892025))
+
 ## [1.1.139](https://github.com/hoonoh/aws-spot-price/compare/v1.1.138...v1.1.139) (2026-01-31)
 
 
