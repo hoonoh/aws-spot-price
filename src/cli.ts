@@ -31,7 +31,9 @@ import {
 } from './module';
 
 // https://github.com/yargs/yargs/issues/1519
-(process.stdout as any)._handle.setBlocking(true);
+(
+  (process.stdout as any)._handle as { setBlocking?: (blocking: boolean) => void } | undefined
+)?.setBlocking?.(true);
 
 export const main = (argvInput?: string[]): Promise<void> =>
   new Promise((res, rej): void => {
