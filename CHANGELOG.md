@@ -1,5 +1,12 @@
 # aws-spot-price changelog
 
+## [1.1.141](https://github.com/hoonoh/aws-spot-price/compare/v1.1.140...v1.1.141) (2026-06-02)
+
+
+### Bug Fixes
+
+* missing aws credentials ([#1298](https://github.com/hoonoh/aws-spot-price/issues/1298)) ([eb74fe8](https://github.com/hoonoh/aws-spot-price/commit/eb74fe802974c90bcefa30bfcd4674b3d2584d11))
+
 ## [1.1.140](https://github.com/hoonoh/aws-spot-price/compare/v1.1.139...v1.1.140) (2026-05-16)
 
 
