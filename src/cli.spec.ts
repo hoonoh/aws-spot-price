@@ -230,8 +230,27 @@ describe('cli', () => {
   describe('test by spawnSync', () => {
     const cliJsPath = resolve(__dirname, '../dist/cli.js');
     it('should stdout help screen', () => {
-      const s = spawnSync('node', [cliJsPath, '--help'], { encoding: 'utf-8' });
+      const s = spawnSync(process.execPath, [cliJsPath, '--help'], { encoding: 'utf-8' });
+      expect(s.status).toEqual(0);
+      expect(s.stderr).toEqual('');
       expect(s.stdout).toMatchSnapshot();
+    });
+
+    it('should handle missing credentials in bundled cli', () => {
+      const s = spawnSync(process.execPath, [cliJsPath, '--json'], {
+        encoding: 'utf-8',
+        env: {
+          AWS_CONFIG_FILE: resolve(__dirname, '../test/non-existent-aws-config'),
+          AWS_EC2_METADATA_DISABLED: 'true',
+          AWS_SHARED_CREDENTIALS_FILE: resolve(__dirname, '../test/non-existent-aws-credentials'),
+          HOME: resolve(__dirname, '../test/non-existent-home'),
+          NODE_ENV: 'production',
+        },
+      });
+
+      expect(s.status).toEqual(0);
+      expect(s.stdout.trim()).toEqual('AWS credentials are not found.');
+      expect(s.stderr).toEqual('');
     });
   });
 });
