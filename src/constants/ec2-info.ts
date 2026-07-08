@@ -351,7 +351,6 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'd3en.6xlarge': { vCpu: 24, memoryGiB: 96, architectures: ['x86_64'] },
   'd3en.8xlarge': { vCpu: 32, memoryGiB: 128, architectures: ['x86_64'] },
   'd3en.xlarge': { vCpu: 4, memoryGiB: 16, architectures: ['x86_64'] },
-  'dl1.24xlarge': { vCpu: 96, memoryGiB: 768, architectures: ['x86_64'] },
   'dl2q.24xlarge': { vCpu: 96, memoryGiB: 768, architectures: ['x86_64'] },
   'f2.12xlarge': { vCpu: 48, memoryGiB: 512, architectures: ['x86_64'] },
   'f2.48xlarge': { vCpu: 192, memoryGiB: 2048, architectures: ['x86_64'] },
