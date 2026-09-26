@@ -1526,22 +1526,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@conventional-changelog/git-client@npm:2.7.0":
-  version: 2.7.0
-  resolution: "@conventional-changelog/git-client@npm:2.7.0"
+"@conventional-changelog/git-client@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@conventional-changelog/git-client@npm:3.1.2"
   dependencies:
-    "@simple-libs/child-process-utils": "npm:^1.0.0"
-    "@simple-libs/stream-utils": "npm:^1.2.0"
+    "@simple-libs/child-process-utils": "npm:^2.0.0"
+    "@simple-libs/stream-utils": "npm:^2.0.0"
     semver: "npm:^7.5.2"
   peerDependencies:
-    conventional-commits-filter: ^5.0.0
-    conventional-commits-parser: ^6.4.0
+    conventional-commits-filter: ^6.0.1
+    conventional-commits-parser: ^7.1.2
   peerDependenciesMeta:
     conventional-commits-filter:
       optional: true
     conventional-commits-parser:
       optional: true
-  checksum: 10c0/798097baa08a13311989e803451b9a8e602f404fcde1ec9fef609512625674c2d2a2f4368fbe00754a36f255e5b93dd852e7d3f2a9814215f9887ffa55c93993
+  checksum: 10c0/ee07d87638e5a2ded3d14498fc9530f6023651573dd56ee729b587def16d13f94ae362c5b0c2a17acda538bad0787f7c4df5d36ee7164a92b9eb79cc0e039145
   languageName: node
   linkType: hard
 
@@ -3151,19 +3151,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@simple-libs/child-process-utils@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "@simple-libs/child-process-utils@npm:1.0.2"
+"@simple-libs/child-process-utils@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@simple-libs/child-process-utils@npm:2.0.0"
   dependencies:
-    "@simple-libs/stream-utils": "npm:^1.2.0"
-  checksum: 10c0/a057603daf68a852d75bc6a840659291187b4bb5310e8d46e35dd5c1848047a15b40f6dd1917e17a533bd25d0a8ad75c48ef1a8301aad7e9a325c2b180e96cb6
+    "@simple-libs/stream-utils": "npm:^2.0.0"
+  checksum: 10c0/8bd2ad6fe0eb7ed45e7f656b8fb2ea249673dad807ba69b950a91319747fd871c386010c766cbf8ac7242aeef76d4a03f83765c068ebb6267e2bf7e6a042e2f2
   languageName: node
   linkType: hard
 
-"@simple-libs/stream-utils@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@simple-libs/stream-utils@npm:1.2.0"
-  checksum: 10c0/2788ac7b167d1b6c81b8c6fae2f5d9688b1f02ab31e9e15b33c9dc2ae920cf7de87869de10679be8957f9adb645c91c8919e271f3e34b6b4ec56daf725522dc7
+"@simple-libs/stream-utils@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@simple-libs/stream-utils@npm:2.0.0"
+  checksum: 10c0/27fa4a9eef3d652a80b970bee18589a618f66884cd15845a0c57d7b73f005ea4d9acda7fe580851af229d07de749419715d06dcedf33bcb1a671e7a27106fdda
   languageName: node
   linkType: hard
 
