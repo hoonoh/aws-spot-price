@@ -103,7 +103,7 @@
     "@conventional-changelog/git-client": "2.7.0",
     "@tootallnate/once": "3.0.1",
     "@aws-sdk/types": "3.973.4",
-    "@babel/core": "7.29.6",
+    "@babel/core": "8.0.6",
     "@smithy/types": "4.13.0",
     "ajv@npm:^8.0.0": "8.18.0",
     "ansi-regex@npm:^3.0.0": "3.0.1",
