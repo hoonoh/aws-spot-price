@@ -100,7 +100,7 @@
     "typescript": "5.9.3"
   },
   "resolutions": {
-    "@conventional-changelog/git-client": "2.7.0",
+    "@conventional-changelog/git-client": "3.1.2",
     "@tootallnate/once": "3.0.1",
     "@aws-sdk/types": "3.973.4",
     "@babel/core": "7.29.6",
