@@ -62,7 +62,7 @@ const sortSpotPriceExtended = (p1: SpotPriceExtended, p2: SpotPriceExtended): nu
 
 export class Ec2SpotPriceError extends Error {
   constructor(message: string, region: Region, code: string) {
-    super(message) /* istanbul ignore next */;
+    super(message); /* istanbul ignore next */
     this.name = 'Ec2SpotPriceError';
     this.region = region;
     this.code = code;

@@ -4,7 +4,7 @@ type AuthErrorCode = 'CredentialsNotFound' | 'UnAuthorized';
 
 export class AuthError extends Error {
   constructor(message: string, code: AuthErrorCode) {
-    super(message) /* istanbul ignore next */;
+    super(message); /* istanbul ignore next */
     this.code = code;
     Object.setPrototypeOf(this, AuthError.prototype);
   }
