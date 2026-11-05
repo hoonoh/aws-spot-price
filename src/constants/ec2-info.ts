@@ -7,12 +7,6 @@ export type Ec2InstanceInfo = {
 };
 
 export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
-  'a1.2xlarge': { vCpu: 8, memoryGiB: 16, architectures: ['arm64'] },
-  'a1.4xlarge': { vCpu: 16, memoryGiB: 32, architectures: ['arm64'] },
-  'a1.large': { vCpu: 2, memoryGiB: 4, architectures: ['arm64'] },
-  'a1.medium': { vCpu: 1, memoryGiB: 2, architectures: ['arm64'] },
-  'a1.metal': { vCpu: 16, memoryGiB: 32, architectures: ['arm64'] },
-  'a1.xlarge': { vCpu: 4, memoryGiB: 8, architectures: ['arm64'] },
   'c1.medium': { vCpu: 2, memoryGiB: 1.7, architectures: ['i386', 'x86_64'] },
   'c1.xlarge': { vCpu: 8, memoryGiB: 7, architectures: ['x86_64'] },
   'c3.2xlarge': { vCpu: 8, memoryGiB: 15, architectures: ['x86_64'] },
