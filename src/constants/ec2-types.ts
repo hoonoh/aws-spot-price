@@ -213,6 +213,7 @@ export const instanceFamilyAcceleratedComputing = [
   'trn1',
   'trn1n',
   'trn2',
+  'trn2u',
   'vt1',
   'cg1',
 ] as const;
@@ -1702,6 +1703,7 @@ export const allInstances = [
   'trn1n.32xlarge',
   'trn2.3xlarge',
   'trn2.48xlarge',
+  'trn2u.48xlarge',
   'vt1.3xlarge',
   'vt1.6xlarge',
   'vt1.24xlarge',
