@@ -52,6 +52,20 @@
     ],
   },
 
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Check TypeScript types",
+        "type": "shell",
+        "command": "yarn",
+        "args": ["types", "--pretty", "false"],
+        "options": { "cwd": "${workspaceFolder}" },
+        "problemMatcher": "$tsc",
+      },
+    ],
+  },
+
   "launch": {
     "configurations": [
       {
@@ -60,7 +74,8 @@
         "request": "launch",
         "args": ["${relativeFile}"],
         "sourceMaps": true,
-        "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+        "runtimeArgs": ["--nolazy", "--import", "tsx"],
+        "preLaunchTask": "Check TypeScript types",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "runtimeExecutable": "node",
