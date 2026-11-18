@@ -9,7 +9,7 @@ import {
   mockDefaultRegionEndpointsClear,
 } from '../../test/mock-ec2-endpoints';
 import { consoleMockCallJoin } from '../../test/utils';
-import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
+import { Ec2InstanceInfo, ec2Info } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize } from '../constants/ec2-types';
 import { Platform } from '../constants/platform';
 import { Region } from '../constants/regions';
