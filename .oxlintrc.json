@@ -1,20 +1,23 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["typescript"],
+  "plugins": ["typescript", "unicorn", "import"],
   "categories": {
     "correctness": "off"
   },
-  "ignorePatterns": ["**/dist", "**/types", "**/*.{js,jsx,mjs,cjs,tsx,mts,cts,vue,svelte,astro}"],
   "env": {
+    "builtin": true,
+    "es2018": true,
     "node": true
   },
+  "ignorePatterns": [
+    "**/dist",
+    "**/types",
+    "eslint.config.mjs",
+    "**/*.{js,jsx,mjs,cjs,tsx,mts,cts,vue,svelte,astro}"
+  ],
   "rules": {
-    "eslint/no-var": "error",
-    "eslint/prefer-const": ["error", { "destructuring": "any", "ignoreReadBeforeAssign": false }],
-    "eslint/prefer-rest-params": "error",
-    "eslint/prefer-spread": "error",
-    "eslint/no-array-constructor": "error",
-    "eslint/no-unused-expressions": "error",
+    "no-array-constructor": "error",
+    "no-unused-expressions": "error",
     "typescript/ban-ts-comment": "error",
     "typescript/no-duplicate-enum-values": "error",
     "typescript/no-empty-object-type": "error",
@@ -34,8 +37,48 @@
   },
   "overrides": [
     {
-      "files": ["**/*.spec.ts", "test/**/*.ts"],
-      "env": { "jest": true }
+      "files": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+      "rules": {
+        "constructor-super": "off",
+        "getter-return": "off",
+        "no-class-assign": "off",
+        "no-const-assign": "off",
+        "no-dupe-class-members": "off",
+        "no-dupe-keys": "off",
+        "no-func-assign": "off",
+        "no-import-assign": "off",
+        "no-new-native-nonconstructor": "off",
+        "no-obj-calls": "off",
+        "no-redeclare": "off",
+        "no-setter-return": "off",
+        "no-this-before-super": "off",
+        "no-unreachable": "off",
+        "no-unsafe-negation": "off",
+        "no-var": "error",
+        "no-with": "off",
+        "prefer-const": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error"
+      }
+    },
+    {
+      "files": ["test/*.js"],
+      "rules": {
+        "typescript/explicit-function-return-type": "off",
+        "typescript/no-var-requires": "off"
+      }
+    },
+    {
+      "files": ["**/*.spec.ts", "test/jest.setup.js", "test/**/*.ts"],
+      "env": {
+        "jest": true
+      }
+    },
+    {
+      "files": ["**/*.spec.ts", "util/**/*.ts", "test/**/*.ts"],
+      "rules": {
+        "no-underscore-dangle": "off"
+      }
     }
   ]
 }

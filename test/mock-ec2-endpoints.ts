@@ -19,7 +19,7 @@ import { mockAwsCredentials, mockAwsCredentialsClear } from './mock-credential-e
 
 const data = JSON.parse(
   readFileSync(resolve(__dirname, '../test/data/spot-prices-mock.json'), 'utf-8'),
-  (k, v) =>
+  (_k, v) =>
     typeof v === 'string' && v.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/)
       ? new Date(v)
       : v,
