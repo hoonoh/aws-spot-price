@@ -3,6 +3,7 @@
     "module": "commonjs",
     "target": "ES5",
     "lib": ["ES2020"],
+    "types": ["node", "jest"],
     "moduleResolution": "node",
     "strict": true,
     "strictPropertyInitialization": false,
