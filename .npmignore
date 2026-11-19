@@ -1,7 +1,7 @@
 .codeclimate.yml
 .czrc
-.eslint*
 .git*
+.oxlintrc.json
 .prettier*
 .releaserc.js
 .scannerwork/
@@ -12,6 +12,7 @@
 *.config.js
 *.map
 *.spec.*
+biome.json
 coverage
 docs/
 jest.config.js

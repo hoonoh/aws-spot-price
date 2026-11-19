@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "includes": ["**", "!**/dist", "!**/types", "!**/coverage", "!.yarn", "!CHANGELOG.md"]
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "trailingCommas": "all",
+      "arrowParentheses": "asNeeded"
+    }
+  },
+  "linter": {
+    "includes": ["**/*.ts"],
+    "rules": {
+      "preset": "none",
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "warn",
+        "noUnusedFunctionParameters": "warn"
+      }
+    }
+  },
+  "assist": {
+    "includes": ["**/*.ts"],
+    "actions": {
+      "preset": "none",
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ["node:*", "node:*/**"],
+              ":BLANK_LINE:",
+              [":PACKAGE:", ":NODE:", ":BUN:", ":URL:", ":PACKAGE_WITH_PROTOCOL:"],
+              ":BLANK_LINE:",
+              [":ALIAS:", "/**"],
+              ":BLANK_LINE:",
+              ["./**", "../**"]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

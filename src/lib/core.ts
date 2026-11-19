@@ -10,7 +10,7 @@ import {
   SpotPrice,
 } from '@aws-sdk/client-ec2';
 
-import { ec2Info, Ec2InstanceInfo } from '../constants/ec2-info';
+import { Ec2InstanceInfo, ec2Info } from '../constants/ec2-info';
 import { InstanceFamilyType, InstanceSize, InstanceType } from '../constants/ec2-types';
 import { Platform } from '../constants/platform';
 import { defaultRegions, Region } from '../constants/regions';

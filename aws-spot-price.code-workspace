@@ -7,10 +7,7 @@
 
   "settings": {
     // editor
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[scss]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.rulers": [100],
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
@@ -18,13 +15,11 @@
     "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "always",
-      "source.formatDocument": "always",
-      "source.fixAll.eslint": "always",
+      "source.fixAll.eslint": "never",
+      "source.fixAll.oxc": "always",
+      "source.fixAll.biome": "always",
+      "source.organizeImports.biome": "always",
     },
-
-    // eslint
-    "eslint.validate": ["javascript", "typescript"],
-    "eslint.run": "onType",
 
     "files.watcherExclude": {
       "**/.git/objects/**": true,
@@ -45,10 +40,24 @@
 
   "extensions": {
     "recommendations": [
-      "dbaeumer.vscode-eslint",
-      "esbenp.prettier-vscode",
+      "biomejs.biome",
+      "oxc.oxc-vscode",
       "KnisterPeter.vscode-commitizen",
       "arcanis.vscode-zipfs",
+    ],
+  },
+
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Check TypeScript types",
+        "type": "shell",
+        "command": "yarn",
+        "args": ["types", "--pretty", "false"],
+        "options": { "cwd": "${workspaceFolder}" },
+        "problemMatcher": "$tsc",
+      },
     ],
   },
 
@@ -60,7 +69,8 @@
         "request": "launch",
         "args": ["${relativeFile}"],
         "sourceMaps": true,
-        "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+        "runtimeArgs": ["--nolazy", "--import", "tsx"],
+        "preLaunchTask": "Check TypeScript types",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "runtimeExecutable": "node",

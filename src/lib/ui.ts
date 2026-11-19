@@ -3,10 +3,10 @@ import { Choice, prompt } from 'prompts';
 
 import {
   InstanceFamily,
-  instanceFamily,
   InstanceFamilyType,
-  instanceFamilyTypes,
   InstanceSize,
+  instanceFamily,
+  instanceFamilyTypes,
   instanceSizes,
 } from '../constants/ec2-types';
 import { allPlatforms, Platform } from '../constants/platform';
