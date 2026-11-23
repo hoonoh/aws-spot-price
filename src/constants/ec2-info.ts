@@ -396,6 +396,7 @@ export const ec2Info: Record<_InstanceType | string, Ec2InstanceInfo> = {
   'g7.48xlarge': { vCpu: 192, memoryGiB: 768, architectures: ['x86_64'] },
   'g7.4xlarge': { vCpu: 16, memoryGiB: 64, architectures: ['x86_64'] },
   'g7.8xlarge': { vCpu: 32, memoryGiB: 128, architectures: ['x86_64'] },
+  'g7.metal': { vCpu: 192, memoryGiB: 768, architectures: ['x86_64'] },
   'g7e.12xlarge': { vCpu: 48, memoryGiB: 512, architectures: ['x86_64'] },
   'g7e.24xlarge': { vCpu: 96, memoryGiB: 1024, architectures: ['x86_64'] },
   'g7e.2xlarge': { vCpu: 8, memoryGiB: 64, architectures: ['x86_64'] },
